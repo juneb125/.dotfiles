@@ -1,11 +1,7 @@
+# This is Git's per-user configuration file.
 [user]
-	name = Patrick McDonald
-	email = 66495007+eieioxyz@users.noreply.github.com
-
-
-
-# Other possible Git configurations.
-# - Set the default editor (nano, VS Code, etc.)
-# - Customize color output
-# - Create aliases (shortcuts for Git subcommands)
-# - Add endpoint shortcuts for commonly used URLs
+	name = June B
+	email = jrbergeron823@gmail.com
+# Please adapt and uncomment the following lines:
+#	name = June Bergeron
+#	email = junebergeron@Junes-MacBook-Air.local
