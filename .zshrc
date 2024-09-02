@@ -1,5 +1,11 @@
 # hello, world!
 
+alias la='ls -aG'
+alias ll='ls -lG'
+alias lal='ls -alG'
+
+alias vi='vim'
+
 # There are many other ways to customize your shell:
 # - Set variables
 # - Create aliases
