@@ -1,8 +1,4 @@
-PROMPT='
-Beyond Dotfiles in 100 Seconds:
-%1~ %# '
-
-
+# hello, world!
 
 # There are many other ways to customize your shell:
 # - Set variables
