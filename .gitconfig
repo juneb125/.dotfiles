@@ -2,6 +2,12 @@
 [user]
 	name = juneb125
 	email = jrbergeron823@gmail.com
+
 # Please adapt and uncomment the following lines:
 #	name = June Bergeron
 #	email = junebergeron@Junes-MacBook-Air.local
+
+# [alias]
+#	ga='git add .'
+#	gc='git commit -m'
+#	gp='git push'
