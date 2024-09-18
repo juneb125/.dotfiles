@@ -1,13 +1,24 @@
 # This is Git's per-user configuration file.
 [user]
-	name = juneb125
+	name = June B
 	email = jrbergeron823@gmail.com
+	username = juneb125
 
 # Please adapt and uncomment the following lines:
 #	name = June Bergeron
 #	email = junebergeron@Junes-MacBook-Air.local
 
-# [alias]
-#	ga='git add .'
-#	gc='git commit -m'
-#	gp='git push'
+[init]
+	defaultBranch = main
+
+[alias]
+	i = init
+	stat = status
+	a = add .
+	cm = commit -m
+	cl = clone
+	co = checkout
+
+[github]
+	user = juneb125
+	token = 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 
