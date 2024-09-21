@@ -21,4 +21,9 @@
 
 [github]
 	user = juneb125
-	token = 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 
+	token = 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
+
+[help]
+	# automatically correct & execute mistyped cmd's
+	autocorrect = 1
+	 
