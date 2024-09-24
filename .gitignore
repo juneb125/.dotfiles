@@ -1,6 +1,12 @@
 .DS_Store
-.gitignore.swp
 
-# ignore everything in .config/raycast/ and .config/zed/
-.config/raycast/
-.config/zed/
+# ignore everything in .config/raycast/
+.config/raycast/.*
+.config/raycast/config.json
+.config/raycast/extensions/*
+
+# ignore everything in .config/zed, except settings.json and themes/
+.config/zed/.*
+.config/zed/conversations/*
+.config/zed/embeddings/*
+.config/zed/prompts/*
