@@ -1,13 +1,13 @@
 # My zsh config file
 
-# easier navigation
+# easier navigation to parent, grandparent, etc. directories
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias gp='cd ../..'
 alias ggp='cd ../../..'
 
-# navigation shortcuts
+# navigation shortcuts to specific directories
 alias Dl='cd ~/Downloads'
 alias Dt='cd ~/Desktop'
 alias projects='cd ~/Desktop/Coding/ && ls -aG'
@@ -30,4 +30,8 @@ alias vi='vim'
 # when I configure nvim:
 # alias vim='nvim'
 # alias vi='nvim'
+
+# default programs
 # export EDITOR='nvim'
+# export TERMINAL='warp'
+# export BROWSER='arc'
