@@ -2,5 +2,5 @@
 .gitignore.swp
 
 # ignore everything in .config/raycast/ and .config/zed/
-.config/raycast/*
-.config/zed/*
+.config/raycast/
+.config/zed/
