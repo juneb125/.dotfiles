@@ -21,11 +21,16 @@ alias lg='ls -G'
 alias ll='ls -lG'
 alias la='ls -aG'
 alias lal='ls -alG'
+alias lcd='cd $1 && ls -G $1'
+alias clad='cd $1 && ls -aG $1' # anagram/portmanteau of 'ls -a' and 'cd'
 
 # misc. aliases
 alias datetime='echo "\n$(date)" && echo "\n$(cal)"'
 alias dt='echo "\n$(date)" && echo "\n$(cal)"'
 alias vi='vim'
+
+# disable tetris
+alias tetris="$(echo '"just dont"\n\t-- June')"
 
 # when I configure nvim:
 # alias vim='nvim'
