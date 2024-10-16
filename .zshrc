@@ -30,7 +30,7 @@ alias dt='echo "\n$(date)" && echo "\n$(cal)"'
 alias vi='vim'
 
 # disable tetris
-alias tetris="$(echo '"just dont"\n\t-- June')"
+alias tetris="$(echo '"just dont"'; echo '- June')"
 
 # when I configure nvim:
 # alias vim='nvim'
