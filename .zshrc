@@ -28,9 +28,7 @@ alias clad='cd $1 && ls -aG $1' # anagram/portmanteau of 'ls -a' and 'cd'
 alias datetime='echo "\n$(date)" && echo "\n$(cal)"'
 alias dt='echo "\n$(date)" && echo "\n$(cal)"'
 alias vi='vim'
-
-# disable tetris
-alias tetris="$(echo '"just dont"'; echo '- June')"
+alias scerr='scutil --error $1'
 
 # when I configure nvim:
 # alias vim='nvim'

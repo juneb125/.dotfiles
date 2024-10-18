@@ -10,6 +10,7 @@
 [alias]
 	i = init
 	stat = status
+	s = status
 	a = add .
 	cm = commit -m
 	cl = clone
