@@ -31,8 +31,8 @@ alias vi='vim'
 alias scerr='scutil --error $1'
 
 # when I configure nvim:
-# alias vim='nvim'
-# alias vi='nvim'
+alias vim='nvim'
+alias vi='nvim'
 
 # default programs
 # export EDITOR='nvim'
