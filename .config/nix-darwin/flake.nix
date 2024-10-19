@@ -11,18 +11,18 @@
   let
     configuration = { pkgs, ... }: {
 	
-	nixpkgs.config.allowUnfree = true;
+			nixpkgs.config.allowUnfree = true;
 
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [
-		pkgs.neovim
-        ];
+			[
+				pkgs.neovim
+			];
 	
-	fonts.packages = [
-		(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-	];
+			fonts.packages = [
+				(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+			];
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
@@ -48,7 +48,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
+    # $ darwin-rebuild build --flake .#Junes-MacBook-Air
     darwinConfigurations."Junes-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
