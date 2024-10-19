@@ -19,11 +19,24 @@ vim.cmd("filetype plugin indent on") -- allow auto-indenting depending on file t
 
 -- misc. settings
 vim.cmd("set mouse=a") -- enable mouse click
-vim.cmd("syntax on") -- ?
+vim.cmd("syntax on") -- turn syntax highlighting on (?)
+vim.cmd("let g:netrw_liststyle=3") -- set the style of Vim's built-in file explorer to tree
+vim.opt.wrap = false -- turn off line wrap
 
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
+-- split window behavior
+vim.opt.splitright = true -- split vertical window to the right
+vim.opt.splitbelow = true -- split horizontal window to the bottom
+
+-- keymaps
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = "Clear search highlights" })
+vim.keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = "Clear search highlights" }) -- clears search entry
+
+-- window management
+vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = "Split window vertically" }) -- split window vertically
+vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = "Split window horizontally" }) -- split window horizontally
+vim.keymap.set('n', '<leader>se', '<C-w>=', { desc = "Make splits equal size" }) -- make split windows equal width
+vim.keymap.set('n', '<leader>sx', '<cmd>close<CR>', { desc = "Close current split" }) -- close current split window
