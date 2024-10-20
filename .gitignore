@@ -1,4 +1,5 @@
-*.DS_Store
+# just to make triple-sure that all `.DS_Store`'s are ignored
+**/**/*.DS_Store
 
 # ignore everything in .config/raycast/
 .config/raycast/**
