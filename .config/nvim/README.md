@@ -10,13 +10,14 @@
 * [gitsigns](https://githubcom/lewis6991/gitsigns.nvim) - git integration
 
 ## TODO
-[x] convert `init.vim` to Lua
-[x] modularize plugin config
-[ ] LSP integration
-[ ] autocompletions
-[ ] treesitter ?
-[x] bottom Vim status bar (lualine)
-[x] install JetBrainsMono Nerd Font
-[x] install dev-icons
-[ ] configure lualine better
-[ ] modularize Vim settings config (e.g., keymaps)
+[x] convert `init.vim` to Lua\n
+[x] modularize plugin config\n
+[ ] LSP integration\n
+[ ] autocompletions\n
+[ ] treesitter ?\n
+[x] bottom Vim status bar (lualine)\n
+[x] install JetBrainsMono Nerd Font\n
+[x] install dev-icons\n
+[ ] configure lualine better\n
+[ ] modularize Vim settings config (e.g., keymaps)\n
+[ ] improve README.md\n
