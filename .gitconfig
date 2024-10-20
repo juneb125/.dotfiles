@@ -13,6 +13,7 @@
 	s = status
 	a = add .
 	cm = commit -m
+	cam = commit -am
 	cl = clone
 	co = checkout
 	log = log --all --graph
