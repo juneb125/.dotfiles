@@ -1,13 +1,8 @@
-.DS_Store
+*.DS_Store
 
 # ignore everything in .config/raycast/
-.config/raycast/.**
-.config/raycast/.DS_Store
-.config/raycast/config.json
-.config/raycast/extensions/**
+.config/raycast/**
 
-# ignore everything in .config/zed, except settings.json and themes/
-.config/zed/.**
-.config/zed/conversations/**
-.config/zed/embeddings/**
-.config/zed/prompts/**
+# ignore everything in .config/zed, except settings.json
+.config/zed/**
+!.config/zed/settings.json
