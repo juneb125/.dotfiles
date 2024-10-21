@@ -36,8 +36,10 @@ vim.opt.splitbelow = true -- split horizontal window to the bottom
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.keymap.set('n', '<leader>wt', '<cmd>set wrap!<CR>', { desc = "Toggle line wrapping" }) -- toggles line wrapping
+
 -- the following keymaps are from josean-dev/dev-environment-files on github
-vim.keymap.set('n', '<leader>nh', ':nohl<CR>', { desc = "Clear search highlights" }) -- clears search entry
+vim.keymap.set('n', '<leader>nh', '<cmd>nohl<CR>', { desc = "Clear search highlights" }) -- clears search entry
 
 -- window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = "Split window vertically" }) -- split window vertically
