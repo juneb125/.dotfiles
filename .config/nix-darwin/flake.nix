@@ -1,5 +1,5 @@
 {
-  description = "June\'s Darwin system flake";
+  description = "June's Darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -13,10 +13,11 @@
 	
 			nixpkgs.config.allowUnfree = true;
 
+			# Search for packages in https://search.nixos.org/packages
       # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-			[
+      # $ nix-env -qaP | grep <pkg-name>
+      environment.systemPackages = [
+				pkgs.neofetch
 				pkgs.neovim
 			];
 	
@@ -48,7 +49,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#Junes-MacBook-Air
+    # $ darwin-rebuild switch --flake path/to/flake.nix#Junes-MacBook-Air
     darwinConfigurations."Junes-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
