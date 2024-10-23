@@ -21,6 +21,18 @@
 				pkgs.neofetch
 				pkgs.neovim
 			];
+
+			homebrew = {
+				enable = true;
+				brews = [
+					"zsh" # shell
+					"git" # version control system
+				];
+				casks = [ "warp" ];
+				onActivation.cleanup = "zap";	
+				onActivation.autoUpdate = true;
+				onActivation.upgrade = true;
+			};
 	
 			fonts.packages = [
 				(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
