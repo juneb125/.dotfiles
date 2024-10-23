@@ -26,7 +26,7 @@
 				enable = true;
 				brews = [
 					"zsh" # shell
-					"git" # version control system
+					# "git" # version control system
 				];
 				# casks = [ "warp" ];
 				onActivation.cleanup = "zap";	
