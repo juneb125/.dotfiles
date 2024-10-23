@@ -3,7 +3,6 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		-- local builtin = require("telescope.builtin")
-		-- vim.keymap.set('n', '<C-p>', builtin.find_files({ hidden=true }), { desc = "Fuzzy find files" })
 		vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files hidden=true<CR>', { silent = true, desc = "Fuzzy find files" })
 		-- vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', {})
 	end
