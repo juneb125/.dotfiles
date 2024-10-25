@@ -21,7 +21,7 @@ vim.cmd("filetype plugin indent on") -- allow auto-indenting depending on file t
 vim.cmd("set mouse=a") -- enable mouse click
 vim.cmd("syntax on") -- turn syntax highlighting on (?)
 vim.cmd("let g:netrw_liststyle=3") -- set the style of Vim's built-in file explorer to tree
-vim.opt.wrap = false -- turn off line wrap
+vim.opt.wrap = false -- turn off line wrap by default (see keymap below)
 vim.opt.termguicolors = true -- ?
 vim.opt.background = "dark" -- colorschemes that have both light/dark modes will be set to dark
 vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
@@ -36,21 +36,21 @@ vim.opt.splitbelow = true -- split horizontal window to the bottom
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.keymap.set('n', '<leader>wt', '<cmd>set wrap!<CR>', { desc = "Toggle line wrapping" }) -- toggles line wrapping
+vim.keymap.set('n', '<leader>wt', '<cmd>set wrap!<CR>', { silent = true, desc = "Toggle line wrapping" }) -- toggles line wrapping
 
 -- the following keymaps are from josean-dev/dev-environment-files on github
-vim.keymap.set('n', '<leader>nh', '<cmd>nohl<CR>', { desc = "Clear search highlights" }) -- clears search entry
+vim.keymap.set('n', '<leader>nh', '<cmd>nohl<CR>', { silent = true, desc = "Clear search highlights" }) -- clears search highlighting
 
 -- window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = "Split window vertically" }) -- split window vertically
 vim.keymap.set('n', '<leader>sh', '<C-w>s', { desc = "Split window horizontally" }) -- split window horizontally
 vim.keymap.set('n', '<leader>se', '<C-w>=', { desc = "Make splits equal size" }) -- make split windows equal width & height
-vim.keymap.set('n', '<leader>sx', '<cmd>close<CR>', { desc = "Close current split" }) -- close current split window
+vim.keymap.set('n', '<leader>sx', '<cmd>close<CR>', { silent = true, desc = "Close current split" }) -- close current split window
 
 -- tab management
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" }) -- close current tab
-vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
-vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
-vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { silent = true, desc = "Open new tab" }) -- open new tab
+vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { silent = true, desc = "Close current tab" }) -- close current tab
+vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { silent = true, desc = "Go to next tab" }) --  go to next tab
+vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { silent = true, desc = "Go to previous tab" }) --  go to previous tab
+vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { silent = true, desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
