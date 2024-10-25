@@ -45,7 +45,7 @@
       nix.settings.experimental-features = "nix-command flakes";
 
       # Create /etc/zshrc that loads the nix-darwin environment.
-      programs.zsh.enable = true;  # default shell on catalina
+      programs.zsh.enable = true;  # default shell on macOS
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -60,7 +60,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild switch --flake path/to/flake.nix#Junes-MacBook-Air
+    # $ darwin-rebuild switch --flake path/to/nix-darwin#Junes-MacBook-Air
     darwinConfigurations."Junes-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [
 				configuration
