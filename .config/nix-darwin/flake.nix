@@ -18,17 +18,16 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep <pkg-name>
       environment.systemPackages = [
-				pkgs.neofetch
-				pkgs.neovim
+				pkgs.git      # version control system
+				pkgs.neofetch # system info
+				pkgs.neovim   # text editor
+				pkgs.zsh      # shell
 			];
 
 			homebrew = {
 				enable = true;
-				brews = [
-					"zsh" # shell
-					# "git" # version control system
-				];
-				# casks = [ "warp" ];
+				brews = [];
+				casks = [];
 				onActivation.cleanup = "zap";	
 				onActivation.autoUpdate = true;
 				onActivation.upgrade = true;
