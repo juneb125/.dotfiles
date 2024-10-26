@@ -31,8 +31,8 @@ alias dt='echo "\n$(date)" && echo "\n$(cal)"'
 alias scerr='scutil --error $1'
 alias cl='clear'
 alias gs='git status'
+alias gl='git log --graph'
 
-# when I configure nvim:
 alias vim='nvim'
 alias vi='nvim'
 
