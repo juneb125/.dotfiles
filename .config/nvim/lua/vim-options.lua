@@ -14,8 +14,8 @@ vim.cmd("set softtabstop=2") -- see multiple spaces as tabstops so <BS> does the
 vim.cmd("filetype plugin indent on") -- allow auto-indenting depending on file type
 
 -- search settings
--- vim.cmd("set ignorecase=true") -- ignore case when searching
--- vim.cmd("set smartcase=true") -- if you include mixed case in your search, assumes you want case-sensitive
+vim.opt.ignorecase = true -- ignore case when searching
+vim.opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- misc. settings
 vim.cmd("set mouse=a") -- enable mouse click
@@ -39,7 +39,7 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set('n', '<leader>wt', '<cmd>set wrap!<CR>', { silent = true, desc = "Toggle line wrapping" }) -- toggles line wrapping
 
 -- the following keymaps are from josean-dev/dev-environment-files on github
-vim.keymap.set('n', '<leader>nh', '<cmd>nohl<CR>', { silent = true, desc = "Clear search highlights" }) -- clears search highlighting
+vim.keymap.set('n', '<leader>nh', '<cmd>nohl<CR>', { silent = true, desc = "Clear search highlighting" }) -- clears search highlighting
 
 -- window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = "Split window vertically" }) -- split window vertically
