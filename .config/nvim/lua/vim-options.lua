@@ -38,8 +38,15 @@ vim.g.maplocalleader = "\\"
 
 vim.keymap.set('n', '<leader>wt', '<cmd>set wrap!<CR>', { silent = true, desc = "Toggle line wrapping" }) -- toggles line wrapping
 
+-- navigate Vim panes better
+-- from https://github.com/typecraft-dev/dotfiles/nvim/.../vim-options.lua
+vim.keymap.set('n', '<C-k>', '<cmd>wincmd k<CR>', { silent = true, desc = "Navigate to pane above" })
+vim.keymap.set('n', '<C-j>', '<cmd>wincmd j<CR>', { silent = true, desc = "Navigate to pane below" })
+vim.keymap.set('n', '<C-h>', '<cmd>wincmd h<CR>', { silent = true, desc = "Navigate to left pane" })
+vim.keymap.set('n', '<C-l>', '<cmd>wincmd l<CR>', { silent = true, desc = "Navigate to right pane" })
+
 -- the following keymaps are from josean-dev/dev-environment-files on github
-vim.keymap.set('n', '<leader>nh', '<cmd>nohl<CR>', { silent = true, desc = "Clear search highlighting" }) -- clears search highlighting
+vim.keymap.set('n', '<leader>nh', '<cmd>nohlsearch<CR>', { silent = true, desc = "Clear search highlighting" }) -- clears search highlighting
 
 -- window management
 vim.keymap.set('n', '<leader>sv', '<C-w>v', { desc = "Split window vertically" }) -- split window vertically
