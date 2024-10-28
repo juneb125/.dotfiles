@@ -25,9 +25,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Vim base customizations
 require("vim-options")
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = "plugins",
@@ -35,7 +32,7 @@ require("lazy").setup({
 	install = { colorscheme = { "catppuccin" } }, -- colorscheme that will be used when installing plugins.
   checker = {
 		enabled = true, -- automatically check for plugin updates,
-		notify = false, -- but don't notify us
+		notify = true, -- and then notify us
 	},
 	change_detection = { notify = false },
 })
