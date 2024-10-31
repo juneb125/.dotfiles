@@ -37,6 +37,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.keymap.set('n', '<leader>wt', '<cmd>set wrap!<CR>', { silent = true, desc = "Toggle line wrapping" }) -- toggles line wrapping
+vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { silent = true, desc = "Save on ctrl s" }) -- writes current buffer
+vim.keymap.set('n', '<C-S-s>', '<cmd>wa<CR>', { silent = true, desc = "Save all on ctrl shift s" }) -- writes all open buffers
 
 -- navigate Vim panes better
 -- from https://github.com/typecraft-dev/dotfiles/nvim/.../vim-options.lua
@@ -60,4 +62,8 @@ vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { silent = true, desc = "
 vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { silent = true, desc = "Go to next tab" }) --  go to next tab
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { silent = true, desc = "Go to previous tab" }) --  go to previous tab
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { silent = true, desc = "Open current buffer in new tab" }) --  move current buffer to new tab
-
+-- web-browser-like keymaps for tab management
+vim.keymap.set('n', '<C-t>', '<cmd>tabnew<CR>', { silent = true, desc = "Open new tab" })
+vim.keymap.set('n', '<C-w>', '<cmd>tabclose<CR>', { silent = true, desc = "Close current tab" })
+-- vim.keymap.set('n', '<C-T>', '<cmd>tabn<CR>', { silent = true, desc = "Go to next tab" }) -- ctrl tab
+-- vim.keymap.set('n', '<C-S-T>', '<cmd>tabp<CR>', { silent = true, desc = "Go to previous tab" }) -- ctrl shift tab
