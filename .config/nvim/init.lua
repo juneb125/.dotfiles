@@ -22,12 +22,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Vim base customizations
-require("vim-options")
+-- Vim settings
+require("config.vim-options") -- base customizations
+require("config.keymaps") -- keymaps
 
 -- Setup lazy.nvim
 require("lazy").setup({
-  spec = "plugins",
+  spec = {{ import = "plugins" }},
 	-- configure any other settings here
 	install = { colorscheme = { "catppuccin" } }, -- colorscheme that will be used when installing plugins.
   checker = {
