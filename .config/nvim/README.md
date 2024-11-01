@@ -9,6 +9,10 @@
 * [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim) - file tree / explorer
 * [gitsigns](https://github.com/lewis6991/gitsigns.nvim) - git integration
 * [indent blankline](https://github.com/lukas-reineke/indent-blankline.nvim) - indenting guides
+* LSP config 
+    * [mason](https://github.com/williamboman/mason.nvim)
+    * [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
+    * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 
 ## General Config
 * `vim-options` - all of my general Vim settings for now
@@ -16,7 +20,7 @@
 ## To-do's 💤
 [x] convert `init.vim` to Lua<br/>
 [x] modularize plugin config<br/>
-[ ] LSP integration<br/>
+[x] LSP integration<br/>
 [ ] autocompletions<br/>
 [ ] treesitter ?<br/>
 [x] Vim status bar (lualine)<br/>
