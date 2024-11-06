@@ -6,7 +6,7 @@ return {
 			-- "BurntSushi/ripgrep", -- necessary for live_grep and grep_string
 		},
 		opts = {
-			defaults = { initial_mode = 'normal' },
+			defaults = { initial_mode = 'insert' },
 		},
 		keys = {
 			{ '<C-p>', '<cmd>Telescope find_files hidden=true<CR>', silent = true, desc = "Telescope fuzzy find files" },
