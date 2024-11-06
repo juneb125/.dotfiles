@@ -25,6 +25,7 @@ vim.opt.wrap = false -- turn off line wrap by default (see keymap below)
 vim.opt.termguicolors = true -- ?
 vim.opt.background = "dark" -- colorschemes that have both light/dark modes will be set to dark
 vim.opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+vim.opt.swapfile = false -- turn off swapfile
 
 vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
