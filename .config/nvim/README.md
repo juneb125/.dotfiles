@@ -15,9 +15,10 @@
     * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 
 ## General Config
-* `vim-options` - all of my general Vim settings for now
+* `vim-options` - all of my general Vim settings
+* `keymaps` - all of my non-plugin-related keymaps
 
-## To-do's 💤
+## To-do's
 [x] convert `init.vim` to Lua<br/>
 [x] modularize plugin config<br/>
 [x] LSP integration<br/>
@@ -27,5 +28,5 @@
 [x] install JetBrainsMono Nerd Font<br/>
 [x] install dev-icons<br/>
 [ ] configure lualine better<br/>
-[ ] modularize Vim settings config (in new dir `/lua/config/`)<br/>
+[x] modularize Vim settings config (in new dir `/lua/config/`)<br/>
 [ ] improve README.md<br/>
