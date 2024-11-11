@@ -21,7 +21,7 @@ return {
 				'diff', 'diagnostics'
 			},
 
-			lualine_x = { 'encoding',
+			lualine_x = {	'encoding',
 				{
 					'fileformat',
 					symbols = {
