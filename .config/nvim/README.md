@@ -23,7 +23,7 @@
 [x] modularize plugin config<br/>
 [x] LSP integration<br/>
 [ ] autocompletions<br/>
-[ ] treesitter ?<br/>
+[x] treesitter ?<br/>
 [x] Vim status bar (lualine)<br/>
 [x] install JetBrainsMono Nerd Font<br/>
 [x] install dev-icons<br/>
