@@ -7,5 +7,5 @@ return {
 		vim.cmd.colorscheme("catppuccin")
 		-- flavors: https://github.com/catppuccin/catppuccin?tab=readme-ov-file#-palette
 		-- latte, *frappe*, macchiato, mocha
-	end
+	end,
 }

@@ -1,36 +1,38 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
-		"nvim-tree/nvim-web-devicons"
+		"nvim-tree/nvim-web-devicons",
 	},
 	opts = {
 		options = {
-			theme = 'palenight',
+			theme = "palenight",
 			-- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
 			-- possible other themes: modus-vivendi, ayu_mirage, nightfly, onedark?, etc.
 		},
 		sections = {
 			lualine_b = {
 				{
-					'branch',
+					"branch",
 					icons_enabled = false,
 					fmt = function(str)
-						return ' ' .. str
+						return " " .. str
 					end,
 				},
-				'diff', 'diagnostics'
+				"diff",
+				"diagnostics",
 			},
 
-			lualine_x = {	'encoding',
+			lualine_x = {
+				"encoding",
 				{
-					'fileformat',
+					"fileformat",
 					symbols = {
-						unix = 'unix', -- default: linux penguin icon
-						dos = 'dos',
-						mac = 'mac',
+						unix = "unix", -- default: linux penguin icon
+						dos = "dos",
+						mac = "mac",
 					},
 				},
-				'filetype'
+				"filetype",
 			},
 		},
 	},
