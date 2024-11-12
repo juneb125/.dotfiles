@@ -17,6 +17,8 @@ alias lal='ls -alG'
 alias dt='echo "\n$(date)" && echo "\n$(cal)"'
 alias scerr='scutil --error $1'
 alias cl='clear'
+
+alias ga='git add'
 alias gs='git status'
 alias gl='git log --graph'
 
