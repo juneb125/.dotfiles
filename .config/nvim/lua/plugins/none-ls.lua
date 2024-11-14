@@ -5,10 +5,12 @@ return {
 
 		null_ls.setup({
 			sources = {
-				null_ls.builtins.formatting.stylua,
+				-- formatting
+				null_ls.builtins.formatting.stylua, -- lua
+				null_ls.builtins.formatting.nixfmt, -- nix
+				-- rust: included with rust_analyzer (see lsp-config.lua)
+				-- toml: taplo ??
 			},
 		})
-
-		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 	end,
 }
