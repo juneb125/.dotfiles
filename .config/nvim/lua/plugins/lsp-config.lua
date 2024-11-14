@@ -6,7 +6,7 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "nil_ls", "rust_analyzer" },
+			auto_install = true,
 		},
 	},
 	{
@@ -16,13 +16,17 @@ return {
 
 			local lspconfig = require("lspconfig")
 
-			lspconfig.lua_ls.setup({ capabilities = capabilities }) -- lua
-			lspconfig.nil_ls.setup({ capabilities = capabilities }) -- nix
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust
+			lspconfig.lua_ls.setup({ capabilities = capabilities }) -- lua lsp
+			lspconfig.nil_ls.setup({ capabilities = capabilities }) -- nix lsp
+			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust lsp
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Info on hover" })
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Jump to definition" })
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Jump to references" })
+			vim.keymap.set("n", "<leader>gf", function()
+				vim.lsp.buf.format()
+				print("Formatted!")
+			end, { desc = "Format file" })
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Open code action menu" })
 		end,
 	},
