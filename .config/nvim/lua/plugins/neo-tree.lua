@@ -7,13 +7,7 @@ return {
 		"MunifTanjim/nui.nvim",
 		-- "3rd/image.nvim", -- optional image support in preview window
 	},
-	-- keys = {
-	-- { '<C-n>', '<cmd>Neotree filesystem reveal left toggle<CR>', silent = true, desc = "Toggle Neotree (left)" },
-	-- { '<leader>e', '<cmd>Neotree focus<CR>', silent = true, desc = "Focus Neotree" },
-	-- { '<leader>ta', function()
-	-- vim.fn.feedkeys(":Neotree dir=")
-	-- end, desc = "Interactively change directories with Neotree" },
-	-- }
+	-- keys = {}
 	config = function()
 		vim.keymap.set(
 			"n",
