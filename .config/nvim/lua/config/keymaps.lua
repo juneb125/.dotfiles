@@ -44,4 +44,4 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", opts(true, "Open current buff
 -- web-browser-like keymaps for tab management
 keymap.set("n", "<C-w>", "<cmd>tabclose<CR>", opts(true, "Close current tab"))
 -- keymap.set('n', '<C-Tab>', '<cmd>tabn<CR>', opts(true, "Go to next tab")) -- ctrl tab
--- keymap.set('n', '<C-`>', '<cmd>tabp<CR>', opts(true, "Go to previous tab")) -- ctrl shift tab
+-- keymap.set('n', '<C-`>', '<cmd>tabp<CR>', opts(true, "Go to previous tab")) -- ctrl [grave]
