@@ -23,7 +23,6 @@ opt.smartcase = true  -- if you include mixed case in your search, assumes you w
 -- misc. settings
 opt.mouse = "a"                     -- enable mouse click
 opt.syntax = "on"                   -- turn syntax highlighting on (?)
-vim.g.netrw_liststyle = 3           -- set the style of Vim's built-in file explorer to 'tree'
 opt.wrap = false                    -- turn off line wrap by default (see keymap in ./keymaps.lua)
 opt.termguicolors = true            -- use GUI colors for the terminal
 opt.background = "dark"             -- colorschemes that have both light/dark modes will be set to dark
