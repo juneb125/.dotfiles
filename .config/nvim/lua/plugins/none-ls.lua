@@ -9,7 +9,6 @@ return {
 				null_ls.builtins.formatting.stylua, -- lua
 				null_ls.builtins.formatting.nixfmt, -- nix
 				-- rust: included with rust_analyzer (see lsp-config.lua)
-				-- toml: taplo ??
 			},
 		})
 	end,
