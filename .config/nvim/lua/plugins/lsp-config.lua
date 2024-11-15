@@ -19,15 +19,20 @@ return {
 			lspconfig.lua_ls.setup({ capabilities = capabilities }) -- lua lsp
 			lspconfig.nil_ls.setup({ capabilities = capabilities }) -- nix lsp
 			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust lsp
+			lspconfig.taplo.setup({ capabilities = capabilities }) -- toml lsp
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Info on hover" })
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Jump to definition" })
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Jump to references" })
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Displays hover information about the symbol under the cursor" })
+			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Jumps to definition of the symbol under the cursor" })
+			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Lists all the implementations for the symbol under the cursor" })
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Lists all the references to the symbol under the cursor" })
 			vim.keymap.set("n", "<leader>gf", function()
 				vim.lsp.buf.format()
 				print("Formatted!")
-			end, { desc = "Format file" })
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Open code action menu" })
+			end, { desc = "Formats current buffer using the attached LSP client(s)" })
+
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Selects a code action available at the current cursor position" })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Renames all references to the symbol under the cursor" })
+			vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, { desc = "Jumps to the definition of the type of the symbol under the cursor" })
 		end,
 	},
 }
