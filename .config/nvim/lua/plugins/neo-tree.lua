@@ -16,8 +16,8 @@ return {
 			{ silent = true, desc = "Toggle Neotree (left)" }
 		)
 		vim.keymap.set("n", "<leader>e", "<cmd>Neotree focus<CR>", { silent = true, desc = "Focus Neotree" })
-		vim.keymap.set("n", "<leader>ta", function() -- maybe change `ta` to something else
-			vim.fn.feedkeys(":Neotree dir=") -- feeds `:Neotree dir=` into the cmd line in CMD mode
-		end, { desc = "Interactively change directories with Neotree" })
+		vim.keymap.set("n", "<leader>ta", function()
+			vim.fn.feedkeys(":Neotree dir=")
+		end, { desc = "Change root directory with Neotree" })
 	end,
 }
