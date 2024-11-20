@@ -7,17 +7,17 @@
 4. [To-do's](#to-dos)
 
 ## Important stuff
-* installation &mdash; I installed NeoVim through the Nix package manager in my [`flake.nix`](https://github.com/juneb125/.dotfiles/blob/main/.config/nix-darwin/flake.nix#L23)
+* *installation* &mdash; I installed NeoVim through the Nix package manager in my [`flake.nix`](https://github.com/juneb125/.dotfiles/blob/main/.config/nix-darwin/flake.nix#L23)
     * I followed Dreams of Autonomy's tutorial about setting Nixpkgs up
     * NeoVim is also available through your OS's package manager or Homebrew :)
-* setup &mdash; I followed typecraft's "Neovim for Newbs" YouTube playlist on setting up the NeoVim essentials
-* environment &mdash;
+* *setup* &mdash; I followed typecraft's "Neovim for Newbs" YouTube playlist on setting up the NeoVim essentials
+* *environment* &mdash;
     * OS: MacOS 15.1 (Sequoia)
     * terminal: Warp
     * font: JetBrainsMono Nerd Font (? px, ? line spacing)
-* usage &mdash; I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)<br/>
+* *usage* &mdash; I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)<br/>
 [ from here on, all links (unless otherwise specified) go to the link's title's GitHub repo ]
-* plugin manager &mdash; [lazy.nvim 💤](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
+* *plugin manager* &mdash; [lazy.nvim 💤](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
 	* [lazy.nvim 💤 website](https://lazy.folke.io)
 
 ## General Config
@@ -27,24 +27,24 @@
 
 ## Plugins
 `lua/plugins/*.lua`
-* [`colorscheme`](https://github.com/catppuccin/nvim) - catppuccin <3
+* [`colorscheme`](https://github.com/catppuccin/nvim) &mdash; catppuccin <3
 * Autocompletions (`completions`)
     * [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
     * [LuaSnip](https://github.com/L3MON4D3/LuaSnip)
     * [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-* [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) - git integration
-* [`indent-blankline`](https://github.com/lukas-reineke/indent-blankline.nvim) - indenting & scope guides
+* [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
+* [`indent-blankline`](https://github.com/lukas-reineke/indent-blankline.nvim) &mdash; indenting & scope guides
 * LSP config (`lsp-config`)
     * [mason](https://github.com/williamboman/mason.nvim)
     * [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
     * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-* [`lualine`](https://github.com/nvim-lualine/lualine.nvim) -  configurable Vim status bar
-* [`neo-tree`](https://github.com/nvim-neo-tree/neo-tree.nvim) - file tree / explorer
-* [`none-ls`](https://github.com/nvimtools/none-ls.nvim) - interface for all the important LSP actions
-* [`telescope`](https://github.com/nvim-telescope/telescope.nvim) - fuzzy finder
-* [`treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) - language parser (basically provides better syntax highlighting)
+* [`lualine`](https://github.com/nvim-lualine/lualine.nvim) &mdash;  configurable Vim status bar
+* [`neo-tree`](https://github.com/nvim-neo-tree/neo-tree.nvim) &mdash; file tree / explorer
+* [`none-ls`](https://github.com/nvimtools/none-ls.nvim) &mdash; interface for all the important LSP actions
+* [`telescope`](https://github.com/nvim-telescope/telescope.nvim) &mdash; fuzzy finder
+* [`treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
 * Rust plugins (`rust-plugins`)
-    * [`rust-plugins`](https://github.com/rust-lang/rust.vim) - provides Rust file detection, syntax highlighting, formatting, and more
+    * [`rust-plugins`](https://github.com/rust-lang/rust.vim) &mdash; provides Rust file detection, syntax highlighting, formatting, and more
 
 ## To-do's
 - [ ] find plugin that auto-completes parentheses, braces, etc.
