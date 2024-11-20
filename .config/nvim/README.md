@@ -7,23 +7,23 @@
 4. [To-do's](#to-dos)
 
 ## Important stuff
-* installation - I installed NeoVim through the Nix package manager in my [`flake.nix`](https://github.com/juneb125/.dotfiles/blob/main/.config/nix-darwin/flake.nix#L23)
+* installation &mdash; I installed NeoVim through the Nix package manager in my [`flake.nix`](https://github.com/juneb125/.dotfiles/blob/main/.config/nix-darwin/flake.nix#L23)
     * I followed Dreams of Autonomy's tutorial about setting Nixpkgs up
     * NeoVim is also available through your OS's package manager or Homebrew :)
-* setup - I followed typecraft's "Neovim for Newbs" YouTube playlist on setting up the NeoVim essentials
-* environment -
+* setup &mdash; I followed typecraft's "Neovim for Newbs" YouTube playlist on setting up the NeoVim essentials
+* environment &mdash;
     * OS: MacOS 15.1 (Sequoia)
     * terminal: Warp
     * font: JetBrainsMono Nerd Font (? px, ? line spacing)
-* usage - I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)
+* usage &mdash; I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)<br/>
 [ from here on, all links (unless otherwise specified) go to the link's title's GitHub repo ]
-* plugin manager - [lazy.nvim 💤](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
+* plugin manager &mdash; [lazy.nvim 💤](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
 	* [lazy.nvim 💤 website](https://lazy.folke.io)
 
 ## General Config
 `lua/config/*.lua`
-* `vim-options` - all of my general Vim settings
-* `keymaps` - all of my non-plugin-related keymaps
+* `vim-options` &mdash; all of my general Vim settings
+* `keymaps` &mdash; all of my non-plugin-related keymaps
 
 ## Plugins
 `lua/plugins/*.lua`
@@ -47,16 +47,8 @@
     * [`rust-plugins`](https://github.com/rust-lang/rust.vim) - provides Rust file detection, syntax highlighting, formatting, and more
 
 ## To-do's
-- [x] convert `init.vim` to Lua
-- [x] modularize plugin config
-- [x] LSP integration
-- [x] autocompletions
-- [x] treesitter ?
-- [x] Vim status bar (lualine)
-- [x] install JetBrainsMono Nerd Font
-- [x] install dev-icons
-- [ ] configure lualine better
-- [x] modularize Vim settings config (in new dir `/lua/config/`)
-- [ ] improve README.md
+- [ ] find plugin that auto-completes parentheses, braces, etc.
+- [ ] change some plugins to lazy load (b/c they really don't need to all load at once)
+- [ ] format README.md better
 
 [Back to top](#my-neovim-config)
