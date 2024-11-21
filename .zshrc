@@ -24,3 +24,5 @@ alias gl='git log --graph'
 
 alias vim='nvim'
 alias vi='nvim'
+
+source ~/.dotfiles/.env
