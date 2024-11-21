@@ -8,21 +8,23 @@
 	defaultBranch = main
 
 [alias]
-	i = init
-	stat = status
-	s = status
 	a = add .
-	cm = commit -m
+	br = branch
 	cam = commit -am
 	cl = clone
+	cm = commit -m
 	co = checkout
-	log = log --all --graph
+	i = init
+	log = log --graph
+	s = status
 
 [github]
 	user = juneb125
-	token = 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
+	token = ${JUNES_GITHUB_TOKEN}
 
 [help]
 	# automatically correct & execute mistyped cmd's
 	autocorrect = 1
-	 
+
+[credential]
+    helper = store
