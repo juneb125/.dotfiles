@@ -1,6 +1,8 @@
 # My zsh config file
 # pretty much just all aliases
 
+source ~/.dotfiles/.env
+
 # navigation aliases
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -24,5 +26,3 @@ alias gl='git log --graph'
 
 alias vim='nvim'
 alias vi='nvim'
-
-source ~/.dotfiles/.env
