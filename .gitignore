@@ -6,8 +6,15 @@
 
 # ignore everything in .config/raycast/
 .config/raycast/**
+.config/raycast/.DS_Store
+
+.env
+*.env
 
 # ignore everything in .config/zed, except settings.json
 .config/zed/*
 .config/zed/**
+.config/zed/embeddings/**
+.config/zed/prompts/**
+
 !.config/zed/settings.json
