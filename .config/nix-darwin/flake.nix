@@ -47,8 +47,8 @@
       # Create /etc/zshrc that loads the nix-darwin environment.
 			programs.zsh = {
 				enable = true;                   # default shell on macOS
-				enableCompletion = true;         # enable autocompletions
-				enableSyntaxHighlighting = true; # enable syntax highlighting
+				# enableCompletion = true;         # enable autocompletions
+				# enableSyntaxHighlighting = true; # enable syntax highlighting
 			}
 
       # Set Git commit hash for darwin-version
