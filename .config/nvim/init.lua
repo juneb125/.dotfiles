@@ -31,12 +31,13 @@ require("config.keymaps") -- keymaps
 
 -- Setup lazy.nvim
 require("lazy").setup({
-	spec = { { import = "plugins" } },
-	-- configure any other settings here
-	install = { colorscheme = { "catppuccin" } }, -- colorscheme that will be used when installing plugins
-	checker = {
-		enabled = true, -- automatically check for plugin updates,
-		notify = true, -- and then notify us
+	spec = "plugins",
+	-- colorscheme that will be used when installing plugins
+	install = {
+		colorscheme = { "catppuccin" },
 	},
-	change_detection = { notify = true },
+	checker = {
+		-- automatically check for plugin updates
+		enabled = true,
+	},
 })
