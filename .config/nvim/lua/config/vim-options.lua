@@ -4,30 +4,30 @@
 local opt = vim.opt
 
 -- navigation ui
-opt.number = true     -- add line numbers
+opt.number = true -- add line numbers
 opt.cursorline = true -- highlight current cursorline
-opt.showmatch = true  -- show matching brackets
+opt.showmatch = true -- show matching brackets
 
 -- tabs & indentation
-opt.tabstop = 2                      -- number of columns occupied by a tab
-opt.shiftwidth = 2                   -- number of spaces to use for each step of (auto)indent
-opt.autoindent = true                -- indent a new line the same amount as the line just typed
-opt.smarttab = true                  -- make a <Tab> in front of a line insert spaces according to 'shiftwidth'
-opt.softtabstop = 2                  -- see multiple spaces as tabstops so <BS> does the right thing
+opt.tabstop = 2 -- number of columns occupied by a tab
+opt.shiftwidth = 2 -- number of spaces to use for each step of (auto)indent
+opt.autoindent = true -- indent a new line the same amount as the line just typed
+opt.smarttab = true -- make a <Tab> in front of a line insert spaces according to 'shiftwidth'
+opt.softtabstop = 2 -- see multiple spaces as tabstops so <BS> does the right thing
 vim.cmd("filetype plugin indent on") -- allow auto-indenting depending on file type
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
+opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
 
 -- misc. settings
-opt.mouse = "a"                     -- enable mouse click
-opt.syntax = "on"                   -- turn syntax highlighting on (?)
-opt.wrap = false                    -- turn off line wrap by default (see keymap in ./keymaps.lua)
-opt.termguicolors = true            -- use GUI colors for the terminal
-opt.background = "dark"             -- colorschemes that have both light/dark modes will be set to dark
-opt.signcolumn = "yes"              -- show sign column so that text doesn't shift
-opt.swapfile = false                -- turn off swapfile
+opt.mouse = "a" -- enable mouse click
+opt.syntax = "on" -- turn syntax highlighting on (?)
+opt.wrap = false -- turn off line wrap by default (see keymap in ./keymaps.lua)
+opt.termguicolors = true -- use GUI colors for the terminal
+opt.background = "dark" -- colorschemes that have both light/dark modes will be set to dark
+opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+opt.swapfile = false -- turn off swapfile
 
 opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 
