@@ -15,9 +15,12 @@ local opts = function(a, b)
 end
 
 keymap.set("n", "<leader>wt", "<cmd>set wrap!<CR>", opts(true, "Toggle line wrapping"))
--- keymap.set('n', '<C-t>v', '<C-w>v<cmd>terminal<CR>', opts(true, "Open Nvim terminal emulator in new vertical split")
--- keymap.set('n', '<C-t>h', '<C-w>s<cmd>terminal<CR>', opts(true, "Open Nvim terminal emulator in new horizontal split")
 keymap.set("t", "<Esc>", "<C-\\><C-n>", opts(false, "Exit Nvim terminal emulator without closing it"))
+
+-- browser-like keymaps for tab management
+keymap.set("n", "<C-w>", "<cmd>tabclose<CR>", opts(true, "Close current tab"))
+-- keymap.set("n", "<C-Tab>", "<cmd>tabn<CR>", opts(true, "Go to next tab")) -- ctrl tab
+-- keymap.set("n", "<C-`>", "<cmd>tabp<CR>", opts(true, "Go to previous tab")) -- ctrl [grave]
 
 -- navigate Vim panes better
 -- from https://github.com/typecraft-dev/dotfiles/nvim/.../vim-options.lua
@@ -41,7 +44,3 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", opts(true, "Close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", opts(true, "Go to next tab"))
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", opts(true, "Go to previous tab"))
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", opts(true, "Open current buffer in new tab"))
--- web-browser-like keymaps for tab management
-keymap.set("n", "<C-w>", "<cmd>tabclose<CR>", opts(true, "Close current tab"))
--- keymap.set('n', '<C-Tab>', '<cmd>tabn<CR>', opts(true, "Go to next tab")) -- ctrl tab
--- keymap.set('n', '<C-`>', '<cmd>tabp<CR>', opts(true, "Go to previous tab")) -- ctrl [grave]
