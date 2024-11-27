@@ -1,13 +1,14 @@
 # My zsh config file
 
-# prompt customization from:
-# https://sureshjoshi.com/development/zsh-prompts-that-dont-suck#as-good-as-git-gets
+# -- Options --
+# set prompt substitution so that we can use the vcs_message var
+setopt prompt_subst
+
+# -- Prompt Customization --
+# from: https://sureshjoshi.com/development/zsh-prompts-that-dont-suck#as-good-as-git-gets
 
 # extensions to get git info (mainly vcs_info)
 autoload -Uz add-zsh-hook vcs_info
-
-# set prompt substitution so that we can use the vcs_message var
-setopt prompt_subst
 
 # style the vcs_info
 add-zsh-hook precmd vcs_info
@@ -44,3 +45,4 @@ alias reg_vim='vim'
 
 # misc. aliases
 alias cl='clear'
+alias rebuild_nix_flake='darwin-rebuild switch --flake ~/.dotfiles/.config/nix-darwin#Junes-MacBook-Air'
