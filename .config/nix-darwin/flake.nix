@@ -28,9 +28,11 @@
 				enable = true;
 				brews = [];
 				casks = [];
-				onActivation.cleanup = "zap";	
-				onActivation.autoUpdate = true;
-				onActivation.upgrade = true;
+				onActivation = {
+					cleanup = "zap";
+					autoUpgrade = true;
+					upgrade = true;
+				};
 			};
 	
 			fonts.packages = [
@@ -42,7 +44,15 @@
       # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system
-      nix.settings.experimental-features = "nix-command flakes";
+      nix.settings = {
+				experimental-features = [ "nix-command" "flakes" ];
+			}
+
+			programs.git {
+				enable = true;
+				userName = "juneb125";
+				userEmail = "jrbergeron823@gmail.com";
+			}
 
       # Create /etc/zshrc that loads the nix-darwin environment.
 			programs.zsh = {
@@ -64,7 +74,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild switch --flake path/to/nix-darwin#Junes-MacBook-Air
+    # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
     darwinConfigurations."Junes-MacBook-Air" = nix-darwin.lib.darwinSystem {
       modules = [
 				configuration
