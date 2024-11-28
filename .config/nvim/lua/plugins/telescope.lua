@@ -6,10 +6,18 @@ return {
 			"nvim-lua/plenary.nvim",
 			-- "BurntSushi/ripgrep", -- necessary for live_grep and grep_string
 		},
+		opts = {
+			pickers = {
+				find_files = {
+					hidden = true,
+					theme = "catppuccin",
+				},
+			},
+		},
 		config = function()
 			local builtin = require("telescope.builtin")
 
-			vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=true<CR>", { silent = true, desc = "Telescope find files" })
+			vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "Telescope find files" })
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 			vim.keymap.set("n", "<leader>fr", builtin.registers, { desc = "Telescope registers" })
 			vim.keymap.set("n", "<leader><leader>", builtin.oldfiles, { desc = "Telescope old files" })
