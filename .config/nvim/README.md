@@ -27,6 +27,7 @@
 
 ## Plugins
 `lua/plugins/*.lua`
+* [`autopairs`](https://github.com/windwp/nvim-autopairs) &mdash; auto-completes parentheses, brackets, braces, quotes, etc.
 * [`colorscheme`](https://github.com/catppuccin/nvim) &mdash; catppuccin <3
 * Autocompletions (`completions`)
     * [cmp-nvim-lsp](https://github.com/hrsh7th/cmp-nvim-lsp)
@@ -47,8 +48,10 @@
     * [`rust-plugins`](https://github.com/rust-lang/rust.vim) &mdash; provides Rust file detection, syntax highlighting, formatting, and more
 
 ## To-do's
-- [ ] find plugin that auto-completes parentheses, braces, etc.
+- [x] find plugin that auto-completes parentheses, braces, etc.
 - [ ] change some plugins to lazy load (b/c they really don't need to all load at once)
 - [ ] format README.md better
+- [ ] find a good LSP for `.md` files
+- [ ] find a good in-terminal renderer for Markdown documents
 
 [Back to top](#my-neovim-config)
