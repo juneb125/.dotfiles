@@ -5,36 +5,23 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-		nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs }:
   let
     configuration = { pkgs, ... }: {
-	
 			nixpkgs.config.allowUnfree = true;
 
 			# Search for packages in https://search.nixos.org/packages
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep <pkg-name>
-      environment.systemPackages = [
-				pkgs.git      # version control system
-				pkgs.neofetch # system info
-				pkgs.neovim   # text editor
-				pkgs.zsh      # shell
+      environment.systemPackages = with pkgs; [
+				git      # version control system
+				neofetch # system info
+				neovim   # text editor
+				zsh      # shell
 			];
 
-			homebrew = {
-				enable = true;
-				brews = [];
-				casks = [];
-				onActivation = {
-					cleanup = "zap";
-					autoUpgrade = true;
-					upgrade = true;
-				};
-			};
-	
 			fonts.packages = [
 				(pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 			];
@@ -48,15 +35,29 @@
 				experimental-features = [ "nix-command" "flakes" ];
 			}
 
+			#	https://mynixos.com/options
 			programs.git {
 				enable = true;
 				userName = "juneb125";
 				userEmail = "jrbergeron823@gmail.com";
+				ignores = [
+					"*.DS_Store"
+					"*.swp"
+				];
+				config = {
+					init = { defaultBranch = "main"; };
+				};
+			}
+
+			programs.neovim {
+				enable = true;
+				defaultEditor = true;
 			}
 
       # Create /etc/zshrc that loads the nix-darwin environment.
-			programs.zsh = {
-				enable = true;                   # default shell on macOS
+			programs.zsh {
+				enable = true;                     # default shell on macOS
+				autocd = true;                     # automatically enter into a directory if typed
 				# enableCompletion = true;         # enable autocompletions
 				# enableSyntaxHighlighting = true; # enable syntax highlighting
 			}
@@ -76,23 +77,7 @@
     # Build darwin flake using:
     # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
     darwinConfigurations."Junes-MacBook-Air" = nix-darwin.lib.darwinSystem {
-      modules = [
-				configuration
-				nix-homebrew.darwinModules.nix-homebrew
-				{
-					nix-homebrew = {
-						enable = true;
-
-						# Apple Silicon only
-						enableRosetta = true;
-
-						# User owning the Homebrew prefix
-						user = "junebergeron";
-
-						autoMigrate = true;
-					};
-				}
-			];
+      modules = [ configuration ];
     };
 
     # Expose the package set, including overlays, for convenience
