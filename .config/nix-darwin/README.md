@@ -16,8 +16,7 @@ By default, Nix Darwin sets your flake's name to your machine's local host name 
 # what about other OS's (e.g., Windows, Linux) ?
 scutil --get LocalHostName
 ```
-<details>
-<summary>More About `scutil`</summary>
+More About `scutil`
 * Using `scutil --get`, you can get the values of the following variables:
     * `ComputerName`
     * `LocalHostName`
@@ -32,13 +31,12 @@ scutil --get LocalHostName
 >     echo "$var is $(scutil --get $var)"
 > done
 > ```
-</details>
 
 ## Placeholder
 ...
 
 ## Resources
-### Placeholder
+### Documentation
 * [Nix home page](https://nixos.org/)
 * Nix Language
     * [documentation](https://nix.dev/manual/nix/2.18/language/)
@@ -56,6 +54,7 @@ scutil --get LocalHostName
 
 **Placeholder**
 * setting up MacOS settings with [Nix Darwin options](https://mynixos.com/nix-darwin/options)
+* setting up `program` settings with [NixOS options](https://mynixos.com/options/programs)
 
 **YouTube**
 * this amazing tutorial about using [`nixpkgs` as a package manager](https://www.youtube.com/watch?v=Z8BL8mdzWHI) by  Dreams of Code
