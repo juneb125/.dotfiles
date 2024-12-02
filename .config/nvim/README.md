@@ -7,18 +7,19 @@
 4. [To-do's](#to-dos)
 
 ## Important stuff
-* *installation* &mdash; I installed NeoVim through the Nix package manager in my [`flake.nix`](https://github.com/juneb125/.dotfiles/blob/main/.config/nix-darwin/flake.nix#L23)
+* *installation* &mdash; I installed NeoVim through the Nix package manager in my [`flake.nix`](https://github.com/juneb125/.dotfiles/blob/main/.config/nix-darwin/flake.nix)
     * I followed Dreams of Autonomy's tutorial about setting Nixpkgs up
     * NeoVim is also available through your OS's package manager or Homebrew :)
 * *setup* &mdash; I followed typecraft's "Neovim for Newbs" YouTube playlist on setting up the NeoVim essentials
-* *environment* &mdash;
-    * OS: MacOS 15.1 (Sequoia)
-    * terminal: Warp
+* *environment*:
+    * operating system: MacOS 15.1 (Sequoia)
+    * terminal emulator: Warp Terminal (I'm going to switch to Ghostty as soon as the public beta is released)
     * font: JetBrainsMono Nerd Font (? px, ? line spacing)
-* *usage* &mdash; I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)<br/>
-[ from here on, all links (unless otherwise specified) go to the link's title's GitHub repo ]
+> [!IMPORTANT]
+> [ from here on, all links (unless otherwise specified) go to the link's title's GitHub repo ]
 * *plugin manager* &mdash; [lazy.nvim 💤](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
 	* [lazy.nvim 💤 website](https://lazy.folke.io)
+* *usage* &mdash; I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)<br/>
 
 ## General Config
 `lua/config/*.lua`
