@@ -1,16 +1,32 @@
 # My zsh config file
 
+# -- History --
+HISTDUP=erase
+setopt append_history
+setopt share_history
+setopt inc_append_history
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
 # -- Options --
-# set prompt substitution so that we can use the vcs_message var
+setopt correct
+setopt correct_all
+
+setopt no_case_glob
+
 setopt prompt_subst
+
+# -- Keybindings --
+# bindkey <opts> '<keymap>' <widget>
 
 # -- Prompt Customization --
 # from: https://sureshjoshi.com/development/zsh-prompts-that-dont-suck#as-good-as-git-gets
 
-# extensions to get git info (mainly vcs_info)
 autoload -Uz add-zsh-hook vcs_info
 
-# style the vcs_info
 add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:git:*' enable git
 zstyle ':vcs_info:git*' formats '%F{240}%b%c%f'
@@ -18,31 +34,9 @@ zstyle ':vcs_info:git*' formats '%F{240}%b%c%f'
 PS1='%n %2~ $vcs_info_msg_0_ > '
 RPROMPT='%(?..[ %F{197}%?%f ])'
 
+# -- Misc. --
 # get github token env var
 source ~/.dotfiles/.env
 
-# -- Aliases --
-# navigation aliases
-alias ..='cd ..'
-alias ...='cd ../..'
-alias proj='cd ~/Desktop/Coding/ && ls -aG'
-
-# 'ls' aliases
-alias la='ls -aG'
-alias ll='ls -lG'
-alias lal='ls -alG'
-
-# git aliases
-alias ga='git add'
-alias gb='git branch'
-alias gs='git status'
-alias gl='git log --graph'
-
-# Vim/Nvim aliases
-alias nv='nvim'
-alias vi='nvim'
-alias reg_vim='vim'
-
-# misc. aliases
-alias cl='clear'
-alias rebuild_nix_flake='darwin-rebuild switch --flake ~/.dotfiles/.config/nix-darwin#Junes-MacBook-Air'
+# get aliases
+source ~/.dotfiles/.aliases.zsh
