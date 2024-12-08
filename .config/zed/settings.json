@@ -7,13 +7,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "assistant": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "o1-mini"
-    },
-    "version": "2"
-  },
+  // "assistant": {
+  //   "enabled": false
+  // },
   "theme": "One Dark",
   "base_keymap": "VSCode",
   "ui_font_size": 16,
@@ -23,5 +19,6 @@
   "soft_wrap": "editor_width",
   "formatter": "language_server",
   // "prettier": true
+  "ui_font_family": "JetBrainsMono Nerd Font",
   "vim_mode": true
 }
