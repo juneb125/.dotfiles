@@ -1,5 +1,9 @@
 # My zsh config file
 
+export PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
+# $HOME/.nix-profile/bin
+# /nix/var/nix/profiles/system/sw/bin
+
 # -- History --
 HISTDUP=erase
 setopt append_history
