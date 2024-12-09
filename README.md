@@ -8,11 +8,12 @@ My personal configuration files
 * [Installation](#installation)
 
 ## Goals
-* create comprehensive documentation for each major config piece, especially:
-    * `zsh` &mdash; shell configuration
+* create comprehensive and easy-to-follow documentation for each major config piece, especially:
+    * `zsh` &mdash; shell
     * `nvim` &mdash; code editor
-    * `nixpkgs` &mdash; package manager
-    * `nix-darwin` &mdash; (i honestly don't know how to describe this simply)
+    * Nix:
+        * `nixpkgs` &mdash; package manager
+        * `nix-darwin` &mdash; a Nix package that allows you to edit native MacOS settings with Nix code
 * j
 
 ## Intro to Dotfiles
@@ -29,22 +30,23 @@ What I'm using:
 * *device* &mdash; MacBook Air M1 (2020)
 * *operating system* &mdash; MacOS 15.1 (Sequoia)
 * *terminal emulator* &mdash; Warp Terminal (I'm going to switch to Ghostty as soon as the public beta is released)
-<details>
-    <summary>languages I work / have worked with:</summary>
-    <ul>
-        <li>Rust (most recent)</li>
-        <li>Lua[^1]</li>
-        <li>Nix[^1]</li>
-        <li>HTML5 & CSS3</li>
-        <li>JavaScript</li>
-        <li>TypeScript</li>
-        <li>React (JSX and TSX)</li>
-        <li>Swift & SwiftUI</li>
-        <li>bash</li>
-        <li>Markdown</li>
-        <li>JSON, YAML, and TOML</li>
-    </ul>
-</details>
+* *languages I've been working with*:
+    * Rust
+    * TOML
+    * Markdown
+    * bash
+    * Lua[^1] & Nix[^2]
+    <details>
+        <summary>other languages I've worked with:</summary>
+        <ul>
+            <li>HTML5 & CSS3</li>
+            <li>JavaScript</li>
+            <li>TypeScript</li>
+            <li>React (JSX and TSX)</li>
+            <li>Swift & SwiftUI</li>
+            <li>JSON & YAML</li>
+        </ul>
+    </details>
 
 ## Installation
 I've seen other people's dotfiles have this section, so yeah. If you somehow come across this repo, I *highly* encourage you to build your own setup, rather than import someone else's, but I'm absolutely okay with you taking inspiration from here :)<br/>
@@ -52,9 +54,9 @@ I've seen other people's dotfiles have this section, so yeah. If you somehow com
 > [!WARNING]
 > for all of the following installation resources, watch the full video, read the whole article, etc. before actually doing any of it!
 
-1. I got started with [this Fireship YouTube tutorial](https://youtube.com/watch?_____) on starting your dotfiles journey
-2. Next, I set up using Nix Packages as a package manager with [this amazing Dreams of Code tutorial](https://youtube.com/watch?_____) - Warning: the Nix ecosystem is a *huge* rabbithole, so be advised!
-3. Then, I set up my code editor, NeoVim, by following [this Typecraft YouTube playlist](https://youtube.com/______)
+1. I got started with [this Fireship YouTube tutorial](https://youtube.com/watch?v=r_MpUP6aKiQ) on starting your dotfiles journey
+2. Next, I set up Nix Packages (`nixpkgs`) as my package manager with [this amazing Dreams of Autonomy tutorial](https://youtube.com/watch?v=Z8BL8mdzWHI) - Warning: the Nix ecosystem is a *huge* rabbithole, so be advised!
+3. Then, I set up my code editor, NeoVim, by following [this amazing Typecraft YouTube playlist](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn)
     <details>
         <summary>my tips on how to learn Vim / NeoVim</summary>
         <ol>
@@ -63,17 +65,25 @@ I've seen other people's dotfiles have this section, so yeah. If you somehow com
             <li> when you feel comfortable with the motions, start using Vim (the regular Vim) in your terminal</li>
             <li> when you feel really comfortable using Vim in your terminal, download NeoVim if you want</li>
         </ol>
-
-        Learning Vim might seem super overwhelming, but if you practice consistently, you'll be amazing :)<br/>
-        I believe in you! <3
+        <p>Learning Vim might seem super overwhelming, but if you practice consistently, you'll be amazing :)</p>
+        <p>I believe in you! <3</p>
     </details>
 
 If you want the easy way out:
-1. install Nix from [here](https://_____)
+1. install Nix from [here](https://nixos.org/download/)
 2. clone this repository using git
     ```
     git clone https://github.com/juneb125/.dotfiles ___ --depth 1
     ```
-<br/>
+3. remove this remote repository
+    ```
+    git remote rm origin
+    ```
+4. remove all of this repo's git commits
+    ```
+    rm -rf ./.git/
+    ```
 <hr/>
-[^1] I've only used Lua for my NeoVim setup and Nix for my Nix Darwin setup
+<br/>
+[^1] I've only used Lua for my NeoVim setup
+[^2] I've only used Nix for my Nix Darwin setup
