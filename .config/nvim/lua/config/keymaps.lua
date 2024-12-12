@@ -7,29 +7,39 @@ vim.g.maplocalleader = "\\"
 local keymap = vim.keymap
 
 -- to make the option field less verbose
-local opts = function(a, b)
-	if not a then
-		return { desc = b }
+local opts = function(silent, b)
+	if silent then
+		return { silent = true, desc = b }
 	end
-	return { silent = true, desc = b }
+	return { desc = b }
 end
 
 keymap.set("n", "<leader>wt", "<cmd>set wrap!<CR>", opts(true, "Toggle line wrapping"))
+
+-- the next 7 keymaps are from github:omerxx/dotfiles/nvim/lua/keymaps.lua
+keymap.set({ "n", "v" }, "<Space>", "<Nop>", opts(false, "")) -- disables default "<Space>" map to "l"
+keymap.set({ "n", "v" }, "B", "^", opts(false, "")) -- easier mapping to go to first non-blank char in line
+
+-- -/+ for vertical, shift and -/+ for horizontal
+keymap.set("n", "-", "<cmd>vertical resize -5<CR>", opts(true, ""))
+keymap.set("n", "=", "<cmd>vertical resize +5<CR>", opts(true, ""))
+keymap.set("n", "_", "<cmd>horizontal resize -5<CR>", opts(true, ""))
+keymap.set("n", "+", "<cmd>horizontal resize +5<CR>", opts(true, ""))
+
 keymap.set("t", "<Esc>", "<C-\\><C-n>", opts(false, "Exit Nvim terminal emulator without closing it"))
 
--- browser-like keymaps for tab management
-keymap.set("n", "<C-w>", "<cmd>tabclose<CR>", opts(true, "Close current tab"))
--- keymap.set("n", "<C-Tab>", "<cmd>tabn<CR>", opts(true, "Go to next tab")) -- ctrl tab
--- keymap.set("n", "<C-`>", "<cmd>tabp<CR>", opts(true, "Go to previous tab")) -- ctrl [grave]
+keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", opts(true, "Open Lazy popup"))
+keymap.set("n", "<leader>M", "<cmd>Mason<CR>", opts(true, "Open Mason popup"))
 
--- navigate Vim panes better
--- from https://github.com/typecraft-dev/dotfiles/nvim/.../vim-options.lua
+-- navigate Vim panes better, from
+-- github:typecraft-dev/dotfiles/nvim/.config/lua/vim-options.lua
 keymap.set("n", "<C-k>", "<cmd>wincmd k<CR>", opts(true, "Navigate to pane above"))
 keymap.set("n", "<C-j>", "<cmd>wincmd j<CR>", opts(true, "Navigate to pane below"))
 keymap.set("n", "<C-h>", "<cmd>wincmd h<CR>", opts(true, "Navigate to left pane"))
 keymap.set("n", "<C-l>", "<cmd>wincmd l<CR>", opts(true, "Navigate to right pane"))
 
--- the following keymaps are from josean-dev/dev-environment-files on github
+-- the following keymaps are from 
+-- github:josean-dev/dev-environment-files/.config/nvim/lua/josean/core/keymaps.lua
 keymap.set("n", "<leader>nh", "<cmd>nohlsearch<CR>", opts(true, "Clear search highlighting"))
 
 -- window management
