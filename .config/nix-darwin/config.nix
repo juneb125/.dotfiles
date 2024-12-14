@@ -1,4 +1,4 @@
-{ lib, config, pkgs, self, ... }: {
+{ self, pkgs, ... }: {
 	nixpkgs.config.allowUnfree = true;
 
 	# Search for packages in https://search.nixos.org/packages
@@ -6,7 +6,7 @@
 	# $ nix-env -qaP | grep <pkg-name>
 	environment.systemPackages = with pkgs; [
 		# bat
-		# fastfetch
+		fastfetch
 		git
 		neovim
 		zsh
