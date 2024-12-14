@@ -14,19 +14,22 @@ return {
 				{ section = "keys", gap = 1, padding = 1 },
 				{ section = "startup" },
 			},
+			bo = {
+				-- buffer options
+				filetype = "snacks_dashboard",
+			},
 		},
 		terminal = {
 			enabled = true,
 			bo = {
-				-- buffer options
 				filetype = "snacks_terminal",
 			},
 			win = {
 				style = "terminal",
 				position = "float",
 				border = "rounded",
-				width = 0.5,
-				height = 0.5,
+				width = 60,
+				height = 18,
 				zindex = 50,
 			},
 		},
