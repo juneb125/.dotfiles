@@ -7,6 +7,11 @@ My personal configuration files
 * [My Environment](#my-environment)
 * [Installation](#installation)
 
+**Quick Links**
+* [zsh](https://github.com/juneb125/.dotfiles/tree/main/.zshrc)
+* [NeoVim](https://github.com/juneb125/.dotfiles/tree/main/.config/nvim)
+* [Nix](https://github.com/juneb125/.dotfiles/tree/main/.config/nix-darwin)
+
 ## Goals
 * create comprehensive and easy-to-follow documentation for each major config piece, especially:
     * `zsh` &mdash; shell
@@ -18,7 +23,6 @@ My personal configuration files
 
 ## Intro to Dotfiles
 If you don't know what dotfiles are or have little to no experience configuring your environment, you're in luck :)<br/>
-
 * dotfiles are files or directories (aka folders) that begin with a period
 * the primary use of dotfiles are to configure, customize, or personalize user, system, or app preferances / settings
 * these kinds of files are usually hidden from the user, as the majority of PC, desktop, or laptop users don't personalize their device with code 
