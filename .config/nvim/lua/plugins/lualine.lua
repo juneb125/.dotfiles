@@ -8,7 +8,7 @@ return {
 			theme = "palenight",
 			-- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
 			-- possible other themes: modus-vivendi, ayu_mirage, nightfly, onedark?, etc.
-			ignore_focus = { "neo-tree" },
+			ignore_focus = { "neo-tree", "telescope", "snacks_dashboard", "snacks_terminal" },
 		},
 		sections = {
 			lualine_b = {
