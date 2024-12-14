@@ -16,21 +16,27 @@ By default, Nix Darwin sets your flake's name to your machine's local host name 
 # what about other OS's (e.g., Windows, Linux) ?
 scutil --get LocalHostName
 ```
-More About `scutil`
-* Using `scutil --get`, you can get the values of the following variables:
-    * `ComputerName`
-    * `LocalHostName`
-    * `HostName`
-> [!TIP]
-> you can get the value of each of these variables using a `for` loop in bash/zsh...
-> ```bash
-> for var in ComputerName LocalHostName HostName; do
->     scutil --get $var
-> 
->     # or, if you want it formatted (w/ labels)...
->     echo "$var is $(scutil --get $var)"
-> done
-> ```
+<details>
+<summary>More About <code>scutil</code></summary>
+<ul>
+    <li>Using <code>scutil --get</code>, you can get the values of the following variables:</li>
+    <ul>
+        <li><code>ComputerName</code></li>
+        <li><code>LocalHostName</code></li>
+        <li><code>HostName</code></li>
+    </ul>
+</ul>
+<p>you can get the value of each of these variables using a <code>for</code> loop in bash/zsh:</p>
+```
+for var in ComputerName LocalHostName HostName; do
+    scutil --get $var
+
+    # or, if you want it formatted (w/ labels)...
+    echo "$var is $(scutil --get $var)"
+done
+```
+``````
+</details>
 
 ## Placeholder
 ...
@@ -38,9 +44,9 @@ More About `scutil`
 ## Resources
 ### Documentation
 * [Nix home page](https://nixos.org/)
+    * [GitHub](https://github.com/NixOS)
 * Nix Language
     * [documentation](https://nix.dev/manual/nix/2.18/language/)
-    * j
 * Nix package manager (`nixpkgs`)
     * [`nixpkgs` home page](https://_____)
     * [search Nix packages](https://search.nixos.org/packages)
@@ -51,7 +57,6 @@ More About `scutil`
     * [GitHub](https://github.com/______)
 
 ### Tutorials
-
 **Placeholder**
 * setting up MacOS settings with [Nix Darwin options](https://mynixos.com/nix-darwin/options)
 * setting up `program` settings with [NixOS options](https://mynixos.com/options/programs)
