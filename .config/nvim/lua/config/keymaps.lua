@@ -5,6 +5,7 @@ vim.g.maplocalleader = "\\"
 
 -- to make settings less verbose
 local keymap = vim.keymap
+local nv = { "n", "v" }
 
 -- to make the option field less verbose
 local opts = function(silent, b)
@@ -17,15 +18,23 @@ end
 keymap.set("n", "<leader>wt", "<cmd>set wrap!<CR>", opts(true, "Toggle line wrapping"))
 
 -- the next 7 keymaps are from github:omerxx/dotfiles/nvim/lua/keymaps.lua
-keymap.set({ "n", "v" }, "<Space>", "<Nop>", opts(false, "")) -- disables default "<Space>" map to "l"
-keymap.set({ "n", "v" }, "B", "^", opts(false, "")) -- easier mapping to go to first non-blank char in line
+keymap.set(nv, "<Space>", "<Nop>", opts(false, "")) -- disables default "<Space>" map to "l"
+keymap.set(nv, "<C-b>", "^", opts(false, "Go to first non-blank char in current line"))
+keymap.set(nv, "<C-e>", "$", opts(false, "Go to last char in current line"))
 
+-- Window resizing
 -- -/+ for vertical, shift and -/+ for horizontal
-keymap.set("n", "-", "<cmd>vertical resize -5<CR>", opts(true, ""))
-keymap.set("n", "=", "<cmd>vertical resize +5<CR>", opts(true, ""))
-keymap.set("n", "_", "<cmd>horizontal resize -5<CR>", opts(true, ""))
-keymap.set("n", "+", "<cmd>horizontal resize +5<CR>", opts(true, ""))
+keymap.set("n", "-", "<cmd>vertical resize -5<CR>", opts(true, "Resize vertical split (smaller)"))
+keymap.set("n", "=", "<cmd>vertical resize +5<CR>", opts(true, "Resize vertical split (bigger)"))
+keymap.set("n", "_", "<cmd>horizontal resize -5<CR>", opts(true, "Resize horizontal split (smaller)"))
+keymap.set("n", "+", "<cmd>horizontal resize +5<CR>", opts(true, "Resize horizontal split (bigger)"))
 
+vim.keymap.set("n", "<leader>.", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 15)
+end, opts(false, "Open terminal in split below"))
 keymap.set("t", "<Esc>", "<C-\\><C-n>", opts(false, "Exit Nvim terminal emulator without closing it"))
 
 keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", opts(true, "Open Lazy popup"))
@@ -54,3 +63,6 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", opts(true, "Close current tab
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", opts(true, "Go to next tab"))
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", opts(true, "Go to previous tab"))
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", opts(true, "Open current buffer in new tab"))
+
+-- keymap.set("n", "<C-Tab>", "<cmd>tabn<CR>", opts(true, "Go to next tab"))
+-- keymap.set("n", "<C-`", "<cmd>tabp<CR>", opts(true, "Go to previous tab"))
