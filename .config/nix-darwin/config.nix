@@ -1,3 +1,4 @@
+# -- General Config --
 { self, pkgs, ... }: {
 	nixpkgs.config.allowUnfree = true;
 
@@ -32,4 +33,30 @@
 	# auto upgrade nix pkg and the daemon service
 	services.nix-daemon.enable = true;
 	# nix.package = pkgs.nix;
+	
+	nixpkgs.config.zsh = {
+		enable = true;                     # default shell on macOS
+		autocd = true;                     # automatically enter into a directory if typed
+		# enableCompletion = true;         # enable autocompletions
+		# enableSyntaxHighlighting = true; # enable syntax highlighting
+	};
+
+	nixpkgs.config.git = {
+		enable = true;
+		userName = "juneb125";
+		userEmail = "jrbergeron823@gmail.com";
+		ignores = [
+			"*.DS_Store"
+			"*.swp"
+			"*.tmp*"
+		];
+		config = {
+			init = { defaultBranch = "main"; };
+		};
+	};
+
+	nixpkgs.config.neovim = {
+		enable = true;
+		defaultEditor = true;
+	};
 }
