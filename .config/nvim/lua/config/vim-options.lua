@@ -34,3 +34,14 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- default split window behavior
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
+
+-- Auto Commands
+vim.api.nvim_create_augroup("TermGroup", { clear = true })
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = { "snacks_terminal", "term" },
+	callback = function()
+		vim.cmd("startinsert")
+	end,
+	group = "TermGroup",
+})
+
