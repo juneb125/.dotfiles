@@ -33,10 +33,12 @@ autoload -Uz add-zsh-hook vcs_info
 
 add-zsh-hook precmd vcs_info
 zstyle ':vcs_info:git:*' enable git
-zstyle ':vcs_info:git*' formats '%F{240}%b%c%f'
+zstyle ':vcs_info:git*' formats '%F{black}%b%c%f'
 
-PS1='%n %2~ $vcs_info_msg_0_ > '
-RPROMPT='%(?..[ %F{197}%?%f ])'
+autoload -U colors && colors
+PS1='%F{magenta}%2~%f $vcs_info_msg_0_ > '
+
+RPROMPT='%(?..%{$fg[red]%}[ %? ]%f)'
 
 # -- Misc. --
 # get github token env var
