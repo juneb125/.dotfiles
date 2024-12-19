@@ -13,8 +13,8 @@
   outputs = inputs@{ self, darwin, nixpkgs }:
   let
 		inherit (self) outputs;
+		# localHostName = "Junes-MacBook-Air";
 		# system = "aarch64-darwin";
-		# pkgs = nixpkgs.legacyPackages.${system};
   in
   {
     # (re-)build darwin flake using:
