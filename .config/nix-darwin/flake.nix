@@ -12,18 +12,17 @@
 
   outputs = inputs@{ self, darwin, nixpkgs }:
   let
-		configuration = { pkgs, ... }: {
-			imports = [
-				(import ./config.nix { inherit self pkgs; })
-			];
-		};
+		inherit (self) outputs;
+		# system = "aarch64-darwin";
+		# pkgs = nixpkgs.legacyPackages.${system};
   in
   {
     # (re-)build darwin flake using:
     # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
     darwinConfigurations."Junes-MacBook-Air" = darwin.lib.darwinSystem {
 			system = "aarch64-darwin";
-			modules = [ configuration ];
+			modules = [ ./config.nix ];
+			specialArgs = { inherit inputs outputs; };
     };
   };
 }
