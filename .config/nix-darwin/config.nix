@@ -1,10 +1,10 @@
 # -- General Config --
-{ self, pkgs, ... }: {
+{ inputs, pkgs, ... }: {
+	# allow unfree (not open-source) pkgs
 	nixpkgs.config.allowUnfree = true;
 
 	# search for packages in https://search.nixos.org/packages
 	environment.systemPackages = with pkgs; [
-		# bat
 		fastfetch
 		git
 		neovim
@@ -21,7 +21,7 @@
 	nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 	# set git commit hash for darwin-version
-	system.configurationRevision = self.rev or self.dirtyRev or null;
+	system.configurationRevision = inputs.rev or inputs.dirtyRev or null;
 
 	# used for backwards compatibility, read the changelog before changing
 	# $ darwin-rebuild changelog
@@ -34,11 +34,10 @@
 	services.nix-daemon.enable = true;
 	# nix.package = pkgs.nix;
 	
-	nixpkgs.config.zsh = {
-		enable = true;                     # default shell on macOS
-		autocd = true;                     # automatically enter into a directory if typed
-		# enableCompletion = true;         # enable autocompletions
-		# enableSyntaxHighlighting = true; # enable syntax highlighting
+	programs.zsh = {
+		enable = true;
+		# autocd = true;
+		# ...
 	};
 
 	nixpkgs.config.git = {
