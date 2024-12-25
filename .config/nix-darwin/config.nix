@@ -1,20 +1,24 @@
 # -- General Config --
-{ inputs, pkgs, ... }: {
-	# allow unfree (not open-source) pkgs
-	nixpkgs.config.allowUnfree = true;
+{ inputs, pkgs, pkgs-unstable, ... }: {
+
+	# imports = [];
+
+	nixpkgs = {
+		config.allowUnfree = true; # allow unfree (not open-source) pkgs
+		hostPlatform = "aarch64-darwin"; # platform the config will be used on
+	};
 
 	# search for packages in https://search.nixos.org/packages
 	environment.systemPackages = with pkgs; [
+		# bat
 		fastfetch
 		git
 		neovim
 		zsh
 	];
 
-	fonts.packages = with pkgs; [
-		(nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-		# on nixpkgs-unstable:
-		# nerd-fonts.jetbrains-mono
+	fonts.packages = with pkgs-unstable; [
+		nerd-fonts.jetbrains-mono
 	];
 
 	# necessary for using flakes
@@ -26,9 +30,6 @@
 	# used for backwards compatibility, read the changelog before changing
 	# $ darwin-rebuild changelog
 	system.stateVersion = 5;
-
-	# platform the config will be used on
-	nixpkgs.hostPlatform = "aarch64-darwin";
 
 	# auto upgrade nix pkg and the daemon service
 	services.nix-daemon.enable = true;
