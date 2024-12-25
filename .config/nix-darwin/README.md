@@ -12,30 +12,23 @@
 
 By default, Nix Darwin sets your flake's name to your machine's local host name (mine is `Junes-MacBook-Air`). You can get your machine's local host name through the following shell command:
 ```zsh
-# what about other shells (e.g., bash, powershell, fsh) ?
+# what about other shells (e.g., bash, powershell, fish) ?
 # what about other OS's (e.g., Windows, Linux) ?
 scutil --get LocalHostName
 ```
 <details>
 <summary>More About <code>scutil</code></summary>
-<ul>
-    <li>Using <code>scutil --get</code>, you can get the values of the following variables:</li>
-    <ul>
-        <li><code>ComputerName</code></li>
-        <li><code>LocalHostName</code></li>
-        <li><code>HostName</code></li>
-    </ul>
-</ul>
-<p>you can get the value of each of these variables using a <code>for</code> loop in bash/zsh:</p>
-```
+* Using `scutil --get`, you can get the values of the following variables:
+    * `ComputerName`
+    * `LocalHostName`
+    * `HostName`
+* you can get the value of each of these variables using a <code>for</code> loop in bash/zsh:
 for var in ComputerName LocalHostName HostName; do
     scutil --get $var
 
     # or, if you want it formatted (w/ labels)...
     echo "$var is $(scutil --get $var)"
 done
-```
-``````
 </details>
 
 ## Placeholder
