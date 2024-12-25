@@ -32,8 +32,9 @@ Hardware plays a big part in customization and what works on my machine likely w
 
 What I'm using:
 * *device* &mdash; MacBook Air M1 (2020)
-* *operating system* &mdash; MacOS 15.1 (Sequoia)
+* *operating system* &mdash; MacOS 15.2 (Sequoia)
 * *terminal emulator* &mdash; Warp Terminal (I'm going to switch to Ghostty as soon as the public beta is released)
+* *package manager* &mdash; `nixpkgs` (versions 24.11 and unstable)
 * *languages I've been working with*:
     * Rust
     * TOML
