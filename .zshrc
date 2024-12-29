@@ -1,48 +1,15 @@
-# My zsh config file
+# Set the directory we want to store zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-export PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
-# $HOME/.nix-profile/bin
-# /nix/var/nix/profiles/system/sw/bin
+# Download zinit, if it's not there yet
+[ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d "$ZINIT_HOME/.git" ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 
-# -- History --
-HISTDUP=erase
-setopt append_history
-setopt share_history
-setopt inc_append_history
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
+# Source/Load zinit
+source "${ZINIT_HOME}/zinit.zsh"
 
-# -- Options --
-setopt correct
-setopt correct_all
+PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
+PS1="%2~ > "
 
-setopt no_case_glob
-
-setopt prompt_subst
-
-# -- Keybindings --
-# bindkey <opts> '<keymap>' <widget>
-
-# -- Prompt Customization --
-# from: https://sureshjoshi.com/development/zsh-prompts-that-dont-suck#as-good-as-git-gets
-
-autoload -Uz add-zsh-hook vcs_info
-
-add-zsh-hook precmd vcs_info
-zstyle ':vcs_info:git:*' enable git
-zstyle ':vcs_info:git*' formats '%F{black}%b%c%f'
-
-autoload -U colors && colors
-PS1='%F{magenta}%2~%f $vcs_info_msg_0_ > '
-
-RPROMPT='%(?..%{$fg[red]%}[ %? ]%f)'
-
-# -- Misc. --
-# get github token env var
 source ~/.dotfiles/.env
-
-# get aliases
 source ~/.dotfiles/.aliases.zsh
