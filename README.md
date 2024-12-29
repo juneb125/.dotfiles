@@ -16,10 +16,8 @@ My personal configuration files
 * create comprehensive and easy-to-follow documentation for each major config piece, especially:
     * `zsh` &mdash; shell
     * `nvim` &mdash; code editor
-    * Nix:
-        * `nixpkgs` &mdash; package manager
-        * `nix-darwin` &mdash; a Nix package that allows you to edit native MacOS settings with Nix code
-* j
+    * `nixpkgs` &mdash; package manager
+    * `ghostty` &mdash; terminal emulator
 
 ## Intro to Dotfiles
 If you don't know what dotfiles are or have little to no experience configuring your environment, you're in luck :)<br/>
@@ -33,7 +31,7 @@ Hardware plays a big part in customization and what works on my machine likely w
 What I'm using:
 * *device* &mdash; MacBook Air M1 (2020)
 * *operating system* &mdash; MacOS 15.2 (Sequoia)
-* *terminal emulator* &mdash; Warp Terminal (I'm going to switch to Ghostty as soon as the public beta is released)
+* *terminal emulator* &mdash; Ghostty
 * *package manager* &mdash; `nixpkgs` (versions 24.11 and unstable)
 * *languages I've been working with*:
     * Rust
