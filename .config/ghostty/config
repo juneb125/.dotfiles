@@ -1,0 +1,22 @@
+# Ghostty Config
+
+theme = catppuccin-macchiato
+# font-family = JetBrainsMono Nerd Font Mono
+
+cursor-style = block
+
+window-width = 120
+window-height = 36
+
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+
+quick-terminal-position = center
+
+auto-update = check
+
+# Keybinds
+keybind = ctrl+tab=next_tab
+keybind = ctrl+grave_accent=previous_tab
+keybind = global:shift+cmd+slash=toggle_quick_terminal

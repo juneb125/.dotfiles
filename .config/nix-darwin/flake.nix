@@ -8,9 +8,10 @@
 			url = "github:LnL7/nix-darwin";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		# ghostty.url = "github:ghostty-org/ghostty";
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, nixpkgs-unstable }:
+  outputs = inputs@{ self, darwin, nixpkgs, ... }:
   let
 		inherit (self) outputs;
 		# localHostName = "Junes-MacBook-Air";
@@ -24,7 +25,7 @@
 			modules = [ ./config.nix ];
 			specialArgs = {
 				inherit inputs outputs;
-				pkgs-unstable = import nixpkgs-unstable { system = "aarch64-darwin"; };
+				pkgs-unstable = import inputs.nixpkgs-unstable { system = "aarch64-darwin"; };
 			};
     };
   };

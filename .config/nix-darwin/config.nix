@@ -9,13 +9,13 @@
 	};
 
 	# search for packages in https://search.nixos.org/packages
-	environment.systemPackages = with pkgs; [
+	environment.systemPackages = (with pkgs; [
 		# bat
 		fastfetch
 		git
 		neovim
 		zsh
-	];
+	]); # ++ [ inputs.ghostty.packages.aarch64-darwin.default ];
 
 	fonts.packages = with pkgs-unstable; [
 		nerd-fonts.jetbrains-mono

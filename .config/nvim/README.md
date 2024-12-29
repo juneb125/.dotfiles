@@ -12,9 +12,9 @@
     * NeoVim is also available through your OS's package manager or Homebrew :)
 * *setup* &mdash; I followed typecraft's "Neovim for Newbs" YouTube playlist on setting up the NeoVim essentials
 * *environment*:
-    * operating system: MacOS 15.1 (Sequoia)
-    * terminal emulator: Warp Terminal (I'm going to switch to Ghostty as soon as the public beta is released)
-    * font: JetBrainsMono Nerd Font (? px, ? line spacing)
+    * operating system: MacOS 15.2 (Sequoia)
+    * terminal emulator: Ghostty
+    * font: JetBrainsMono Nerd Font
 > [!IMPORTANT]
 > from here on, all links (unless otherwise specified) go to the link title's GitHub repo
 * *plugin manager* &mdash; [lazy.nvim 💤](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
