@@ -1,3 +1,6 @@
+# Zsh config
+
+# Zinit
 # set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -14,10 +17,32 @@ PS1="%2~ > "
 source ~/.dotfiles/.env
 source ~/.dotfiles/.aliases.zsh
 
-# plugins
+# Plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # load completions
 autoload -U compinit && compinit
+
+# Keybinds
+bindkey '^I' autosuggest-accept # tab
+bindkey '^p' history-search-backward # ctrl p
+bindkey '^n' history-search-forward # ctrl n
+
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt append_history
+setopt share_history
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
+
+# Completion Styling
+# enables case-insensitive completions
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
