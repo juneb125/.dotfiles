@@ -14,6 +14,7 @@
 		fastfetch
 		git
 		neovim
+		oh-my-posh
 		zsh
 	]); # ++ [ inputs.ghostty.packages.aarch64-darwin.default ];
 
