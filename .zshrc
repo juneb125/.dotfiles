@@ -25,6 +25,10 @@ zinit light zsh-users/zsh-autosuggestions
 # load completions
 autoload -U compinit && compinit
 
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+	eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/.config/zsh/main.toml)"
+fi
+
 # Keybinds
 bindkey '^I' autosuggest-accept # tab
 bindkey '^p' history-search-backward # ctrl p
