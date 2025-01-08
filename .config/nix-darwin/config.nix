@@ -11,6 +11,7 @@
 	# search for packages in https://search.nixos.org/packages
 	environment.systemPackages = (with pkgs; [
 		# bat
+		deno # literally just for a neovim .md renderer plugin :/
 		fastfetch
 		git
 		neovim
