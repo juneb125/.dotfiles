@@ -36,6 +36,9 @@
     * [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 * [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
 * [`indent-blankline`](https://github.com/lukas-reineke/indent-blankline.nvim) &mdash; indenting & scope guides
+* Language-specific plugins (`langs`)
+    * [`peek`](https://github.com/toppair/peek.nvim) &mdash; Markdown renderer
+    * [`rust`](https://github.com/rust-lang/rust.vim) &mdash; provides `RustFmt`, the official formatter for Rust
 * LSP config (`lsp-config`)
     * [mason](https://github.com/williamboman/mason.nvim)
     * [mason-lspconfig](https://github.com/williamboman/mason-lspconfig.nvim)
@@ -43,9 +46,7 @@
 * [`lualine`](https://github.com/nvim-lualine/lualine.nvim) &mdash; configurable Vim status bar
 * [`neo-tree`](https://github.com/nvim-neo-tree/neo-tree.nvim) &mdash; file tree / explorer
 * [`none-ls`](https://github.com/nvimtools/none-ls.nvim) &mdash; interface for all the important LSP actions
-* Rust plugins (`rust-plugins`)
-    * [`rust-plugins`](https://github.com/rust-lang/rust.vim) &mdash; provides Rust file detection, syntax highlighting, formatting, and more
-* [`snacks`](https://github.com/folke/snacks.nvim) &mdash; some quality of life things
+* [`snacks`](https://github.com/folke/snacks.nvim) &mdash; some quality of life things :)
 * [`telescope`](https://github.com/nvim-telescope/telescope.nvim) &mdash; fuzzy finder
 * [`treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
 
@@ -53,6 +54,6 @@
 - [ ] change some plugins to lazy load (b/c they really don't need to all load at once)
 - [ ] format README.md better
 - [ ] find a good LSP for `.md` files
-- [ ] find a good in-terminal renderer for Markdown documents
+- [x] find a good renderer for Markdown documents
 
 [Back to top](#my-neovim-config)
