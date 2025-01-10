@@ -8,15 +8,12 @@
 	defaultBranch = main
 
 [alias]
-	a = add .
 	br = branch
 	cam = commit -am
 	cl = clone
 	cm = commit -m
 	co = checkout
-	i = init
 	log = log --graph
-	s = status
 
 [github]
 	user = juneb125
