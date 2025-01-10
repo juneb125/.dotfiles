@@ -13,8 +13,10 @@ alias lal='ls -alG'
 # Git
 alias ga='git add'
 alias gb='git branch'
-alias gs='git status'
+alias gd='git diff'
 alias gl='git log --graph'
+alias gp='git push'
+alias gs='git status'
 
 # Vim / Nvim
 alias nv='nvim'
@@ -22,6 +24,6 @@ alias vi='nvim'
 alias reg_vim='vim'
 
 # Misc.
-alias cl='clear'
+alias c='clear'
 alias scerr='scutil --error $?'
 alias rebuild_nix_flake='darwin-rebuild switch --flake ~/.dotfiles/.config/nix-darwin#Junes-MacBook-Air'
