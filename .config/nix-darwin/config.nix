@@ -1,5 +1,5 @@
 # -- General Config --
-{ inputs, pkgs, pkgs-unstable, ... }: {
+{ inputs, pkgs,... }: {
 
 	# imports = [];
 
@@ -9,7 +9,7 @@
 	};
 
 	# search for packages in https://search.nixos.org/packages
-	environment.systemPackages = (with pkgs; [
+	environment.systemPackages = with pkgs; [
 		# bat
 		deno # literally just for a neovim .md renderer plugin :/
 		fastfetch
@@ -17,10 +17,10 @@
 		neovim
 		oh-my-posh
 		zsh
-	]); # ++ [ inputs.ghostty.packages.aarch64-darwin.default ];
+	];
 
-	fonts.packages = with pkgs-unstable; [
-		nerd-fonts.jetbrains-mono
+	fonts.packages = with pkgs; [
+		jetbrains-mono
 	];
 
 	# necessary for using flakes
