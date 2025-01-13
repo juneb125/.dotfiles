@@ -4,12 +4,8 @@
 PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
 
 # Prompt
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-	eval "$(oh-my-posh init zsh --config $HOME/.dotfiles/.config/zsh/main.toml)"
-else
-	PS1='%F{blue}%2~%f > '
-	PS2='| '
-fi
+export STARSHIP_CONFIG=$HOME/.dotfiles/.config/zsh/starship.toml
+eval "$(starship init zsh)"
 
 # Keybinds
 bindkey '^I' autosuggest-accept      # tab
