@@ -16,6 +16,7 @@
 		git
 		neovim
 		oh-my-posh
+		starship
 		zsh
 	];
 
@@ -37,9 +38,9 @@
 	services.nix-daemon.enable = true;
 	# nix.package = pkgs.nix;
 	
-	programs.zsh = {
+	nixpkgs.config.zsh = {
 		enable = true;
-		# autocd = true;
+		autocd = true;
 		# ...
 	};
 
