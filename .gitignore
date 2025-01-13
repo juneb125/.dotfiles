@@ -1,13 +1,15 @@
 .env
 *.env
 
+.git
+
 *.DS_Store
 **/.DS_Store
 
 Brewfile
 
 .config/raycast/**
-.config/warp/**
+.config/warp
 .config/zed/**
 
 !.config/zed/settings.json
