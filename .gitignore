@@ -1,24 +1,13 @@
 .env
 *.env
 
-# just to make quintuple-sure that all `.DS_Store`'s are ignored
-.DS_Store
-/.DS_Store
 *.DS_Store
 **/.DS_Store
-**/**/*.DS_Store
 
-# ignore everything in .config/raycast/
-.config/raycast/*
+Brewfile
+
 .config/raycast/**
-.config/raycast/.DS_Store
-
-# ignore everything in .config/zed, except settings.json
-.config/zed/*
+.config/warp/**
 .config/zed/**
-.config/zed/embeddings/**
-.config/zed/prompts/**
-*.mdb
-**.mdb
 
 !.config/zed/settings.json
