@@ -15,11 +15,12 @@
     * operating system: MacOS 15.2 (Sequoia)
     * terminal emulator: Ghostty
     * font: JetBrainsMono Nerd Font
-> [!IMPORTANT]
-> from here on, all links (unless otherwise specified) go to the link title's GitHub repo
-* *plugin manager* &mdash; [lazy.nvim 💤](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
+* *plugin manager* &mdash; [lazy.nvim 💤 on GitHub](https://github.com/folke/lazy.nvim) (setup in `init.lua`)
 	* [lazy.nvim 💤 website](https://lazy.folke.io)
 * *usage* &mdash; I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)<br/>
+
+> [!IMPORTANT]
+> from here on, all links (unless otherwise specified) go to the link title's GitHub repo
 
 ## General Config
 `lua/config/*.lua`
