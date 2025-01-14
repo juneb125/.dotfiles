@@ -24,6 +24,7 @@ alias vi='nvim'
 alias reg_vim='vim'
 
 # Misc.
-alias c='clear'
+alias clr='clear'
 alias scerr='scutil --error $?'
 alias rebuild_nix_flake='darwin-rebuild switch --flake ~/.dotfiles/.config/nix-darwin#Junes-MacBook-Air'
+alias nix_lib_repl='nix repl --expr "import <nixpkgs> {}"'
