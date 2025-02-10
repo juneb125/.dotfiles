@@ -20,16 +20,20 @@ return {
 			lspconfig.nil_ls.setup({ capabilities = capabilities }) -- nix lsp
 			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust lsp
 			lspconfig.taplo.setup({ capabilities = capabilities }) -- toml lsp
+			lspconfig.gleam.setup({ capabilities = capabilities }) -- gleam lsp
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Displays hover information about the symbol under the cursor" })
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Jumps to definition of the symbol under the cursor" })
-			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Lists all the implementations for the symbol under the cursor" })
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Lists all the references to the symbol under the cursor" })
-			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { desc = "Formats current buffer using the attached LSP client(s)" })
+			local buf = vim.lsp.buf
+			local map = vim.keymap
 
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Selects a code action available at the current cursor position" })
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Renames all references to the symbol under the cursor" })
-			vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, { desc = "Jumps to the definition of the type of the symbol under the cursor" })
+			map.set("n", "K", buf.hover, { desc = "Displays hover information about the symbol under the cursor" })
+			map.set("n", "<leader>gd", buf.definition, { desc = "Jumps to definition of the symbol under the cursor" })
+			map.set("n", "<leader>gi", buf.implementation, { desc = "Lists all the implementations for the symbol under the cursor" })
+			map.set("n", "<leader>gr", buf.references, { desc = "Lists all the references to the symbol under the cursor" })
+			map.set("n", "<leader>gf", buf.format, { desc = "Formats current buffer using the attached LSP client(s)" })
+
+			map.set("n", "<leader>ca", buf.code_action, { desc = "Selects a code action available at the current cursor position" })
+			map.set("n", "<leader>rn", buf.rename, { desc = "Renames all references to the symbol under the cursor" })
+			map.set("n", "<leader>td", buf.type_definition, { desc = "Jumps to the definition of the type of the symbol under the cursor" })
 		end,
 	},
 }
