@@ -7,12 +7,17 @@
 [init]
 	defaultBranch = main
 
+[core]
+	# global .gitignore
+	excludesFile = ~/.gitignore
+
 [alias]
 	br = branch
 	cam = commit -am
 	cl = clone
 	cm = commit -m
 	co = checkout
+	i = init
 	log = log --graph
 
 [github]
@@ -25,4 +30,4 @@
 	autocorrect = 1
 
 [credential]
-    helper = store
+	helper = store
