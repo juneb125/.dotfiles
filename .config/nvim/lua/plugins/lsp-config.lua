@@ -16,12 +16,13 @@ return {
 
 			local lspconfig = require("lspconfig")
 
-			lspconfig.clangd.setup({ capabilities = capabilities }) -- c lsp
-			lspconfig.gleam.setup({ capabilities = capabilities }) -- gleam lsp
-			lspconfig.lua_ls.setup({ capabilities = capabilities }) -- lua lsp
-			lspconfig.nil_ls.setup({ capabilities = capabilities }) -- nix lsp
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust lsp
-			lspconfig.taplo.setup({ capabilities = capabilities }) -- toml lsp
+			lspconfig.clangd.setup({ capabilities = capabilities })        -- c
+			lspconfig.gleam.setup({ capabilities = capabilities })         -- gleam
+			lspconfig.lua_ls.setup({ capabilities = capabilities })        -- lua
+			lspconfig.nil_ls.setup({ capabilities = capabilities })        -- nix
+			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust
+			lspconfig.sourcekit.setup({ capabilities = capabilities })     -- swift
+			lspconfig.taplo.setup({ capabilities = capabilities })         -- toml
 
 			local buf = vim.lsp.buf
 			local map = vim.keymap
