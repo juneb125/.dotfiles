@@ -8,9 +8,10 @@ return {
 			sources = {
 				-- formatting
 				builtins.formatting.clang_format, -- c
-				builtins.formatting.stylua, -- lua
-				builtins.formatting.nixfmt, -- nix
-				-- rust: included with rust_analyzer (see lsp-config.lua)
+				builtins.formatting.stylua,       -- lua
+				builtins.formatting.nixfmt,       -- nix
+				-- rust formatter included w/ rust_analyzer (see lsp-config.lua)
+				builtins.formatting.swift_format, -- swift
 			},
 		})
 	end,
