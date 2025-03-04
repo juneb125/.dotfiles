@@ -11,14 +11,15 @@
 	# search for packages in https://search.nixos.org/packages
 	environment.systemPackages = with pkgs; [
 		# bat
-		deno   # literally just for a neovim .md renderer plugin :/
-		erlang # required for gleam
+		deno     # literally just for a neovim .md renderer plugin :/
+		erlang_27   # required for gleam
 		fastfetch
 		git
 		gleam
 		neovim
-		starship
-		zsh
+		rebar3
+		starship # prompt customization
+		zsh      # shell
 	];
 
 	fonts.packages = with pkgs; [
