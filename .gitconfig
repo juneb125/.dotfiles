@@ -9,7 +9,7 @@
 
 [core]
 	# global .gitignore
-	excludesFile = ~/.gitignore
+	excludesFile = $HOME/.gitignore
 
 [alias]
 	br = branch
