@@ -19,29 +19,5 @@ return {
 				filetype = "snacks_dashboard",
 			},
 		},
-		terminal = {
-			enabled = true,
-			bo = {
-				filetype = "snacks_terminal",
-			},
-			win = {
-				style = "terminal",
-				position = "float",
-				border = "rounded",
-				width = 0.75,
-				height = 0.6,
-				zindex = 50,
-			},
-		},
-	},
-	keys = {
-		{
-			"<C-g>", -- <C-/> didn't work for some reason
-			function()
-				Snacks.terminal.toggle()
-			end,
-			mode = { "n", "t" },
-			desc = "Toggle terminal with Snacks.nvim",
-		},
 	},
 }
