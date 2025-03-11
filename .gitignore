@@ -9,6 +9,7 @@
 Brewfile
 
 .config/raycast/**
+.config/terminal-app
 .config/warp
 .config/zed/**
 
