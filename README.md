@@ -16,15 +16,9 @@ My personal configuration files
 ## Goals
 * create comprehensive and easy-to-follow documentation for each major config piece, especially:
     * `zsh` &mdash; shell
-    * `nvim` &mdash; code editor
+    * `nvim` &mdash; text editor
     * `nixpkgs` &mdash; package manager
     * `ghostty` &mdash; terminal emulator
-
-## Intro to Dotfiles
-If you don't know what dotfiles are or have little to no experience configuring your environment, you're in luck :)<br/>
-* dotfiles are files or directories (aka folders) that begin with a period
-* the primary use of dotfiles are to configure, customize, or personalize user, system, or app preferances / settings
-* these kinds of files are usually hidden from the user, as the majority of PC, desktop, or laptop users don't personalize their device with code 
 
 ## My Environment
 Hardware plays a big part in customization and what works on my machine likely won't work on yours if even a few key things are different.
@@ -36,43 +30,38 @@ What I'm using:
 * *package manager* &mdash; `nixpkgs` (version 24.11)
 * *languages I've been working with*:
     * Rust
+    * Gleam
     * Markdown
-    * Lua[^1]
-    * Nix[^2]
     <details>
         <summary>other languages I've worked with:</summary>
-        <ul>
-            <li>HTML5 & CSS3</li>
-            <li>JavaScript</li>
-            <li>TypeScript</li>
-            <li>React (JSX and TSX)</li>
-            <li>Swift & SwiftUI</li>
-            <li>JSON & YAML</li>
-        </ul>
+            * Lua[^1]
+            * Nix[^2]
+            * HTML5 & CSS3
+            * C
+            * Swift
     </details>
 
 ## Installation
 I've seen other people's dotfiles have this section, so yeah. If you somehow come across this repo, I *highly* encourage you to build your own setup, rather than import someone else's, but I'm absolutely okay with you taking inspiration from here :)<br/>
+
+**The Steps I Followed**
 
 > [!WARNING]
 > for all of the following installation resources, watch the full video, read the whole article, etc. before actually doing any of it!
 
 1. I got started with [this Fireship YouTube tutorial](https://youtube.com/watch?v=r_MpUP6aKiQ) on starting your dotfiles journey
 2. Then, I followed [this Dreams of Autonomy video](https://www.youtube.com/watch?v=ud7YxC33Z3w) about further customization of `zsh`
-3. Next, I set up Nix Packages (`nixpkgs`) as my package manager with [this amazing Dreams of Autonomy tutorial](https://youtube.com/watch?v=Z8BL8mdzWHI)\
-    ⚠️ the Nix ecosystem is a *huge* rabbithole, so be advised!
-4. I set up my code editor, NeoVim, by following [this amazing Typecraft YouTube playlist](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn)
-<details>
-    <summary>my tips on how to learn Vim / NeoVim</summary>
-    <ol>
-        <li> learn the basic Vim motions (how to move around a file and around a workspace), especially how to exit Vim :)</li>
-        <li> turn on "Vim mode" in your current code editor</li>
-        <li> when you feel comfortable with the motions, start using Vim (the regular Vim) in your terminal</li>
-        <li> when you feel really comfortable using Vim in your terminal, download NeoVim if you want</li>
-    </ol>
-    <p>Learning Vim might seem super overwhelming, but if you practice consistently, you'll be amazing :)</p>
-    <p>I believe in you! <3</p>
-</details>
+3. Next, I set up Nix Packages (`nixpkgs`) as my package manager with [this amazing Dreams of Autonomy tutorial](https://youtube.com/watch?v=Z8BL8mdzWHI)
+4. I set up my text editor, NeoVim, by following [this amazing Typecraft YouTube playlist](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn)
+    <details>
+        <summary>my tips on how to learn Vim / NeoVim</summary>
+            1. learn the basic Vim motions (how to move around a file and around a workspace), especially how to exit Vim :)
+            2. turn on "Vim mode" in your current code editor
+            3.  when you feel comfortable with the motions, start using Vim (the regular Vim) in your terminal
+            4. when you feel really comfortable using Vim in your terminal, download NeoVim if you want
+            <p>Learning Vim might seem super overwhelming, but if you practice consistently, you'll be amazing :)</p>
+            <p>I believe in you! <3</p>
+    </details>
 
 If you want the easy way out:
 1. install Nix from [here](https://nixos.org/download/)
