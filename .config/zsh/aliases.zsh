@@ -3,7 +3,6 @@
 # Navigation
 alias ..='cd ..'
 alias ...='cd ../..'
-alias proj='cd ~/Desktop/Coding/'
 alias dotfiles='cd ~/.dotfiles'
 alias config='cd ~/.dotfiles/.config'
 
@@ -23,12 +22,11 @@ alias gs='git status'
 # Vim / Nvim
 alias nv='nvim'
 alias vi='nvim'
+alias vim='nvim'
 
 # Misc.
 alias c='clear'
 alias clr='clear'
 alias e='exit 0'
 alias scerr='scutil --error $?'
-alias rebuild-nix-flake='darwin-rebuild switch --flake ~/.dotfiles/.config/nix-darwin#Junes-MacBook-Air'
-alias nix-lib-repl='nix repl --expr "import <nixpkgs> {}"'
 alias clang-c='clang -std=c99 -Wall -Werror '
