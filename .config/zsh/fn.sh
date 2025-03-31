@@ -30,6 +30,25 @@ proj() {
 	return 0
 }
 
+configuration() {
+	local config_dir=$HOME/.dotfiles/.config
+	case "$1" in;
+		"ghostty" | "tty") cd $config_dir/ghostty ;;
+		"nix" | "darwin") cd $config_dir/nix-darwin ;;
+		"nvim" | "neovim") cd $config_dir/nvim ;;
+		"zsh") cd $config_dir/zsh ;;
+		"-h" | "--help")
+			cat <<-EOF
+			Usage:
+			  config [ghostty|nix|nvim|zsh]
+			EOF
+			;;
+		"..") cd $HOME/.dotfiles ;;
+		*) cd $config_dir ;;
+	esac
+	return 0
+}
+
 b64() {
 	if [[ ! $1 ]]; then
 		echo "b64: not enough arguments"
