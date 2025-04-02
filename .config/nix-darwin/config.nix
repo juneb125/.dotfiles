@@ -1,5 +1,5 @@
 # -- General Config --
-{ inputs, pkgs,... }: {
+{ inputs, pkgs, pkgs-unstable, ... }: {
 
 	# imports = [];
 
@@ -9,18 +9,19 @@
 	};
 
 	# search for packages in https://search.nixos.org/packages
-	environment.systemPackages = with pkgs; [
+	environment.systemPackages = (with pkgs; [
 		# bat
-		deno     # literally just for a neovim .md renderer plugin :/
 		erlang_27   # required for gleam
 		fastfetch
 		git
-		gleam
 		neovim
 		rebar3
 		starship # prompt customization
 		zsh      # shell
-	];
+	]) ++ (with pkgs-unstable; [
+		deno
+		gleam
+	]);
 
 	fonts.packages = with pkgs; [
 		jetbrains-mono
