@@ -28,12 +28,24 @@ map(nv, "<Space>", "<Nop>", opts(false, "")) -- disables default "<Space>" map t
 map(nv, "<C-b>", "^", opts(false, "Go to first non-blank char in current line"))
 map(nv, "<C-e>", "$", opts(false, "Go to last char in current line"))
 
--- Window resizing
+-- window resizing
 -- -/+ for vertical, shift and -/+ for horizontal
 map("n", "-", "<cmd>vertical resize -5<CR>", opts(true, "Resize vertical split (smaller)"))
 map("n", "=", "<cmd>vertical resize +5<CR>", opts(true, "Resize vertical split (bigger)"))
 map("n", "_", "<cmd>horizontal resize -5<CR>", opts(true, "Resize horizontal split (smaller)"))
 map("n", "+", "<cmd>horizontal resize +5<CR>", opts(true, "Resize horizontal split (bigger)"))
+
+-- keep selection when changing indentation
+-- from the person who wrote the 'map()' function above
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
+-- shuffle lines around
+-- from the person who wrote the 'map()' function above
+map("n", "<A-j>", "<cmd>m .+1<CR>==")
+map("n", "<A-k>", "<cmd>m .-2<CR>==")
+map("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv")
+map("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv")
 
 map("n", "<leader>.", function()
 	vim.cmd.vnew()
