@@ -30,7 +30,7 @@ proj() {
 	return 0
 }
 
-configuration() {
+config() {
 	local config_dir=$HOME/.dotfiles/.config
 	case "$1" in;
 		"ghostty" | "tty") cd $config_dir/ghostty ;;

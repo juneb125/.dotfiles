@@ -4,7 +4,6 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias dotfiles='cd ~/.dotfiles'
-alias config='cd ~/.dotfiles/.config'
 
 # 'ls'
 alias la='ls -aG'
