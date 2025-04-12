@@ -1,5 +1,5 @@
 # -- General Config --
-{ inputs, lib ? <nixpkgs/lib>, pkgs, pkgs-unstable, ... }: {
+{ inputs, lib, pkgs, pkgs-unstable, ... }: {
 
 	# imports = [];
 
@@ -48,10 +48,8 @@
 	services.nix-daemon.enable = true;
 	# nix.package = pkgs.nix;
 	
-	nixpkgs.config.zsh = {
+	programs.zsh = {
 		enable = true;
-		autocd = true;
-		# ...
 	};
 
 	nixpkgs.config.git = {
