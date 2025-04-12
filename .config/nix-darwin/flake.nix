@@ -14,17 +14,17 @@
   let
 		inherit (self) outputs;
 		# localHostName = "Junes-MacBook-Air";
-		# system = "aarch64-darwin";
+		sys = "aarch64-darwin";
   in
   {
     # (re-)build darwin flake using:
     # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
     darwinConfigurations."Junes-MacBook-Air" = darwin.lib.darwinSystem {
-			system = "aarch64-darwin";
+			system = sys;
 			modules = [ ./config.nix ];
 			specialArgs = {
 				inherit inputs outputs;
-				pkgs-unstable = import nixpkgs-unstable { system = "aarch64-darwin"; };
+				pkgs-unstable = import nixpkgs-unstable { system = sys; };
 			};
     };
   };
