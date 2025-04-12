@@ -22,10 +22,7 @@ proj() {
 			  proj [rs|xcode|web|misc]
 			EOF
 			;;
-		*)
-			echo "proj: unknown argument"
-			return 1
-			;;
+		*) cd $proj_dir ;;
 	esac
 	return 0
 }
