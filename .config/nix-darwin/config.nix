@@ -1,27 +1,34 @@
 # -- General Config --
-{ inputs, pkgs, pkgs-unstable, ... }: {
+{ inputs, lib ? <nixpkgs/lib>, pkgs, pkgs-unstable, ... }: {
 
 	# imports = [];
 
 	nixpkgs = {
-		config.allowUnfree = true; # allow unfree (not open-source) pkgs
+		config.allowUnfree = true;       # allow unfree (i.e., not open-source) pkgs
 		hostPlatform = "aarch64-darwin"; # platform the config will be used on
 	};
 
-	# search for packages in https://search.nixos.org/packages
-	environment.systemPackages = (with pkgs; [
-		# bat
-		erlang_27   # required for gleam
-		fastfetch
-		git
-		neovim
-		rebar3
-		starship # prompt customization
-		zsh      # shell
-	]) ++ (with pkgs-unstable; [
-		deno
-		gleam
-	]);
+	environment = {
+		shells = [ pkgs.zsh ];
+
+		# search for packages in https://search.nixos.org/packages
+		systemPackages = (with pkgs; [
+				# bat
+				erlang_27   # required for gleam
+				fastfetch
+				git
+				neovim
+				rebar3
+				starship # prompt customization
+		]) ++ (with pkgs-unstable; [
+			deno
+			gleam
+		]);
+
+		variables = {
+			SHELL = lib.getExe pkgs.zsh;
+		};
+	};
 
 	fonts.packages = with pkgs; [
 		jetbrains-mono
