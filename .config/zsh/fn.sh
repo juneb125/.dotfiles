@@ -75,3 +75,14 @@ b64() {
 	fi
 	return 0
 }
+
+finder() {
+	if [[ $1 && -d $1 ]]; then
+		open $1 -a Finder.app
+		return $?
+	elif [[ $1 && ! -d $1 ]]; then
+		echo "input path doesn't exist\nopening Finder..."
+	fi
+	open -a Finder.app
+	return $?
+}
