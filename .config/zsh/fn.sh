@@ -13,22 +13,25 @@ xcode() {
 	return $?
 }
 
+# TODO: write help message
 proj() {
 	local proj_dir=$HOME/Desktop/Coding
+
 	case "$1" in;
+		"") cd $proj_dir ;;
 		"rs") cd $proj_dir/RustProjects ;;
 		"xc" | "xcode") cd $proj_dir/XcodeProjects ;;
 		"web") cd $proj_dir/WebDevProjects ;;
 		"misc") cd $proj_dir/MiscProjects ;;
-		"-h" | "--help")
-			cat <<-EOF
-			Usage:
-			  proj [rs|xcode|web|misc]
-			EOF
-			;;
-		*) cd $proj_dir ;;
+		"-h" | "--help") echo "help message..." ;;
+		*) if [[ -d $1 ]]; then
+			cd $proj_dir/$1
+		else
+			echo "proj: couldn't find $1 in ${proj_dir}"
+			return 1
+		fi ;;
 	esac
-	return 0
+	return $?
 }
 
 config() {
