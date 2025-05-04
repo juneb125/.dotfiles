@@ -68,12 +68,14 @@ b64() {
 }
 
 finder() {
-	if [[ $1 && -d $1 ]]; then
-		open $1 -a Finder.app
-		return $?
-	elif [[ $1 && ! -d $1 ]]; then
-		echo "input path doesn't exist\nopening Finder..."
-	fi
-	open -a Finder.app
+	case "$1" in;
+		"") open -a Finder.app ;;
+		*) if [[ -d $1 || -f $1 ]]; then
+			open $1 -a Finder.app
+		else
+			echo "xcode: $1 doesn't exist"
+			return 1
+		fi ;;
+	esac
 	return $?
 }
