@@ -1,12 +1,16 @@
 #!/usr/bin/env zsh
 
 xcode() {
-	if [[ $1 ]]; then
-		open $1 -a Xcode.app
-	else
-		open -a Xcode.app
-	fi
-	return 0
+	case "$1" in;
+		"") open -a Xcode.app ;;
+		*) if [[ -d $1 || -f $1 ]]; then
+			open $1 -a Xcode.app
+		else
+			echo "xcode: $1 doesn't exist"
+			return 1
+		fi ;;
+	esac
+	return $?
 }
 
 proj() {
