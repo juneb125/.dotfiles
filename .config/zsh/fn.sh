@@ -34,23 +34,25 @@ proj() {
 	return $?
 }
 
+# TODO: write help message
 config() {
 	local config_dir=$HOME/.dotfiles/.config
+
 	case "$1" in;
+		"") cd $config_dir ;;
 		"ghostty" | "tty") cd $config_dir/ghostty ;;
-		"nix" | "darwin") cd $config_dir/nix-darwin ;;
+		"nix") cd $config_dir/nix-darwin ;;
 		"nvim" | "neovim") cd $config_dir/nvim ;;
 		"zsh") cd $config_dir/zsh ;;
-		"-h" | "--help")
-			cat <<-EOF
-			Usage:
-			  config [ghostty|nix|nvim|zsh]
-			EOF
-			;;
-		"..") cd $HOME/.dotfiles ;;
-		*) cd $config_dir ;;
+		"-h" | "--help") echo "help message..." ;;
+		*) if [[ -d $1 ]]; then
+			cd $config_dir/$1
+		else
+			echo "config: couldn't find $1 in ${config_dir}"
+			return 1
+		fi ;;
 	esac
-	return 0
+	return $?
 }
 
 b64() {
