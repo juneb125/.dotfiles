@@ -55,34 +55,16 @@ config() {
 	return $?
 }
 
+# TODO: write help message
 b64() {
-	if [[ ! $1 ]]; then
-		echo "b64: not enough arguments"
-		return 1
-	fi
-
 	case "$1" in;
-		"-h" | "--help")
-			cat <<-EOF
-			Usage:
-			  b64 [<string>] [options]
-
-			Options:
-			  -d, --decode   Decode <string> from base64
-			  -e, --encode   Encode <string> as base64 [default]
-			  -h, --help     Show this help message
-			EOF
-			return 0
-			;;
-		*) ;;
+		"")
+			echo "b64: expected 1 argument, got none"
+			return 1 ;;
+		"-h" | "--help") echo "help message..." ;;
+		*) echo -n "$1" | base64 $2 ;;
 	esac
-	
-	if [[ $2 ]]; then
-		echo -n "$1" | base64 $2
-	else;
-		echo -n "$1" | base64
-	fi
-	return 0
+	return $?
 }
 
 finder() {
