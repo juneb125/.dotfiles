@@ -1,6 +1,6 @@
 {
-	imports = [
-		./git.nix
-		./nvim.nix
-	];
+  imports = [
+    ./git.nix
+    ./nvim.nix
+  ];
 }

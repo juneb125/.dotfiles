@@ -1,7 +1,7 @@
 # -- General Config --
 { config, inputs, lib, pkgs, pkgs-unstable, ... }: {
 
-	# imports = [];
+  # imports = [];
 
   nixpkgs = {
     config.allowUnfree = true; # allow unfree (i.e., not open-source) pkgs
@@ -13,25 +13,26 @@
 
     # search for packages in https://search.nixos.org/packages
     systemPackages = (with pkgs; [
-			alejandra
-			# bat
-			delta
-			erlang_27 # required for gleam
-			fastfetch
-			fd
-			git
-			neovim
-			rebar3    # also a gleam thing
-			ripgrep
-			starship  # prompt customization
-		]) ++ (with pkgs-unstable; [
-			deno
-			gleam
-		]);
+        alejandra
+        # bat
+        delta
+        erlang_27 # required for gleam
+        fastfetch
+        fd
+        git
+        neovim
+        rebar3 # also a gleam thing
+        ripgrep
+        starship # prompt customization
+      ])
+      ++ (with pkgs-unstable; [
+        deno
+        gleam
+      ]);
 
     variables = {
       SHELL = lib.getExe pkgs.zsh;
-			FLAKE_HOME = builtins.toString ./.;
+      FLAKE_HOME = builtins.toString ./.;
     };
   };
 
