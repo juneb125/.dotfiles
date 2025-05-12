@@ -1,5 +1,5 @@
 # -- General Config --
-{ inputs, lib, pkgs, pkgs-unstable, ... }: {
+{ config, inputs, lib, pkgs, pkgs-unstable, ... }: {
 
 	# imports = [];
 
@@ -13,20 +13,25 @@
 
     # search for packages in https://search.nixos.org/packages
     systemPackages = (with pkgs; [
-        # bat
-        erlang_27 # required for gleam
-        fastfetch
-        git
-        neovim
-        rebar3
-        starship # prompt customization
-      ]) ++ (with pkgs-unstable; [
-        deno
-        gleam
-      ]);
+			alejandra
+			# bat
+			delta
+			erlang_27 # required for gleam
+			fastfetch
+			fd
+			git
+			neovim
+			rebar3    # also a gleam thing
+			ripgrep
+			starship  # prompt customization
+		]) ++ (with pkgs-unstable; [
+			deno
+			gleam
+		]);
 
     variables = {
       SHELL = lib.getExe pkgs.zsh;
+			FLAKE_HOME = builtins.toString ./.;
     };
   };
 
@@ -50,24 +55,5 @@
 
   programs.zsh = {
     enable = true;
-  };
-
-  nixpkgs.config.git = {
-    enable = true;
-    userName = "juneb125";
-    userEmail = "jrbergeron823@gmail.com";
-    ignores = [
-      "*.DS_Store"
-      "*.swp"
-      "*.tmp*"
-    ];
-    config = {
-      init = { defaultBranch = "main"; };
-    };
-  };
-
-  nixpkgs.config.neovim = {
-    enable = true;
-    defaultEditor = true;
   };
 }
