@@ -36,7 +36,7 @@ proj() {
 
 # TODO: write help message
 config() {
-	local config_dir=$HOME/.dotfiles/.config
+	local config_dir=${XDG_CONFIG_HOME:-${HOME}/.dotfiles/.config}
 
 	case "$1" in;
 		"") cd $config_dir ;;
@@ -73,7 +73,7 @@ finder() {
 		*) if [[ -d $1 || -f $1 ]]; then
 			open $1 -a Finder.app
 		else
-			echo "xcode: $1 doesn't exist"
+			echo "finder: $1 doesn't exist"
 			return 1
 		fi ;;
 	esac
