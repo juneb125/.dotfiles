@@ -10,7 +10,7 @@ My personal configuration files
 **Quick Links**
 * [zsh](https://github.com/juneb125/.dotfiles/tree/main/.config/zsh)
 * [NeoVim](https://github.com/juneb125/.dotfiles/tree/main/.config/nvim)
-* [Nix](https://github.com/juneb125/.dotfiles/tree/main/.config/nix-darwin)
+* [Nix](https://github.com/juneb125/.dotfiles/tree/main/.config/nix)
 * [Ghostty](https://github.com/juneb125/.dotfiles/tree/main/.config/ghostty)
 
 ## Goals
