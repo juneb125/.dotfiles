@@ -86,6 +86,12 @@ Explanations\
 
 ### Tutorials
 **YouTube**
-* this amazing tutorial about using [`nixpkgs` as a package manager](https://www.youtube.com/watch?v=Z8BL8mdzWHI) by  Dreams of Code
+* this amazing tutorial about using [`nixpkgs` as a package manager](https://www.youtube.com/watch?v=Z8BL8mdzWHI) by Dreams of Code
+
+### Awesome Nix Configurations
+See <https://github.com/stars/juneb125/lists/awesome-nix-configs> for the full list
+* [`isabelroses/dotfiles`](https://github.com/isabelroses/dotfiles)
+* [`sioodmy/dotfiles`](https://github.com/sioodmy/dotfiles)
+<!-- * [``](https://github.com/) -->
 
 [^1]: the Nix foundation's home page and GitHub account are "nixos.org" and "NixOS", respectively. Both of which are the place where all Nix things are (for their specific platform), not just the NixOS Linux distribution
