@@ -2,6 +2,7 @@
 
 **Table of Contents**
 * [Rebuild Config](#rebuild-config)
+* [Structure](#structure)
 * [Resources](#resources)
 
 ## Rebuild Config
@@ -23,6 +24,45 @@ darwin-rebuild switch --flake path/to/flake/home#flake-name
 # or if you're already in your flake's home directory:
 darwin-rebuild switch --flake .#flake-name
 ```
+
+## Structure
+<!--
+```
+nix
+├── darwin/
+|   ├── default.nix
+|   └── ...
+├── modules/
+|   ├── shell/
+|   |   ├── aliases.nix
+|   |   ├── default.nix
+|   |   ├── starship.nix
+|   |   ├── zsh.nix
+|   |   └── ...
+|   ├── default.nix
+|   ├── git.nix
+|   ├── nvim.nix
+|   └── ...
+├── README.md
+├── config.nix
+├── flake.lock
+└── flake.nix
+```
+-->
+Explanations\
+| excludes all `default.nix` files
+* `darwin/` &mdash; darwin-specific modules (mostly just `system.defaults` stuff)
+* `modules/` &mdash; common configuration pieces
+    * `shell/` &mdash; shell-related configuration
+        * `aliases.nix` &mdash; all of my zsh aliases
+        * `starship.nix` &mdash; starship prompt configuration
+        * `zsh.nix` &mdash; (basically) nix-ified `.zshrc`
+    * `git.nix` &mdash; nix-ified `.gitconfig`
+    * `nvim.nix` &mdash; basically just enable nvim & set `vi` and `vim` to aliases to `nvim`
+* `README.md` &mdash; the thing you're reading right now :)
+* `config.nix` &mdash; my main configuration
+* `flake.lock` &mdash; the lockfile
+* `flake.nix` &mdash; the flake
 
 ## Resources
 ### Documentation
