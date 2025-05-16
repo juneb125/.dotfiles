@@ -1,7 +1,7 @@
 {
-	imports = [
-		./aliases.nix
-		./starship.nix
-		./zsh.nix
-	];
+  imports = [
+    ./aliases.nix
+    ./starship.nix
+    ./zsh.nix
+  ];
 }

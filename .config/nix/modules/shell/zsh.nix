@@ -4,7 +4,7 @@
     zshFnHome = "${builtins.getEnv "HOME"}/.dotfiles/.config/zsh";
   in {
     enable = true;
-		# shell aliases in ./aliases.nix
+    # shell aliases in ./aliases.nix
     history = {
       size = histsize;
       save = histsize;
@@ -19,8 +19,8 @@
       "hist_ignore_dups"
       "hist_find_no_dups"
     ];
-		# initExtraBeforeCompInit = ''
-		initExtra = ''
+    # initExtraBeforeCompInit = ''
+    initExtra = ''
       # Keybinds
       bindkey '^I' autosuggest-accept      # tab
       bindkey '^p' history-search-backward # ctrl p
