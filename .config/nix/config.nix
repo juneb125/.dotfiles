@@ -3,10 +3,8 @@
 
   # imports = [];
 
-  nixpkgs = {
-    config.allowUnfree = true; # allow unfree (i.e., not open-source) pkgs
-    hostPlatform = "aarch64-darwin"; # platform the config will be used on
-  };
+	# platform the config will be used on
+	nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment = {
     shells = [ pkgs.zsh ];
@@ -40,17 +38,10 @@
     jetbrains-mono
   ];
 
-  # necessary for using flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # set git commit hash for darwin-version
   system.configurationRevision = inputs.rev or inputs.dirtyRev or null;
 
   # used for backwards compatibility, read the changelog before changing
   # $ darwin-rebuild changelog
   system.stateVersion = 5;
-
-  # auto upgrade nix pkg and the daemon service
-  services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
 }
