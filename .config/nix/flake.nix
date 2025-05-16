@@ -22,6 +22,7 @@
       inherit system;
       modules = [
         ./config.nix
+        ./darwin
         ./modules
       ];
       specialArgs = {
