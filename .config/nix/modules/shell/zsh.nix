@@ -1,13 +1,15 @@
 { pkgs, config, ... }: {
   nixpkgs.config.zsh = let
-    histsize = 5000;
-    zshFnHome = "${builtins.getEnv "HOME"}/.dotfiles/.config/zsh";
+    histSize = 5000;
+		# should be $HOME/.dotfiles/.config/nix
+		flakeHome = builtins.toString ./../..;
+		zshFnHome = "${builtins.getEnv "HOME"}/.dotfiles/.config/zsh";
   in {
     enable = true;
     # shell aliases in ./aliases.nix
     history = {
-      size = histsize;
-      save = histsize;
+      size = histSize;
+      save = histSize;
       append = true;
     };
     setOptions = [
@@ -28,6 +30,10 @@
 
       # Functions
       source ${zshFnHome}/fn.sh
+    '';
+    envExtra = ''
+      export EDITOR='nvim'
+      export FLAKE_HOME=${flakeHome}
     '';
   };
 }
