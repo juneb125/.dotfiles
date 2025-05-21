@@ -25,7 +25,7 @@
 
 ## General Config
 `lua/config/*.lua`
-* `vim-options` &mdash; all of my general Vim settings
+* `settings` &mdash; all of my general Vim settings
 * `keymaps` &mdash; all of my non-plugin-related keymaps
 
 ## Plugins
