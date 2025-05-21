@@ -26,7 +26,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Vim settings
-require("config.vim-options") -- base customizations
+require("config.settings") -- base customizations
 require("config.keymaps")     -- keymaps
 
 -- Setup lazy.nvim
