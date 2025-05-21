@@ -27,17 +27,13 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Vim settings
 require("config.vim-options") -- base customizations
-require("config.keymaps") -- keymaps
+require("config.keymaps")     -- keymaps
 
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = "plugins",
-	install = {
-		-- colorscheme that will be used when installing plugins
-		colorscheme = { "catppuccin" },
-	},
-	checker = {
-		-- automatically check for plugin updates
-		enabled = true,
-	},
+	-- colorscheme that will be used when installing plugins
+	install = { colorscheme = { "catppuccin" } },
+	-- automatically check for plugin updates
+	checker = { enabled = true },
 })
