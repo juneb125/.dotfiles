@@ -13,7 +13,7 @@ opt.tabstop = 2                      -- number of columns occupied by a tab
 opt.shiftwidth = 2                   -- number of spaces to use for each step of (auto)indent
 opt.autoindent = true                -- indent a new line the same amount as the line just typed
 opt.smarttab = true                  -- make a <Tab> in front of a line insert spaces according to 'shiftwidth'
-opt.softtabstop = 2                  -- see multiple spaces as tabstops so <BS> does the right thing
+-- opt.softtabstop = 2               -- see multiple spaces as tabstops so <BS> does the right thing
 vim.cmd("filetype plugin indent on") -- allow auto-indenting depending on file type
 
 -- search settings
@@ -34,13 +34,3 @@ opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 -- default split window behavior
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
-
--- Auto Commands
-vim.api.nvim_create_augroup("TermGroup", { clear = true })
-vim.api.nvim_create_autocmd("TermOpen", {
-	pattern = { "snacks_terminal", "term" },
-	callback = function()
-		vim.cmd("startinsert")
-	end,
-	group = "TermGroup",
-})
