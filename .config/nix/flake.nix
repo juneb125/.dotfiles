@@ -10,24 +10,20 @@
     };
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, nixpkgs-unstable, ... }:
-	let
+  outputs = inputs@{ self, darwin, nixpkgs, nixpkgs-unstable, ... }: let
     inherit (self) outputs;
-    # localHostName = "Junes-MacBook-Air";
-    system = "aarch64-darwin";
+    inherit ((import ./lib) {inherit inputs outputs;}) mkDarwinSystem;
   in {
     # (re-)build darwin flake using:
     # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
-    darwinConfigurations."Junes-MacBook-Air" = darwin.lib.darwinSystem {
-      inherit system;
+    darwinConfigurations."Junes-MacBook-Air" = mkDarwinSystem {
       modules = [
         ./config.nix
         ./darwin
         ./modules
       ];
-      specialArgs = {
-        inherit inputs outputs;
-        pkgs-unstable = import nixpkgs-unstable {inherit system;};
+      specialArgs.pkgs-unstable = import nixpkgs-unstable {
+        system = "aarch64-darwin";
       };
     };
   };
