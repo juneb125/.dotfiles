@@ -1,10 +1,9 @@
 # -- General Config --
 { config, inputs, lib, pkgs, pkgs-unstable, ... }: {
-
   # imports = [];
 
-	# platform the config will be used on
-	nixpkgs.hostPlatform = "aarch64-darwin";
+  # platform the config will be used on
+  nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment = {
     shells = [ pkgs.zsh ];
@@ -18,6 +17,7 @@
         fastfetch
         fd
         git
+        just
         neovim
         rebar3 # also a gleam thing
         ripgrep
