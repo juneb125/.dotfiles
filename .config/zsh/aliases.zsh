@@ -3,7 +3,6 @@
 # Navigation
 alias ..='cd ..'
 alias ...='cd ../..'
-alias dotfiles='cd ~/.dotfiles'
 
 # 'ls'
 alias la='ls -aG'
@@ -25,7 +24,6 @@ alias vim='nvim'
 
 # Misc.
 alias c='clear'
-alias clr='clear'
 alias e='exit 0'
 alias scerr='scutil --error $?'
-alias clang-c='clang -std=c99 -Wall -Werror '
+# alias clang-c='clang -std=c99 -Wall -Werror '
