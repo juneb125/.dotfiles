@@ -26,42 +26,42 @@ darwin-rebuild switch --flake .#flake-name
 ```
 
 ## Structure
-<!--
 ```
-nix
+.
 ├── darwin/
-|   ├── default.nix
-|   └── ...
+|   └── default.nix
+├── lib/
+|   └── default.nix
 ├── modules/
 |   ├── shell/
 |   |   ├── aliases.nix
 |   |   ├── default.nix
 |   |   ├── starship.nix
-|   |   ├── zsh.nix
-|   |   └── ...
+|   |   └── zsh.nix
 |   ├── default.nix
 |   ├── git.nix
-|   ├── nvim.nix
-|   └── ...
+|   ├── nix.nix
+|   └── nvim.nix
 ├── README.md
 ├── config.nix
 ├── flake.lock
 └── flake.nix
 ```
--->
-Explanations\
-| excludes all `default.nix` files
+**Explanations**
+> excludes all `default.nix` files
 * `darwin/` &mdash; darwin-specific modules (mostly just `system.defaults` stuff)
-* `modules/` &mdash; common configuration pieces
+* `lib/` &mdash; useful functions
+* `modules/` &mdash; common/shared configuration pieces
     * `shell/` &mdash; shell-related configuration
         * `aliases.nix` &mdash; all of my zsh aliases
         * `starship.nix` &mdash; starship prompt configuration
-        * `zsh.nix` &mdash; (basically) nix-ified `.zshrc`
+        * `zsh.nix` &mdash; semi-nix-ified `.zshrc`
     * `git.nix` &mdash; nix-ified `.gitconfig`
-    * `nvim.nix` &mdash; basically just enable nvim & set `vi` and `vim` to aliases to `nvim`
+    * `nix.nix` &mdash; general nix settings
+    * `nvim.nix` &mdash; basically just enables nvim
 * `README.md` &mdash; the thing you're reading right now :)
 * `config.nix` &mdash; my main configuration
-* `flake.lock` &mdash; the lockfile
+* `flake.lock` &mdash; the flake's lockfile
 * `flake.nix` &mdash; the flake
 
 ## Resources
