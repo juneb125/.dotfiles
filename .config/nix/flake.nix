@@ -10,9 +10,10 @@
     };
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, nixpkgs-unstable, ... }: let
+  outputs = inputs@{ self, darwin, nixpkgs, ... }: let
     inherit (self) outputs;
-    inherit ((import ./lib) {inherit inputs outputs;}) mkDarwinSystem;
+    utils = import ./lib {inherit inputs outputs;};
+    inherit (utils) mkDarwinSystem;
   in {
     # (re-)build darwin flake using:
     # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
@@ -22,7 +23,7 @@
         ./darwin
         ./modules
       ];
-      specialArgs.pkgs-unstable = import nixpkgs-unstable {
+      specialArgs.pkgs-unstable = import inputs.nixpkgs-unstable {
         system = "aarch64-darwin";
       };
     };
