@@ -45,7 +45,7 @@ What I'm using:
 4. I set up my text editor, NeoVim, by following [this amazing Typecraft YouTube playlist](https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn)
     <details>
         <summary>my tips on how to learn Vim / NeoVim</summary>
-        <ol>
+        <ol type="a">
             <li>learn the basic Vim motions (how to move around a file and around a workspace), especially how to exit Vim :)</li>
             <li>turn on "Vim mode" in your current code editor</li>
             <li>when you feel comfortable with the motions, start using Vim (the regular Vim) in your terminal</li>
@@ -55,7 +55,7 @@ What I'm using:
         <p>I believe in you! <3</p>
     </details>
 
-**Quickstart**
+**Quickstart**\
 Prerequisites: `git`, `nix`
 1. clone this repository using git
     ```
