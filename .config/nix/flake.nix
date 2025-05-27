@@ -27,5 +27,7 @@
         system = "aarch64-darwin";
       };
     };
+
+		templates = import ./templates;
   };
 }
