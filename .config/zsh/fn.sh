@@ -41,7 +41,7 @@ config() {
 	case "$1" in;
 		"") cd $config_dir ;;
 		"ghostty" | "tty") cd $config_dir/ghostty ;;
-		"nix") cd $config_dir/nix-darwin ;;
+		"nix") cd $config_dir/nix ;;
 		"nvim" | "neovim") cd $config_dir/nvim ;;
 		"zsh") cd $config_dir/zsh ;;
 		"-h" | "--help") echo "help message..." ;;
