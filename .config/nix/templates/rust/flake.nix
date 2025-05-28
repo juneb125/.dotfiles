@@ -2,10 +2,10 @@
   description = "Rust project flake template";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs, }: let
+  outputs = { self, nixpkgs }: let
     systems = [
       "x86_64-linux"
       "aarch64-linux"
