@@ -14,6 +14,8 @@
     inherit (self) outputs;
     utils = import ./lib {inherit inputs outputs;};
     inherit (utils) mkDarwinSystem;
+
+    pkgs-unstable = import inputs.nixpkgs-unstable {system = "aarch64-darwin";};
   in {
     # (re-)build darwin flake using:
     # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
@@ -23,9 +25,7 @@
         ./darwin
         ./modules
       ];
-      specialArgs.pkgs-unstable = import inputs.nixpkgs-unstable {
-        system = "aarch64-darwin";
-      };
+      specialArgs = {inherit pkgs-unstable;};
     };
 
     templates = import ./templates;
