@@ -49,7 +49,8 @@ darwin-rebuild switch --flake .#flake-name
 ├── README.md
 ├── config.nix
 ├── flake.lock
-└── flake.nix
+├── flake.nix
+└── justfile
 ```
 **Explanations**
 > excludes all `default.nix` files
@@ -68,6 +69,7 @@ darwin-rebuild switch --flake .#flake-name
 * `config.nix` &mdash; my main configuration
 * `flake.lock` &mdash; the flake's lockfile
 * `flake.nix` &mdash; the flake
+* `justfile` &mdash; makes rebuilding & checking the flake *soooo* much easier
 
 ## Resources
 ### Documentation
