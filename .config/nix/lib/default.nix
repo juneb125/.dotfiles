@@ -1,5 +1,5 @@
 { inputs, outputs, ... }: let
-	inherit (inputs) darwin;
+  inherit (inputs) darwin;
 
   # mostly from github:kclejeune/system/flake.nix#L55-68
   mkDarwinSystem = {

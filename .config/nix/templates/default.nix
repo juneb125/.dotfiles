@@ -1,6 +1,6 @@
 {
-	rust = {
-		path = ./rust;
-		description = "Rust project flake template";
-	};
+  rust = {
+    path = ./rust;
+    description = "Rust project flake template";
+  };
 }

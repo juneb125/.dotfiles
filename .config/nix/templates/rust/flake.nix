@@ -13,10 +13,10 @@
       "aarch64-darwin"
     ];
     forEachSystem = nixpkgs.lib.genAttrs systems;
-		callPkg = sys: nixpkgs.legacyPackages.${sys}.callPackage;
-	in {
+    callPkg = sys: nixpkgs.legacyPackages.${sys}.callPackage;
+  in {
     packages = forEachSystem (system: {
-			default = callPkg system ./default.nix {};
+      default = callPkg system ./default.nix {};
     });
   };
 }

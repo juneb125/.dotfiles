@@ -28,6 +28,6 @@
       };
     };
 
-		templates = import ./templates;
+    templates = import ./templates;
   };
 }
