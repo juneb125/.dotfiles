@@ -79,3 +79,15 @@ finder() {
 	esac
 	return $?
 }
+
+# from github:theopn/dotfiles/zsh/.zshrc
+mkcd() {
+	mkdir -p $1 && cd $1
+}
+
+# from the same person who wrote `mkcd`
+numfiles() {
+	local dir=${1:-.}
+	local num=$(ls -A $dir | wc -l)
+	echo "$num files in $dir"
+}
