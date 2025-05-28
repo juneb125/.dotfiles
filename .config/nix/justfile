@@ -1,0 +1,13 @@
+# inspired github:isabelroses/dotfiles/justfile
+
+rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
+check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
+
+default:
+    @just --list
+
+switch name:
+    {{ rebuild }} switch --flake {{ name }}
+
+check name:
+    {{ check }} --flake {{ name }} --show-trace
