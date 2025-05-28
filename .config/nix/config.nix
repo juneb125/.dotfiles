@@ -1,5 +1,5 @@
 # -- General Config --
-{ config, inputs, lib, pkgs, pkgs-unstable, ... }: {
+{ inputs, lib, pkgs, pkgs-unstable, ... }: {
   # imports = [];
 
   # platform the config will be used on

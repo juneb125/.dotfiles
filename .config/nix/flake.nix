@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = inputs@{ self, darwin, nixpkgs, ... }: let
+  outputs = inputs@{ self, nixpkgs, ... }: let
     inherit (self) outputs;
     utils = import ./lib {inherit inputs outputs;};
     inherit (utils) mkDarwinSystem;
