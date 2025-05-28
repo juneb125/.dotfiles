@@ -21,6 +21,21 @@
         "type": "github"
       }
     },
+    "flake-templates": {
+      "locked": {
+        "lastModified": 1748467929,
+        "narHash": "sha256-9fXN5ls2BjNxKWwhBFKnE313s25lrf28f8v87owXmCo=",
+        "owner": "juneb125",
+        "repo": "ft",
+        "rev": "7e3eb86c2bd9e46e6b7b650a4948af3410c6121f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "juneb125",
+        "repo": "ft",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1746690571,
@@ -56,6 +71,7 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "flake-templates": "flake-templates",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }

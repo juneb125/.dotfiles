@@ -8,6 +8,7 @@
       url = "github:nix-darwin/nix-darwin/nix-darwin-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-templates.url = "github:juneb125/ft";
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: let
@@ -28,6 +29,6 @@
       specialArgs = {inherit pkgs-unstable;};
     };
 
-    templates = import ./templates;
+    templates = import inputs.flake-templates {};
   };
 }
