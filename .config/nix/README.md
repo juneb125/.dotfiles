@@ -42,10 +42,6 @@ darwin-rebuild switch --flake .#flake-name
 |   ├── git.nix
 |   ├── nix.nix
 |   └── nvim.nix
-├── templates/
-|   ├── rust/
-|   |   └── ...
-|   └── default.nix
 ├── README.md
 ├── config.nix
 ├── flake.lock
@@ -64,7 +60,6 @@ darwin-rebuild switch --flake .#flake-name
     * `git.nix` &mdash; nix-ified `.gitconfig`
     * `nix.nix` &mdash; general nix settings
     * `nvim.nix` &mdash; basically just enables nvim
-* `templates/` &mdash; flake templates you can use for your projects :)
 * `README.md` &mdash; the thing you're reading right now :)
 * `config.nix` &mdash; my main configuration
 * `flake.lock` &mdash; the flake's lockfile
