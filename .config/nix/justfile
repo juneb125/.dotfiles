@@ -1,4 +1,4 @@
-# inspired github:isabelroses/dotfiles/justfile
+# inspired by github:isabelroses/dotfiles/justfile
 
 rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
 check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
