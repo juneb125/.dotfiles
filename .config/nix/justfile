@@ -1,4 +1,5 @@
 # inspired by github:isabelroses/dotfiles/justfile
+# 'update' recipe from github:foo-dogsquared/nixos-config/Justfile
 
 rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
 check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
@@ -11,3 +12,7 @@ switch name:
 
 check name:
     {{ check }} --flake {{ name }} --show-trace
+
+update:
+    git checkout -- flake.lock
+    nix flake update --commit-lock-file
