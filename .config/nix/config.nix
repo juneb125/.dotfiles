@@ -1,32 +1,30 @@
 # -- General Config --
-{ inputs, lib, pkgs, pkgs-unstable, ... }: {
+{ inputs, lib, pkgs, ... }: {
   # imports = [];
 
   # platform the config will be used on
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment = {
-    shells = [ pkgs.zsh ];
+    shells = [pkgs.zsh];
 
     # search for packages in https://search.nixos.org/packages
-    systemPackages = (with pkgs; [
-        alejandra
-        # bat
-        delta
-        erlang_27 # required for gleam
-        fastfetch
-        fd
-        git
-        just
-        neovim
-        rebar3 # also a gleam thing
-        ripgrep
-        starship # prompt customization
-      ])
-      ++ (with pkgs-unstable; [
-        deno
-        gleam
-      ]);
+    systemPackages = with pkgs; [
+      alejandra
+      # bat
+      delta
+      deno
+      erlang_27 # required for gleam
+      fastfetch
+      fd
+      git
+      gleam
+      just
+      neovim
+      rebar3 # also a gleam thing
+      ripgrep
+      starship # prompt customization
+    ];
 
     variables = {
       SHELL = lib.getExe pkgs.zsh;
