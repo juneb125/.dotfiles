@@ -1,5 +1,6 @@
 { inputs, outputs, ... }: let
   inherit (inputs) darwin;
+  inherit (inputs.stdenv) isDarwin;
 
   # mostly from github:kclejeune/system/flake.nix#L55-68
   mkDarwinSystem = {
@@ -12,7 +13,11 @@
       inherit system modules;
       specialArgs = {inherit inputs outputs nixpkgs;} // specialArgs;
     };
-  # more functions coming soon...
+
+  homePrefix =
+    if isDarwin
+    then "/Users"
+    else "/home";
 in {
-  inherit mkDarwinSystem;
+  inherit mkDarwinSystem isDarwin homePrefix;
 }
