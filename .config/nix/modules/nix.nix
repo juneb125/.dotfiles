@@ -1,4 +1,6 @@
 { pkgs, config, ... }: {
+  nix.enable = true;
+
   # allow unfree (i.e., not open-source) pkgs
   nixpkgs.config.allowUnfree = true;
 
@@ -7,14 +9,12 @@
 
   nix.gc = {
     automatic = true;
-		# bimonthly
+    # bimonthly
     interval = [
       {Day = 1;}
       {Day = 15;}
     ];
   };
 
-  # auto upgrade nix pkg and the daemon service
-  services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
 }
