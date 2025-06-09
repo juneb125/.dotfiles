@@ -37,6 +37,10 @@ source ~/.dotfiles/.env
 source ~/.dotfiles/.config/zsh/aliases.zsh
 source ~/.dotfiles/.config/zsh/fn.sh
 
+if [[ "$(uname -s)" == [dD]arwin* ]]; then
+  source ~/.dotfiles/.config/zsh/macos.sh
+fi
+
 # -- Zinit (plugin manager) --
 
 # Initializing
