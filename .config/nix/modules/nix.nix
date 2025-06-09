@@ -7,14 +7,5 @@
   # necessary for using flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  nix.gc = {
-    automatic = true;
-    # bimonthly
-    interval = [
-      {Day = 1;}
-      {Day = 15;}
-    ];
-  };
-
   # nix.package = pkgs.nix;
 }
