@@ -26,7 +26,7 @@ What I'm using:
 * *device* &mdash; MacBook Air M1 (2020)
 * *operating system* &mdash; MacOS 15 (Sequoia)
 * *terminal emulator* &mdash; Ghostty
-* *package manager* &mdash; `nixpkgs` (version 24.11)
+* *package manager* &mdash; `nixpkgs` (version 25.05)
 * *languages I've been working with*:
     * Rust
     * Gleam
