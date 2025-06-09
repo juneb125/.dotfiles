@@ -15,8 +15,7 @@
     utils = import ./lib {inherit inputs outputs;};
     inherit (utils) mkDarwinSystem;
   in {
-    # (re-)build darwin flake using:
-    # $ darwin-rebuild switch --flake path/to/nix-darwin#Your-Flake-Name
+    # see README.md for how to (re-)build darwin config
     darwinConfigurations."Junes-MacBook-Air" = mkDarwinSystem {
       modules = [
         ./config.nix
