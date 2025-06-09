@@ -3,7 +3,6 @@
     # navigation
     ".." = "cd ..";
     "..." = "cd ../..";
-    dotfiles = "cd ~/.dotfiles";
 
     # 'ls'
     la = "ls -aG";
@@ -25,9 +24,7 @@
 
     # misc.
     c = "clear";
-    clr = "clear";
     e = "exit 0";
     scerr = "scutil --error";
-    clang-c = "clang -std=c99 -Wall -Werror ";
   };
 }
