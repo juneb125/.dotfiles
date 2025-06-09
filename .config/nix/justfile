@@ -15,4 +15,7 @@ check name:
 
 update:
     git checkout -- flake.lock
-    nix flake update --commit-lock-file
+    nix flake update
+
+gc period:
+    nix-garbage-collect --delete-older-than {{ period }}
