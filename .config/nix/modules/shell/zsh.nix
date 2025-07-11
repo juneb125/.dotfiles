@@ -12,6 +12,13 @@
       save = histSize;
       append = true;
     };
+
+    # line editor options
+    enableSyntaxHighlighting = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+
+    # misc. options
     setOptions = [
       "append_history"
       "share_history"
@@ -21,6 +28,8 @@
       "hist_ignore_dups"
       "hist_find_no_dups"
     ];
+
+    # extras
     initExtra = ''
       # Keybinds
       bindkey '^I' autosuggest-accept      # tab
