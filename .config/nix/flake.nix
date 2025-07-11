@@ -16,7 +16,7 @@
     inherit (utils) mkSystem;
   in {
     # see README.md for how to (re-)build darwin config
-    darwinConfigurations."Junes-MacBook-Air" = mkSystem.darwin {
+    darwinConfigurations."air" = mkSystem.darwin {
       modules = [
         ./config.nix
         ./darwin
