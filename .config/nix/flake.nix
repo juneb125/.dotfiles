@@ -13,10 +13,10 @@
   outputs = inputs@{ self, nixpkgs, ... }: let
     inherit (self) outputs;
     utils = import ./lib {inherit inputs outputs;};
-    inherit (utils) mkDarwinSystem;
+    inherit (utils) mkSystem;
   in {
     # see README.md for how to (re-)build darwin config
-    darwinConfigurations."Junes-MacBook-Air" = mkDarwinSystem {
+    darwinConfigurations."Junes-MacBook-Air" = mkSystem.darwin {
       modules = [
         ./config.nix
         ./darwin
