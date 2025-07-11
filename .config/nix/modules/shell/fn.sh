@@ -66,3 +66,45 @@ numfiles() {
   local num=$(ls -A $dir | wc -l)
   echo "$num files in $dir"
 }
+
+as_lower() {
+  echo "${1}" | tr '[:upper:]' '[:lower:]'
+}
+
+# TODO: get more license uri's
+# inspired by github:sioodmy/dotfiles/user/wrapped/zsh/aliases.nix
+license() {
+  local license_type="$(as_lower $1)"
+  local license_uri=""
+  case $license_type in;
+    # "apache-2" | "apache-2.0") license_uri="" ;;
+    "gpl-3" | "gpl-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
+    "mit") license_uri="https://raw.githubusercontent.com/juneb125/pict/main/LICENSE" ;;
+    # "un" | "unlicense") license_uri="" ;;
+
+    "-h" | "--help")
+      cat <<EOF
+Get a license's content
+
+Usage:
+  license <TYPE> [OUTPUT]
+  license --help
+
+Arguments:
+  <TYPE>    what kind of license [possible values: "mit", "apache-2.0", "gpl-3.0"]
+  [OUTPUT]  where the license's content should go
+EOF
+      return 0
+      ;;
+    *)
+      printf '%s\n%s\n' "license: unrecognized license type" 'possible values: ["mit", "gpl-3"]'
+      return 1
+  esac
+
+  if [[ -z $2 ]]; then
+    curl ${license_uri}
+  else
+    curl ${license_uri} -o $2
+  fi
+  return $?
+}
