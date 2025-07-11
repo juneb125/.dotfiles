@@ -20,9 +20,9 @@
       "*.swp"
       "*.tmp*"
     ];
-		delta = {
-			enable = true;
-		};
+    delta = {
+      enable = true;
+    };
     config = {
       init.defaultBranch = "main";
       core.editor = "nvim";

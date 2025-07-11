@@ -1,9 +1,9 @@
 { pkgs, config, ... }: {
   nixpkgs.config.zsh = let
     histSize = 5000;
-		# should be $HOME/.dotfiles/.config/nix
-		flakeHome = builtins.toString ./../..;
-		zshFnHome = "${builtins.getEnv "HOME"}/.dotfiles/.config/zsh";
+    # should be $HOME/.dotfiles/.config/nix
+    flakeHome = builtins.toString ./../..;
+    zshFnHome = "${builtins.getEnv "HOME"}/.dotfiles/.config/zsh";
   in {
     enable = true;
     # shell aliases in ./aliases.nix
@@ -21,7 +21,6 @@
       "hist_ignore_dups"
       "hist_find_no_dups"
     ];
-    # initExtraBeforeCompInit = ''
     initExtra = ''
       # Keybinds
       bindkey '^I' autosuggest-accept      # tab
