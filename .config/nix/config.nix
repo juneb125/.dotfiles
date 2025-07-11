@@ -11,7 +11,7 @@
     # search for packages in https://search.nixos.org/packages
     systemPackages = with pkgs; [
       alejandra
-      # bat
+      bat
       delta
       deno
       erlang_27 # required for gleam
