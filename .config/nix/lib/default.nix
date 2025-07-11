@@ -1,7 +1,7 @@
 { inputs, outputs, ... }: let
   inherit (inputs) darwin;
   inherit (inputs.stdenv) isDarwin;
-
+in {
   # mostly from github:kclejeune/system/flake.nix#L55-68
   mkDarwinSystem = {
     system ? "aarch64-darwin",
@@ -18,6 +18,6 @@
     if isDarwin
     then "/Users"
     else "/home";
-in {
-  inherit mkDarwinSystem isDarwin homePrefix;
+
+  inherit isDarwin;
 }
