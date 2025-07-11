@@ -38,6 +38,7 @@ darwin-rebuild switch --flake .#flake-name
 |   |   ├── default.nix
 |   |   ├── starship.nix
 |   |   └── zsh.nix
+|   ├── cli.nix
 |   ├── default.nix
 |   ├── git.nix
 |   ├── nix.nix
@@ -57,6 +58,7 @@ darwin-rebuild switch --flake .#flake-name
         * `aliases.nix` &mdash; all of my zsh aliases
         * `starship.nix` &mdash; starship prompt configuration
         * `zsh.nix` &mdash; semi-nix-ified `.zshrc`
+    * `cli.nix` &mdash; where all of the smaller CLI configurations go
     * `git.nix` &mdash; nix-ified `.gitconfig`
     * `nix.nix` &mdash; general nix settings
     * `nvim.nix` &mdash; basically just enables nvim
