@@ -24,6 +24,6 @@
       ];
     };
 
-    templates = import inputs.flake-templates {};
+    inherit (inputs.flake-templates) templates;
   };
 }
