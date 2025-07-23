@@ -43,18 +43,6 @@ config() {
   return $?
 }
 
-# TODO: write help message
-b64() {
-  case "$1" in;
-    "")
-      echo "b64: expected 1 argument, got none"
-      return 1 ;;
-    "-h" | "--help") echo "help message..." ;;
-    *) echo -n "$1" | base64 $2 ;;
-  esac
-  return $?
-}
-
 # from github:theopn/dotfiles/zsh/.zshrc
 mkcd() {
   mkdir -p $1 && cd $1
