@@ -96,3 +96,33 @@ EOF
   fi
   return $?
 }
+
+gh-raw() {
+  local full_path=""
+  case "$1" in;
+    "")
+      echo "gh-raw: expected full path as \$1"
+      return 1
+      ;;
+    "-h" | "--help") cat <<EOF
+Curl \`raw.githubusercontent.com\` easier
+
+Usage:
+  gh-raw <FULL-PATH> [options...]
+
+Arguments:
+  <FULL-PATH>  the path to the file to curl
+                 in the structure of
+		 "<user>/<repo>/<branch>/<path-to-file>"
+
+Options:
+  ( all \`curl\` options apply )
+EOF
+      return $?
+      ;;
+    *) full_path="$1" ;;
+  esac
+
+  curl "https://raw.githubusercontent.com/${full_path}" ${*:2}
+  return $?
+}
