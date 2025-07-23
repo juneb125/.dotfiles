@@ -17,6 +17,7 @@
       fastfetch
       fd
       git
+      ghc
       gleam
       just
       neovim
