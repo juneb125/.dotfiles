@@ -1,4 +1,3 @@
-# -- General Config --
 { inputs, lib, pkgs, ... }: {
   # imports = [];
 
@@ -23,6 +22,7 @@
       neovim
       rebar3 # also a gleam thing
       ripgrep
+      shellcheck
       starship # prompt customization
     ];
 
