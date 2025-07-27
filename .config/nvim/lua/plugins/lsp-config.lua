@@ -1,27 +1,33 @@
 return {
 	{
 		"mason-org/mason.nvim",
-		opts = {}
+		opts = {},
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
-		opts = {};
+		opts = {},
 	},
 	{
 		"neovim/nvim-lspconfig",
-		config = function()
+		opts = {
+			_servers = {
+				"clangd",        -- c
+				"gleam",         -- gleam
+				"hls",           -- haskell
+				"lua_ls",        -- lua
+				"nil_ls",        -- nix
+				"rust_analyzer", -- rust
+				"sourcekit",     -- swift
+				"taplo",         -- toml
+			},
+		},
+		config = function(_, opts)
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+			-- local _lspconfig = require("lspconfig")
 
-			local lspconfig = require("lspconfig")
-
-			lspconfig.clangd.setup({ capabilities = capabilities })        -- c
-			lspconfig.gleam.setup({ capabilities = capabilities })         -- gleam
-			lspconfig.hls.setup({ capabilities = capabilities })           -- gleam
-			lspconfig.lua_ls.setup({ capabilities = capabilities })        -- lua
-			lspconfig.nil_ls.setup({ capabilities = capabilities })        -- nix
-			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust
-			lspconfig.sourcekit.setup({ capabilities = capabilities })     -- swift
-			lspconfig.taplo.setup({ capabilities = capabilities })         -- toml
+			for _, server in pairs(opts._servers) do
+				vim.lsp.config(server, { capabilities = capabilities })
+			end
 
 			local buf = vim.lsp.buf
 			local map = vim.keymap
