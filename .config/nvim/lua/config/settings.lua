@@ -9,11 +9,11 @@ opt.cursorline = true -- highlight current cursorline
 opt.showmatch = true  -- show matching brackets
 
 -- tabs & indentation
-opt.tabstop = 2                      -- number of columns occupied by a tab
-opt.shiftwidth = 2                   -- number of spaces to use for each step of (auto)indent
-opt.autoindent = true                -- indent a new line the same amount as the line just typed
-opt.smarttab = true                  -- make a <Tab> in front of a line insert spaces according to 'shiftwidth'
--- opt.softtabstop = 2               -- see multiple spaces as tabstops so <BS> does the right thing
+opt.tabstop = 2           -- number of columns occupied by a tab
+opt.shiftwidth = 2        -- number of spaces to use for each step of (auto)indent
+-- opt.autoindent = true  -- indent a new line the same amount as the line just typed
+-- opt.smarttab = true    -- make a <Tab> in front of a line insert spaces according to 'shiftwidth'
+opt.softtabstop = 2       -- see multiple spaces as tabstops so <BS> does the right thing
 vim.cmd("filetype plugin indent on") -- allow auto-indenting depending on file type
 
 -- search settings
