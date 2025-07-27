@@ -6,7 +6,7 @@
     zshFnHome = "${builtins.getEnv "HOME"}/.dotfiles/.config/zsh";
   in {
     enable = true;
-    # shell aliases in ./aliases.nix
+    shellAliases = import ./aliases.nix;
     history = {
       size = histSize;
       save = histSize;
