@@ -8,7 +8,6 @@
     userEmail = "jrbergeron823@gmail.com";
     aliases = {
       br = "branch";
-      cam = "commit -am";
       cl = "clone";
       cm = "commit -m";
       co = "checkout";
