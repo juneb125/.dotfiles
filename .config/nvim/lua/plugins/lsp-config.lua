@@ -16,6 +16,7 @@ return {
 
 			lspconfig.clangd.setup({ capabilities = capabilities })        -- c
 			lspconfig.gleam.setup({ capabilities = capabilities })         -- gleam
+			lspconfig.hls.setup({ capabilities = capabilities })           -- gleam
 			lspconfig.lua_ls.setup({ capabilities = capabilities })        -- lua
 			lspconfig.nil_ls.setup({ capabilities = capabilities })        -- nix
 			lspconfig.rust_analyzer.setup({ capabilities = capabilities }) -- rust
