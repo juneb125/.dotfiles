@@ -1,12 +1,9 @@
-.env
-*.env
+**.env
 
-*.DS_Store
-**/.DS_Store
+**.DS_Store
 
-Brewfile
-
-.config/raycast/**
+.config/ghc
+.config/raycast
 .config/terminal-app
 .config/warp
 .config/zed/**
