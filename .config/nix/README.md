@@ -36,6 +36,8 @@ darwin-rebuild switch --flake .#flake-name
 |   ├── shell/
 |   |   ├── aliases.nix
 |   |   ├── default.nix
+|   |   ├── fn.sh
+|   |   ├── macos.sh
 |   |   ├── starship.nix
 |   |   └── zsh.nix
 |   ├── cli.nix
@@ -56,6 +58,8 @@ darwin-rebuild switch --flake .#flake-name
 * `modules/` &mdash; common/shared configuration pieces
     * `shell/` &mdash; shell-related configuration
         * `aliases.nix` &mdash; all of my zsh aliases
+        * `fn.sh` &mdash; custom shell functions
+        * `macos.sh` &mdash; custom MacOS-specific shell functions
         * `starship.nix` &mdash; starship prompt configuration
         * `zsh.nix` &mdash; semi-nix-ified `.zshrc`
     * `cli.nix` &mdash; where all of the smaller CLI configurations go
