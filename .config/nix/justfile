@@ -1,17 +1,17 @@
 # inspired by github:isabelroses/dotfiles/justfile
 # 'update' recipe from github:foo-dogsquared/nixos-config/Justfile
 
-rebuild := if os() == "macos" { "sudo darwin-rebuild" } else { "nixos-rebuild" }
-check := if os() == "macos" { "sudo darwin-rebuild check" } else { "nixos-rebuild test" }
+rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
+check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
 
 default:
     @just --list
 
 switch name:
-    {{ rebuild }} switch --flake {{ name }}
+    sudo {{ rebuild }} switch --flake {{ name }}
 
 check name:
-    {{ check }} --flake {{ name }} --show-trace
+    sudo {{ check }} --flake {{ name }} --show-trace
 
 update:
     git checkout -- flake.lock
