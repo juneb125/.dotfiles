@@ -1,5 +1,5 @@
 { inputs, outputs, ... }: let
-  inherit (inputs) darwin;
+  inherit (inputs) nixpkgs darwin;
   inherit (inputs.stdenv) isDarwin;
 in {
   # mostly from github:kclejeune/system/flake.nix#L55-68
@@ -22,4 +22,6 @@ in {
     else "/home";
 
   inherit isDarwin;
+
+  forEachSystem = nixpkgs.lib.genAttrs ["aarch64-darwin"];
 }
