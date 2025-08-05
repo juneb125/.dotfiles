@@ -13,7 +13,7 @@
   outputs = inputs@{ self, nixpkgs, ... }: let
     inherit (self) outputs;
     utils = import ./lib {inherit inputs outputs;};
-    inherit (utils) mkSystem;
+    inherit (utils) mkSystem forEachSystem;
   in {
     # see README.md for how to (re-)build darwin config
     darwinConfigurations."air" = mkSystem.darwin {
@@ -23,6 +23,10 @@
         ./modules
       ];
     };
+
+		devShells = forEachSystem (system: let
+			pkgs = nixpkgs.legacyPackages.${system};
+		in import ./shells {inherit pkgs;});
 
     inherit (inputs.flake-templates) templates;
   };
