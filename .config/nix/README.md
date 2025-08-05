@@ -8,17 +8,13 @@
 ## Rebuild Config
 > [!NOTE]
 > By default, `nix-darwin` sets your flake's name to your machine's local host name. You can get your machine's local host name using the following shell command:
-> ```bash
-> # MacOS
+> ```sh
 > scutil --get LocalHostName
->
-> # Linux
-> hostname
 > ```
 > If your flake name is your local host name, you can omit the `#flake-name` part when rebuilding the configuration.
 
 Rebuild your `nix-darwin` configuration with this command:
-```bash
+```sh
 darwin-rebuild switch --flake path/to/flake/home#flake-name
 
 # or if you're already in your flake's home directory:
