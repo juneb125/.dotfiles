@@ -29,22 +29,22 @@ darwin-rebuild switch --flake .#flake-name
 ```
 .
 ├── darwin/
-|   └── default.nix
+│   └── default.nix
 ├── lib/
-|   └── default.nix
+│   └── default.nix
 ├── modules/
-|   ├── shell/
-|   |   ├── aliases.nix
-|   |   ├── default.nix
-|   |   ├── fn.sh
-|   |   ├── macos.sh
-|   |   ├── starship.nix
-|   |   └── zsh.nix
-|   ├── cli.nix
-|   ├── default.nix
-|   ├── git.nix
-|   ├── nix.nix
-|   └── nvim.nix
+│   ├── shell/
+│   │   ├── aliases.nix
+│   │   ├── default.nix
+│   │   ├── fn.sh
+│   │   ├── macos.sh
+│   │   ├── starship.nix
+│   │   └── zsh.nix
+│   ├── cli.nix
+│   ├── default.nix
+│   ├── git.nix
+│   ├── nix.nix
+│   └── nvim.nix
 ├── README.md
 ├── config.nix
 ├── flake.lock
