@@ -55,14 +55,18 @@ numfiles() {
   echo "$num files in $dir"
 }
 
-as_lower() {
-  echo "${1}" | tr '[:upper:]' '[:lower:]'
+toLower() {
+  echo "${1}" | tr 'A-Z' 'a-z'
+}
+
+toUpper() {
+  echo "${1}" | tr 'a-z' 'A-Z'
 }
 
 # TODO: get more license uri's
 # inspired by github:sioodmy/dotfiles/user/wrapped/zsh/aliases.nix
 license() {
-  local license_type="$(as_lower $1)"
+  local license_type="$(toLower $1)"
   local license_uri=""
   case $license_type in;
     # "apache-2" | "apache-2.0") license_uri="" ;;
