@@ -84,12 +84,14 @@ Usage:
 
 Arguments:
   <TYPE>    what kind of license [possible values: "mit", "apache-2.0", "gpl-3.0"]
-  [OUTPUT]  where the license's content should go
+  [OUTPUT]  where the license's content should go (default: stdout)
 EOF
       return 0
       ;;
     *)
-      printf '%s\n%s\n' "license: unrecognized license type" 'possible values: ["mit", "gpl-3"]'
+      printf '%s\n%s\n' \
+        "license: unrecognized license type" \
+        '         possible values: ["mit", "apache-2.0", "gpl-3.0"]'
       return 1
   esac
 
