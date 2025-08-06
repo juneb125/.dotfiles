@@ -8,11 +8,12 @@ proj() {
   case "$1" in;
     "") cd $proj_dir ;;
     "rs") cd $proj_dir/RustProjects ;;
-    "xc" | "xcode") cd $proj_dir/XcodeProjects ;;
+    "xc") cd $proj_dir/XcodeProjects ;;
     "web") cd $proj_dir/WebDevProjects ;;
+    "fn") cd $proj_dir/FnProjects ;;
     "misc") cd $proj_dir/MiscProjects ;;
     "-h" | "--help") echo "help message..." ;;
-    *) if [[ -d $1 ]]; then
+    *) if [[ -d "${proj_dir}/${1}" ]]; then
       cd $proj_dir/$1
     else
       echo "proj: couldn't find $1 in ${proj_dir}"
