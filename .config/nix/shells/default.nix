@@ -5,5 +5,6 @@ in rec {
   default = config;
   gleam = callPackage ./gleam.nix {};
   haskell = callPackage ./haskell.nix {};
+  mdbook = callPackage ./mdbook.nix {};
   rust = callPackage ./rust.nix {};
 }
