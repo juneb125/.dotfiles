@@ -17,6 +17,7 @@ map("n", "<leader>ca", buf.code_action)
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 })
 
 vim.lsp.enable({ "lua_ls" })
@@ -24,3 +25,22 @@ vim.lsp.enable({ "lua_ls" })
 require("mason").setup()
 
 vim.cmd("colorscheme catppuccin")
+
+require("gitsigns").setup({
+	signs = {
+		add = { text = "┃" },
+		change = { text = "┃" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+		untracked = { text = "┆" },
+	},
+	signs_staged = {
+		add = { text = "┃" },
+		change = { text = "┃" },
+		delete = { text = "_" },
+		topdelete = { text = "‾" },
+		changedelete = { text = "~" },
+		untracked = { text = "┆" },
+	},
+})
