@@ -2,16 +2,7 @@
 require("settings")
 
 -- Keymaps --
-vim.g.mapleader = " "
-
-local map = vim.keymap.set
-map("n", "<leader>o", "<cmd>update<CR> <cmd>source<CR>")
-map("n", "<leader>nh", "<cmd>nohlsearch<CR>", {})
-
-local buf = vim.lsp.buf
-map("n", "K", buf.hover)
-map("n", "<leader>gf", buf.format)
-map("n", "<leader>ca", buf.code_action)
+require("keymaps")
 
 -- Plugins --
 local gh = "https://github.com/"
