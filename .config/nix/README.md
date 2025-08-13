@@ -46,7 +46,9 @@ darwin-rebuild switch --flake .#flake-name
 ├── shells/
 │   ├── config.nix
 │   ├── default.nix
+│   ├── gleam.nix
 │   ├── haskell.nix
+│   ├── mdbook.nix
 │   └── rust.nix
 ├── README.md
 ├── flake.lock
@@ -68,11 +70,11 @@ darwin-rebuild switch --flake .#flake-name
     * `git.nix` &mdash; nix-ified `.gitconfig`
     * `nix.nix` &mdash; general nix settings
     * `nvim.nix` &mdash; basically just enables nvim
-* `profiles/` &mdash; a place for all the different `configuration.nix` equivalents
+* `profiles/` &mdash; per-machine configurations (`configuration.nix` equivalents)
     * `air.nix` &mdash; the config associated with the `darwinConfigurations."air"`
 * `shells/` &mdash; dev shells
     * `config.nix` &mdash; stuff for this repo (alejandra, just, shellcheck)
-    * ( the rest are self-explanatory )
+    * [ the rest are self-explanatory ]
 * `README.md` &mdash; the thing you're reading right now :)
 * `flake.lock` &mdash; the flake's lockfile
 * `flake.nix` &mdash; the flake
@@ -84,7 +86,8 @@ darwin-rebuild switch --flake .#flake-name
     * [home page](https://nixos.org/)
     * [GitHub](https://github.com/NixOS)
 * Nix language
-    * [documentation](https://nix.dev/manual/nix/2.18/language/)
+    * [Nix 2.28 walkthrough](https://nix.dev/manual/nix/2.28/language)
+    * [Nix language basics](https://nix.dev/tutorials/nix-language)
 * Nix package manager (`nixpkgs`)
     <!-- * [`nixpkgs` home page](https://_____) -->
     * [search Nix packages](https://search.nixos.org/packages)
@@ -94,7 +97,7 @@ darwin-rebuild switch --flake .#flake-name
     * [about](https://github.com/nix-darwin/nix-darwin?tab=readme-ov-file)
     * [GitHub](https://github.com/nix-darwin/nix-darwin)
     * [configuration options](https://nix-darwin.github.io/nix-darwin/manual/index.html)
-* MyNixOS Options
+* Nix Configuration Options
     * [set up program-/package-specific settings](https://mynixos.com/options/programs)
     * [set up native MacOS settings](https://mynixos.com/nix-darwin/options)
 
@@ -103,7 +106,7 @@ darwin-rebuild switch --flake .#flake-name
 * this amazing tutorial about using [`nixpkgs` as a package manager](https://www.youtube.com/watch?v=Z8BL8mdzWHI) by Dreams of Code
 
 ### Awesome Nix Configurations
-See <https://github.com/stars/juneb125/lists/awesome-nix-configs> for the full list
+See <https://github.com/stars/juneb125/lists/awesome-nix-configs> for a fuller list
 * [`isabelroses/dotfiles`](https://github.com/isabelroses/dotfiles)
 * [`sioodmy/dotfiles`](https://github.com/sioodmy/dotfiles)
 <!-- * [``](https://github.com/) -->
