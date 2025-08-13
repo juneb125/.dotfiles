@@ -40,21 +40,15 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 })
 
+local signs = {
+	add = { text = "┃" },
+	change = { text = "┃" },
+	delete = { text = "_" },
+	topdelete = { text = "‾" },
+	changedelete = { text = "~" },
+	untracked = { text = "┆" },
+}
 require("gitsigns").setup({
-	signs = {
-		add = { text = "┃" },
-		change = { text = "┃" },
-		delete = { text = "_" },
-		topdelete = { text = "‾" },
-		changedelete = { text = "~" },
-		untracked = { text = "┆" },
-	},
-	signs_staged = {
-		add = { text = "┃" },
-		change = { text = "┃" },
-		delete = { text = "_" },
-		topdelete = { text = "‾" },
-		changedelete = { text = "~" },
-		untracked = { text = "┆" },
-	},
+	signs = signs,
+	signs_staged = signs
 })
