@@ -14,12 +14,13 @@ map("n", "<leader>gf", buf.format)
 map("n", "<leader>ca", buf.code_action)
 
 -- Plugins --
+local gh = "https://github.com/"
 vim.pack.add({
-	{ src = "https://github.com/catppuccin/nvim" },
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = gh .. "catppuccin/nvim" },
+	{ src = gh .. "mason-org/mason.nvim" },
+	{ src = gh .. "neovim/nvim-lspconfig" },
+	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
+	{ src = gh .. "lewis6991/gitsigns.nvim" },
 })
 
 vim.cmd("colorscheme catppuccin")
