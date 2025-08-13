@@ -21,6 +21,7 @@ vim.pack.add({
 	{ src = gh .. "neovim/nvim-lspconfig" },
 	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
 	{ src = gh .. "lewis6991/gitsigns.nvim" },
+	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
 })
 
 vim.cmd("colorscheme catppuccin")
@@ -51,4 +52,12 @@ local signs = {
 require("gitsigns").setup({
 	signs = signs,
 	signs_staged = signs
+})
+
+require("ibl").setup({
+	scope = {
+		enabled = true,
+		show_start = false,
+		show_end = false,
+	}
 })
