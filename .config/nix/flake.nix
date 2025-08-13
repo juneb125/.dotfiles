@@ -18,7 +18,7 @@
     # see README.md for how to (re-)build darwin config
     darwinConfigurations."air" = mkSystem.darwin {
       modules = [
-        ./config.nix
+				./profiles/air.nix
         ./darwin
         ./modules
       ];
