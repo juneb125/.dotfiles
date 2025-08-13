@@ -17,14 +17,27 @@ map("n", "<leader>ca", buf.code_action)
 vim.pack.add({
 	{ src = "https://github.com/catppuccin/nvim" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 })
 
-vim.lsp.enable({ "lua_ls" })
+vim.cmd("colorscheme catppuccin")
 
 require("mason").setup()
+vim.lsp.enable({ "lua_ls", "nil_ls", "rust_analyzer" })
 
-vim.cmd("colorscheme catppuccin")
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"lua",
+		"markdown",
+		"nix",
+		"rust",
+	},
+	sync_install = false,
+	highlight = { enable = true },
+	indent = { enable = true },
+})
 
 require("gitsigns").setup({
 	signs = {
