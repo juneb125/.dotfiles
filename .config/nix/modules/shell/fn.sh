@@ -69,11 +69,12 @@ toUpper() {
 license() {
   local license_type="$(toLower $1)"
   local license_uri=""
+  local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main/text"
   case $license_type in;
-    # "apache-2" | "apache-2.0") license_uri="" ;;
-    "gpl-3" | "gpl-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
-    "mit") license_uri="https://raw.githubusercontent.com/juneb125/pict/main/LICENSE" ;;
-    # "un" | "unlicense") license_uri="" ;;
+    "apache-2.0") license_uri="${spdx_db}/Apache-2.0.txt" ;;
+    "gpl-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
+    "mit") license_uri="${spdx_db}/MIT.txt" ;;
+    "unlicense") license_uri="${spdx_db}/Unlicense.txt" ;;
 
     "-h" | "--help")
       cat <<EOF
@@ -84,7 +85,7 @@ Usage:
   license --help
 
 Arguments:
-  <TYPE>    what kind of license [possible values: "mit", "apache-2.0", "gpl-3.0"]
+  <TYPE>    what kind of license [possible values: "apache-2.0", "mit", "gpl-3.0", "unlicense", + more]
   [OUTPUT]  where the license's content should go (default: stdout)
 EOF
       return 0
