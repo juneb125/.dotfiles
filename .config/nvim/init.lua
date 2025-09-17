@@ -13,6 +13,7 @@ vim.pack.add({
 	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
 	{ src = gh .. "lewis6991/gitsigns.nvim" },
 	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
+	{ src = gh .. "windwp/nvim-autopairs" },
 })
 
 vim.cmd("colorscheme catppuccin")
@@ -52,3 +53,5 @@ require("ibl").setup({
 		show_end = false,
 	}
 })
+
+require("nvim-autopairs").setup({})
