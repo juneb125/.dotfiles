@@ -1,11 +1,5 @@
 # Zsh config
 
-# make 100% sure Nix is in PATH
-PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
-
-# make sure ghcup is in PATH
-PATH="${HOME}/.ghcup/bin:$PATH"
-
 # Prompt
 export STARSHIP_CONFIG=$HOME/.dotfiles/.config/zsh/starship.toml
 eval "$(starship init zsh)"
