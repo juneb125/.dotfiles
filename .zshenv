@@ -9,3 +9,7 @@ PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
 
 # make sure ghcup is in PATH
 PATH="${HOME}/.ghcup/bin:$PATH"
+
+if [[ $(which bat) ]]; then
+	export BAT_THEME="Catppuccin Macchiato"
+fi
