@@ -1,6 +1,6 @@
-. "$HOME/.cargo/env"
+source "${HOME}/.cargo/env"
 
-. "${HOME}/.local/share/bob/env/env.sh"
+source "${HOME}/.local/share/bob/env/env.sh"
 
 export EDITOR="nvim"
 
