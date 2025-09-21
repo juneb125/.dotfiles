@@ -24,16 +24,16 @@ neovim v0.12
 
 ## To-do's
 - [x] colorscheme
-- [ ] LSP config
+- [x] LSP config
 - [ ] file explorer
-- [ ] treesitter
-- [ ] status line (lualine)
+- [x] treesitter
+- [x] status line (lualine)
 - [ ] *maybe*: autocompletions
 - [ ] misc. plugins:
-    * gitsigns
-    * autopairs
-    * indent-blankline
-    * lang-specific plugins
+    - [x] gitsigns
+    - [x] autopairs
+    - [x] indent-blankline
+    - [ ] lang-specific plugins
 
 ## Resources
 * [bob-nvim](https://crates.io/crates/bob-nvim) on crates.io
