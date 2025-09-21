@@ -14,6 +14,9 @@ vim.pack.add({
 	{ src = gh .. "lewis6991/gitsigns.nvim" },
 	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
 	{ src = gh .. "windwp/nvim-autopairs" },
+
+	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine
+	{ src = gh .. "nvim-lualine/lualine.nvim" },
 })
 
 vim.cmd("colorscheme catppuccin")
@@ -55,3 +58,35 @@ require("ibl").setup({
 })
 
 require("nvim-autopairs").setup({})
+
+require("lualine").setup({
+	-- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+	-- possible other themes: modus-vivendi, ayu_mirage, nightfly, onedark?, etc.
+	options = { theme = "palenight", },
+	sections = {
+		lualine_b = {
+			{
+				"branch",
+				icons_enabled = false,
+				fmt = function(str)
+					return " " .. str
+				end,
+			},
+			"diff",
+			"diagnostics",
+		},
+
+		lualine_x = {
+			"encoding",
+			{
+				"fileformat",
+				symbols = {
+					unix = "unix", -- default: linux penguin icon
+					dos = "dos",
+					mac = "mac",
+				},
+			},
+			"filetype",
+		},
+	},
+})
