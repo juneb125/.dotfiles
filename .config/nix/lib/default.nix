@@ -1,4 +1,4 @@
-{ inputs, outputs, ... }: let
+{ self, inputs, outputs, ... }: let
   inherit (inputs) nixpkgs darwin;
   inherit (inputs.stdenv) isDarwin;
 in {
@@ -12,7 +12,7 @@ in {
     }:
       darwin.lib.darwinSystem {
         inherit system modules;
-        specialArgs = {inherit inputs outputs nixpkgs;} // specialArgs;
+        specialArgs = {inherit self inputs outputs nixpkgs;} // specialArgs;
       };
   };
 

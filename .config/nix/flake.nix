@@ -12,7 +12,7 @@
 
   outputs = inputs@{ self, nixpkgs, ... }: let
     inherit (self) outputs;
-    utils = import ./lib {inherit inputs outputs;};
+    utils = import ./lib {inherit self inputs outputs;};
     inherit (utils) mkSystem forEachSystem;
   in {
     # see README.md for how to (re-)build darwin config
