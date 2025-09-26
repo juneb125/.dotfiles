@@ -3,6 +3,7 @@ neovim v0.12
 
 **Table of Contents**
 * [Important Stuff](#important-stuff)
+* [Config](#config)
 * [To-do's](#to-dos)
 * [Resources](#resources)
 
@@ -21,6 +22,24 @@ neovim v0.12
     * font: JetBrainsMono Nerd Font
 * *plugin manager* &mdash; `vim.pack`
 * *usage* &mdash; I've been using NeoVim mostly for Rust-based projects and building / customizing my config (dotfiles, environment, and such)
+
+## Config
+### Files
+* `settings.lua` &mdash; all of my general Vim settings
+* `keymaps.lua` &mdash; all of my non-plugin-related keymaps
+* `init.lua` &mdash; where everything comes together ✨
+
+### Plugins
+* [`catppuccin`](https://github.com/catppuccin/nvim) &mdash; catppuccin <3
+* [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's & DAP's
+* [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) &mdash; config for the LSP's
+* [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
+* [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
+* [`ibl`](https://github.com/lukas-reineke/indent-blankline.nvim) &mdash; indenting & scope guides
+* [`nvim-autopairs`](https://github.com/windwp/nvim-autopairs) &mdash; auto-completes parentheses, brackets, braces,
+ quotes, etc.
+* [`lualine`](https://github.com/nvim-lualine/lualine.nvim) &mdash; configurable Vim status bar
+    * depends on [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
 
 ## To-do's
 - [x] colorscheme
