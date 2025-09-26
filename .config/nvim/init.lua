@@ -1,39 +1,92 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local out = vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
-end
-vim.opt.rtp:prepend(lazypath)
+-- Settings --
+require("settings")
 
--- disable Vim's built-in file explorer
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- Keymaps --
+require("keymaps")
 
--- Vim settings
-require("config.settings") -- base customizations
-require("config.keymaps")     -- keymaps
+-- Plugins --
+local gh = "https://github.com/"
+vim.pack.add({
+	{ src = gh .. "catppuccin/nvim" },
+	{ src = gh .. "mason-org/mason.nvim" },
+	{ src = gh .. "neovim/nvim-lspconfig" },
+	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
+	{ src = gh .. "lewis6991/gitsigns.nvim" },
+	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
+	{ src = gh .. "windwp/nvim-autopairs" },
 
--- Setup lazy.nvim
-require("lazy").setup({
-	spec = "plugins",
-	-- colorscheme that will be used when installing plugins
-	install = { colorscheme = { "catppuccin" } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine
+	{ src = gh .. "nvim-lualine/lualine.nvim" },
+})
+
+vim.cmd("colorscheme catppuccin")
+
+require("mason").setup()
+vim.lsp.enable({ "lua_ls", "nil_ls", "rust_analyzer" })
+
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"lua",
+		"markdown",
+		"nix",
+		"rust",
+	},
+	sync_install = false,
+	highlight = { enable = true },
+	indent = { enable = true },
+})
+
+local signs = {
+	add = { text = "┃" },
+	change = { text = "┃" },
+	delete = { text = "_" },
+	topdelete = { text = "‾" },
+	changedelete = { text = "~" },
+	untracked = { text = "┆" },
+}
+require("gitsigns").setup({
+	signs = signs,
+	signs_staged = signs
+})
+
+require("ibl").setup({
+	scope = {
+		enabled = true,
+		show_start = false,
+		show_end = false,
+	}
+})
+
+require("nvim-autopairs").setup({})
+
+require("lualine").setup({
+	-- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
+	-- possible other themes: modus-vivendi, ayu_mirage, nightfly, onedark?, etc.
+	options = { theme = "palenight", },
+	sections = {
+		lualine_b = {
+			{
+				"branch",
+				icons_enabled = false,
+				fmt = function(str)
+					return " " .. str
+				end,
+			},
+			"diff",
+			"diagnostics",
+		},
+
+		lualine_x = {
+			"encoding",
+			{
+				"fileformat",
+				symbols = {
+					unix = "unix", -- default: linux penguin icon
+					dos = "dos",
+					mac = "mac",
+				},
+			},
+			"filetype",
+		},
+	},
 })
