@@ -72,9 +72,10 @@ require("ibl").setup({
 require("nvim-autopairs").setup({})
 
 require("lualine").setup({
-	-- https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-	-- possible other themes: modus-vivendi, ayu_mirage, nightfly, onedark?, etc.
-	options = { theme = "palenight", },
+	options = {
+		theme = "palenight",
+		ignore_focus = { "neo-tree" }
+	},
 	sections = {
 		lualine_b = {
 			{
