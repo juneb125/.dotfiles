@@ -8,15 +8,19 @@ require("keymaps")
 local gh = "https://github.com/"
 vim.pack.add({
 	{ src = gh .. "catppuccin/nvim" },
+	{ src = gh .. "nvim-lualine/lualine.nvim" },
 	{ src = gh .. "mason-org/mason.nvim" },
 	{ src = gh .. "neovim/nvim-lspconfig" },
 	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
+
+	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine & neotree
+	{ src = gh .. "MunifTanjim/nui.nvim", },       -- dependency for neotree
+	{ src = gh .. "nvim-lua/plenary.nvim", },      -- dependency for neotree
+	{ src = gh .. "nvim-neo-tree/neo-tree.nvim" },
+
 	{ src = gh .. "lewis6991/gitsigns.nvim" },
 	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
 	{ src = gh .. "windwp/nvim-autopairs" },
-
-	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine
-	{ src = gh .. "nvim-lualine/lualine.nvim" },
 })
 
 vim.cmd("colorscheme catppuccin")
@@ -90,3 +94,6 @@ require("lualine").setup({
 		},
 	},
 })
+
+require("neo-tree").setup({})
+vim.keymap.set("n", "<C-n>", "<cmd>Neotree filesystem reveal left toggle<CR>", { silent = true })
