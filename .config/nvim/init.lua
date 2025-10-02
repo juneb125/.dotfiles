@@ -26,7 +26,15 @@ vim.pack.add({
 vim.cmd("colorscheme catppuccin")
 
 require("mason").setup()
-vim.lsp.enable({ "lua_ls", "nil_ls", "rust_analyzer" })
+vim.lsp.enable({ "nil_ls", "rust_analyzer" })
+
+-- only enable lua_ls (Lua LSP) when needed
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.lua" },
+	command = function()
+		vim.lsp.enable("lua_ls")
+	end,
+})
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
