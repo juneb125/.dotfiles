@@ -26,21 +26,25 @@ vim.pack.add({
 	{ src = gh .. "hrsh7th/cmp-nvim-lsp" },
 	{ src = gh .. "L3MON4D3/LuaSnip" },
 	{ src = gh .. "hrsh7th/nvim-cmp" },
-	{ src = gh .. "saadparwaiz1/cmp_luasnip" },     -- dependency for LuaSnip
+	{ src = gh .. "saadparwaiz1/cmp_luasnip" },    -- dependency for LuaSnip
 	{ src = gh .. "rafamadriz/friendly-snippets" }, -- dependency for LuaSnip
 })
 
 vim.cmd("colorscheme catppuccin")
 
 require("mason").setup()
-vim.lsp.enable({ "nil_ls", "rust_analyzer" })
+vim.lsp.enable({ "rust_analyzer", "clangd" })
 
 -- only enable lua_ls (Lua LSP) when needed
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.lua" },
-	command = function()
-		vim.lsp.enable("lua_ls")
-	end,
+	command = [[lua vim.lsp.enable("lua_ls")]],
+})
+
+-- only enable nil_ls (Nix LSP) when needed
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	pattern = { "*.nix" },
+	command = [[lua vim.lsp.enable("nil_ls")]],
 })
 
 require("nvim-treesitter.configs").setup({
