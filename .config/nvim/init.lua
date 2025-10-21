@@ -21,6 +21,13 @@ vim.pack.add({
 	{ src = gh .. "lewis6991/gitsigns.nvim" },
 	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
 	{ src = gh .. "windwp/nvim-autopairs" },
+
+	-- completions
+	{ src = gh .. "hrsh7th/cmp-nvim-lsp" },
+	{ src = gh .. "L3MON4D3/LuaSnip" },
+	{ src = gh .. "hrsh7th/nvim-cmp" },
+	{ src = gh .. "saadparwaiz1/cmp_luasnip" },     -- dependency for LuaSnip
+	{ src = gh .. "rafamadriz/friendly-snippets" }, -- dependency for LuaSnip
 })
 
 vim.cmd("colorscheme catppuccin")
@@ -106,3 +113,44 @@ require("lualine").setup({
 
 require("neo-tree").setup({})
 vim.keymap.set("n", "<C-n>", "<cmd>Neotree filesystem reveal left toggle<CR>", { silent = true })
+
+-- Completions --
+local cmp = require("cmp")
+require("luasnip.loaders.from_vscode").lazy_load()
+
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	mapping = {
+		["<C-j>"] = function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			else
+				fallback()
+			end
+		end,
+		["<C-k>"] = function(fallback)
+			if cmp.visible() then
+				cmp.select_prev_item()
+			else
+				fallback()
+			end
+		end,
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.abort(),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	},
+	sources = cmp.config.sources({
+		{ name = "nvim_lsp" },
+		{ name = "luasnip" },
+	}, {
+		{ name = "buffer" },
+	}),
+})
