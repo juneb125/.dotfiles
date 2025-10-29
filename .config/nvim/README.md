@@ -25,6 +25,7 @@ neovim v0.12
 
 ## Config
 ### Files
+* `lua/completions.lua` &mdash; autocomplete settings
 * `lua/settings.lua` &mdash; all of my general Vim settings
 * `lua/keymaps.lua` &mdash; all of my non-plugin-related keymaps
 * `init.lua` &mdash; where everything comes together ✨
@@ -43,8 +44,14 @@ neovim v0.12
         * [`plenary`](https://github.com/nvim-lua/plenary.nvim) &mdash; nvim utility functions
 * [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
 * [`ibl`](https://github.com/lukas-reineke/indent-blankline.nvim) &mdash; indenting & scope guides
-* [`nvim-autopairs`](https://github.com/windwp/nvim-autopairs) &mdash; auto-completes parentheses, brackets, braces,
- quotes, etc.
+* [`nvim-autopairs`](https://github.com/windwp/nvim-autopairs) &mdash; auto-completes parentheses, brackets, braces, quotes, etc.
+* completions:
+    * [`cmp`](https://github.com/hrsh7th/nvim-cmp) &mdash; completion engine
+	* [`luasnip`](https://github.com/L3MON4D3/LuaSnip) &mdash; snippet engine
+    * [`cmp_nvim_lsp`](https://github.com/hrsh7th/cmp-nvim-lsp) &mdash; LSP integration with `cmp`
+    * completions dependencies:
+        * [`cmp_luasnip`](https://github.com/saadparwaiz1/cmp_luasnip) &mdash; `luasnip` completion source for `cmp`
+        * [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) &mdash; snippets collection for a lot of programming languages
 
 ## To-do's
 - [x] colorscheme
@@ -52,7 +59,7 @@ neovim v0.12
 - [x] file explorer
 - [x] treesitter
 - [x] status line (lualine)
-- [ ] *maybe*: autocompletions
+- [x] *maybe*: autocompletions
 - [ ] misc. plugins:
     - [x] gitsigns
     - [x] autopairs
