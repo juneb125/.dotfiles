@@ -4,6 +4,7 @@ neovim v0.12
 **Table of Contents**
 * [Important Stuff](#important-stuff)
 * [Config](#config)
+* [History](#history)
 * [To-do's](#to-dos)
 * [Resources](#resources)
 
@@ -52,6 +53,10 @@ neovim v0.12
     * completions dependencies:
         * [`cmp_luasnip`](https://github.com/saadparwaiz1/cmp_luasnip) &mdash; `luasnip` completion source for `cmp`
         * [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) &mdash; snippets collection for a lot of programming languages
+
+## History
+* [commit ca915bb](https://github.com/juneb125/.dotfiles/tree/ca915bb493b57e5f3dcd304bc337c7f0cb00c49c/.config/nvim) (August 7, 2025) was the first commit of the new nvim config
+* [commit 845b66a](https://github.com/juneb125/.dotfiles/tree/845b66a8b7c47962efa3942760836fbce0a32df7/.config/nvim) (August 5, 2025) was the last commit before the overhaul
 
 ## To-do's
 - [x] colorscheme
