@@ -1,5 +1,4 @@
 { self, inputs, lib, pkgs, ... }: let
-  # source-zsh-plugins = import "${self}/modules/shell/source-zsh-plugins.nix" {inherit pkgs lib;};
   pict = import "${self}/pkgs/pict.nix" {inherit pkgs lib;};
 in {
   # imports = [];
@@ -17,22 +16,16 @@ in {
         bat
         delta
         deno
-        # erlang_27 # required for gleam
         fastfetch
         fd
         git
-        # ghc
-        # gleam
         just
         mdbook
         neovim
-        rebar3 # also a gleam thing
         ripgrep
         shellcheck
         starship # prompt customization
-        zsh-syntax-highlighting
       ])
-      # source-zsh-plugins
       pict
     ];
 
