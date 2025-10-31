@@ -3,7 +3,11 @@
 # TODO: write help message
 proj() {
   [[ $# -gt 1 ]] && echo "Expected 1 argument, got ${#}.\nIgnoring the rest..."
-  local proj_dir=$HOME/Desktop/Coding
+  local proj_dir="${HOME}/Desktop/Coding"
+  if [[ ! -d ${proj_dir} ]]; then
+    echo "${0}: ${proj_dir} doesn't exist"
+    return 1
+  fi
 
   case "$1" in;
     "") cd $proj_dir ;;
