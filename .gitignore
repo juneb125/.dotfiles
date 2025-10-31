@@ -2,12 +2,12 @@
 
 **/.DS_Store
 
-.config/ghc
-.config/cabal
-.config/raycast
-.config/terminal-app
-.config/zed/**
+sources/ghc
+sources/cabal
+sources/raycast
+sources/terminal-app
+sources/zed/**
 
-!.config/zed/settings.json
+!sources/zed/settings.json
 
 result

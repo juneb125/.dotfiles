@@ -29,7 +29,7 @@ proj() {
 
 # TODO: write help message
 config() {
-  local config_dir=${XDG_CONFIG_HOME:-${HOME}/.dotfiles/.config}
+  local config_dir=${XDG_CONFIG_HOME:-${HOME}/.dotfiles/sources}
 
   case "$1" in;
     "") cd ${config_dir} ;;

@@ -1,7 +1,7 @@
 # Zsh config
 
 # Prompt
-export STARSHIP_CONFIG=$HOME/.dotfiles/.config/zsh/starship.toml
+export STARSHIP_CONFIG=$HOME/.dotfiles/sources/zsh/starship.toml
 eval "$(starship init zsh)"
 
 # Keybinds
@@ -31,11 +31,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Misc. (non-plugin)
 source ~/.env
-source ~/.dotfiles/.config/zsh/aliases.sh
-source ~/.dotfiles/.config/zsh/fn.sh
+source ~/.dotfiles/sources/zsh/aliases.sh
+source ~/.dotfiles/sources/zsh/fn.sh
 
 if [[ "$(uname -s)" == [dD]arwin* ]]; then
-  source ~/.dotfiles/.config/zsh/macos.sh
+  source ~/.dotfiles/sources/zsh/macos.sh
 fi
 
 # -- Zsh Plugins --
@@ -46,7 +46,7 @@ export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 [[ -d ${ZPLUGINDIR} ]] || mkdir -p ${ZPLUGINDIR}
 
 # helper function(s) for downloading plugins
-source ~/.dotfiles/.config/zsh/get-plugins.zsh
+source ~/.dotfiles/sources/zsh/get-plugins.zsh
 if [[ ! $? ]]; then
   # error message is already in get-plugins.zsh
   return 1
