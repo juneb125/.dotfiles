@@ -30,7 +30,7 @@ autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Misc. (non-plugin)
-source ~/.dotfiles/.env
+source ~/.env
 source ~/.dotfiles/.config/zsh/aliases.sh
 source ~/.dotfiles/.config/zsh/fn.sh
 
