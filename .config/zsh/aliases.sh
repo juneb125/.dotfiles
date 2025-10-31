@@ -29,6 +29,6 @@ alias e='exit 0'
 alias scerr='scutil --error $?'
 
 if [ $(which bat) ]; then
-	alias cat='bat --plain'
+  alias cat='bat --plain'
 fi
 # alias clang-c='clang -std=c99 -Wall -Werror '

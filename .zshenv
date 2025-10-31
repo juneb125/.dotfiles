@@ -13,5 +13,5 @@ export EDITOR="nvim"
 PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
 
 if [[ $(which bat) ]]; then
-	export BAT_THEME="Catppuccin Macchiato"
+  export BAT_THEME="Catppuccin Macchiato"
 fi
