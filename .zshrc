@@ -32,10 +32,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Misc. (non-plugin)
 source ~/.dotfiles/.env
 source ~/.dotfiles/.config/zsh/aliases.sh
-source ~/.dotfiles/.config/nix/modules/shell/fn.sh
+source ~/.dotfiles/.config/zsh/fn.sh
 
 if [[ "$(uname -s)" == [dD]arwin* ]]; then
-  source ~/.dotfiles/.config/nix/modules/shell/macos.sh
+  source ~/.dotfiles/.config/zsh/macos.sh
 fi
 
 # -- Zsh Plugins --
