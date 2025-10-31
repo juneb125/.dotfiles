@@ -5,11 +5,11 @@ in
     pname = "pict";
     version = "0.1.0";
     src = pkgs.fetchFromGitHub {
-			owner = "juneb125";
-			repo = "pict";
-			rev = "08423ca60a0fb98d4807530601f16ad3db702f41";
-			hash = "sha256-S9MW6rVTrTcMKvLZBp+fqVCWn9h7KcOCE9ZcUhJaUaw=";
-		};
+      owner = "juneb125";
+      repo = "pict";
+      rev = "08423ca60a0fb98d4807530601f16ad3db702f41";
+      hash = "sha256-S9MW6rVTrTcMKvLZBp+fqVCWn9h7KcOCE9ZcUhJaUaw=";
+    };
 
     buildInputs = [just];
     buildPhase = ''
