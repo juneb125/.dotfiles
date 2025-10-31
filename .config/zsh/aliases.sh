@@ -1,3 +1,4 @@
+#!/usr/bin/env sh
 # -- Aliases --
 
 # Navigation
@@ -27,7 +28,7 @@ alias c='clear'
 alias e='exit 0'
 alias scerr='scutil --error $?'
 
-if [[ $(which bat) ]]; then
+if [ $(which bat) ]; then
 	alias cat='bat --plain'
 fi
 # alias clang-c='clang -std=c99 -Wall -Werror '

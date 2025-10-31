@@ -31,7 +31,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Misc. (non-plugin)
 source ~/.dotfiles/.env
-source ~/.dotfiles/.config/zsh/aliases.zsh
+source ~/.dotfiles/.config/zsh/aliases.sh
 source ~/.dotfiles/.config/nix/modules/shell/fn.sh
 
 if [[ "$(uname -s)" == [dD]arwin* ]]; then
