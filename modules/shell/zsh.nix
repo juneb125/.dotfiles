@@ -1,7 +1,7 @@
 { pkgs, config, ... }: {
   nixpkgs.config.zsh = let
     histSize = 5000;
-    # should be $HOME/.dotfiles/.config/nix
+    # should be $HOME/.dotfiles/
     flakeHome = builtins.toString ./../..;
     zshFnHome = "${builtins.getEnv "HOME"}/.dotfiles/.config/zsh";
   in {

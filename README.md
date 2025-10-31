@@ -7,10 +7,7 @@ My personal configuration files
 * [Installation](#installation)
 
 **Quick Links**
-* [zsh](https://github.com/juneb125/.dotfiles/tree/main/.config/zsh)
-* [NeoVim](https://github.com/juneb125/.dotfiles/tree/main/.config/nvim)
-* [Nix](https://github.com/juneb125/.dotfiles/tree/main/.config/nix)
-* [Ghostty](https://github.com/juneb125/.dotfiles/tree/main/.config/ghostty)
+🚧 Section under construction for now 🚧
 
 ## Goals
 * create comprehensive and easy-to-follow documentation for each major config piece, especially:
