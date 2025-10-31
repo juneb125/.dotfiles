@@ -8,6 +8,7 @@ source "${HOME}/.cargo/env"
 source "${HOME}/.local/share/bob/env/env.sh"
 
 export EDITOR="nvim"
+alias nvim='bob run nightly'
 
 # make 100% sure Nix is in PATH
 PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
