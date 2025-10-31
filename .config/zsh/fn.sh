@@ -10,17 +10,17 @@ proj() {
   fi
 
   case "$1" in;
-    "") cd $proj_dir ;;
-    "rs") cd $proj_dir/RustProjects ;;
-    "xc") cd $proj_dir/XcodeProjects ;;
-    "web") cd $proj_dir/WebDevProjects ;;
-    "fn") cd $proj_dir/FnProjects ;;
-    "misc") cd $proj_dir/MiscProjects ;;
+    "") cd ${proj_dir} ;;
+    "rs") cd ${proj_dir}/RustProjects ;;
+    "xc") cd ${proj_dir}/XcodeProjects ;;
+    "web") cd ${proj_dir}/WebDevProjects ;;
+    "fn") cd ${proj_dir}/FnProjects ;;
+    "misc") cd ${proj_dir}/MiscProjects ;;
     "-h" | "--help") echo "help message..." ;;
     *) if [[ -d "${proj_dir}/${1}" ]]; then
-      cd $proj_dir/$1
+      cd "${proj_dir}/${1}"
     else
-      echo "proj: couldn't find $1 in ${proj_dir}"
+      echo "${0}: couldn't find ${1} in ${proj_dir}"
       return 1
     fi ;;
   esac
@@ -32,16 +32,16 @@ config() {
   local config_dir=${XDG_CONFIG_HOME:-${HOME}/.dotfiles/.config}
 
   case "$1" in;
-    "") cd $config_dir ;;
-    "ghostty" | "tty") cd $config_dir/ghostty ;;
-    "nix") cd $config_dir/nix ;;
-    "nvim" | "neovim") cd $config_dir/nvim ;;
-    "zsh") cd $config_dir/zsh ;;
+    "") cd ${config_dir} ;;
+    "ghostty" | "tty") cd ${config_dir}/ghostty ;;
+    "nix") cd ${config_dir}/nix ;;
+    "nvim" | "neovim") cd ${config_dir}/nvim ;;
+    "zsh") cd ${config_dir}/zsh ;;
     "-h" | "--help") echo "help message..." ;;
-    *) if [[ -d $1 ]]; then
-      cd $config_dir/$1
+    *) if [[ -d "${config_dir}/${1}" ]]; then
+      cd "${config_dir}/${1}"
     else
-      echo "config: couldn't find $1 in ${config_dir}"
+      echo "${0}: couldn't find ${1} in ${config_dir}"
       return 1
     fi ;;
   esac
