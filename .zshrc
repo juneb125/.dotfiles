@@ -38,20 +38,24 @@ if [[ "$(uname -s)" == [dD]arwin* ]]; then
   source ~/.dotfiles/.config/nix/modules/shell/macos.sh
 fi
 
-# -- Zinit (plugin manager) --
+# -- Zsh Plugins --
 
 # Initializing
-# set the directory we want to store zinit and plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# set the directory we want to store plugins
+export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
+[[ -d ${ZPLUGINDIR} ]] || mkdir -p ${ZPLUGINDIR}
 
-# download zinit, if it's not there yet
-[ ! -d "$ZINIT_HOME" ] && mkdir -p "$(dirname $ZINIT_HOME)"
-[ ! -d "$ZINIT_HOME/.git" ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# helper function(s) for downloading plugins
+source ~/.dotfiles/.config/zsh/get-plugins.zsh
+if [[ ! $? ]]; then
+  # error message is already in get-plugins.zsh
+  return 1
+fi
 
-# source/load zinit
-source "${ZINIT_HOME}/zinit.zsh"
+# Downloading
+# only download if plugin isn't installed
+which zsh-syntax-highlighting > /dev/null \
+  || get-syntax-highlighting
 
-# Plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
+# Sourcing -- must be at END of .zshrc
+source ${ZPLUGINDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
