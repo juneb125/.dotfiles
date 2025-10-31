@@ -1,11 +1,13 @@
 **.env
 
-**.DS_Store
+**/.DS_Store
 
 .config/ghc
+.config/cabal
 .config/raycast
 .config/terminal-app
-.config/warp
 .config/zed/**
 
 !.config/zed/settings.json
+
+.config/nix/result
