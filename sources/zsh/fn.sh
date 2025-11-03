@@ -32,9 +32,8 @@ config() {
   local config_dir=${XDG_CONFIG_HOME:-${HOME}/.dotfiles/sources}
 
   case "$1" in;
-    "") cd ${config_dir} ;;
+    "") cd ${config_dir}/.. ;;
     "ghostty" | "tty") cd ${config_dir}/ghostty ;;
-    "nix") cd ${config_dir}/nix ;;
     "nvim" | "neovim") cd ${config_dir}/nvim ;;
     "zsh") cd ${config_dir}/zsh ;;
     "-h" | "--help") echo "help message..." ;;
