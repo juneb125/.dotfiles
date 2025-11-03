@@ -6,7 +6,7 @@ My personal configuration files
 * [My Environment](#my-environment)
 * [Installation](#installation)
 
-**Quick Links**
+**Quick Links**\
 🚧 Section under construction for now 🚧
 
 ## Goals
@@ -25,8 +25,8 @@ What I'm using:
 * *terminal emulator* &mdash; Ghostty
 * *package manager* &mdash; `nixpkgs` (version 25.05)
 * *languages I've been working with*:
+    * C
     * Rust
-    * Gleam
     * Nix
     * Markdown
 
@@ -53,7 +53,7 @@ What I'm using:
     </details>
 
 **Quickstart**\
-Prerequisites: `git`, `nix`
+Prerequisites: git, nix
 1. clone this repository using git
     ```
     git clone https://github.com/juneb125/.dotfiles <destination> --depth 1
