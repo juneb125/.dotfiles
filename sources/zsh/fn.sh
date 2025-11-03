@@ -56,25 +56,25 @@ mkcd() {
 # from the same person who wrote `mkcd`
 numfiles() {
   local dir=${1:-.}
-  local num=$(ls -A $dir | wc -l)
-  echo "$num files in $dir"
+  local num=$(ls -A -1 ${dir} | wc -l)
+  echo "${num} files in ${dir}"
 }
 
 toLower() {
-  echo "${1}" | tr 'A-Z' 'a-z'
+  tr 'A-Z' 'a-z' <<< "${1}"
 }
 
 toUpper() {
-  echo "${1}" | tr 'a-z' 'A-Z'
+  tr 'a-z' 'A-Z' <<< "${1}"
 }
 
 # TODO: get more license uri's
 # inspired by github:sioodmy/dotfiles/user/wrapped/zsh/aliases.nix
 license() {
-  local license_type="$(toLower $1)"
+  local license_type="$(toLower ${1})"
   local license_uri=""
   local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main/text"
-  case $license_type in;
+  case "${license_type}" in;
     "apache-2.0") license_uri="${spdx_db}/Apache-2.0.txt" ;;
     "gpl-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
     "mit") license_uri="${spdx_db}/MIT.txt" ;;
@@ -113,22 +113,22 @@ gh-raw() {
   local full_path=""
   case "$1" in;
     "")
-      echo "gh-raw: expected full path as \$1"
+      echo "${0}: expected full path as \$1"
       return 1
       ;;
-    "-h" | "--help") cat <<EOF
+    "-h" | "--help")
+      cat <<EOF
 Curl \`raw.githubusercontent.com\` easier
 
 Usage:
   gh-raw <FULL-PATH> [options...]
 
 Arguments:
-  <FULL-PATH>  the path to the file to curl
-                 in the structure of
-		 "<user>/<repo>/<branch>/<path-to-file>"
+  <FULL-PATH>  the path to the file to curl, in the structure of
+               "<user>/<repo>/<branch>/<path-to-file>"
 
 Options:
-  ( all \`curl\` options apply )
+  [ all curl(1) options apply ]
 EOF
       return $?
       ;;
