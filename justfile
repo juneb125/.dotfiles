@@ -11,7 +11,7 @@ default:
 switch name:
     sudo {{ rebuild }} switch --flake {{ name }}
 
-# check if flake if okay
+# check if flake is okay
 check name:
     sudo {{ check }} --flake {{ name }} --show-trace
 
@@ -22,4 +22,4 @@ update:
 
 # nixpkgs garbage collect
 gc period:
-    nix-garbage-collect --delete-older-than {{ period }}
+    nix-collect-garbage --delete-older-than {{ period }}
