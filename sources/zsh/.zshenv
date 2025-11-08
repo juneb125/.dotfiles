@@ -3,9 +3,11 @@ export XDG_CONFIG_HOME="${HOME}/.dotfiles/sources"
 export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
+export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+
 source "${HOME}/.cargo/env"
 
-source "${HOME}/.local/share/bob/env/env.sh"
+source "${XDG_DATA_HOME}/bob/env/env.sh"
 
 export EDITOR="nvim"
 alias nvim='bob run nightly'
