@@ -1,7 +1,7 @@
 # Zsh config
 
 # Prompt
-export STARSHIP_CONFIG=$ZDOTDIR/starship.toml
+export STARSHIP_CONFIG=${ZDOTDIR}/starship.toml
 eval "$(starship init zsh)"
 
 # Keybinds
@@ -11,8 +11,8 @@ bindkey '^n' history-search-forward  # ctrl n
 
 # History Opts
 HISTSIZE=5000
-HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
+HISTFILE=${HOME}/.zsh_history
+SAVEHIST=${HISTSIZE}
 HISTDUP=erase
 setopt append_history
 setopt share_history
@@ -30,7 +30,7 @@ autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Misc. (non-plugin)
-source ~/.env
+source ${HOME}/.env
 source ${ZDOTDIR}/aliases.sh
 source ${ZDOTDIR}/fn.sh
 
