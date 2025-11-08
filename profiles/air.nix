@@ -31,7 +31,6 @@ in {
 
     variables = {
       SHELL = lib.getExe pkgs.zsh;
-      FLAKE_HOME = builtins.toString ./.;
       BAT_THEME = "Catppuccin Macchiato";
     };
   };

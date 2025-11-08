@@ -13,6 +13,8 @@ alias nvim='bob run nightly'
 # make 100% sure Nix is in PATH
 PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
 
+export FLAKE_HOME="${HOME}/.dotfiles"
+
 if [[ $(which bat) ]]; then
   export BAT_THEME="Catppuccin Macchiato"
 fi
