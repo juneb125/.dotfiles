@@ -23,5 +23,5 @@ in {
 
   inherit isDarwin;
 
-  forEachSystem = nixpkgs.lib.genAttrs ["aarch64-darwin"];
+  forEachSystem = f: nixpkgs.lib.genAttrs ["aarch64-darwin"] (system: f nixpkgs.legacyPackages.${system});
 }
