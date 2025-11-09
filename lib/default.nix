@@ -1,4 +1,5 @@
-{ self, inputs, outputs, ... }: let
+{ self, ... }: let
+  inherit (self) inputs outputs;
   inherit (inputs) nixpkgs darwin;
   inherit (inputs.stdenv) isDarwin;
 in {
