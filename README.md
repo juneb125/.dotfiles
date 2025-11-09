@@ -6,8 +6,10 @@ My personal configuration files
 * [My Environment](#my-environment)
 * [Installation](#installation)
 
-**Quick Links**\
-🚧 Section under construction for now 🚧
+**Quick Links**
+* [zsh](./sources/zsh)
+* [nvim](./sources/nvim)
+* [ghostty](./sources/ghostty)
 
 ## Goals
 * create comprehensive and easy-to-follow documentation for each major config piece, especially:
