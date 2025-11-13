@@ -19,8 +19,6 @@ My personal configuration files
     * `ghostty` &mdash; terminal emulator
 
 ## My Environment
-Hardware plays a big part in customization and what works on my machine likely won't work on yours if even a few key things are different.
-
 What I'm using:
 * *device* &mdash; MacBook Air M1 (2020)
 * *operating system* &mdash; MacOS 15 (Sequoia)
@@ -42,20 +40,9 @@ What I'm using:
 2. Then, I followed [this Dreams of Autonomy video](https://www.youtube.com/watch?v=ud7YxC33Z3w) about further customization of `zsh`
 3. Next, I set up Nix Packages (`nixpkgs`) as my package manager with [this amazing Dreams of Autonomy tutorial](https://youtube.com/watch?v=Z8BL8mdzWHI)
 4. I set up my text editor, NeoVim, by (roughly) following [this Sylvan Franklin YouTube video](https://www.youtube.com/watch?v=xGkL2N8w0H4) and going from there :)
-    <details>
-        <summary>my tips on how to learn Vim / NeoVim</summary>
-        <ol type="a">
-            <li>learn the basic Vim motions (how to move around a file and around a workspace), especially how to exit Vim :)</li>
-            <li>turn on "Vim mode" in your current code editor</li>
-            <li>when you feel comfortable with the motions, start using Vim (the regular Vim) in your terminal</li>
-            <li>when you feel really comfortable using Vim in your terminal, download NeoVim if you want</li>
-        </ol>
-        <p>Learning Vim might seem super overwhelming, but if you practice consistently, you'll be amazing :)</p>
-        <p>I believe in you! <3</p>
-    </details>
 
 **Quickstart**\
-Prerequisites: git, nix
+> Prerequisites: git, nix
 1. clone this repository using git
     ```
     git clone https://github.com/juneb125/.dotfiles <destination> --depth 1
