@@ -29,6 +29,22 @@ What I'm using:
     * Rust
     * Nix
     * Markdown
+* *system information[^1]*: (split up, with annotations)
+    ```sh
+    uname -a
+    # -m
+    arm64
+    # -n
+    Junes-MacBook-Air.local
+    # -p
+    arm
+    # -r
+    24.6.0
+    # -s
+    Darwin
+    # -v
+    Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:34 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T8103
+    ```
 
 ## Installation
 **The Steps I Followed**
@@ -51,3 +67,5 @@ What I'm using:
     ```
     git remote rm origin
     ```
+
+[^1]: Note that on Darwin, the `-o` option *"is a synonym for the `-s` option (for compatibility with other systems)"*, from uname(1).
