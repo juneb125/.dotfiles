@@ -29,19 +29,14 @@ What I'm using:
     * Rust
     * Nix
     * Markdown
-* *system information[^1]*: (split up, with annotations)
+* *system information*[^1]: (split up, with annotations)
     ```sh
     uname -a
-    # -m
-    arm64
-    # -n
-    Junes-MacBook-Air.local
-    # -p
-    arm
-    # -r
-    24.6.0
-    # -s
-    Darwin
+    arm64                    # -m
+    Junes-MacBook-Air.local  # -n
+    arm                      # -p
+    24.6.0                   # -r
+    Darwin                   # -s
     # -v
     Darwin Kernel Version 24.6.0: Mon Jul 14 11:30:34 PDT 2025; root:xnu-11417.140.69~1/RELEASE_ARM64_T8103
     ```
@@ -57,7 +52,7 @@ What I'm using:
 3. Next, I set up Nix Packages (`nixpkgs`) as my package manager with [this amazing Dreams of Autonomy tutorial](https://youtube.com/watch?v=Z8BL8mdzWHI)
 4. I set up my text editor, NeoVim, by (roughly) following [this Sylvan Franklin YouTube video](https://www.youtube.com/watch?v=xGkL2N8w0H4) and going from there :)
 
-**Quickstart**\
+**Quickstart**
 > Prerequisites: git, nix
 1. clone this repository using git
     ```
