@@ -1,29 +1,21 @@
 #!/usr/bin/env zsh
 
 xcode() {
-  case "$1" in;
-    "") open -a Xcode.app ;;
-    *) if [[ -d $1 || -f $1 ]]; then
-      open $1 -a Xcode.app
-    else
-      echo "xcode: $1 doesn't exist"
-      return 1
-    fi ;;
-  esac
-  return $?
+  if [[ -z "${1}" || -e ${1} ]]; then
+    open ${1} -a Xcode.app
+  else
+    echo "${0}: ${1} doesn't exist"
+    return 1
+  fi
 }
 
 finder() {
-  case "$1" in;
-    "") open -a Finder.app ;;
-    *) if [[ -d $1 || -f $1 ]]; then
-      open $1 -a Finder.app
-    else
-      echo "finder: $1 doesn't exist"
-      return 1
-    fi ;;
-  esac
-  return $?
+  if [[ -z "${1}" || -e ${1} ]]; then
+    open ${1} -a Finder.app
+  else
+    echo "${0}: ${1} doesn't exist"
+    return 1
+  fi
 }
 
 preview() {
