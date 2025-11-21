@@ -137,3 +137,8 @@ EOF
   curl "https://raw.githubusercontent.com/${full_path}" ${*:2}
   return $?
 }
+
+# more human-readable ('hr') rep. of $PATH
+hr-path() {
+  tr ':' '\n' <<< "${PATH}"
+}
