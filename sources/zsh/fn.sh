@@ -88,24 +88,22 @@ Usage:
   license --help
 
 Arguments:
-  <TYPE>    what kind of license [possible values: "apache-2.0", "mit", "gpl-3.0", "unlicense", + more]
+  <TYPE>    what kind of license (SPDX License Identifier)
   [OUTPUT]  where the license's content should go (default: stdout)
 EOF
       return 0
       ;;
-    *)
-      printf '%s\n%s\n' \
-        "license: unrecognized license type" \
-        '         possible values: ["mit", "apache-2.0", "gpl-3.0"]'
-      return 1
+    *) license_uri="${spdx_db}/${1}.txt" ;;
   esac
 
-  if [[ -z $2 ]]; then
-    curl ${license_uri}
-  else
-    curl ${license_uri} -o $2
+  local out=${2:--}
+  curl -q ${license_uri} -o ${out}
+  local res=$?
+
+  if [[ $? && ${out} != - ]]; then
+    printf '\n\x1b[0;33m%s\x1b[m\n' "Make sure to check ${out} for any required fields"
   fi
-  return $?
+  return ${res}
 }
 
 gh-raw() {
