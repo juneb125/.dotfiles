@@ -2,7 +2,7 @@
 
 # TODO: write help message
 proj() {
-  [[ $# -gt 1 ]] && echo "Expected 1 argument, got ${#}.\nIgnoring the rest..."
+  (( $# > 1 )) && echo "Expected 1 argument, got ${#}.\nIgnoring the rest..."
   local proj_dir="${HOME}/Desktop/Coding"
   if [[ ! -d ${proj_dir} ]]; then
     echo "${0}: ${proj_dir} doesn't exist"
@@ -60,11 +60,11 @@ numfiles() {
 }
 
 toLower() {
-  tr 'A-Z' 'a-z' <<< "${1}"
+  tr '[A-Z]' '[a-z]' <<< "${1}"
 }
 
 toUpper() {
-  tr 'a-z' 'A-Z' <<< "${1}"
+  tr '[a-z]' '[A-Z]' <<< "${1}"
 }
 
 # TODO: get more license uri's
@@ -100,7 +100,7 @@ EOF
   curl -q ${license_uri} -o ${out}
   local res=$?
 
-  if [[ $? && ${out} != - ]]; then
+  if [[ ${res} && ${out} != - ]]; then
     printf '\n\x1b[0;33m%s\x1b[m\n' "Make sure to check ${out} for any required fields"
   fi
   return ${res}
@@ -132,7 +132,7 @@ EOF
     *) full_path="$1" ;;
   esac
 
-  curl "https://raw.githubusercontent.com/${full_path}" ${*:2}
+  curl -q "https://raw.githubusercontent.com/${full_path}" ${@:2}
   return $?
 }
 
