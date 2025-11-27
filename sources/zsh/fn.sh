@@ -141,6 +141,11 @@ hr-path() {
   tr ':' '\n' <<< "${PATH}"
 }
 
+# more human-readable ('hr') rep. of `manpath`
+hr-manpath() {
+  tr ':' '\n' < <(manpath)
+}
+
 colors() {
   local blocks='███' # 3x U+2588
 
