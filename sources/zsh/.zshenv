@@ -5,9 +5,13 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
-source "${HOME}/.cargo/env"
+if [[ -e "${HOME}/.cargo/env" ]]; then
+  source "${HOME}/.cargo/env"
+fi
 
-source "${XDG_DATA_HOME}/bob/env/env.sh"
+if [[ -e "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
+  source "${XDG_DATA_HOME}/bob/env/env.sh"
+fi
 
 export EDITOR="nvim"
 alias nvim='bob run nightly'
@@ -17,6 +21,6 @@ PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
 
 export FLAKE_HOME="${HOME}/.dotfiles"
 
-if [[ $(which bat) ]]; then
+if which bat > /dev/null; then
   export BAT_THEME="Catppuccin Macchiato"
 fi
