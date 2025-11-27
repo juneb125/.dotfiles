@@ -6,9 +6,9 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 # 'ls'
-alias la='ls -aG'
+alias la='ls -AG'
 alias ll='ls -lG'
-alias lal='ls -alG'
+alias lal='ls -AlG'
 
 # Git
 alias ga='git add'
@@ -17,11 +17,6 @@ alias gd='git diff'
 alias gl='git log --graph'
 alias gp='git push'
 alias gs='git status'
-
-# Vim / Nvim
-alias nv='nvim'
-alias vi='nvim'
-alias vim='nvim'
 
 # Misc.
 alias c='clear'
