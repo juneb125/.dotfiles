@@ -11,11 +11,11 @@ tab_width = 4
 indent_style = space
 indent_size = 2
 
-# from https://github.com/isabelroses/dotfiles/blob/main/.editorconfig
 [*.{diff,patch,lock}]
 indent_style = unset
 indent_size = unset
 end_of_line = unset
+max_line_length = unset
 insert_final_newline = unset
 trim_trailing_whitespace = unset
 
