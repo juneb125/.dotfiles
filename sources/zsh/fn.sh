@@ -161,3 +161,38 @@ colors() {
   done
   echo "\x1b[m"
 }
+
+mit() {
+  if [[ "${1}" = "--help" ]]; then
+    cat <<EOF
+Get the MIT License's content, with its fields filled in
+
+Usage: mit [OUTPUT]
+
+Arguments:
+  [OUTPUT]  where to place the output text (default: -)
+EOF
+    return 0
+  fi
+
+  local out_file=${1:--}
+  local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main"
+  curl -q "${spdx_db}/text/MIT.txt" -o ${out_file}
+  local curl_res=$?
+
+  if [[ ${out_file} = - ]]; then
+    return ${curl_res}
+  fi
+
+  local sub_year="s/<year>/$(date +'%Y')/"
+  local git_username="$(git config --get user.name)"
+  local sub_username="s/<copyright holders>/${git_username}/"
+
+  if [[ -n "${git_username}" ]]; then
+    sed -i "" "${sub_year}; ${sub_username}" ${out_file}
+  else
+    sed -i "" "${sub_year}" ${out_file}
+    # yellow foreground, with a newline above
+    printf '\n\x1b[0;33m%s\x1b[m\n' 'Remember to fill out the <copyright holders> field!'
+  fi
+}
