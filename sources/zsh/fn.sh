@@ -12,6 +12,7 @@ proj() {
   case "$1" in;
     "") cd ${proj_dir} ;;
     "rs") cd ${proj_dir}/RustProjects ;;
+    "ll") cd ${proj_dir}/LowLevelProjects ;;
     "xc") cd ${proj_dir}/XcodeProjects ;;
     "web") cd ${proj_dir}/WebDevProjects ;;
     "fn") cd ${proj_dir}/FnProjects ;;
