@@ -31,3 +31,25 @@ map("n", "K", buf.hover)
 map("n", "<leader>gf", buf.format)
 map("n", "<leader>ca", buf.code_action)
 map("n", "<leader>rn", buf.rename)
+
+-- 'jumping' keymaps (L36..=L55), see Credits #4
+local diag = vim.diagnostic
+local sev_err = diag.severity.ERROR
+
+-- jump to previous diagnostic
+map("n", "[d", function()
+	diag.jump({ count = -1 })
+end)
+-- jump to next diagnostic
+map("n", "]d", function()
+	diag.jump({ count = 1 })
+end)
+
+-- jump to previous error
+map("n", "[e", function()
+	diag.jump({ count = -1, severity = sev_err })
+end)
+-- jump next error
+map("n", "]e", function()
+	diag.jump({ count = 1, severity = sev_err })
+end)
