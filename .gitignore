@@ -6,9 +6,6 @@ sources/ghc
 sources/cabal
 sources/raycast
 sources/terminal-app
-sources/zed/**
 sources/zsh/.zcompdump
-
-!sources/zed/settings.json
 
 result
