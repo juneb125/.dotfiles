@@ -33,6 +33,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 source ${HOME}/.env
 source ${ZDOTDIR}/aliases.sh
 source ${ZDOTDIR}/fn.sh
+source ${ZDOTDIR}/net-utils.sh
 
 if [[ "$(uname -s)" == [dD]arwin* ]]; then
   source ${ZDOTDIR}/macos.sh
