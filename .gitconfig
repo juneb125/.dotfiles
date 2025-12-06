@@ -34,3 +34,6 @@
 
 [credential]
 	helper = store
+
+[url "https://github.com/"]
+	insteadOf = "github:"
