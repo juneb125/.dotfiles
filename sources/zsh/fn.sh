@@ -68,75 +68,6 @@ toUpper() {
   tr '[a-z]' '[A-Z]' <<< "${1}"
 }
 
-# TODO: get more license uri's
-# inspired by github:sioodmy/dotfiles/user/wrapped/zsh/aliases.nix
-license() {
-  local license_type="$(toLower ${1})"
-  local license_uri=""
-  local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main/text"
-  case "${license_type}" in;
-    "apache-2.0") license_uri="${spdx_db}/Apache-2.0.txt" ;;
-    "gpl-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
-    "mit") license_uri="${spdx_db}/MIT.txt" ;;
-    "unlicense") license_uri="${spdx_db}/Unlicense.txt" ;;
-
-    "-h" | "--help")
-      cat <<EOF
-Get a license's content
-
-Usage:
-  license <TYPE> [OUTPUT]
-  license --help
-
-Arguments:
-  <TYPE>    what kind of license (SPDX License Identifier)
-  [OUTPUT]  where the license's content should go (default: stdout)
-EOF
-      return 0
-      ;;
-    *) license_uri="${spdx_db}/${1}.txt" ;;
-  esac
-
-  local out=${2:--}
-  curl -q ${license_uri} -o ${out}
-  local res=$?
-
-  if [[ ${res} && ${out} != - ]]; then
-    printf '\n\x1b[0;33m%s\x1b[m\n' "Make sure to check ${out} for any required fields"
-  fi
-  return ${res}
-}
-
-gh-raw() {
-  local full_path=""
-  case "$1" in;
-    "")
-      echo "${0}: expected full path as \$1"
-      return 1
-      ;;
-    "-h" | "--help")
-      cat <<EOF
-Curl \`raw.githubusercontent.com\` easier
-
-Usage:
-  gh-raw <FULL-PATH> [options...]
-
-Arguments:
-  <FULL-PATH>  the path to the file to curl, in the structure of
-               "<user>/<repo>/<branch>/<path-to-file>"
-
-Options:
-  [ all curl(1) options apply ]
-EOF
-      return $?
-      ;;
-    *) full_path="$1" ;;
-  esac
-
-  curl -q "https://raw.githubusercontent.com/${full_path}" ${@:2}
-  return $?
-}
-
 # more human-readable ('hr') rep. of $PATH
 hr-path() {
   tr ':' '\n' <<< "${PATH}"
@@ -161,41 +92,6 @@ colors() {
     echo -n "\x1b[0;38;5;${i}m${blocks}"
   done
   echo "\x1b[m"
-}
-
-mit() {
-  if [[ "${1}" = "--help" ]]; then
-    cat <<EOF
-Get the MIT License's content, with its fields filled in
-
-Usage: mit [OUTPUT]
-
-Arguments:
-  [OUTPUT]  where to place the output text (default: -)
-EOF
-    return 0
-  fi
-
-  local out_file=${1:--}
-  local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main"
-  curl -q "${spdx_db}/text/MIT.txt" -o ${out_file}
-  local curl_res=$?
-
-  if [[ ${out_file} = - ]]; then
-    return ${curl_res}
-  fi
-
-  local sub_year="s/<year>/$(date +'%Y')/"
-  local git_username="$(git config --get user.name)"
-  local sub_username="s/<copyright holders>/${git_username}/"
-
-  if [[ -n "${git_username}" ]]; then
-    sed -i "" "${sub_year}; ${sub_username}" ${out_file}
-  else
-    sed -i "" "${sub_year}" ${out_file}
-    # yellow foreground, with a newline above
-    printf '\n\x1b[0;33m%s\x1b[m\n' 'Remember to fill out the <copyright holders> field!'
-  fi
 }
 
 # from https://www.youtube.com/watch?v=G3NJzFX6XhY&t=721s
