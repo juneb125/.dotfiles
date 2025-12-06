@@ -197,3 +197,9 @@ EOF
     printf '\n\x1b[0;33m%s\x1b[m\n' 'Remember to fill out the <copyright holders> field!'
   fi
 }
+
+# from https://www.youtube.com/watch?v=G3NJzFX6XhY&t=721s
+gl-pretty() {
+  git log --graph --pretty=\
+    format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'
+}
