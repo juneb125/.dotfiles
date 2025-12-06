@@ -32,9 +32,5 @@
 	# token updated 11/20/24
 	token = ${JUNES_GITHUB_TOKEN}
 
-[help]
-	# automatically correct & execute mistyped cmd's
-	autocorrect = 1
-
 [credential]
 	helper = store
