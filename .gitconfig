@@ -20,6 +20,13 @@
 	i = init
 	log = log --graph
 
+[push]
+	default = current
+	followTags = true
+
+[pull]
+	default = current
+
 [github]
 	user = juneb125
 	# token updated 11/20/24
