@@ -99,3 +99,10 @@ gl-pretty() {
   git log --graph --pretty=\
     format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'
 }
+
+if ! which help >/dev/null; then
+  # 'help' is a bash builtin that apparently isn't also a zsh builtin
+  help() {
+    bash <(echo "help ${@}")
+  }
+fi
