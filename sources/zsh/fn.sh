@@ -68,14 +68,22 @@ toUpper() {
   tr '[a-z]' '[A-Z]' <<< "${1}"
 }
 
-# more human-readable ('hr') rep. of $PATH
-hr-path() {
-  tr ':' '\n' <<< "${PATH}"
-}
+hr() {
+  case "$(toLower $1)" in;
+    "--help")
+      cat <<EOF
+human-readable representations of colon-separated env vars
 
-# more human-readable ('hr') rep. of `manpath`
-hr-manpath() {
-  tr ':' '\n' < <(manpath)
+Usage: hr [man|path|<VALUE>]
+
+Arguments:
+  VALUE  the value to transform
+EOF
+      ;;
+    "man")  tr ':' '\n' < <(manpath) ;;
+    "path") tr ':' '\n' <<< "${PATH}" ;;
+    *) tr ':' '\n' <<< "${1}" ;;
+  esac
 }
 
 colors() {
