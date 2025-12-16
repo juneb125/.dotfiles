@@ -69,6 +69,7 @@ toUpper() {
 }
 
 hr() {
+  local value=
   case "$(toLower $1)" in;
     "--help")
       cat <<EOF
@@ -79,11 +80,13 @@ Usage: hr [man|path|<VALUE>]
 Arguments:
   VALUE  the value to transform
 EOF
+      return $?
       ;;
-    "man")  tr ':' '\n' < <(manpath) ;;
-    "path") tr ':' '\n' <<< "${PATH}" ;;
-    *) tr ':' '\n' <<< "${1}" ;;
+    "man")  value=$(manpath) ;;
+    "path") value="${PATH}" ;;
+    *) value="${1}" ;;
   esac
+  tr ':' '\n' <<< "${value}"
 }
 
 colors() {
