@@ -11,6 +11,9 @@ tab_width = 4
 indent_style = space
 indent_size = 2
 
+[*.lua]
+indent_style = tab
+
 [*.{diff,patch,lock}]
 indent_style = unset
 indent_size = unset
