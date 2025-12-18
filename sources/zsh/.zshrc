@@ -47,11 +47,8 @@ export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 [[ -d ${ZPLUGINDIR} ]] || mkdir -p ${ZPLUGINDIR}
 
 # helper function(s) for downloading plugins
-source ${ZDOTDIR}/get-plugins.zsh
-if [[ ! $? ]]; then
-  # error message is already in get-plugins.zsh
-  return 1
-fi
+source ${ZDOTDIR}/get-plugins.zsh \
+  || return 1 # error message is already in get-plugins.zsh
 
 # Downloading
 # only download if plugin isn't installed
