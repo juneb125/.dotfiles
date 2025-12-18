@@ -35,14 +35,18 @@ vim.cmd("colorscheme catppuccin")
 require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd" })
 
+vim.api.nvim_create_augroup("lazy_lsp", {})
+
 -- only enable lua_ls (Lua LSP) when needed
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	group = "lazy_lsp",
 	pattern = { "*.lua" },
 	command = [[lua vim.lsp.enable("lua_ls")]],
 })
 
 -- only enable nil_ls (Nix LSP) when needed
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	group = "lazy_lsp",
 	pattern = { "*.nix" },
 	command = [[lua vim.lsp.enable("nil_ls")]],
 })
