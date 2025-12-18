@@ -27,7 +27,7 @@ vim.pack.add({
 	{ src = gh .. "L3MON4D3/LuaSnip" },
 	{ src = gh .. "hrsh7th/nvim-cmp" },
 	{ src = gh .. "saadparwaiz1/cmp_luasnip" },    -- dependency for LuaSnip
-	{ src = gh .. "rafamadriz/friendly-snippets" }, -- dependency for LuaSnip
+	{ src = gh .. "rafamadriz/friendly-snippets" } -- dependency for LuaSnip
 })
 
 vim.cmd("colorscheme catppuccin")
@@ -40,15 +40,15 @@ vim.api.nvim_create_augroup("lazy_lsp", {})
 -- only enable lua_ls (Lua LSP) when needed
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "lazy_lsp",
-	pattern = { "*.lua" },
-	command = [[lua vim.lsp.enable("lua_ls")]],
+	pattern = "*.lua",
+	command = "lua vim.lsp.enable('lua_ls')"
 })
 
 -- only enable nil_ls (Nix LSP) when needed
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "lazy_lsp",
-	pattern = { "*.nix" },
-	command = [[lua vim.lsp.enable("nil_ls")]],
+	pattern = "*.nix",
+	command = "lua vim.lsp.enable('nil_ls')"
 })
 
 require("nvim-treesitter.configs").setup({
@@ -56,11 +56,11 @@ require("nvim-treesitter.configs").setup({
 		"lua",
 		"markdown",
 		"nix",
-		"rust",
+		"rust"
 	},
 	sync_install = false,
 	highlight = { enable = true },
-	indent = { enable = true },
+	indent = { enable = true }
 })
 
 local signs = {
@@ -69,7 +69,7 @@ local signs = {
 	delete = { text = "_" },
 	topdelete = { text = "‾" },
 	changedelete = { text = "~" },
-	untracked = { text = "┆" },
+	untracked = { text = "┆" }
 }
 require("gitsigns").setup({
 	signs = signs,
@@ -80,7 +80,7 @@ require("ibl").setup({
 	scope = {
 		enabled = true,
 		show_start = false,
-		show_end = false,
+		show_end = false
 	}
 })
 
@@ -98,10 +98,10 @@ require("lualine").setup({
 				icons_enabled = false,
 				fmt = function(str)
 					return " " .. str
-				end,
+				end
 			},
 			"diff",
-			"diagnostics",
+			"diagnostics"
 		},
 
 		lualine_x = {
@@ -111,12 +111,12 @@ require("lualine").setup({
 				symbols = {
 					unix = "unix", -- default: linux penguin icon
 					dos = "dos",
-					mac = "mac",
-				},
+					mac = "mac"
+				}
 			},
-			"filetype",
-		},
-	},
+			"filetype"
+		}
+	}
 })
 
 require("neo-tree").setup({})
