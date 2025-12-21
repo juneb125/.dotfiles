@@ -2,9 +2,9 @@
 
 # TODO: write help message
 proj() {
-  (( $# > 1 )) && echo "Expected 1 argument, got ${#}.\nIgnoring the rest..."
+  (( $# > 1 )) && echo "Expected 1 argument, got $#.\nIgnoring the rest..."
   local proj_dir="${HOME}/Desktop/Coding"
-  if [[ ! -d ${proj_dir} ]]; then
+  if [[ ! -d "${proj_dir}" ]]; then
     echo "${0}: ${proj_dir} doesn't exist"
     return 1
   fi
@@ -25,12 +25,11 @@ proj() {
       return 1
     fi ;;
   esac
-  return $?
 }
 
 # TODO: write help message
 config() {
-  local config_dir=${XDG_CONFIG_HOME:-${HOME}/.dotfiles/sources}
+  local config_dir="${XDG_CONFIG_HOME:-${HOME}/.dotfiles/sources}"
 
   case "$1" in;
     "") cd ${config_dir}/.. ;;
@@ -45,18 +44,17 @@ config() {
       return 1
     fi ;;
   esac
-  return $?
 }
 
 # from github:theopn/dotfiles/zsh/.zshrc
 mkcd() {
-  mkdir -p $1 && cd $1
+  mkdir -p "$1" && cd "$1"
 }
 
 # from the same person who wrote `mkcd`
 numfiles() {
   local dir=${1:-.}
-  local num=$(ls -A -1 ${dir} | wc -l)
+  local num=$(ls -A -1 "${dir}" | wc -l)
   echo "${num} files in ${dir}"
 }
 
