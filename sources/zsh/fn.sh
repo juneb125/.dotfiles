@@ -112,6 +112,6 @@ gl-pretty() {
 if ! which help >/dev/null; then
   # 'help' is a bash builtin that apparently isn't also a zsh builtin
   help() {
-    bash <(echo "help ${@}")
+    bash -c "help ${@}"
   }
 fi
