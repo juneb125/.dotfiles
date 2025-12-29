@@ -16,11 +16,17 @@ fi
 export EDITOR="nvim"
 alias nvim='bob run nightly'
 
-# make 100% sure Nix is in PATH
-PATH="/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin:$PATH"
+# make 100% sure Nix is in PATH, without inserting duplicates
+if [[ "${PATH}" != */run/current-system/sw/bin* ]]; then
+  PATH="/run/current-system/sw/bin:${PATH}"
+fi
+if [[ "${PATH}" != */nix/var/nix/profiles/default/bin* ]]; then
+  PATH="/nix/var/nix/profiles/default/bin:${PATH}"
+fi
+export PATH
 
 export FLAKE_HOME="${HOME}/.dotfiles"
 
-if which bat > /dev/null; then
+if which bat >/dev/null; then
   export BAT_THEME="Catppuccin Macchiato"
 fi
