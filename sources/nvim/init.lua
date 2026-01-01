@@ -12,6 +12,7 @@ vim.pack.add({
 	{ src = gh .. "mason-org/mason.nvim" },
 	{ src = gh .. "neovim/nvim-lspconfig" },
 	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
+	{ src = gh .. "stevearc/oil.nvim" },
 
 	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine & neotree
 	{ src = gh .. "MunifTanjim/nui.nvim", },       -- dependency for neotree
@@ -70,6 +71,27 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true }
 })
+
+local oil = require("oil")
+oil.setup({
+	default_file_explorer = true,
+	view_options = {
+		show_hidden = false
+	},
+	float = {
+		min_width = 0.7,
+		min_height = 0.7,
+		max_width = 0.4,
+		max_height = 0.4,
+		border = "rounded"
+	},
+	keymaps = {
+		-- keymaps for oil to behave a little more like NeoTree
+		["H"] = { "actions.toggle_hidden", mode = "n" },
+		["<BS>"] = { "actions.parent", mode = "n" }
+	}
+})
+vim.keymap.set("n", "<C-o>", oil.toggle_float, { silent = true })
 
 local signs = {
 	add = { text = "┃" },
