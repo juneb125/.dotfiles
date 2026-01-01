@@ -51,6 +51,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	command = "lua vim.lsp.enable('nil_ls')"
 })
 
+-- see Credits #5
+vim.cmd([[
+  augroup _markdown
+    autocmd!
+    autocmd FileType markdown setlocal spell
+  augroup end
+]])
+
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"lua",
@@ -97,6 +105,7 @@ require("lualine").setup({
 				"branch",
 				icons_enabled = false,
 				fmt = function(str)
+					-- nf-cod-source_control (U+EA68)
 					return " " .. str
 				end
 			},
