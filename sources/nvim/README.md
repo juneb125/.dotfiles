@@ -38,7 +38,8 @@ neovim v0.12
 * [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's & DAP's
 * [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) &mdash; config for the LSP's
 * [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
-* [`neo-tree`](https://github.com/nvim-neo-tree/neo-tree.nvim) &mdash; file explorer
+* [`oil`](https://github.com/stevearc/oil.nvim) &mdash; file explorer
+* [`neo-tree`](https://github.com/nvim-neo-tree/neo-tree.nvim) &mdash; file explorer in a tree view
     * dependencies:
         * [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons) &mdash; pretty icons :)
         * [`nui`](https://github.com/MunifTanjim/nui.nvim) &mdash; UI library
