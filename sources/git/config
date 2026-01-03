@@ -20,6 +20,9 @@
 	i = init
 	log = log --graph
 
+[commit]
+	template = ./template
+
 [push]
 	default = current
 	followTags = true

@@ -1,0 +1,14 @@
+
+#
+# mostly from github:angular/angular@22b96b9 (path: /CONTRIBUTING.md#type)
+#
+# build:     changes that affect the build system or external dependencies
+# chore:     a catch-all type for any other commits
+# ci:        changes to CI configuration files and scripts
+# docs:      documentation only changes
+# feat:      a new feature
+# fix:       a bug fix
+# perf:      a code change that improves performance
+# refactor:  a code change that neither fixes a bug nor adds a feature
+# style:     changes that do not affect the meaning of the code (e.g., formatting)
+# test:      adding missing tests or correcting existing tests
