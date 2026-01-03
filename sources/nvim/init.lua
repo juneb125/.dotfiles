@@ -79,10 +79,10 @@ oil.setup({
 		show_hidden = false
 	},
 	float = {
-		min_width = 0.7,
-		min_height = 0.7,
-		max_width = 0.4,
-		max_height = 0.4,
+		min_width = 0.4,
+		min_height = 0.4,
+		max_width = 0.7,
+		max_height = 0.7,
 		border = "rounded"
 	},
 	keymaps = {
