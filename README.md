@@ -2,7 +2,6 @@
 My personal configuration files
 
 **Table of Contents**
-* [Goals](#goals)
 * [My Environment](#my-environment)
 * [Installation](#installation)
 
@@ -11,19 +10,14 @@ My personal configuration files
 * [nvim](./sources/nvim)
 * [ghostty](./sources/ghostty)
 
-## Goals
-* create comprehensive and easy-to-follow documentation for each major config piece, especially:
-    * `zsh` &mdash; shell
-    * `nvim` &mdash; text editor
-    * `nixpkgs` &mdash; package manager
-    * `ghostty` &mdash; terminal emulator
-
 ## My Environment
 What I'm using:
 * *device* &mdash; MacBook Air M1 (2020)
 * *operating system* &mdash; MacOS 15 (Sequoia)
 * *terminal emulator* &mdash; Ghostty
-* *package manager* &mdash; `nixpkgs` (version 25.05)
+* *shell* &mdash: zsh
+* *package manager* &mdash; `nixpkgs` (version 25.11)
+* *editor* &mdash; nvim (nightly version)
 * *languages I've been working with*:
     * C
     * Rust
