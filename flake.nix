@@ -23,7 +23,9 @@
       ];
     };
 
-    devShells = forEachSystem (pkgs: import ./shells {inherit pkgs;});
+    devShells = forEachSystem (pkgs: {
+      default = import ./shell.nix {inherit pkgs;};
+    });
 
     inherit (inputs.flake-templates) templates;
   };
