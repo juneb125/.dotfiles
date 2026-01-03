@@ -15,9 +15,9 @@ What I'm using:
 * *device* &mdash; MacBook Air M1 (2020)
 * *operating system* &mdash; MacOS 15 (Sequoia)
 * *terminal emulator* &mdash; Ghostty
-* *shell* &mdash: zsh
-* *package manager* &mdash; `nixpkgs` (version 25.11)
-* *editor* &mdash; nvim (nightly version)
+* *shell* &mdash; `zsh`
+* *package manager* &mdash; `nixpkgs` (25.11)
+* *editor* &mdash; `nvim` nightly (see <./sources/nvim/README.md> for more information)
 * *languages I've been working with*:
     * C
     * Rust

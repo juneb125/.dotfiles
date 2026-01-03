@@ -1,5 +1,5 @@
-# Minimal Nvim Config
-neovim v0.12
+# Minimal NeoVim Config
+nvim nightly version
 
 **Table of Contents**
 * [Important Stuff](#important-stuff)
@@ -9,7 +9,7 @@ neovim v0.12
 * [Resources](#resources)
 
 ## Important stuff
-* *installation*: &mdash; uses [bob-nvim](https://crates.io/crates/bob-nvim) for nvim version management:
+* *installation* &mdash; uses [bob-nvim](https://crates.io/crates/bob-nvim) for nvim version management:
     > Prerequisite: cargo
     ```
     cargo install bob-nvim
