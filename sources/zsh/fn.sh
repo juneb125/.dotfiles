@@ -10,23 +10,29 @@ proj() {
     echo "${0}: ${proj_dir} doesn't exist" >&2
     return 1
   fi
+  local dest_dir="${proj_dir}"
 
   case "$1" in;
-    "") cd ${proj_dir} ;;
-    "rs") cd ${proj_dir}/RustProjects ;;
-    "ll") cd ${proj_dir}/LowLevelProjects ;;
-    "xc") cd ${proj_dir}/XcodeProjects ;;
-    "web") cd ${proj_dir}/WebDevProjects ;;
-    "fn") cd ${proj_dir}/FnProjects ;;
-    "misc") cd ${proj_dir}/MiscProjects ;;
-    "-h" | "--help") echo "help message..." ;;
+    "") ;;
+    "rs") dest_dir+='/RustProjects' ;;
+    "ll") dest_dir+='/LowLevelProjects' ;;
+    "xc") dest_dir+='/XcodeProjects' ;;
+    "web") dest_dir+='/WebDevProjects' ;;
+    "fn") dest_dir+='/FnProjects' ;;
+    "misc") dest_dir+='/MiscProjects' ;;
+    "-h" | "--help")
+      echo "help message..."
+      return 0
+      ;;
     *) if [[ -d "${proj_dir}/${1}" ]]; then
-      cd "${proj_dir}/${1}"
+      dest_dir+="/${1}"
     else
       echo "${0}: couldn't find ${1} in ${proj_dir}" >&2
       return 1
     fi ;;
   esac
+
+  cd "${dest_dir}"
 }
 
 # TODO: write help message
