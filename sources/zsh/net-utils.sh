@@ -45,7 +45,7 @@ gh-raw() {
   local full_path=""
   case "$1" in;
     "")
-      echo "${0}: expected full path as \$1"
+      echo "${0}: expected full path as \$1" >&2
       return 1
       ;;
     "-h" | "--help")

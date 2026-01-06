@@ -7,7 +7,7 @@ proj() {
   (( $# > 1 )) && echo "Expected 1 argument, got $#.\nIgnoring the rest..."
   local proj_dir="${HOME}/Desktop/Coding"
   if [[ ! -d "${proj_dir}" ]]; then
-    echo "${0}: ${proj_dir} doesn't exist"
+    echo "${0}: ${proj_dir} doesn't exist" >&2
     return 1
   fi
 
@@ -23,7 +23,7 @@ proj() {
     *) if [[ -d "${proj_dir}/${1}" ]]; then
       cd "${proj_dir}/${1}"
     else
-      echo "${0}: couldn't find ${1} in ${proj_dir}"
+      echo "${0}: couldn't find ${1} in ${proj_dir}" >&2
       return 1
     fi ;;
   esac
@@ -42,7 +42,7 @@ config() {
     *) if [[ -d "${config_dir}/${1}" ]]; then
       cd "${config_dir}/${1}"
     else
-      echo "${0}: couldn't find ${1} in ${config_dir}"
+      echo "${0}: couldn't find ${1} in ${config_dir}" >&2
       return 1
     fi ;;
   esac

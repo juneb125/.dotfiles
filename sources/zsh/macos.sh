@@ -6,7 +6,7 @@ xcode() {
   if [[ -z "${1}" || -e ${1} ]]; then
     open ${1} -a Xcode.app
   else
-    echo "${0}: ${1} doesn't exist"
+    echo "${0}: ${1} doesn't exist" >&2
     return 1
   fi
 }
@@ -35,7 +35,7 @@ EOF
       eval "defaults write ${domain} -bool ${1}"
       ;;
     *)
-      echo "${0}: invalid input: ${1}"
+      echo "${0}: invalid input: ${1}" >&2
       return 1
       ;;
   esac

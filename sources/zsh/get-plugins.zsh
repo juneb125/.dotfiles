@@ -3,7 +3,7 @@
 # get-plugins.zsh - script to download zsh plugins from source
 
 if [[ -z ${ZPLUGINDIR} ]]; then
-  echo "\x1b[0;31mZPLUGINDIR must be set in order to download / update the plugins\x1b[m"
+  echo "\x1b[0;31mZPLUGINDIR must be set in order to download / update the plugins\x1b[m" >&2
   return 1
 fi
 
@@ -21,7 +21,7 @@ get-syntax-highlighting() {
   if [[ ${res} ]]; then
     echo "\x1b[0;32m${0}: download successful\x1b[m"
   else
-    echo "\x1b[0;31m${0}: download failed with exit code ${res}\x1b[m"
+    echo "\x1b[0;31m${0}: download failed with exit code ${res}\x1b[m" >&2
   fi
 
   return ${res}
