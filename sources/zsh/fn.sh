@@ -35,18 +35,18 @@ config() {
   local config_dir="${XDG_CONFIG_HOME:-${HOME}/.dotfiles/sources}"
 
   case "$1" in;
-    "") cd ${config_dir}/.. ;;
-    "ghostty" | "tty") cd ${config_dir}/ghostty ;;
-    "nvim" | "neovim") cd ${config_dir}/nvim ;;
-    "zsh") cd ${config_dir}/zsh ;;
-    "-h" | "--help") echo "help message..." ;;
-    *) if [[ -d "${config_dir}/${1}" ]]; then
-      cd "${config_dir}/${1}"
-    else
-      echo "${0}: couldn't find ${1} in ${config_dir}" >&2
-      return 1
-    fi ;;
+    "") config_dir+='/..' ;;
+    "ghostty" | "tty") config_dir+='/ghostty' ;;
+    "nvim" | "neovim") config_dir+='/nvim' ;;
+    "zsh") config_dir+='/zsh' ;;
+    "-h" | "--help")
+      echo "help message..."
+      return 0
+      ;;
+    *) config_dir+="/${1}" ;;
   esac
+
+  cd "${config_dir}"
 }
 
 # from github:theopn/dotfiles/zsh/.zshrc
