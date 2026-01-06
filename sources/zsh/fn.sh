@@ -24,12 +24,7 @@ proj() {
       echo "help message..."
       return 0
       ;;
-    *) if [[ -d "${proj_dir}/${1}" ]]; then
-      dest_dir+="/${1}"
-    else
-      echo "${0}: couldn't find ${1} in ${proj_dir}" >&2
-      return 1
-    fi ;;
+    *) dest_dir+="/${1}" ;;
   esac
 
   cd "${dest_dir}"
