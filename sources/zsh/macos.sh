@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 #
 # macos.sh - useful MacOS-specific shell functions
 
