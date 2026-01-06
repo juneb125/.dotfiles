@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+#
+# fn.sh - useful shell functions :)
 
 # TODO: write help message
 proj() {

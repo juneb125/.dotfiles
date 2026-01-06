@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
-# -- Aliases --
+#
+# aliases.sh - shell aliases
 
 # Navigation
 alias ..='cd ..'

@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+#
+# macos.sh - useful MacOS-specific shell functions
 
 xcode() {
   if [[ -z "${1}" || -e ${1} ]]; then

@@ -1,3 +1,7 @@
+#!/usr/bin/env zsh
+#
+# get-plugins.zsh - script to download zsh plugins from source
+
 if [[ -z ${ZPLUGINDIR} ]]; then
   echo "\x1b[0;31mZPLUGINDIR must be set in order to download / update the plugins\x1b[m"
   return 1
