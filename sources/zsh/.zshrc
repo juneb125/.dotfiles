@@ -1,8 +1,12 @@
 # Zsh config
 
 # Prompt
-export STARSHIP_CONFIG=${ZDOTDIR}/starship.toml
-eval "$(starship init zsh)"
+if [[ -f "${ZDOTDIR}/starship.toml" ]]; then
+  export STARSHIP_CONFIG="${ZDOTDIR}/starship.toml"
+fi
+if which starship >/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 # Keybinds
 bindkey '^I' autosuggest-accept      # tab
