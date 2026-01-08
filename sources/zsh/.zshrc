@@ -9,6 +9,13 @@ bindkey '^I' autosuggest-accept      # tab
 bindkey '^p' history-search-backward # ctrl p
 bindkey '^n' history-search-forward  # ctrl n
 
+# open buffer line in editor, from
+#   https://www.youtube.com/watch?v=3fVAtaGhUyU&t=95s
+#   github:elliottminns/dotfiles@2c68576 (path: /.zshrc#L138-L141)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line # ctrl x, ctrl e
+
 # History Opts
 HISTSIZE=5000
 HISTFILE=${HOME}/.zsh_history
