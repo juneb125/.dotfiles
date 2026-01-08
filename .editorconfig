@@ -25,3 +25,7 @@ trim_trailing_whitespace = unset
 [[jJ]ustfile]
 indent_style = space
 indent_size = 4
+
+[sources/git/config]
+indent_style = tab
+tab_width = 4
