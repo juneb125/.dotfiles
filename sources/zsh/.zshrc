@@ -30,7 +30,6 @@ autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Misc. (non-plugin)
-source ${HOME}/.env
 source ${ZDOTDIR}/aliases.sh
 source ${ZDOTDIR}/fn.sh
 source ${ZDOTDIR}/net-utils.sh

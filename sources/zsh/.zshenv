@@ -35,3 +35,5 @@ fi
 
 # don't log less history
 export LESSHISTFILE="/dev/null"
+
+export JUNES_GITHUB_TOKEN="$(pass show personal/github-token | head -n 1)"
