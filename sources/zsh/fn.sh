@@ -112,7 +112,7 @@ gl-pretty() {
     format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'
 }
 
-if [[ "${SHELL}" == *zsh* ]]; then
+if [[ "${SHELL}" != *bash* ]]; then
   # 'help' is a bash builtin that apparently isn't also a zsh builtin
   help() {
     bash -c "help ${@}"
