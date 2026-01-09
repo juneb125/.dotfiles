@@ -5,12 +5,11 @@
 # TODO: write help message
 proj() {
   (( $# > 1 )) && echo "Expected 1 argument, got $#.\nIgnoring the rest..."
-  local proj_dir="${HOME}/Desktop/Coding"
-  if [[ ! -d "${proj_dir}" ]]; then
-    echo "${0}: ${proj_dir} doesn't exist" >&2
+  if [[ -z "${PROJ_DIR}" || ! -d "${PROJ_DIR}" ]]; then
+    echo "${0}: \$PROJ_DIR doesn't exist or isn't set" >&2
     return 1
   fi
-  local dest_dir="${proj_dir}"
+  local dest_dir="${PROJ_DIR}"
 
   case "$1" in;
     "") ;;
