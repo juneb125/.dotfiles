@@ -2,7 +2,6 @@
 #
 # fn.sh - useful shell functions :)
 
-# TODO: write help message
 proj() {
   (( $# > 1 )) && echo "Expected 1 argument, got $#.\nIgnoring the rest..."
   if [[ -z "${PROJ_DIR}" || ! -d "${PROJ_DIR}" ]]; then
@@ -20,7 +19,19 @@ proj() {
     "fn") dest_dir+='/FnProjects' ;;
     "misc") dest_dir+='/MiscProjects' ;;
     "-h" | "--help")
-      echo "help message..."
+      cat <<EOF
+${0}: quickly go to your project directory
+
+Usage: ${0} [ABBREV|DIR]
+
+Arguments:
+  DIR     which project directory to go to
+  ABBREV  use an abbreviation of a project subdirectory's name
+            (values: [rs, ll, xc, web, fn, misc])
+
+Environment:
+  \$PROJ_DIR  what directory all of your projects are in
+EOF
       return 0
       ;;
     *) dest_dir+="/${1}" ;;
