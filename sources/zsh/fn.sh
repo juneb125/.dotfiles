@@ -3,7 +3,6 @@
 # fn.sh - useful shell functions :)
 
 proj() {
-  (( $# > 1 )) && echo "Expected 1 argument, got $#.\nIgnoring the rest..."
   if [[ -z "${PROJ_DIR}" || ! -d "${PROJ_DIR}" ]]; then
     echo "${0}: \$PROJ_DIR doesn't exist or isn't set" >&2
     return 1
@@ -24,11 +23,13 @@ ${0}: quickly go to an area or a specific project
       An 'area' is how you split up and organize all of your projects
 
 Usage: ${0} [ABBREV|DIR]
+       ${0} <ABBREV|DIR> [REST]
 
 Arguments:
   DIR     the path relative to \$PROJ_DIR to go to
   ABBREV  use an abbreviation of an area's name
             (values: [rs, ll, xc, web, fn, misc])
+  REST    go to a specific sub-directory in an area
 
 Environment:
   \$PROJ_DIR  what directory all of your areas are in
@@ -38,7 +39,7 @@ EOF
     *) dest_dir+="/${1}" ;;
   esac
 
-  cd "${dest_dir}"
+  cd "${dest_dir}/${@:2}"
 }
 
 # TODO: write help message
