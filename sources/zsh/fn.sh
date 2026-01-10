@@ -20,17 +20,18 @@ proj() {
     "misc") dest_dir+='/MiscProjects' ;;
     "-h" | "--help")
       cat <<EOF
-${0}: quickly go to your project directory
+${0}: quickly go to an area or a specific project
+      An 'area' is how you split up and organize all of your projects
 
 Usage: ${0} [ABBREV|DIR]
 
 Arguments:
-  DIR     which project directory to go to
-  ABBREV  use an abbreviation of a project subdirectory's name
+  DIR     the path relative to \$PROJ_DIR to go to
+  ABBREV  use an abbreviation of an area's name
             (values: [rs, ll, xc, web, fn, misc])
 
 Environment:
-  \$PROJ_DIR  what directory all of your projects are in
+  \$PROJ_DIR  what directory all of your areas are in
 EOF
       return 0
       ;;
