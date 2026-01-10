@@ -44,21 +44,25 @@ EOF
 
 # TODO: write help message
 config() {
-  local config_dir="${XDG_CONFIG_HOME:-${HOME}/.dotfiles/sources}"
+  local dest_dir="${XDG_CONFIG_HOME}"
+  if [[ -z "${dest_dir}" || ! -d "${dest_dir}" ]]; then
+    echo "${0}: \$XDG_CONFIG_HOME doesn't exist or isn't set" >&2
+    return 1
+  fi
 
   case "$1" in;
-    "") config_dir+='/..' ;;
-    "ghostty" | "tty") config_dir+='/ghostty' ;;
-    "nvim" | "neovim") config_dir+='/nvim' ;;
-    "zsh") config_dir+='/zsh' ;;
+    "") dest_dir+='/..' ;;
+    "ghostty" | "tty") dest_dir+='/ghostty' ;;
+    "nvim" | "neovim") dest_dir+='/nvim' ;;
+    "zsh") dest_dir+='/zsh' ;;
     "-h" | "--help")
       echo "help message..."
       return 0
       ;;
-    *) config_dir+="/${1}" ;;
+    *) dest_dir+="/${1}" ;;
   esac
 
-  cd "${config_dir}"
+  cd "${dest_dir}"
 }
 
 # from github:theopn/dotfiles/zsh/.zshrc
