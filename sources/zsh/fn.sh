@@ -42,7 +42,6 @@ EOF
   cd "${dest_dir}/${@:2}"
 }
 
-# TODO: write help message
 config() {
   local dest_dir="${XDG_CONFIG_HOME}"
   if [[ -z "${dest_dir}" || ! -d "${dest_dir}" ]]; then
@@ -53,7 +52,17 @@ config() {
   case "$1" in;
     "") dest_dir+='/..' ;;
     "-h" | "--help")
-      echo "help message..."
+      cat <<EOF
+${0}: quickly go to your config home
+
+Usage: ${0} [DIR]
+
+Arguments:
+  DIR  the path relative to \$XDG_CONFIG_HOME to go to
+
+Environment:
+  \$XDG_CONFIG_HOME  what directory all of your configs are in
+EOF
       return 0
       ;;
     *) dest_dir+="/${1}" ;;
