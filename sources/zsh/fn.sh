@@ -52,9 +52,6 @@ config() {
 
   case "$1" in;
     "") dest_dir+='/..' ;;
-    "ghostty" | "tty") dest_dir+='/ghostty' ;;
-    "nvim" | "neovim") dest_dir+='/nvim' ;;
-    "zsh") dest_dir+='/zsh' ;;
     "-h" | "--help")
       echo "help message..."
       return 0
