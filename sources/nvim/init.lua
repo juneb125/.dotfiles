@@ -90,7 +90,11 @@ oil.setup({
 	keymaps = {
 		-- keymaps for oil to behave a little more like NeoTree
 		["H"] = { "actions.toggle_hidden", mode = "n" },
-		["<BS>"] = { "actions.parent", mode = "n" }
+		["<BS>"] = { "actions.parent", mode = "n" },
+		["."] = { "actions.cd", mode = "n" },
+		-- misc. keymaps
+		["q"] = { "actions.close", mode = "n" },
+		["<Esc>"] = { "actions.close", mode = "n" }
 	}
 })
 vim.keymap.set("n", "<C-o>", oil.toggle_float, { silent = true })
@@ -121,7 +125,7 @@ require("nvim-autopairs").setup({})
 require("lualine").setup({
 	options = {
 		theme = "palenight",
-		ignore_focus = { "neo-tree" }
+		ignore_focus = { "neo-tree", "oil" }
 	},
 	sections = {
 		lualine_b = {
