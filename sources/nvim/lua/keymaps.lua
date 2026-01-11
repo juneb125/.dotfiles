@@ -6,6 +6,7 @@ vim.g.maplocalleader = "\\"
 local map = vim.keymap.set
 
 map("n", "<leader>wt", "<cmd>set wrap!<CR>")
+map("n", "<leader>sc", "<cmd>setlocal spell!<CR>")
 
 -- navigate Vim panes better, see Credits #1
 map("n", "<C-k>", "<cmd>wincmd k<CR>")
