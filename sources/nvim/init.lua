@@ -42,14 +42,16 @@ vim.api.nvim_create_augroup("lazy_lsp", {})
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "lazy_lsp",
 	pattern = "*.lua",
-	command = "lua vim.lsp.enable('lua_ls')"
+	command = "lua vim.lsp.enable('lua_ls')",
+	once = true
 })
 
 -- only enable nil_ls (Nix LSP) when needed
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "lazy_lsp",
 	pattern = "*.nix",
-	command = "lua vim.lsp.enable('nil_ls')"
+	command = "lua vim.lsp.enable('nil_ls')",
+	once = true
 })
 
 -- see Credits #5
