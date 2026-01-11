@@ -54,11 +54,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	once = true
 })
 
--- see Credits #5
+-- I couldn't get lua to do this :( , so vimscript it is
+-- almost completely from Credits #5
 vim.cmd([[
-  augroup _markdown
-    autocmd!
-    autocmd FileType markdown setlocal spell
+  augroup local_spell_check
+    autocmd FileType markdown,text setlocal spell
   augroup end
 ]])
 
