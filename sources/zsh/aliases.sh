@@ -22,7 +22,5 @@ alias gs='git status'
 # Misc.
 alias c='clear'
 alias e='exit 0'
-alias scerr='scutil --error $?'
 alias restart='reset'
 alias notes='cd ~/Documents/"Obsidian Vault"'
-# alias clang-c='clang -std=c99 -Wall -Werror '
