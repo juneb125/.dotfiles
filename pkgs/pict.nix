@@ -1,23 +1,20 @@
 { pkgs, lib, ... }: let
-  inherit (pkgs) stdenv just;
+  inherit (pkgs) stdenvNoCC;
 in
-  stdenv.mkDerivation {
-    pname = "pict";
+  stdenvNoCC.mkDerivation {
+    name = "pict";
     version = "0.1.0";
     src = pkgs.fetchFromGitHub {
       owner = "juneb125";
       repo = "pict";
-      rev = "08423ca60a0fb98d4807530601f16ad3db702f41";
-      hash = "sha256-S9MW6rVTrTcMKvLZBp+fqVCWn9h7KcOCE9ZcUhJaUaw=";
+      rev = "5a10101d50e7255e951deec71f2b1fb6d0cfe14f";
+      hash = "sha256-AVZ/n2k3pcdMKS70rD8B93zqfpGmnRKZRnXxljPw2fQ=";
     };
 
-    buildInputs = [just];
-    buildPhase = ''
-      ${just}/bin/just clean
-    '';
+    buildPhase = "";
     installPhase = ''
       mkdir -p $out/bin
-      ${just}/bin/just build $out/bin/pict
+      cp pict $out/bin/pict
       chmod +x $out/bin/pict
     '';
 
