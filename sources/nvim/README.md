@@ -60,17 +60,7 @@ nvim nightly version
 * [commit 845b66a](https://github.com/juneb125/.dotfiles/tree/845b66a8b7c47962efa3942760836fbce0a32df7/.config/nvim) (August 5, 2025) was the last commit before the overhaul
 
 ## To-do's
-- [x] colorscheme
-- [x] LSP config
-- [x] file explorer
-- [x] treesitter
-- [x] status line (lualine)
-- [x] *maybe*: autocompletions
-- [ ] misc. plugins:
-    - [x] gitsigns
-    - [x] autopairs
-    - [x] indent-blankline
-    - [ ] lang-specific plugins
+no long-term todo's :)
 
 ## Resources
 * [bob-nvim](https://crates.io/crates/bob-nvim) on crates.io
