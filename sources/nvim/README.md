@@ -34,16 +34,18 @@ nvim nightly version
 ### Plugins
 * [`catppuccin`](https://github.com/catppuccin/nvim) &mdash; catppuccin <3
 * [`lualine`](https://github.com/nvim-lualine/lualine.nvim) &mdash; configurable Vim status bar
-    * depends on `nvim-web-devicons` (see below)
-* [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's & DAP's
+    * depends on: [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons) &mdash; pretty icons :)
+* [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's, DAP's, and formatters
 * [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) &mdash; config for the LSP's
 * [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
 * [`oil`](https://github.com/stevearc/oil.nvim) &mdash; file explorer
+<!-- i'm trying to not use neotree as much
 * [`neo-tree`](https://github.com/nvim-neo-tree/neo-tree.nvim) &mdash; file explorer in a tree view
     * dependencies:
         * [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons) &mdash; pretty icons :)
         * [`nui`](https://github.com/MunifTanjim/nui.nvim) &mdash; UI library
         * [`plenary`](https://github.com/nvim-lua/plenary.nvim) &mdash; nvim utility functions
+-->
 * [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
 * [`ibl`](https://github.com/lukas-reineke/indent-blankline.nvim) &mdash; indenting & scope guides
 * [`nvim-autopairs`](https://github.com/windwp/nvim-autopairs) &mdash; auto-completes parentheses, brackets, braces, quotes, etc.
