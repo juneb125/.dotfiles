@@ -2,43 +2,38 @@
 #
 # net-utils.sh - useful functions that call 'curl'
 
-# TODO: get more license uri's
-# inspired by github:sioodmy/dotfiles/user/wrapped/zsh/aliases.nix
+# inspired by github:sioodmy/dotfiles (path: user/wrapped/zsh/aliases.nix)
 license() {
-  local license_type="$(toLower ${1})"
   local license_uri=""
   local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main/text"
-  case "${license_type}" in;
-    "apache-2.0") license_uri="${spdx_db}/Apache-2.0.txt" ;;
-    "gpl-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
-    "mit") license_uri="${spdx_db}/MIT.txt" ;;
-    "unlicense") license_uri="${spdx_db}/Unlicense.txt" ;;
-
+  case "${1}" in;
+    # the one from gnu.org centers some text, which i like :)
+    "GPL-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
     "-h" | "--help")
       cat <<EOF
-Get a license's content
+Get a license's content as text
 
-Usage:
-  license <TYPE> [OUTPUT]
-  license --help
+Usage: license <TYPE> [options...]
 
 Arguments:
-  <TYPE>    what kind of license (SPDX License Identifier)
-  [OUTPUT]  where the license's content should go (default: stdout)
+  <TYPE>  what kind of license (SPDX License Identifier)
+
+Options:
+  [ all curl(1) options apply ]
 EOF
       return 0
       ;;
     *) license_uri="${spdx_db}/${1}.txt" ;;
   esac
 
-  local out=${2:--}
-  curl -q ${license_uri} -o ${out}
-  local res=$?
+  # -f means 'panic/abort on any http errors'
+  # -s silences all messages, but
+  # -S (in addition to -s) shows error messages
+  # -L retry request if url was moved
+  curl -fsSL "${@:2}" -- "${license_uri}" || return $?
 
-  if [[ ${res} && ${out} != - ]]; then
-    printf '\n\x1b[0;33m%s\x1b[m\n' "Make sure to check ${out} for any required fields"
-  fi
-  return ${res}
+  # yellow foreground, with a newline above
+  printf '\n\x1b[0;33m%s\x1b[m\n' "Make sure to check for any required fields"
 }
 
 gh-raw() {
