@@ -125,32 +125,20 @@ require("nvim-autopairs").setup({})
 require("lualine").setup({
 	options = {
 		theme = "palenight",
-		ignore_focus = { "neo-tree", "oil" }
+		ignore_focus = { "help", "neo-tree", "oil" }
 	},
 	sections = {
 		lualine_b = {
-			{
-				"branch",
-				icons_enabled = false,
-				fmt = function(str)
-					-- nf-cod-source_control (U+EA68)
-					return " " .. str
-				end
-			},
+			-- nf-cod-source_control (U+EA68)
+			{ "branch", icon = "" },
 			"diff",
 			"diagnostics"
 		},
 
 		lualine_x = {
-			"encoding",
-			{
-				"fileformat",
-				symbols = {
-					unix = "unix", -- default: linux penguin icon
-					dos = "dos",
-					mac = "mac"
-				}
-			},
+			function()
+				return string.format("%s[%s]", vim.bo.fileencoding, vim.bo.fileformat)
+			end,
 			"filetype"
 		}
 	}
