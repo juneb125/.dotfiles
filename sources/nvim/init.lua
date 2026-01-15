@@ -8,17 +8,14 @@ require("keymaps")
 local gh = "https://github.com/"
 vim.pack.add({
 	{ src = gh .. "catppuccin/nvim" },
+	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine
 	{ src = gh .. "nvim-lualine/lualine.nvim" },
 	{ src = gh .. "mason-org/mason.nvim" },
 	{ src = gh .. "neovim/nvim-lspconfig" },
 	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
 	{ src = gh .. "stevearc/oil.nvim" },
 
-	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine & neotree
-	-- { src = gh .. "MunifTanjim/nui.nvim", },       -- dependency for neotree
-	-- { src = gh .. "nvim-lua/plenary.nvim", },      -- dependency for neotree
-	-- { src = gh .. "nvim-neo-tree/neo-tree.nvim" },
-
+	-- QoL plugins
 	{ src = gh .. "lewis6991/gitsigns.nvim" },
 	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
 	{ src = gh .. "windwp/nvim-autopairs" },
@@ -143,9 +140,5 @@ require("lualine").setup({
 		}
 	}
 })
-
--- require("neo-tree").setup({})
--- vim.keymap.set("n", "<C-n>", "<cmd>Neotree filesystem reveal left toggle<CR>", { silent = true })
-vim.keymap.set("n", "<C-n>", function() print("get in the habit of using Oil !!!\n") end, { silent = true })
 
 require("completions")
