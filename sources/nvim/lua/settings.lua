@@ -22,6 +22,9 @@ opt.termguicolors = true -- use GUI colors for the terminal
 opt.signcolumn = "yes"   -- show sign column so that text doesn't shift
 opt.swapfile = false     -- turn off swapfile
 
+-- same as '../spell/en.utf-8.add'
+opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+
 -- default split window behavior
 opt.splitright = true -- split vertical window to the right
 opt.splitbelow = true -- split horizontal window to the bottom
