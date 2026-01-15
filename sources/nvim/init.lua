@@ -4,6 +4,17 @@ require("settings")
 -- Keymaps --
 require("keymaps")
 
+if not vim.fn.has("nvim-0.12") then
+	-- from lazy.nvim's bootstrapping error handling
+	vim.api.nvim_echo({
+		{ "Failed to load packages with vim.pack\n", "ErrorMsg" },
+		{ "Switch to nvim v0.12 or edit init.lua to fix this error", "WarningMsg" },
+		{ "\nPress any key to exit..." },
+	}, true, {})
+	vim.fn.getchar()
+	return
+end
+
 -- Plugins --
 local gh = "https://github.com/"
 vim.pack.add({
