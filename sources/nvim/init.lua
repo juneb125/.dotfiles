@@ -4,7 +4,7 @@ require("settings")
 -- Keymaps --
 require("keymaps")
 
-if not vim.fn.has("nvim-0.12") then
+if vim.fn.has("nvim-0.12") ~= 1 then
 	-- from lazy.nvim's bootstrapping error handling
 	vim.api.nvim_echo({
 		{ "Failed to load packages with vim.pack\n", "ErrorMsg" },
@@ -50,7 +50,9 @@ vim.api.nvim_create_augroup("lazy_lsp", {})
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "lazy_lsp",
 	pattern = "*.lua",
-	command = "lua vim.lsp.enable('lua_ls')",
+	callback = function()
+		vim.lsp.enable("lua_ls")
+	end,
 	once = true
 })
 
@@ -58,7 +60,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	group = "lazy_lsp",
 	pattern = "*.nix",
-	command = "lua vim.lsp.enable('nil_ls')",
+	callback = function()
+		vim.lsp.enable("nil_ls")
+	end,
 	once = true
 })
 
@@ -133,7 +137,7 @@ require("nvim-autopairs").setup({})
 require("lualine").setup({
 	options = {
 		theme = "palenight",
-		ignore_focus = { "help", "neo-tree", "oil" }
+		ignore_focus = { "help", "oil" }
 	},
 	sections = {
 		lualine_b = {
@@ -145,7 +149,7 @@ require("lualine").setup({
 
 		lualine_x = {
 			function()
-				return string.format("%s[%s]", vim.bo.fileencoding, vim.bo.fileformat)
+				return ("%s[%s]"):format(vim.bo.fileencoding, vim.bo.fileformat)
 			end,
 			"filetype"
 		}
