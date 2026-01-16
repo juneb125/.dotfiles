@@ -22,8 +22,8 @@ bindkey '^x^e' edit-command-line # ctrl x, ctrl e
 
 # History Opts
 HISTSIZE=5000
-HISTFILE=${HOME}/.zsh_history
-SAVEHIST=${HISTSIZE}
+HISTFILE="${HOME}"/.zsh_history
+SAVEHIST="${HISTSIZE}"
 HISTDUP=erase
 setopt append_history
 setopt share_history
@@ -41,12 +41,12 @@ autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Misc. (non-plugin)
-source ${ZDOTDIR}/aliases.sh
-source ${ZDOTDIR}/fn.sh
-source ${ZDOTDIR}/net-utils.sh
+source "${ZDOTDIR}"/aliases.sh
+source "${ZDOTDIR}"/fn.sh
+source "${ZDOTDIR}"/net-utils.sh
 
-if [[ "$(uname -s)" == [dD]arwin* ]]; then
-  source ${ZDOTDIR}/macos.sh
+if [[ "$(uname -s)" == Darwin* ]]; then
+  source "${ZDOTDIR}"/macos.sh
 fi
 
 # -- Zsh Plugins --
@@ -57,13 +57,13 @@ export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 [[ -d ${ZPLUGINDIR} ]] || mkdir -p ${ZPLUGINDIR}
 
 # helper function(s) for downloading plugins
-source ${ZDOTDIR}/get-plugins.zsh \
+source "${ZDOTDIR}"/get-plugins.zsh \
   || return 1 # error message is already in get-plugins.zsh
 
 # Downloading
 # only download if plugin isn't installed
-which zsh-syntax-highlighting > /dev/null \
+which zsh-syntax-highlighting >/dev/null \
   || get-syntax-highlighting
 
 # Sourcing -- must be at END of .zshrc
-source ${ZPLUGINDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source "${ZPLUGINDIR}"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

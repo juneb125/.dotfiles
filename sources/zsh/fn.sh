@@ -114,6 +114,7 @@ EOF
 
 colors() {
   local blocks='███' # 3x U+2588
+  local i=
 
   echo -n "\n  "
   for i in {0..7}; do
