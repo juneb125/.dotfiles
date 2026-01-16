@@ -33,24 +33,15 @@ map("n", "<leader>gf", buf.format)
 map("n", "<leader>ca", buf.code_action)
 map("n", "<leader>rn", buf.rename)
 
--- 'jumping' keymaps (L36..=L55), see Credits #4
+-- 'jumping' keymaps (L40..=L47), see Credits #4
 local diag = vim.diagnostic
-local sev_err = diag.severity.ERROR
-
--- jump to previous diagnostic
-map("n", "[d", function()
-	diag.jump({ count = -1 })
-end)
--- jump to next diagnostic
-map("n", "]d", function()
-	diag.jump({ count = 1 })
-end)
+local sev = diag.severity
 
 -- jump to previous error
 map("n", "[e", function()
-	diag.jump({ count = -1, severity = sev_err })
+	diag.jump({ count = -1, severity = sev.ERROR })
 end)
--- jump next error
+-- jump to next error
 map("n", "]e", function()
-	diag.jump({ count = 1, severity = sev_err })
+	diag.jump({ count = 1, severity = sev.ERROR })
 end)
