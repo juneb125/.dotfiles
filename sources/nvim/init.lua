@@ -19,6 +19,7 @@ end
 local gh = "https://github.com/"
 vim.pack.add({
 	{ src = gh .. "catppuccin/nvim" },
+	{ src = gh .. "folke/snacks.nvim" },
 	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine
 	{ src = gh .. "nvim-lualine/lualine.nvim" },
 	{ src = gh .. "mason-org/mason.nvim" },
@@ -40,6 +41,22 @@ vim.pack.add({
 })
 
 vim.cmd("colorscheme catppuccin")
+
+require("snacks").setup({
+	bigfile = {
+		enabled = true,
+		notify = true
+	},
+	dashboard = {
+		enable = true,
+		sections = {
+			{ section = "header" },
+			{ section = "keys",  gap = 1, padding = 1 }
+		},
+		-- buffer options
+		bo = { filetype = "snacks_dashboard" }
+	}
+})
 
 require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd" })
