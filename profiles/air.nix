@@ -19,9 +19,11 @@ in {
         fastfetch
         fd
         git
+        gnupg
         just
         mdbook
         neovim
+        pass
         ripgrep
         shellcheck
         starship # prompt customization
