@@ -59,29 +59,7 @@ require("snacks").setup({
 })
 
 require("mason").setup()
-vim.lsp.enable({ "rust_analyzer", "clangd" })
-
-vim.api.nvim_create_augroup("lazy_lsp", {})
-
--- only enable lua_ls (Lua LSP) when needed
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	group = "lazy_lsp",
-	pattern = "*.lua",
-	callback = function()
-		vim.lsp.enable("lua_ls")
-	end,
-	once = true
-})
-
--- only enable nil_ls (Nix LSP) when needed
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	group = "lazy_lsp",
-	pattern = "*.nix",
-	callback = function()
-		vim.lsp.enable("nil_ls")
-	end,
-	once = true
-})
+vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
 
 -- I couldn't get lua to do this :( , so vimscript it is
 -- almost completely from Credits #5
