@@ -23,7 +23,6 @@ vim.pack.add({
 	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine
 	{ src = gh .. "nvim-lualine/lualine.nvim" },
 	{ src = gh .. "mason-org/mason.nvim" },
-	{ src = gh .. "neovim/nvim-lspconfig" },
 	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
 	{ src = gh .. "stevearc/oil.nvim" },
 

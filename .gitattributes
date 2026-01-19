@@ -1,1 +1,2 @@
 sources/git/config linguist-language=gitconfig
+sources/nvim/lsp/*.lua linguist-vendored
