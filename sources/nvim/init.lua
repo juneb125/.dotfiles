@@ -41,7 +41,8 @@ vim.pack.add({
 
 vim.cmd("colorscheme catppuccin")
 
-require("snacks").setup({
+local Snacks = require("snacks")
+Snacks.setup({
 	bigfile = {
 		enabled = true,
 		notify = true
@@ -54,8 +55,13 @@ require("snacks").setup({
 		},
 		-- buffer options
 		bo = { filetype = "snacks_dashboard" }
+	},
+	picker = {
+		enabled = true,
+		layout = { preset = "telescope" }
 	}
 })
+vim.keymap.set("n", "<C-p>", Snacks.picker.files)
 
 require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
