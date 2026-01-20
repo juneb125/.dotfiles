@@ -9,10 +9,10 @@ map("n", "<leader>wt", "<cmd>set wrap!<CR>")
 map("n", "<leader>sc", "<cmd>setlocal spell!<CR>")
 
 -- navigate Vim panes better, see Credits #1
-map("n", "<C-k>", "<cmd>wincmd k<CR>")
-map("n", "<C-j>", "<cmd>wincmd j<CR>")
-map("n", "<C-h>", "<cmd>wincmd h<CR>")
-map("n", "<C-l>", "<cmd>wincmd l<CR>")
+map("n", "<C-k>", "<C-w><C-k>")
+map("n", "<C-j>", "<C-w><C-j>")
+map("n", "<C-h>", "<C-w><C-h>")
+map("n", "<C-l>", "<C-w><C-l>")
 
 -- clear highlighting, see Credits #2
 map("n", "<leader>nh", "<cmd>nohlsearch<CR>")
