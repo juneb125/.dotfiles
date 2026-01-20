@@ -2,10 +2,11 @@
 -- to make settings less verbose
 local opt = vim.opt
 
--- navigation ui
-opt.number = true     -- add line numbers
-opt.cursorline = true -- highlight current cursorline
-opt.showmatch = true  -- show matching brackets
+-- ui
+opt.number = true         -- add line numbers
+opt.cursorline = true     -- highlight current cursorline
+opt.showmatch = true      -- show matching brackets
+opt.winborder = "rounded" -- always use rounded borders for floating windows
 
 -- tabs & indentation
 opt.tabstop = 2    -- number of columns occupied by a tab
@@ -13,14 +14,17 @@ opt.shiftwidth = 2 -- number of spaces to use for each step of (auto)indent
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true  -- if you include mixed case in your search, assumes you want case-sensitive
+opt.smartcase = true  -- search case-sensitively if search pattern has uppercase chars
 
 -- misc. settings
-opt.mouse = "a"          -- enable mouse clicks
+opt.mouse = "nv"         -- enable mouse clicks only in normal & visual mode
 opt.wrap = false         -- turn off line wrap by default
 opt.termguicolors = true -- use GUI colors for the terminal
 opt.signcolumn = "yes"   -- show sign column so that text doesn't shift
 opt.swapfile = false     -- turn off swapfile
+opt.showmode = false     -- lualine already shows the mode
+opt.helpheight = math.min(20, vim.fn.winheight(0))
+opt.history = 2500       -- reduce cmd history from 10k to 2.5k
 
 -- same as '../spell/en.utf-8.add'
 opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
