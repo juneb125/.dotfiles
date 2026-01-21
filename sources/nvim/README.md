@@ -32,11 +32,12 @@ nvim nightly version
 * `init.lua` &mdash; where everything comes together ✨
 
 ### Plugins
-* [`catppuccin`](https://github.com/catppuccin/nvim) &mdash; catppuccin <3
+> all links in this section go to the link title's GitHub repository
+* [`catppuccin`](https://github.com/catppuccin/nvim) &mdash; catppuccin colorscheme <3
+* [`snacks`](https://github.com/folke/snacks.nvim) &mdash; a bunch of cool things :D
 * [`lualine`](https://github.com/nvim-lualine/lualine.nvim) &mdash; configurable Vim status bar
     * depends on: [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons) &mdash; pretty icons :)
 * [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's, DAP's, and formatters
-* [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) &mdash; config for the LSP's
 * [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
 * [`oil`](https://github.com/stevearc/oil.nvim) &mdash; file explorer
 * [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
