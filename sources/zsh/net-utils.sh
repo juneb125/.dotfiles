@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 #
 # net-utils.sh - useful functions that call 'curl'
+#
+# curl flags used:
+#   -f means 'panic/abort on any http errors'
+#   -s silences all messages, but
+#   -S (in addition to -s) shows error messages
+#   -L retry request if url was moved
 
 # inspired by github:sioodmy/dotfiles (path: user/wrapped/zsh/aliases.nix)
 license() {
@@ -25,10 +31,6 @@ EOF
     (*) license_uri="${spdx_db}/${1}.txt" ;;
   esac
 
-  # -f means 'panic/abort on any http errors'
-  # -s silences all messages, but
-  # -S (in addition to -s) shows error messages
-  # -L retry request if url was moved
   curl -fsSL "${@:2}" -- "${license_uri}" || return $?
 
   # yellow foreground, with a newline above
@@ -59,7 +61,7 @@ EOF
     (*) full_path="$1" ;;
   esac
 
-  curl -q "https://raw.githubusercontent.com/${full_path}" ${@:2}
+  curl -fsSL "https://raw.githubusercontent.com/${full_path}" ${@:2}
   return $?
 }
 
@@ -78,7 +80,7 @@ EOF
 
   local out_file="${1:--}"
   local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main"
-  curl -q "${spdx_db}/text/MIT.txt" -o "${out_file}"
+  curl -fsSL "${spdx_db}/text/MIT.txt" -o "${out_file}"
   local curl_res=$?
 
   if [[ "${out_file}" = - ]]; then
