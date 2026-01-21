@@ -58,7 +58,12 @@ Snacks.setup({
 	},
 	picker = {
 		enabled = true,
-		layout = { preset = "telescope" }
+		layout = function()
+			-- 'telescope' preset, but not as tall (default layout.height is 0.9)
+			local telescope_layout = require("snacks.picker.config.layouts").telescope
+			telescope_layout.layout.height = 0.7
+			return telescope_layout
+		end,
 	}
 })
 vim.keymap.set("n", "<C-p>", Snacks.picker.files)
