@@ -45,3 +45,9 @@ end)
 map("n", "]e", function()
 	diag.jump({ count = 1, severity = sev.ERROR })
 end)
+
+-- ']t' and '[t' are set to 'tPrev' and 'tNext' (tag prev/next), respectively by default
+-- go to previous tab
+map("n", "[t", "<cmd>tprev<CR>", { silent = true })
+-- go to next tab
+map("n", "]t", "<cmd>tnext<CR>", { silent = true })
