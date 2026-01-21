@@ -9,15 +9,15 @@ proj() {
   fi
   local dest_dir="${PROJ_DIR}"
 
-  case "$1" in;
-    "") ;;
-    "rs") dest_dir+='/RustProjects' ;;
-    "ll") dest_dir+='/LowLevelProjects' ;;
-    "xc") dest_dir+='/XcodeProjects' ;;
-    "web") dest_dir+='/WebDevProjects' ;;
-    "fn") dest_dir+='/FnProjects' ;;
-    "misc") dest_dir+='/MiscProjects' ;;
-    "-h" | "--help")
+  case "$1" in
+    ("") ;;
+    ("rs") dest_dir+='/RustProjects' ;;
+    ("ll") dest_dir+='/LowLevelProjects' ;;
+    ("xc") dest_dir+='/XcodeProjects' ;;
+    ("web") dest_dir+='/WebDevProjects' ;;
+    ("fn") dest_dir+='/FnProjects' ;;
+    ("misc") dest_dir+='/MiscProjects' ;;
+    ("-h"|"--help")
       cat <<EOF
 ${0}: quickly go to an area or a specific project
       An 'area' is how you split up and organize all of your projects
@@ -34,9 +34,8 @@ Arguments:
 Environment:
   \$PROJ_DIR  what directory all of your areas are in
 EOF
-      return 0
-      ;;
-    *) dest_dir+="/${1}" ;;
+      return 0 ;;
+    (*) dest_dir+="/${1}" ;;
   esac
 
   cd "${dest_dir}/${@:2}"
@@ -49,9 +48,9 @@ config() {
     return 1
   fi
 
-  case "$1" in;
-    "") dest_dir+='/..' ;;
-    "-h" | "--help")
+  case "$1" in
+    ("") dest_dir+='/..' ;;
+    ("-h"|"--help")
       cat <<EOF
 ${0}: quickly go to your config home
 
@@ -63,9 +62,8 @@ Arguments:
 Environment:
   \$XDG_CONFIG_HOME  what directory all of your configs are in
 EOF
-      return 0
-      ;;
-    *) dest_dir+="/${1}" ;;
+      return 0 ;;
+    (*) dest_dir+="/${1}" ;;
   esac
 
   cd "${dest_dir}"
@@ -93,8 +91,8 @@ toUpper() {
 
 hr() {
   local value=
-  case "$(toLower "$1")" in;
-    "--help")
+  case "$(toLower "$1")" in
+    ("--help")
       cat <<EOF
 human-readable representations of colon-separated env vars
 
@@ -103,11 +101,10 @@ Usage: hr [man|path|<VALUE>]
 Arguments:
   VALUE  the value to transform
 EOF
-      return $?
-      ;;
-    "man")  value=$(manpath) ;;
-    "path") value="${PATH}" ;;
-    *) value="${1}" ;;
+      return $? ;;
+    ("man")  value=$(manpath) ;;
+    ("path") value="${PATH}" ;;
+    (*) value="${1}" ;;
   esac
   tr ':' '\n' <<< "${value}"
 }

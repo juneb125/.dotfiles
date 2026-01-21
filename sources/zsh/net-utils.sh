@@ -6,10 +6,10 @@
 license() {
   local license_uri=""
   local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main/text"
-  case "${1}" in;
+  case "${1}" in
     # the one from gnu.org centers some text, which i like :)
-    "GPL-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
-    "-h" | "--help")
+    ("GPL-3.0") license_uri="https://www.gnu.org/licenses/gpl-3.0.txt" ;;
+    ("-h"|"--help")
       cat <<EOF
 Get a license's content as text
 
@@ -21,9 +21,8 @@ Arguments:
 Options:
   [ all curl(1) options apply ]
 EOF
-      return 0
-      ;;
-    *) license_uri="${spdx_db}/${1}.txt" ;;
+      return 0 ;;
+    (*) license_uri="${spdx_db}/${1}.txt" ;;
   esac
 
   # -f means 'panic/abort on any http errors'
@@ -38,12 +37,11 @@ EOF
 
 gh-raw() {
   local full_path=""
-  case "$1" in;
-    "")
+  case "$1" in
+    ("")
       echo "${0}: expected full path as \$1" >&2
-      return 1
-      ;;
-    "-h" | "--help")
+      return 1 ;;
+    ("-h"|"--help")
       cat <<EOF
 Curl \`raw.githubusercontent.com\` easier
 
@@ -57,9 +55,8 @@ Arguments:
 Options:
   [ all curl(1) options apply ]
 EOF
-      return $?
-      ;;
-    *) full_path="$1" ;;
+      return $? ;;
+    (*) full_path="$1" ;;
   esac
 
   curl -q "https://raw.githubusercontent.com/${full_path}" ${@:2}
