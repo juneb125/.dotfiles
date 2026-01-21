@@ -54,7 +54,7 @@ fi
 # Initializing
 # set the directory we want to store plugins
 export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
-[[ -d ${ZPLUGINDIR} ]] || mkdir -p ${ZPLUGINDIR}
+[[ -d "${ZPLUGINDIR}" ]] || mkdir -p "${ZPLUGINDIR}"
 
 # helper function(s) for downloading plugins
 source "${ZDOTDIR}"/get-plugins.zsh \

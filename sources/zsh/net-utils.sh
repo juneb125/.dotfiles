@@ -79,12 +79,12 @@ EOF
     return 0
   fi
 
-  local out_file=${1:--}
+  local out_file="${1:--}"
   local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main"
-  curl -q "${spdx_db}/text/MIT.txt" -o ${out_file}
+  curl -q "${spdx_db}/text/MIT.txt" -o "${out_file}"
   local curl_res=$?
 
-  if [[ ${out_file} = - ]]; then
+  if [[ "${out_file}" = - ]]; then
     return ${curl_res}
   fi
 

@@ -93,7 +93,7 @@ toUpper() {
 
 hr() {
   local value=
-  case "$(toLower $1)" in;
+  case "$(toLower "$1")" in;
     "--help")
       cat <<EOF
 human-readable representations of colon-separated env vars

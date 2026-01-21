@@ -3,8 +3,8 @@
 # macos.sh - useful MacOS-specific shell functions
 
 xcode() {
-  if [[ -z "${1}" || -e ${1} ]]; then
-    open ${1} -a Xcode.app
+  if [[ -z "${1}" || -e "${1}" ]]; then
+    open "${1}" -a Xcode.app
   else
     echo "${0}: ${1} doesn't exist" >&2
     return 1
