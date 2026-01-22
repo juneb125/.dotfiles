@@ -1,4 +1,4 @@
-# Minimal NeoVim Config
+# NeoVim Config
 nvim nightly version
 
 **Table of Contents**

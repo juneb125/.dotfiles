@@ -23,7 +23,7 @@ opt.termguicolors = true -- use GUI colors for the terminal
 opt.signcolumn = "yes"   -- show sign column so that text doesn't shift
 opt.swapfile = false     -- turn off swapfile
 opt.showmode = false     -- lualine already shows the mode
-opt.helpheight = math.min(20, vim.fn.winheight(0))
+opt.helpheight = math.min(20, vim.o.columns)
 opt.history = 2500       -- reduce cmd history from 10k to 2.5k
 
 -- same as '../spell/en.utf-8.add'

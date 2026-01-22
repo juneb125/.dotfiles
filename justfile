@@ -1,5 +1,5 @@
-# inspired by github:isabelroses/dotfiles/justfile
-# 'update' recipe from github:foo-dogsquared/nixos-config/Justfile
+# inspired by github:isabelroses/dotfiles's justfile
+# 'update' recipe from github:foo-dogsquared/nixos-config's justfile
 
 rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
 check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }

@@ -31,7 +31,8 @@ EOF
     (*) license_uri="${spdx_db}/${1}.txt" ;;
   esac
 
-  curl -fsSL "${@:2}" -- "${license_uri}" || return $?
+  shift
+  curl -fsSL "${@}" -- "${license_uri}" || return $?
 
   # yellow foreground, with a newline above
   printf '\n\x1b[0;33m%s\x1b[m\n' "Make sure to check for any required fields"
@@ -61,8 +62,8 @@ EOF
     (*) full_path="$1" ;;
   esac
 
-  curl -fsSL "https://raw.githubusercontent.com/${full_path}" ${@:2}
-  return $?
+  shift
+  curl -fsSL "${@}" -- "https://raw.githubusercontent.com/${full_path}"
 }
 
 mit() {
