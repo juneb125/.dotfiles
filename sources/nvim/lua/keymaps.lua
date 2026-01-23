@@ -5,8 +5,8 @@ vim.g.maplocalleader = "\\"
 
 local map = vim.keymap.set
 
-map("n", "<leader>wt", "<cmd>set wrap!<CR>")
-map("n", "<leader>sc", "<cmd>setlocal spell!<CR>")
+map("n", "<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
+map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 
 -- navigate Vim panes better, see Credits #1
 map("n", "<C-k>", "<C-w><C-k>")
@@ -15,15 +15,15 @@ map("n", "<C-h>", "<C-w><C-h>")
 map("n", "<C-l>", "<C-w><C-l>")
 
 -- clear highlighting, see Credits #2
-map("n", "<leader>nh", "<cmd>nohlsearch<CR>")
+map("n", "<leader>nh", "<cmd>nohlsearch<CR>", { silent = true })
 
 -- keep selection when changing indentation, see Credits #3
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- shuffle lines around, see Credits #3
-map("n", "<A-j>", "<cmd>m .+1<CR>==")
-map("n", "<A-k>", "<cmd>m .-2<CR>==")
+map("n", "<A-j>", "<cmd>m .+1<CR>==", { silent = true })
+map("n", "<A-k>", "<cmd>m .-2<CR>==", { silent = true })
 
 -- lsp-related keymaps
 local buf = vim.lsp.buf
