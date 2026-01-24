@@ -9,10 +9,10 @@ map("n", "<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
 map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 
 -- navigate Vim panes better, see Credits #1
-map("n", "<C-k>", "<C-w><C-k>")
-map("n", "<C-j>", "<C-w><C-j>")
-map("n", "<C-h>", "<C-w><C-h>")
-map("n", "<C-l>", "<C-w><C-l>")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-l>", "<C-w>l")
 
 -- clear highlighting, see Credits #2
 map("n", "<leader>nh", "<cmd>nohlsearch<CR>", { silent = true })
@@ -50,8 +50,7 @@ map("n", "]e", function()
 	diag.jump({ count = 1, severity = sev.ERROR })
 end)
 
--- ']t' and '[t' are set to 'tPrev' and 'tNext' (tag prev/next), respectively by default
 -- go to previous tab
-map("n", "[t", "<cmd>tprev<CR>", { silent = true })
+map("n", "<leader>tp", "<cmd>tabp<CR>", { silent = true })
 -- go to next tab
-map("n", "]t", "<cmd>tnext<CR>", { silent = true })
+map("n", "<leader>tn", "<cmd>tabn<CR>", { silent = true })
