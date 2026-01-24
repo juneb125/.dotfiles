@@ -25,6 +25,10 @@ map("v", ">", ">gv")
 map("n", "<A-j>", "<cmd>m .+1<CR>==", { silent = true })
 map("n", "<A-k>", "<cmd>m .-2<CR>==", { silent = true })
 
+-- center search results
+map("n", "n", "nzz")
+map("n", "N", "Nzz")
+
 -- lsp-related keymaps
 local buf = vim.lsp.buf
 
