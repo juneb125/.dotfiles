@@ -106,12 +106,12 @@ oil.setup({
 	},
 	keymaps = {
 		-- keymaps for oil to behave a little more like NeoTree
-		["H"] = { "actions.toggle_hidden", mode = "n" },
-		["<BS>"] = { "actions.parent", mode = "n" },
-		["."] = { "actions.cd", mode = "n" },
+		["H"] = "actions.toggle_hidden",
+		["<BS>"] = "actions.parent",
+		["."] = "actions.cd",
 		-- misc. keymaps
-		["q"] = { "actions.close", mode = "n" },
-		["<Esc>"] = { "actions.close", mode = "n" }
+		["q"] = "actions.close",
+		["<Esc>"] = "actions.close"
 	}
 })
 vim.keymap.set("n", "<C-o>", oil.toggle_float, { silent = true })
