@@ -33,23 +33,26 @@ nvim nightly version
 
 ### Plugins
 > all links in this section go to the link title's GitHub repository
+**Core**
 * [`catppuccin`](https://github.com/catppuccin/nvim) &mdash; catppuccin colorscheme <3
+* [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons) &mdash; pretty icons :)
+    * dependency for `snacks`, `lualine`, and `oil`
 * [`snacks`](https://github.com/folke/snacks.nvim) &mdash; a bunch of cool things :D
 * [`lualine`](https://github.com/nvim-lualine/lualine.nvim) &mdash; configurable Vim status bar
-    * depends on: [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons) &mdash; pretty icons :)
-* [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's, DAP's, and formatters
-* [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
 * [`oil`](https://github.com/stevearc/oil.nvim) &mdash; file explorer
+* [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
+* [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's, DAP's, and formatters
+**QoL**
 * [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
 * [`ibl`](https://github.com/lukas-reineke/indent-blankline.nvim) &mdash; indenting & scope guides
 * [`nvim-autopairs`](https://github.com/windwp/nvim-autopairs) &mdash; auto-completes parentheses, brackets, braces, quotes, etc.
-* completions:
-    * [`cmp`](https://github.com/hrsh7th/nvim-cmp) &mdash; completion engine
-	* [`luasnip`](https://github.com/L3MON4D3/LuaSnip) &mdash; snippet engine
-    * [`cmp_nvim_lsp`](https://github.com/hrsh7th/cmp-nvim-lsp) &mdash; LSP integration with `cmp`
-    * completions dependencies:
+**Completions**
+* [`cmp`](https://github.com/hrsh7th/nvim-cmp) &mdash; completion engine
+* [`luasnip`](https://github.com/L3MON4D3/LuaSnip) &mdash; snippet engine
+    * dependencies:
         * [`cmp_luasnip`](https://github.com/saadparwaiz1/cmp_luasnip) &mdash; `luasnip` completion source for `cmp`
         * [friendly-snippets](https://github.com/rafamadriz/friendly-snippets) &mdash; snippets collection for a lot of programming languages
+* [`cmp_nvim_lsp`](https://github.com/hrsh7th/cmp-nvim-lsp) &mdash; LSP integration with `cmp`
 
 ## History
 * [commit ca915bb](https://github.com/juneb125/.dotfiles/tree/ca915bb493b57e5f3dcd304bc337c7f0cb00c49c/.config/nvim) (August 7, 2025) was the first commit of the new nvim config

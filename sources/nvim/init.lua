@@ -18,13 +18,15 @@ end
 -- Plugins --
 local gh = "https://github.com/"
 vim.pack.add({
+	-- core plugins
 	{ src = gh .. "catppuccin/nvim" },
+	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for snacks, lualine, & oil
 	{ src = gh .. "folke/snacks.nvim" },
-	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for lualine
 	{ src = gh .. "nvim-lualine/lualine.nvim" },
-	{ src = gh .. "mason-org/mason.nvim" },
-	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
 	{ src = gh .. "stevearc/oil.nvim" },
+	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
+
+	{ src = gh .. "mason-org/mason.nvim" },
 
 	-- QoL plugins
 	{ src = gh .. "lewis6991/gitsigns.nvim" },
@@ -32,11 +34,11 @@ vim.pack.add({
 	{ src = gh .. "windwp/nvim-autopairs" },
 
 	-- completions
-	{ src = gh .. "hrsh7th/cmp-nvim-lsp" },
-	{ src = gh .. "L3MON4D3/LuaSnip" },
 	{ src = gh .. "hrsh7th/nvim-cmp" },
-	{ src = gh .. "saadparwaiz1/cmp_luasnip" },    -- dependency for LuaSnip
-	{ src = gh .. "rafamadriz/friendly-snippets" } -- dependency for LuaSnip
+	{ src = gh .. "saadparwaiz1/cmp_luasnip" },     -- dependency for LuaSnip
+	{ src = gh .. "rafamadriz/friendly-snippets" }, -- dependency for LuaSnip
+	{ src = gh .. "L3MON4D3/LuaSnip" },
+	{ src = gh .. "hrsh7th/cmp-nvim-lsp" }
 })
 
 vim.cmd("colorscheme catppuccin")
@@ -51,7 +53,7 @@ Snacks.setup({
 		enable = true,
 		sections = {
 			{ section = "header" },
-			{ section = "keys",  gap = 1, padding = 1 }
+			{ section = "keys", gap = 1, padding = 1 }
 		},
 		-- buffer options
 		bo = { filetype = "snacks_dashboard" }
