@@ -69,12 +69,12 @@ EOF
   cd "${dest_dir}"
 }
 
-# from github:theopn/dotfiles/zsh/.zshrc
+# see Credits #1a
 mkcd() {
   mkdir -p "$1" && cd "$1"
 }
 
-# from the same person who wrote `mkcd`
+# see Credits #1b
 numfiles() {
   local dir=${1:-.}
   local num=$(ls -A -1 "${dir}" | wc -l)
@@ -128,7 +128,7 @@ colors() {
   echo "\x1b[m"
 }
 
-# from https://www.youtube.com/watch?v=G3NJzFX6XhY&t=721s
+# see Credits #3
 gl-pretty() {
   git log --graph --pretty=\
     format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'

@@ -8,7 +8,7 @@
 #   -S (in addition to -s) shows error messages
 #   -L retry request if url was moved
 
-# inspired by github:sioodmy/dotfiles (path: user/wrapped/zsh/aliases.nix)
+# inspired by Credits #2
 license() {
   local license_uri=""
   local spdx_db="https://raw.githubusercontent.com/spdx/license-list-data/main/text"
