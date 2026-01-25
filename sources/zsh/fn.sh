@@ -103,7 +103,7 @@ Arguments:
   path   transform output of \$PATH
   VALUE  the value to transform
 EOF
-      return $? ;;
+      return 0 ;;
     ("man")  value="$(manpath)" ;;
     ("path") value="${PATH}" ;;
     (*) value="${1}" ;;

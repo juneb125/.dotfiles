@@ -58,7 +58,7 @@ Arguments:
 Options:
   [ all curl(1) options apply ]
 EOF
-      return $? ;;
+      return 0 ;;
     (*) full_path="$1" ;;
   esac
 
