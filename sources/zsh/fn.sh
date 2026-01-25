@@ -69,12 +69,12 @@ EOF
   cd "${dest_dir}"
 }
 
-# see Credits #1a
+# see Credits #1.1
 mkcd() {
   mkdir -p "$1" && cd "$1"
 }
 
-# see Credits #1b
+# see Credits #1.2
 numfiles() {
   local dir=${1:-.}
   local num=$(ls -A -1 "${dir}" | wc -l)
