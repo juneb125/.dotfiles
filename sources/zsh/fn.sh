@@ -90,8 +90,8 @@ toUpper() {
 }
 
 hr() {
-  local value=
-  case "$(toLower "$1")" in
+  local value=""
+  case "${1}" in
     ("--help")
       cat <<EOF
 human-readable representations of colon-separated env vars
@@ -99,10 +99,12 @@ human-readable representations of colon-separated env vars
 Usage: hr [man|path|<VALUE>]
 
 Arguments:
+  man    transform output of manpath(1)
+  path   transform output of \$PATH
   VALUE  the value to transform
 EOF
       return $? ;;
-    ("man")  value=$(manpath) ;;
+    ("man")  value="$(manpath)" ;;
     ("path") value="${PATH}" ;;
     (*) value="${1}" ;;
   esac
