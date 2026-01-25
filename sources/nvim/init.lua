@@ -166,6 +166,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	once = true
 })
 
-require("nvim-autopairs").setup({})
-
-require("completions")
+vim.api.nvim_create_autocmd("InsertEnter", {
+	callback = function()
+		require("nvim-autopairs").setup({})
+		require("completions")
+	end,
+	once = true
+})
