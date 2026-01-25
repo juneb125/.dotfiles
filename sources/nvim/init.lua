@@ -140,25 +140,30 @@ vim.cmd([[
   augroup end
 ]])
 
-local signs = {
-	add = { text = "┃" },
-	change = { text = "┃" },
-	delete = { text = "_" },
-	topdelete = { text = "‾" },
-	changedelete = { text = "~" },
-	untracked = { text = "┆" }
-}
-require("gitsigns").setup({
-	signs = signs,
-	signs_staged = signs
-})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	callback = function()
+		local signs = {
+			add = { text = "┃" },
+			change = { text = "┃" },
+			delete = { text = "_" },
+			topdelete = { text = "‾" },
+			changedelete = { text = "~" },
+			untracked = { text = "┆" }
+		}
+		require("gitsigns").setup({
+			signs = signs,
+			signs_staged = signs
+		})
 
-require("ibl").setup({
-	scope = {
-		enabled = true,
-		show_start = false,
-		show_end = false
-	}
+		require("ibl").setup({
+			scope = {
+				enabled = true,
+				show_start = false,
+				show_end = false
+			}
+		})
+	end,
+	once = true
 })
 
 require("nvim-autopairs").setup({})
