@@ -1,5 +1,6 @@
 # Credits
 
+## Nvim
 1. [`github:typecraft-dev/dotfiles`](https://github.com/typecraft-dev/dotfiles/blob/febfabd/nvim/.config/nvim/lua/vim-options.lua) (path: `nvim/.config/nvim/lua/vim-options.lua`)
 2. [`github:josean-dev/dev-environment-files`](https://github.com/josean-dev/dev-environment-files/blob/635847b/.config/nvim/lua/josean/core/keymaps.lua) (path: `.config/nvim/lua/josean/core/keymaps.lua`)
 3. [`github:nmasur/dotfiles`](https://github.com/nmasur/dotfiles/blob/adbc2bd/pkgs/applications/editors/neovim/nmasur/neovim/lua/keybinds.lua) (path: `pkgs/applications/editors/neovim/nmasur/neovim/lua/keybinds.lua`)
