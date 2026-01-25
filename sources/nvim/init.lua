@@ -70,27 +70,26 @@ Snacks.setup({
 })
 vim.keymap.set("n", "<C-p>", Snacks.picker.files)
 
-require("mason").setup()
-vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
-
--- I couldn't get lua to do this :( , so vimscript it is
--- almost completely from Credits #5
-vim.cmd([[
-  augroup local_spell_check
-    autocmd FileType markdown,text setlocal spell
-  augroup end
-]])
-
-require("nvim-treesitter.configs").setup({
-	ensure_installed = {
-		"lua",
-		"markdown",
-		"nix",
-		"rust"
+require("lualine").setup({
+	options = {
+		theme = "palenight",
+		ignore_focus = { "help", "oil" }
 	},
-	sync_install = false,
-	highlight = { enable = true },
-	indent = { enable = true }
+	sections = {
+		lualine_b = {
+			-- nf-cod-source_control (U+EA68)
+			{ "branch", icon = "" },
+			"diff",
+			"diagnostics"
+		},
+
+		lualine_x = {
+			function()
+				return ("%s[%s]"):format(vim.bo.fileencoding, vim.bo.fileformat)
+			end,
+			"filetype"
+		}
+	}
 })
 
 local oil = require("oil")
@@ -118,6 +117,29 @@ oil.setup({
 })
 vim.keymap.set("n", "<C-o>", oil.toggle_float, { silent = true })
 
+require("nvim-treesitter.configs").setup({
+	ensure_installed = {
+		"lua",
+		"markdown",
+		"nix",
+		"rust"
+	},
+	sync_install = false,
+	highlight = { enable = true },
+	indent = { enable = true }
+})
+
+require("mason").setup()
+vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
+
+-- I couldn't get lua to do this :( , so vimscript it is
+-- almost completely from Credits #5
+vim.cmd([[
+  augroup local_spell_check
+    autocmd FileType markdown,text setlocal spell
+  augroup end
+]])
+
 local signs = {
 	add = { text = "┃" },
 	change = { text = "┃" },
@@ -140,27 +162,5 @@ require("ibl").setup({
 })
 
 require("nvim-autopairs").setup({})
-
-require("lualine").setup({
-	options = {
-		theme = "palenight",
-		ignore_focus = { "help", "oil" }
-	},
-	sections = {
-		lualine_b = {
-			-- nf-cod-source_control (U+EA68)
-			{ "branch", icon = "" },
-			"diff",
-			"diagnostics"
-		},
-
-		lualine_x = {
-			function()
-				return ("%s[%s]"):format(vim.bo.fileencoding, vim.bo.fileformat)
-			end,
-			"filetype"
-		}
-	}
-})
 
 require("completions")
