@@ -39,7 +39,7 @@ What I'm using:
 **The Steps I Followed**
 
 > [!WARNING]
-> for all of the following installation resources, watch the full video, read the whole article, etc. before actually doing any of it!
+> for all of the following installation resources, watch the full video and stuff before actually doing any of it!
 
 1. I got started with [this Fireship YouTube tutorial](https://youtube.com/watch?v=r_MpUP6aKiQ) on starting your dotfiles journey
 2. Then, I followed [this Dreams of Autonomy video](https://www.youtube.com/watch?v=ud7YxC33Z3w) about further customization of `zsh`

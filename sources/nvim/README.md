@@ -33,6 +33,7 @@ nvim nightly version
 
 ### Plugins
 > all links in this section go to the link title's GitHub repository
+
 **Core**
 * [`catppuccin`](https://github.com/catppuccin/nvim) &mdash; catppuccin colorscheme <3
 * [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons) &mdash; pretty icons :)
@@ -42,10 +43,12 @@ nvim nightly version
 * [`oil`](https://github.com/stevearc/oil.nvim) &mdash; file explorer
 * [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter) &mdash; language parser (basically provides better syntax highlighting)
 * [`mason`](https://github.com/mason-org/mason.nvim) &mdash; easy installation for LSP's, DAP's, and formatters
+
 **QoL**
 * [`gitsigns`](https://github.com/lewis6991/gitsigns.nvim) &mdash; git integration
 * [`ibl`](https://github.com/lukas-reineke/indent-blankline.nvim) &mdash; indenting & scope guides
 * [`nvim-autopairs`](https://github.com/windwp/nvim-autopairs) &mdash; auto-completes parentheses, brackets, braces, quotes, etc.
+
 **Completions**
 * [`cmp`](https://github.com/hrsh7th/nvim-cmp) &mdash; completion engine
 * [`luasnip`](https://github.com/L3MON4D3/LuaSnip) &mdash; snippet engine
