@@ -1,7 +1,10 @@
 { self, inputs, lib, pkgs, ... }: let
   pict = import "${self}/pkgs/pict.nix" {inherit pkgs lib;};
 in {
-  # imports = [];
+  imports = [
+    "${self}/modules"
+    "${self}/modules/darwin.nix"
+  ];
 
   # platform the config will be used on
   nixpkgs.hostPlatform = "aarch64-darwin";

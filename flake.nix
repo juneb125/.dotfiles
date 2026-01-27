@@ -18,8 +18,6 @@
     darwinConfigurations."air" = mkSystem.darwin {
       modules = [
         ./profiles/air.nix
-        ./modules/darwin.nix
-        ./modules
       ];
     };
 
