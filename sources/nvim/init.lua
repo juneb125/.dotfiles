@@ -150,10 +150,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 			changedelete = { text = "~" },
 			untracked = { text = "┆" }
 		}
-		require("gitsigns").setup({
+		local gitsigns = require("gitsigns")
+		gitsigns.setup({
 			signs = signs,
-			signs_staged = signs
+			signs_staged = signs,
 		})
+		vim.keymap.set("n", "[h", gitsigns.prev_hunk, {})
+		vim.keymap.set("n", "]h", gitsigns.next_hunk, {})
 
 		require("ibl").setup({
 			scope = {
