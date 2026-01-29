@@ -2,8 +2,9 @@
 
 **/.DS_Store
 
-sources/ghc
-sources/cabal
+# just has Catppuccin Macchiato theme from github:catppuccin/bat
+sources/bat/themes
+
 sources/raycast
 sources/terminal-app
 sources/zsh/.zcompdump
