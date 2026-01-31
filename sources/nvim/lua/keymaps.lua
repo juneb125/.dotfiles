@@ -9,11 +9,12 @@ vim.g.maplocalleader = "\\"
 map("n", "<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
 map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 
--- navigate Vim panes better, see Credits #1
+-- navigate Vim panes better, see Credits #1 {{{
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-l>", "<C-w>l")
+-- }}}
 
 -- clear highlighting, see Credits #2
 map("n", "<leader>nh", "<cmd>nohlsearch<CR>", { silent = true })
@@ -30,15 +31,16 @@ map("n", "<A-k>", "<cmd>m .-2<CR>==", { silent = true })
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 
--- lsp-related keymaps
+-- lsp-related keymaps {{{
 local buf = vim.lsp.buf
 
 map("n", "K", buf.hover)
 map("n", "<leader>gf", buf.format)
 map("n", "<leader>ca", buf.code_action)
 map("n", "<leader>rn", buf.rename)
+-- }}}
 
--- 'jumping' keymaps (L46..=L53), see Credits #4
+-- 'jumping' keymaps, see Credits #4 {{{
 local diag = vim.diagnostic
 local sev = diag.severity
 
@@ -50,6 +52,7 @@ end)
 map("n", "]e", function()
 	diag.jump({ count = 1, severity = sev.ERROR })
 end)
+-- }}}
 
 -- go to previous tab
 map("n", "<leader>tp", "<cmd>tabp<CR>", { silent = true })
