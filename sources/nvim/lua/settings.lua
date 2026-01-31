@@ -7,6 +7,10 @@ opt.number = true         -- add line numbers
 opt.cursorline = true     -- highlight current cursorline
 opt.showmatch = true      -- show matching brackets
 opt.winborder = "rounded" -- always use rounded borders for floating windows
+opt.termguicolors = true  -- use GUI colors for the terminal
+opt.signcolumn = "yes"    -- show sign column so that text doesn't shift
+opt.showmode = false      -- lualine already shows the mode
+opt.helpheight = math.min(20, vim.o.columns)
 
 -- tabs & indentation
 opt.tabstop = 2    -- number of columns occupied by a tab
@@ -17,14 +21,10 @@ opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true  -- search case-sensitively if search pattern has uppercase chars
 
 -- misc. settings
-opt.mouse = "nv"         -- enable mouse clicks only in normal & visual mode
-opt.wrap = false         -- turn off line wrap by default
-opt.termguicolors = true -- use GUI colors for the terminal
-opt.signcolumn = "yes"   -- show sign column so that text doesn't shift
-opt.swapfile = false     -- turn off swapfile
-opt.showmode = false     -- lualine already shows the mode
-opt.helpheight = math.min(20, vim.o.columns)
-opt.history = 2500       -- reduce cmd history from 10k to 2.5k
+opt.mouse = "nv"     -- enable mouse clicks only in normal & visual mode
+opt.wrap = false     -- turn off line wrap by default
+opt.swapfile = false -- turn off swapfile
+opt.history = 2500   -- reduce cmd history from 10k to 2.5k
 
 -- same as '../spell/en.utf-8.add'
 opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"

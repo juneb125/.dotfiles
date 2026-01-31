@@ -1,9 +1,10 @@
 -- Keymaps --
 
+local map = vim.keymap.set
+
+map("n", "<Space>", "<Nop>", {})
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-
-local map = vim.keymap.set
 
 map("n", "<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
 map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
@@ -37,7 +38,7 @@ map("n", "<leader>gf", buf.format)
 map("n", "<leader>ca", buf.code_action)
 map("n", "<leader>rn", buf.rename)
 
--- 'jumping' keymaps (L40..=L47), see Credits #4
+-- 'jumping' keymaps (L46..=L53), see Credits #4
 local diag = vim.diagnostic
 local sev = diag.severity
 
