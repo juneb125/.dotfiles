@@ -7,55 +7,40 @@
 add_newline = true
 
 # PS1
-format = """
-$directory $git_branch$git_status\
-$character
-"""
+format = "$directory $git_branch$git_status\n$character"
 
 right_format = "$cmd_duration" # RPROMPT
 continuation_prompt = "| " # PS2
 
-# custom palette called "ansi" (see bottom)
-palette = 'ansi'
+# Custom palette for storing color variables
+palette = 'vars'
+# just for the foreground of git stuff
+palettes.vars.git_gray = '#6c6c6c'
+
+# Disable the package module, hiding it from the prompt completely
+package.disabled = true
 
 [character]
-success_symbol = "\n[❯](fg:magenta)"
-error_symbol = "\n[❯](fg:red)"
+# 'purple' is more of a pale pink with Catppuccin Macchiato
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
 
 [directory]
 truncation_length = 3
 truncation_symbol = ""
-format = "[$path](fg:blue)"
+format = "[$path](blue)"
 
 [git_branch]
-format = "[$branch](fg:git_gray)"
+format = "[$branch](git_gray)"
 
 [git_status]
 ahead = '↑'
 behind = '↓'
 modified = "*"
-# untracked = '[?](italic fg:git_gray)'
-format = "[$modified $ahead_behind](fg:git_gray)"
+# untracked = '[?](italic git_gray)'
+format = "[$modified $ahead_behind](git_gray)"
 
 [cmd_duration]
 min_time = 2000
 show_milliseconds = false
-format = "[$duration](fg:yellow)"
-
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
-
-[palettes.ansi]
-# ANSI (reassigned by Catppuccin Macchiato)
-# black = '0'
-red = '1'
-# green = '2'
-yellow = '3'
-blue = '4'
-magenta = '5'
-# cyan = '6'
-# white = '7'
-# gray = '8'
-# just for the foreground of git stuff 
-git_gray = '#6c6c6c'
+format = "[$duration](yellow)"
