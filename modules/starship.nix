@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ ... }: {
   nixpkgs.config.starship = {
     enable = true;
     enableZshIntegration = true;

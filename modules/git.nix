@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ ... }: {
   nixpkgs.config.git = let
     name = "juneb125";
     token = builtins.getEnv "JUNES_GITHUB_TOKEN";

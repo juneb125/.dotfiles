@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ ... }: {
   nix.enable = true;
 
   # allow unfree (i.e., not open-source) pkgs
