@@ -36,7 +36,7 @@
 [credential]
 	helper = store
 
-[url "https://github.com/"]
-	insteadOf = "github:"
+[url "git@github.com"]
+	insteadOf = "github"
 
 # vim: ft=gitconfig
