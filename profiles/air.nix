@@ -29,7 +29,7 @@ in {
         pass
         ripgrep
         shellcheck
-        starship # prompt customization
+        starship
       ])
       pict
     ];
@@ -50,4 +50,9 @@ in {
   # used for backwards compatibility, read the changelog before changing
   # $ darwin-rebuild changelog
   system.stateVersion = 5;
+
+  nixpkgs.config.bat = {
+    enable = true;
+  };
+  programs.zsh.enable = true;
 }
