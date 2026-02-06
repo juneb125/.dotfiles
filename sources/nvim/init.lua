@@ -2,6 +2,7 @@
 require("settings")
 
 -- Keymaps --
+local map = vim.keymap.set
 require("keymaps")
 
 if vim.fn.has("nvim-0.12") ~= 1 then
@@ -69,10 +70,10 @@ Snacks.setup({
 		bo = { filetype = "snacks_picker" }
 	}
 })
-vim.keymap.set("n", "<C-p>", Snacks.picker.files)
-vim.keymap.set("n", "<leader>fb", Snacks.picker.buffers)
-vim.keymap.set("n", "<leader>fg", Snacks.picker.grep)
-vim.keymap.set("n", "<leader>fk", Snacks.picker.keymaps)
+map("n", "<C-p>", Snacks.picker.files, { desc = "Open Snacks picker" })
+map("n", "<leader>fb", Snacks.picker.buffers, { desc = "Find buffers (Snacks)" })
+map("n", "<leader>fg", Snacks.picker.grep, { desc = "Grep across files (Snacks)" })
+map("n", "<leader>fk", Snacks.picker.keymaps, { desc = "Find Keymaps (Snacks)" })
 
 require("lualine").setup({
 	options = {
@@ -119,7 +120,7 @@ oil.setup({
 		["<Esc>"] = "actions.close"
 	}
 })
-vim.keymap.set("n", "<C-o>", oil.toggle_float, { silent = true })
+map("n", "<C-o>", oil.toggle_float, { desc = "Open Oil float" })
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
@@ -162,8 +163,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 			signs = signs,
 			signs_staged = signs,
 		})
-		vim.keymap.set("n", "[h", gitsigns.prev_hunk, {})
-		vim.keymap.set("n", "]h", gitsigns.next_hunk, {})
+		map("n", "[h", gitsigns.prev_hunk, { desc = "Navigate to previous git hunk" })
+		map("n", "]h", gitsigns.next_hunk, { desc = "Navigate to next git hunk" })
 
 		require("ibl").setup({
 			scope = {
