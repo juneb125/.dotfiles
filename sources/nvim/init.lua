@@ -123,8 +123,11 @@ vim.keymap.set("n", "<C-o>", oil.toggle_float, { silent = true })
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
+		"c",
+		"bash",
 		"lua",
 		"markdown",
+		"markdown_inline",
 		"nix",
 		"rust"
 	},
