@@ -66,9 +66,13 @@ Snacks.setup({
 			telescope_layout.layout.height = 0.7
 			return telescope_layout
 		end,
+		bo = { filetype = "snacks_picker" }
 	}
 })
 vim.keymap.set("n", "<C-p>", Snacks.picker.files)
+vim.keymap.set("n", "<leader>fb", Snacks.picker.buffers)
+vim.keymap.set("n", "<leader>fg", Snacks.picker.grep)
+vim.keymap.set("n", "<leader>fk", Snacks.picker.keymaps)
 
 require("lualine").setup({
 	options = {
