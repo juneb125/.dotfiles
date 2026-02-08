@@ -11,10 +11,9 @@ fi
 
 if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
   source "${XDG_DATA_HOME}/bob/env/env.sh"
+  alias nvim='bob run nightly'
 fi
-
 export EDITOR="nvim"
-alias nvim='bob run nightly'
 
 # make 100% sure Nix is in PATH, without inserting duplicates
 if [[ "${PATH}" != */run/current-system/sw/bin* ]]; then
@@ -25,15 +24,14 @@ if [[ "${PATH}" != */nix/var/nix/profiles/default/bin* ]]; then
 fi
 export PATH
 
+# where my system's flake.nix lives
 export FLAKE_HOME="${HOME}/.dotfiles"
 # where I keep my projects
 export PROJ_DIR="${HOME}/Desktop/Coding"
 
-if which bat >/dev/null; then
-  export BAT_THEME="Catppuccin Macchiato"
-fi
+export BAT_THEME="Catppuccin Macchiato"
 
 # don't log less history
 export LESSHISTFILE="/dev/null"
 
-export JUNES_GITHUB_TOKEN="$(pass show personal/github-token | head -n 1)"
+export JUNES_GITHUB_TOKEN="$(pass show personal/github-token | head -n1 2>/dev/null)"
