@@ -30,6 +30,7 @@ in {
         ripgrep
         shellcheck
         starship
+        tree
       ])
       pict
     ];

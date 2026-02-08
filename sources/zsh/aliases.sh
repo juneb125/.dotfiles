@@ -24,3 +24,7 @@ alias c='clear'
 alias e='exit 0'
 alias restart='reset'
 alias notes='cd ~/Documents/"Obsidian Vault"'
+
+if which tree >/dev/null; then
+  alias tree="tree --gitignore --dirsfirst -F"
+fi
