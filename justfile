@@ -4,22 +4,23 @@
 rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
 check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
 
-default:
-    @just --list
-
-# [nixos|darwin]-rebuild switch
-switch name:
-    sudo {{ rebuild }} switch --flake {{ name }}
+_default:
+    @just --list --unsorted
 
 # check if flake is okay
 check name:
     sudo {{ check }} --flake {{ name }} --show-trace
 
-# update & commit flake.lock
+# [nixos|darwin]-rebuild switch
+switch name:
+    sudo {{ rebuild }} switch --flake {{ name }}
+
+# update flake.lock
 update:
     git checkout -- flake.lock
     nix flake update
 
 # nixpkgs garbage collect
-gc period:
-    nix-collect-garbage --delete-older-than {{ period }}
+gc:
+    nix-collect-garbage --delete-older-than 3d
+    nix store optimise
