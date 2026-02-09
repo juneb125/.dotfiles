@@ -9,6 +9,9 @@ vim.g.maplocalleader = "\\"
 map("n", "<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
 map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 
+map({ "i", "c" }, "<C-b>", "<Left>")
+map({ "i", "c" }, "<C-f>", "<Right>")
+
 -- navigate Vim panes better, see Credits #1 {{{
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-j>", "<C-w>j")
