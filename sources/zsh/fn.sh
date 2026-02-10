@@ -140,3 +140,12 @@ if [[ "${SHELL}" != *bash* ]]; then
     bash -c "help ${@}"
   }
 fi
+
+printenv() {
+  if (( $# > 0 )); then
+    # do regular 'printenv' if any args are given (to not transform any values)
+    command printenv "${@}"
+    return $?
+  fi
+  command printenv | sed "s|${HOME}|~|g" | column -txc 2 -s'='
+}
