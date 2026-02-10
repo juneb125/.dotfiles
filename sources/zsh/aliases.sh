@@ -15,7 +15,8 @@ alias lal='ls -AlG'
 alias ga='git add'
 alias gb='git branch'
 alias gd='git diff'
-alias gl='git log --graph'
+# see Credits #3
+alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
 alias gp='git push'
 alias gs='git status'
 

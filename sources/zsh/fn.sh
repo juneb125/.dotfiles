@@ -128,12 +128,6 @@ colors() {
   echo "\x1b[m"
 }
 
-# see Credits #3
-gl-pretty() {
-  git log --graph --pretty=\
-    format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'
-}
-
 if [[ "${SHELL}" != *bash* ]]; then
   # 'help' is a bash builtin that apparently isn't also a zsh builtin
   help() {
