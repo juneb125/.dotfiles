@@ -15,6 +15,11 @@ if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
 fi
 export EDITOR="nvim"
 
+if [[ -d "${HOME}/.local/bin" && "${PATH}" != *"${HOME}/.local/bin"* ]]; then
+  # where I keep my (very few) private scripts
+  PATH="${HOME}/.local/bin:${PATH}"
+fi
+
 # make 100% sure Nix is in PATH, without inserting duplicates
 if [[ "${PATH}" != */run/current-system/sw/bin* ]]; then
   PATH="/run/current-system/sw/bin:${PATH}"
