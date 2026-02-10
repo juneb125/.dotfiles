@@ -41,6 +41,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # }}}
 
 # Misc. (non-plugin) {{{
+# remove '/' and '_' from wordchars (old = '*?_-.[]~=/&;!#$%^(){}<>')
+WORDCHARS=${WORDCHARS//[\/_]/}
+
 source "${ZDOTDIR}"/aliases.sh
 source "${ZDOTDIR}"/fn.sh
 source "${ZDOTDIR}"/net-utils.sh
