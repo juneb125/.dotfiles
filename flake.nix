@@ -12,7 +12,7 @@
 
   outputs = inputs@{ self, nixpkgs, ... }: let
     utils = import ./lib {inherit self;};
-    inherit (utils) mkSystem forEachSystem;
+    inherit (utils) mkSystem forEachDefaultSystem;
   in {
     # see README.md for how to (re-)build darwin config
     darwinConfigurations."air" = mkSystem.darwin {
@@ -21,7 +21,7 @@
       ];
     };
 
-    devShells = forEachSystem (pkgs: {
+    devShells = forEachDefaultSystem (pkgs: {
       default = import ./shell.nix {inherit pkgs;};
     });
 

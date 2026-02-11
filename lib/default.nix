@@ -2,7 +2,7 @@
   inherit (self) inputs outputs;
   inherit (inputs) nixpkgs darwin;
   inherit (inputs.stdenv) isDarwin;
-in {
+in rec {
   # mostly from github:kclejeune/system/flake.nix#L55-68
   mkSystem = {
     darwin = {
@@ -24,5 +24,12 @@ in {
 
   inherit isDarwin;
 
-  forEachSystem = f: nixpkgs.lib.genAttrs ["aarch64-darwin"] (system: f nixpkgs.legacyPackages.${system});
+  defaultSystems = [
+    "aarch64-darwin"
+    "aarch64-linux"
+    "x86_64-darwin"
+    "x86_64-linux"
+  ];
+  forEachSystem = systems: f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
+  forEachDefaultSystem = f: forEachSystem defaultSystems;
 }
