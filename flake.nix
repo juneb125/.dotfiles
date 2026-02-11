@@ -12,10 +12,10 @@
 
   outputs = inputs@{ self, nixpkgs, ... }: let
     utils = import ./lib {inherit self;};
-    inherit (utils) mkSystem forEachDefaultSystem;
+    inherit (utils) mkDarwinSystem forEachDefaultSystem;
   in {
     # see README.md for how to (re-)build darwin config
-    darwinConfigurations."air" = mkSystem.darwin {
+    darwinConfigurations."air" = mkDarwinSystem {
       modules = [
         ./profiles/air.nix
       ];
