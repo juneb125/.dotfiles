@@ -8,7 +8,6 @@ if which starship >/dev/null; then
 fi
 
 # Keybinds {{{
-bindkey '^I' autosuggest-accept      # <Tab>
 bindkey '^p' history-search-backward # <C-p>
 bindkey '^n' history-search-forward  # <C-n>
 
@@ -38,6 +37,13 @@ autoload -U compinit && compinit
 
 # enable case-insensitive completions
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# use completion menu
+zstyle ':completion:*' menu select
+# FIXME: $LS_COLORS empty ??
+# color-coded completions :)
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# complete path names, similar fmt to `ls -A` (true = similar fmt to `ls -Al`)
+zstyle ':completion:*' file-list false
 # }}}
 
 # Misc. (non-plugin) {{{
