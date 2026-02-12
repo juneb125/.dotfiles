@@ -48,7 +48,7 @@ zstyle ':completion:*' file-list false
 
 # Misc. (non-plugin) {{{
 # remove '/' and '_' from wordchars (old = '*?_-.[]~=/&;!#$%^(){}<>')
-WORDCHARS=${WORDCHARS//[\/_]/}
+WORDCHARS='*?-.[]~=&;!#$%^(){}<>'
 
 source "${ZDOTDIR}"/aliases.sh
 source "${ZDOTDIR}"/fn.sh
