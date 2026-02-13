@@ -7,6 +7,10 @@ if which starship >/dev/null; then
     && eval "$(starship init zsh)"
 fi
 
+# colors :D
+export LSCOLORS='exfxcxdxbxegedabagacadah'
+export CLICOLOR=1
+
 # Keybinds {{{
 bindkey '^p' history-search-backward # <C-p>
 bindkey '^n' history-search-forward  # <C-n>
@@ -39,14 +43,15 @@ autoload -U compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # use completion menu
 zstyle ':completion:*' menu select
-# FIXME: $LS_COLORS empty ??
-# color-coded completions :)
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# FIXME: $LSCOLORS variable didn't work, so directly passing the value
+# color-coded completions for paths :)
+zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 # complete path names, similar fmt to `ls -A` (true = similar fmt to `ls -Al`)
 zstyle ':completion:*' file-list false
 # }}}
 
 # Misc. (non-plugin) {{{
+
 # remove '/' and '_' from wordchars (old = '*?_-.[]~=/&;!#$%^(){}<>')
 WORDCHARS='*?-.[]~=&;!#$%^(){}<>'
 
