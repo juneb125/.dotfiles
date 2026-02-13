@@ -5,7 +5,8 @@ vim.g.start_time = vim.fn.reltime()
 require("settings")
 
 -- Keymaps --
-local map = vim.keymap.set
+---@diagnostic disable-next-line: lowercase-global
+map = vim.keymap.set
 require("keymaps")
 
 if vim.fn.has("nvim-0.12") ~= 1 then
