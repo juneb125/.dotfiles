@@ -8,7 +8,7 @@ if which starship >/dev/null; then
 fi
 
 # colors :D
-export LSCOLORS='exfxcxdxbxegedabagacadah'
+export LS_COLORS='exfxcxdxbxegedabagacadah'
 export CLICOLOR=1
 
 # Keybinds {{{
@@ -35,21 +35,6 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 # }}}
 
-# Completions {{{
-# load completions
-autoload -U compinit && compinit
-
-# enable case-insensitive completions
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# use completion menu
-zstyle ':completion:*' menu select
-# FIXME: $LSCOLORS variable didn't work, so directly passing the value
-# color-coded completions for paths :)
-zstyle ':completion:*' list-colors 'di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-# complete path names, similar fmt to `ls -A` (true = similar fmt to `ls -Al`)
-zstyle ':completion:*' file-list false
-# }}}
-
 # Misc. (non-plugin) {{{
 
 # remove '/' and '_' from wordchars (old = '*?_-.[]~=/&;!#$%^(){}<>')
@@ -62,6 +47,21 @@ source "${ZDOTDIR}"/net-utils.sh
 if [[ "$(uname -s)" == Darwin* ]]; then
   source "${ZDOTDIR}"/macos.sh
 fi
+# }}}
+
+# Completions {{{
+# load completions
+autoload -U compinit && compinit
+
+# enable case-insensitive completions
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# use completion menu
+zstyle ':completion:*' menu select
+# color-coded completions for paths :)
+COMP_LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*' list-colors ${(s.:.)COMP_LS_COLORS}
+# complete path names, similar fmt to `ls -A` (true = similar fmt to `ls -Al`)
+zstyle ':completion:*' file-list false
 # }}}
 
 # Zsh Plugins {{{
