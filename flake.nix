@@ -16,9 +16,7 @@
   in {
     # see README.md for how to (re-)build darwin config
     darwinConfigurations."air" = mkDarwinSystem {
-      modules = [
-        ./profiles/air.nix
-      ];
+      modules = [ ./profiles/air.nix ];
     };
 
     devShells = forEachDefaultSystem (pkgs: {
