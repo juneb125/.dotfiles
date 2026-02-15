@@ -24,3 +24,11 @@ update:
 gc:
     nix-collect-garbage --delete-older-than 3d
     nix store optimise
+
+# evaluate a flake output
+eval *args:
+    nix eval {{ args }} --extra-experimental-features "nix-command flakes"
+
+# start a nix repl
+repl *args:
+    nix repl {{ args }} --extra-experimental-features "flakes"
