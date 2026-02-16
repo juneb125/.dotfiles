@@ -75,7 +75,7 @@ source "${ZDOTDIR}"/get-plugins.zsh \
 
 # 2. Downloading
 # only download if plugin isn't installed
-which zsh-syntax-highlighting >/dev/null \
+[[ -d "${ZPLUGINDIR}"/zsh-syntax-highlighting/.git ]] \
   || get-syntax-highlighting
 
 # 3. Sourcing -- must be at END of .zshrc
