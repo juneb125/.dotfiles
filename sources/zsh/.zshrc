@@ -2,9 +2,8 @@
 
 # Prompt
 export STARSHIP_CONFIG="${ZDOTDIR}/starship.toml"
-if which starship >/dev/null; then
-  [[ -f "${STARSHIP_CONFIG}" ]] \
-    && eval "$(starship init zsh)"
+if [[ ${+commands[starship]} && -f "${STARSHIP_CONFIG}" ]]; then
+  eval "$(starship init zsh)"
 fi
 
 # colors :D
@@ -12,13 +11,14 @@ export LS_COLORS='exfxcxdxbxegedabagacadah'
 export CLICOLOR=1
 
 # Keybinds {{{
-bindkey '^p' history-search-backward # <C-p>
-bindkey '^n' history-search-forward  # <C-n>
+# list all keybinds with 'bindkey -L'
+bindkey '^P' history-search-backward # <C-p>
+bindkey '^N' history-search-forward  # <C-n>
 
 # open buffer line in editor, see Credits #4
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey '^x^e' edit-command-line # <C-x><C-e>
+bindkey '^X^E' edit-command-line # <C-x><C-e>
 # }}}
 
 # History Opts {{{
@@ -35,8 +35,7 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 # }}}
 
-# Misc. (non-plugin) {{{
-
+# Misc. {{{
 # remove '/' and '_' from wordchars (old = '*?_-.[]~=/&;!#$%^(){}<>')
 WORDCHARS='*?-.[]~=&;!#$%^(){}<>'
 
