@@ -80,6 +80,55 @@ map("n", "<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (S
 map("n", "<leader>fk", Snacks.picker.keymaps, { desc = "Find Keymaps (Snacks)" })
 map("n", "<leader>fr", Snacks.picker.recent, { desc = "Find Recently visited files (Snacks)" })
 
+-- Snacks picker user fn's {{{
+vim.api.nvim_create_user_command("Pick", function(opts)
+	Snacks.picker(opts.fargs[1], {})
+end, {
+	nargs = "?",
+	desc = "Quickly open a generic snacks.nvim picker",
+	---@diagnostic disable-next-line: unused-local
+	complete = function(ArgLead, CmdLine, CursorPos)
+			-- cliphist, lazy, pickers, zoxide
+		return {
+			"autocmds", "buffers", "colorschemes", "command_history", "commands",
+			"diagnostics", "diagnostics_buffer", "explorer", "files",
+			-- [[ git-related ones are in PickGit ]]
+			"grep", "grep_buffers", "grep_word", "help", "highlights",
+			"icons", "jumps", "keymaps", "lines", "loclist",
+			--[[ lsp-related ones are in PickLsp ]]
+			"man", "marks", "notifications", "picker_actions", "picker_format",
+			"picker_layouts", "picker_preview", "projects", "qflist", "recent", "registers",
+			"resume", "search_history", "smart", "spelling", "treesitter", "undo"
+		}
+	end
+})
+
+vim.api.nvim_create_user_command("PickGit", function(opts)
+	Snacks.picker("git_" .. opts.fargs[1], {})
+end, {
+	nargs = 1,
+	desc = "Quickly open a snacks.nvim Git-related picker",
+	---@diagnostic disable-next-line: unused-local
+	complete = function(ArgLead, CmdLine, CursorPos)
+		return { "branches", "diff", "files", "grep", "log", "log_file", "log_line", "stash", "status" }
+	end
+})
+
+vim.api.nvim_create_user_command("PickLsp", function(opts)
+	Snacks.picker("lsp_" .. opts.fargs[1], {})
+end, {
+	nargs = 1,
+	desc = "Quickly open a snacks.nvim LSP-related picker",
+	---@diagnostic disable-next-line: unused-local
+	complete = function(ArgLead, CmdLine, CursorPos)
+		return {
+			"config", "declarations", "definitions", "implementations", "references",
+			"symbols", "type_definitions", "workspace_symbols"
+		}
+	end
+})
+-- }}}
+
 require("lualine").setup({
 	options = {
 		theme = "palenight",
