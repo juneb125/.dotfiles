@@ -14,6 +14,11 @@ export CLICOLOR=1
 # list all keybinds with 'bindkey -L'
 bindkey '^P' history-search-backward # <C-p>
 bindkey '^N' history-search-forward  # <C-n>
+bindkey '^\ ' magic-space            # <C-<Space>>
+
+# '^Xr' and '^X^R' for Redo complement '^Xu' and '^X^U' for Undo
+bindkey '^Xr' redo  # <C-x>r (old = history-incremental-search-backward)
+bindkey '^X^R' redo # <C-x><C-r> (old = _read_comp)
 
 # open buffer line in editor, see Credits #4
 autoload -Uz edit-command-line
