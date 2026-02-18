@@ -58,7 +58,25 @@ Snacks.setup({
 		enable = true,
 		sections = {
 			{ section = "header" },
-			{ section = "keys", gap = 1, padding = 1 }
+			{ section = "keys", gap = 1, padding = 1 },
+			-- emulates the 'startup' section w/o Lazy stuff
+			function()
+				-- TODO: get the values for loaded_plugins, total_plugins, and ms
+				local loaded_plugins = "?"
+				local total_plugins = "?"
+				-- for some reason, vim.g.startup_time is nil ???
+				local ms = "?"
+				-- from github:folke/snacks.nvim@main (path: lua/snacks/dashboard.lua#L1098-L1106)
+				return {
+					align = "center",
+					text = {
+						{ "Neovim loaded ", hl = "footer" },
+						{ loaded_plugins .. "/" .. total_plugins, hl = "special" },
+						{ " plugins in ", hl = "footer" },
+						{ ms .. "ms", hl = "special" }
+					}
+				}
+			end
 		},
 		-- buffer options
 		bo = { filetype = "snacks_dashboard" }
@@ -88,7 +106,7 @@ end, {
 	desc = "Quickly open a generic snacks.nvim picker",
 	---@diagnostic disable-next-line: unused-local
 	complete = function(ArgLead, CmdLine, CursorPos)
-			-- cliphist, lazy, pickers, zoxide
+		-- cliphist, lazy, pickers, zoxide
 		return {
 			"autocmds", "buffers", "colorschemes", "command_history", "commands",
 			"diagnostics", "diagnostics_buffer", "explorer", "files",
