@@ -152,20 +152,24 @@ require("lualine").setup({
 		theme = "palenight",
 		ignore_focus = { "help", "oil" }
 	},
+	-- only 'lualine_b' and 'lualine_x' sections were changed from their default
 	sections = {
+		lualine_a = { "mode" },
 		lualine_b = {
 			-- nf-cod-source_control (U+EA68)
 			{ "branch", icon = "" },
 			"diff",
 			"diagnostics"
 		},
-
+		lualine_c = { "filename" },
 		lualine_x = {
 			function()
 				return ("%s[%s]"):format(vim.bo.fileencoding, vim.bo.fileformat)
 			end,
 			"filetype"
-		}
+		},
+		lualine_y = { "progress" },
+		lualine_z = { "location" }
 	}
 })
 
