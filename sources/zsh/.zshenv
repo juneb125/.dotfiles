@@ -29,7 +29,7 @@ if [[ "${PATH}" != */nix/var/nix/profiles/default/bin* ]]; then
 fi
 export PATH
 
-if [[ ${+commands[ghostty]} && -x /usr/bin/manpath ]]; then
+if [[ ${commands[ghostty]} && -x /usr/bin/manpath ]]; then
   # ghostty adds to MANPATH in a weird way
   export MANPATH="$(/usr/bin/manpath 2>/dev/null)"
 fi

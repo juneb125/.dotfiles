@@ -2,7 +2,7 @@
 
 # Prompt
 export STARSHIP_CONFIG="${ZDOTDIR}/starship.toml"
-if [[ ${+commands[starship]} && -f "${STARSHIP_CONFIG}" ]]; then
+if [[ ${commands[starship]} && -f "${STARSHIP_CONFIG}" ]]; then
   eval "$(starship init zsh)"
 fi
 
