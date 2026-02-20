@@ -2,8 +2,9 @@
 My personal configuration files
 
 **Table of Contents**
-* [My Environment](#my-environment)
-* [Installation](#installation)
+* [My Environment](.#my-environment)
+* [Structure](.#structure)
+* [Installation](.#installation)
 
 **Quick Links**
 * [zsh](./sources/zsh)
@@ -34,6 +35,23 @@ What I'm using:
     # -v
     Darwin Kernel Version 24.6.0: # ...
     ```
+
+
+## Structure
+This repository is at `${HOME}/.dotfiles`. All `~`'s in this section are synonymous with the value of my `${HOME}` environment variable.
+
+**Directories**
+* `lib/` &mdash; useful / repeated nix functions
+* `modules/` &mdash; program settings
+* `pkgs/` &mdash; packages that aren't on the official nixpkgs repo
+* `profiles/` &mdash; per-host configurations
+* `sources/` &mdash; XDG config home
+
+**External Links**\
+Sym-Links
+* `~/.config` -> `~/.dotfiles`
+* `~/.zshenv` -> `~/.dotfiles/sources/zsh/.zshenv`
+* `~/.ssh/config` -> `~/.dotfiles/sources/ssh/config`
 
 ## Installation
 **The Steps I Followed**
