@@ -11,8 +11,11 @@ map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 -- some emacs keybinds are nice, but only for insert/cmd mode
 map({ "i", "c" }, "<C-b>", "<Left>")  -- backward-char
 map({ "i", "c" }, "<C-f>", "<Right>") -- forward-char
-map({ "i", "c" }, "<C-a>", "<C-o>^")  -- beginning-of-line
-map({ "i", "c" }, "<C-e>", "<C-o>$")  -- end-of-line
+
+map("i", "<C-a>", "<C-o>^")  -- beginning-of-line
+map("i", "<C-e>", "<C-o>$")  -- end-of-line
+map("c", "<C-a>", "<C-b>")   -- beginning-of-line
+-- <C-e> is already end-of-line in cmd mode
 -- }}}
 
 -- navigate Vim panes better, see Credits #1 {{{
