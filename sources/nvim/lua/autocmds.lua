@@ -1,4 +1,7 @@
-vim.api.nvim_create_autocmd("VimEnter", {
+local create_autocmd = vim.api.nvim_create_autocmd
+local create_augroup = vim.api.nvim_create_augroup
+
+create_autocmd("VimEnter", {
 	-- calculates the startup time & sets it as a global var
 	callback = function()
 		local startuptime = vim.fn.reltimefloat(vim.fn.reltime(vim.g.start_time))
@@ -10,14 +13,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- I couldn't get lua to do this :( , so vimscript it is
--- almost completely from Credits #5
 vim.cmd([[
+  " almost completely from Credits #5
   augroup local_spell_check
     autocmd FileType markdown,text setlocal spell
   augroup end
 ]])
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+local lazy_load_plugins = create_augroup("lazy_load_plugins", {})
+create_autocmd({ "BufRead", "BufNewFile" }, {
+	group = lazy_load_plugins,
 	callback = function()
 		local signs = {
 			add = { text = "┃" },
@@ -46,9 +51,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	once = true
 })
 
-vim.api.nvim_create_autocmd("InsertEnter", {
+create_autocmd("InsertEnter", {
+	group = lazy_load_plugins,
 	callback = function()
-		require("nvim-autopairs").setup({})
+		require("nvim-autopairs").setup({
+			disable_filetype = { "snacks_picker", "snacks_picker_input" },
+			disable_in_macro = true,
+		})
 		require("completions")
 	end,
 	once = true
