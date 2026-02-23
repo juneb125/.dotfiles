@@ -9,18 +9,20 @@ require("settings")
 map = vim.keymap.set
 require("keymaps")
 
-if vim.fn.has("nvim-0.12") ~= 1 then
+-- Plugins --
+-- check that vim.pack is available {{{
+if vim.fn.has("nvim-0.12") ~= 1 and vim.pack ~= nil then
 	-- from lazy.nvim's bootstrapping error handling
 	vim.api.nvim_echo({
 		{ "Failed to load packages with vim.pack\n", "ErrorMsg" },
 		{ "Switch to nvim v0.12 or edit init.lua to fix this error", "WarningMsg" },
-		{ "\nPress any key to exit..." },
+		{ "\nPress any key to acknowledge..." },
 	}, true, {})
 	vim.fn.getchar()
 	return
 end
+-- }}}
 
--- Plugins --
 local gh = "https://github.com/"
 vim.pack.add({
 	-- core plugins
@@ -48,7 +50,7 @@ vim.pack.add({
 
 vim.cmd("colorscheme catppuccin")
 
-local Snacks = require("snacks")
+Snacks = require("snacks")
 Snacks.setup({
 	bigfile = {
 		enabled = true,
@@ -106,14 +108,14 @@ end, {
 	desc = "Quickly open a generic snacks.nvim picker",
 	---@diagnostic disable-next-line: unused-local
 	complete = function(ArgLead, CmdLine, CursorPos)
-		-- cliphist, lazy, pickers, zoxide
+		-- excluded: cliphist, lazy, pickers, zoxide
 		return {
 			"autocmds", "buffers", "colorschemes", "command_history", "commands",
 			"diagnostics", "diagnostics_buffer", "explorer", "files",
 			-- [[ git-related ones are in PickGit ]]
 			"grep", "grep_buffers", "grep_word", "help", "highlights",
 			"icons", "jumps", "keymaps", "lines", "loclist",
-			--[[ lsp-related ones are in PickLsp ]]
+			-- [[ lsp-related ones are in PickLsp ]]
 			"man", "marks", "notifications", "picker_actions", "picker_format",
 			"picker_layouts", "picker_preview", "projects", "qflist", "recent", "registers",
 			"resume", "search_history", "smart", "spelling", "treesitter", "undo"

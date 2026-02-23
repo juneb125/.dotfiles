@@ -9,8 +9,10 @@ map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 
 -- *sometimes* emacs is right {{{
 -- some emacs keybinds are nice, but only for insert/cmd mode
-map({ "i", "c" }, "<C-b>", "<Left>")  -- backward-char
-map({ "i", "c" }, "<C-f>", "<Right>") -- forward-char
+map({ "i", "c" }, "<C-b>", "<Left>")    -- backward-char
+map({ "i", "c" }, "<C-f>", "<Right>")   -- forward-char
+map({ "i", "c" }, "<A-b>", "<S-Left>")  -- backward-word
+map({ "i", "c" }, "<A-f>", "<S-Right>") -- foward-word
 
 map("i", "<C-a>", "<C-o>^")  -- beginning-of-line
 map("i", "<C-e>", "<C-o>$")  -- end-of-line
