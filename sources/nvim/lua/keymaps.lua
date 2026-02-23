@@ -7,6 +7,8 @@ vim.g.maplocalleader = "\\"
 map("n", "<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
 map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 
+map("t", "<Esc>", "<C-\\><C-n>")
+
 -- *sometimes* emacs is right {{{
 -- some emacs keybinds are nice, but only for insert/cmd mode
 map({ "i", "c" }, "<C-b>", "<Left>")    -- backward-char
@@ -16,8 +18,10 @@ map({ "i", "c" }, "<A-f>", "<S-Right>") -- foward-word
 
 map("i", "<C-a>", "<C-o>^")  -- beginning-of-line
 map("i", "<C-e>", "<C-o>$")  -- end-of-line
+
 map("c", "<C-a>", "<C-b>")   -- beginning-of-line
 -- <C-e> is already end-of-line in cmd mode
+-- see ':h emacs-keys' for more emacs cmd mode keymaps
 -- }}}
 
 -- navigate Vim panes better, see Credits #1 {{{
@@ -55,6 +59,9 @@ map("n", "<leader>rn", buf.rename)
 local diag = vim.diagnostic
 local sev = diag.severity
 
+-- '[d' and ']d' for jumping to the previous/next diagnostic, respectively, are
+-- already set by neovim :)
+
 -- jump to previous error
 map("n", "[e", function()
 	diag.jump({ count = -1, severity = sev.ERROR })
@@ -65,7 +72,12 @@ map("n", "]e", function()
 end)
 -- }}}
 
+-- buffer- & tab-related keymaps {{{
+-- '[b' and ']b' for jumping to the previous/next buffer, respectively, are
+-- already set by neovim :)
+
 -- go to previous tab
-map("n", "<leader>tp", "<cmd>tabp<CR>", { silent = true })
+map("n", "<leader>[t", "<cmd>tabp<CR>", { silent = true })
 -- go to next tab
-map("n", "<leader>tn", "<cmd>tabn<CR>", { silent = true })
+map("n", "<leader>]t", "<cmd>tabn<CR>", { silent = true })
+-- }}}
