@@ -15,16 +15,16 @@ if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
 fi
 export EDITOR="nvim"
 
-if [[ -d "${HOME}/.local/bin" && "${PATH}" != *"${HOME}/.local/bin"* ]]; then
+if [[ -d "${HOME}/.local/bin" && ":${PATH}:" != *:"${HOME}/.local/bin":* ]]; then
   # where I keep my (very few) private scripts
   PATH="${HOME}/.local/bin:${PATH}"
 fi
 
 # make 100% sure Nix is in PATH, without inserting duplicates
-if [[ "${PATH}" != */run/current-system/sw/bin* ]]; then
+if [[ ":${PATH}:" != *:/run/current-system/sw/bin:* ]]; then
   PATH="/run/current-system/sw/bin:${PATH}"
 fi
-if [[ "${PATH}" != */nix/var/nix/profiles/default/bin* ]]; then
+if [[ ":${PATH}:" != *:/nix/var/nix/profiles/default/bin:* ]]; then
   PATH="/nix/var/nix/profiles/default/bin:${PATH}"
 fi
 export PATH
@@ -42,6 +42,6 @@ export PROJ_DIR="${HOME}/Desktop/Coding"
 export BAT_THEME="Catppuccin Macchiato"
 
 # don't log less history
-export LESSHISTFILE="/dev/null"
+export LESSHISTFILE=/dev/null
 
-export JUNES_GITHUB_TOKEN="$(pass show personal/github-token | head -n1 2>/dev/null)"
+export JUNES_GITHUB_TOKEN="$(pass show personal/github-token 2>/dev/null | head -n1)"

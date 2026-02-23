@@ -1,7 +1,7 @@
 # Zsh config
 
 # Prompt
-export STARSHIP_CONFIG="${ZDOTDIR}/starship.toml"
+export STARSHIP_CONFIG="${ZDOTDIR}"/starship.toml
 if [[ ${commands[starship]} && -f "${STARSHIP_CONFIG}" ]]; then
   eval "$(starship init zsh)"
 fi
@@ -71,7 +71,7 @@ zstyle ':completion:*' file-list false
 # Zsh Plugins {{{
 # 1. Initializing
 # set the directory we want to store plugins
-export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
+export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}"/zsh-plugins
 [[ -d "${ZPLUGINDIR}" ]] || mkdir -p "${ZPLUGINDIR}"
 
 # helper function(s) for downloading plugins
@@ -79,9 +79,8 @@ source "${ZDOTDIR}"/get-plugins.zsh \
   || return 1 # error message is already in get-plugins.zsh
 
 # 2. Downloading
-# only download if plugin isn't installed
-[[ -d "${ZPLUGINDIR}"/zsh-syntax-highlighting/.git ]] \
-  || get-syntax-highlighting
+# doesn't do anything if plugin is already installed
+get-syntax-highlighting
 
 # 3. Sourcing -- must be at END of .zshrc
 source "${ZPLUGINDIR}"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
