@@ -29,5 +29,5 @@ in rec {
     "x86_64-linux"
   ];
   forEachSystem = systems: f: nixpkgs.lib.genAttrs systems (system: f nixpkgs.legacyPackages.${system});
-  forEachDefaultSystem = f: forEachSystem defaultSystems;
+  forEachDefaultSystem = forEachSystem defaultSystems;
 }

@@ -13,7 +13,7 @@
       palette = "vars";
       palettes.vars = {
         # just for the foreground of git stuff
-        git_gray = "$6c6c6c";
+        git_gray = "#6c6c6c";
       };
 
       # Disable the package module, hiding it from the prompt completely
