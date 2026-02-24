@@ -9,6 +9,9 @@ require("settings")
 map = vim.keymap.set
 require("keymaps")
 
+-- Commands --
+require("commands")
+
 -- Plugins --
 -- check that vim.pack is available {{{
 if vim.fn.has("nvim-0.12") ~= 1 and vim.pack ~= nil then
