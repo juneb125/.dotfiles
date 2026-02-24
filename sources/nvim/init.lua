@@ -117,11 +117,11 @@ vim.api.nvim_create_user_command("Pick", function(opts)
 	Snacks.picker(opts.fargs[1], {})
 end, {
 	nargs = "?",
-	desc = "Quickly open a generic snacks.nvim picker",
+	desc = "Quickly open a Snacks.nvim picker (default = files)",
 	---@diagnostic disable-next-line: unused-local
 	complete = function(ArgLead, CmdLine, CursorPos)
 		-- excluded: cliphist, lazy, pickers, zoxide
-		return {
+		local choices = {
 			"autocmds", "buffers", "colorschemes", "command_history", "commands",
 			"diagnostics", "diagnostics_buffer", "explorer", "files",
 			-- [[ git-related ones are in PickGit ]]
@@ -132,6 +132,10 @@ end, {
 			"picker_layouts", "picker_preview", "projects", "qflist", "recent", "registers",
 			"resume", "search_history", "smart", "spelling", "treesitter", "undo"
 		}
+		if ArgLead == "" then
+			return choices
+		end
+		return vim.fn.matchfuzzy(choices, ArgLead)
 	end
 })
 
@@ -139,10 +143,14 @@ vim.api.nvim_create_user_command("PickGit", function(opts)
 	Snacks.picker("git_" .. opts.fargs[1], {})
 end, {
 	nargs = 1,
-	desc = "Quickly open a snacks.nvim Git-related picker",
+	desc = "Quickly open a Snacks.nvim Git-related picker",
 	---@diagnostic disable-next-line: unused-local
 	complete = function(ArgLead, CmdLine, CursorPos)
-		return { "branches", "diff", "files", "grep", "log", "log_file", "log_line", "stash", "status" }
+		local choices = { "branches", "diff", "files", "grep", "log", "log_file", "log_line", "stash", "status" }
+		if ArgLead == "" then
+			return choices
+		end
+		return vim.fn.matchfuzzy(choices, ArgLead)
 	end
 })
 
@@ -150,13 +158,17 @@ vim.api.nvim_create_user_command("PickLsp", function(opts)
 	Snacks.picker("lsp_" .. opts.fargs[1], {})
 end, {
 	nargs = 1,
-	desc = "Quickly open a snacks.nvim LSP-related picker",
+	desc = "Quickly open a Snacks.nvim LSP-related picker",
 	---@diagnostic disable-next-line: unused-local
 	complete = function(ArgLead, CmdLine, CursorPos)
-		return {
+		local choices = {
 			"config", "declarations", "definitions", "implementations", "references",
 			"symbols", "type_definitions", "workspace_symbols"
 		}
+		if ArgLead == "" then
+			return choices
+		end
+		return vim.fn.matchfuzzy(choices, ArgLead)
 	end
 })
 -- }}}
