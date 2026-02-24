@@ -3,11 +3,11 @@
 # fn.sh - useful shell functions :)
 
 proj() {
-  if [[ -z "${PROJ_DIR}" || ! -d "${PROJ_DIR}" ]]; then
+  local dest_dir="${PROJ_DIR}"
+  if [[ -z "${dest_dir}" || ! -d "${dest_dir}" ]]; then
     echo "${0}: \$PROJ_DIR doesn't exist or isn't set" >&2
     return 1
   fi
-  local dest_dir="${PROJ_DIR}"
 
   case "$1" in
     ("") ;;
@@ -19,7 +19,7 @@ proj() {
     ("misc") dest_dir+='/MiscProjects' ;;
     ("-h"|"--help")
       cat <<EOF
-${0}: quickly go to an area or a specific project
+proj: quickly go to an area or a specific project
       An 'area' is how you split up and organize all of your projects
 
 Usage: ${0} [ABBREV|DIR]
@@ -38,7 +38,8 @@ EOF
     (*) dest_dir+="/${1}" ;;
   esac
 
-  cd "${dest_dir}/${@:2}"
+  shift
+  cd "${dest_dir}/${@}"
 }
 
 config() {
@@ -76,8 +77,8 @@ mkcd() {
 
 # see Credits #1.2
 numfiles() {
-  local dir=${1:-.}
-  local num=$(ls -A -1 "${dir}" | wc -l)
+  local dir="${1:-.}"
+  local num="$(ls -A -1 "${dir}" | wc -l)"
   echo "${num} files in ${dir}"
 }
 
@@ -108,12 +109,12 @@ EOF
     ("path") value="${PATH}" ;;
     (*) value="${1}" ;;
   esac
-  tr ':' '\n' <<< "${value}"
+  echo "${value//:/\n}"
 }
 
 colors() {
   local blocks='███' # 3x U+2588
-  local i=
+  local i=''
 
   echo -n "\n  "
   for i in {0..7}; do
