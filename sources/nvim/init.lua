@@ -13,6 +13,12 @@ require("keymaps")
 require("commands")
 
 -- Plugins --
+-- disable some builtin plugins
+vim.g.loaded_gzip = 1
+vim.g.loaded_tarPlugin = 1
+vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_2html_plugin = 1
+
 -- check that vim.pack is available {{{
 if vim.fn.has("nvim-0.12") ~= 1 and vim.pack ~= nil then
 	-- from lazy.nvim's bootstrapping error handling
@@ -97,6 +103,9 @@ Snacks.setup({
 		bo = { filetype = "snacks_picker" }
 	}
 })
+-- completely disable ':intro' dashboard if Snacks config is okay
+vim.cmd("set shortmess-=I")
+
 map("n", "<C-p>", Snacks.picker.files, { desc = "Open Snacks picker" })
 map("n", "<leader>fb", Snacks.picker.buffers, { desc = "Find Buffers (Snacks)" })
 map("n", "<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (Snacks)" })
@@ -202,6 +211,9 @@ oil.setup({
 	}
 })
 map("n", "-", oil.toggle_float, { desc = "Open Oil float" })
+-- completely disable netrw if oil config is okay
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
