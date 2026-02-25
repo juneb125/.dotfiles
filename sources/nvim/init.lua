@@ -22,7 +22,7 @@ vim.g.loaded_tutor_mode_plugin = 1
 vim.g.loaded_2html_plugin = 1
 
 -- check that vim.pack is available {{{
-if vim.fn.has("nvim-0.12") ~= 1 and vim.pack ~= nil then
+if (not vim.fn.has("nvim-0.12")) and vim.pack == nil then
 	-- from lazy.nvim's bootstrapping error handling
 	vim.api.nvim_echo({
 		{ "Failed to load packages with vim.pack\n", "ErrorMsg" },
@@ -190,6 +190,7 @@ map("n", "-", oil.toggle_float, { desc = "Open Oil float" })
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- language support {{{
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
 		"c",
@@ -207,5 +208,6 @@ require("nvim-treesitter.configs").setup({
 
 require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
+-- }}}
 
 require("autocmds")
