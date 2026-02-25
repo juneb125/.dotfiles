@@ -10,7 +10,7 @@ map = vim.keymap.set
 require("keymaps")
 
 -- Commands --
-require("commands")
+local cmds = require("commands")
 
 -- Plugins --
 -- disable some builtin plugins
@@ -118,25 +118,7 @@ vim.api.nvim_create_user_command("Pick", function(opts)
 end, {
 	nargs = "?",
 	desc = "Quickly open a Snacks.nvim picker (default = files)",
-	---@diagnostic disable-next-line: unused-local
-	complete = function(ArgLead, CmdLine, CursorPos)
-		-- excluded: cliphist, lazy, pickers, zoxide
-		local choices = {
-			"autocmds", "buffers", "colorschemes", "command_history", "commands",
-			"diagnostics", "diagnostics_buffer", "explorer", "files",
-			-- [[ git-related ones are in PickGit ]]
-			"grep", "grep_buffers", "grep_word", "help", "highlights",
-			"icons", "jumps", "keymaps", "lines", "loclist",
-			-- [[ lsp-related ones are in PickLsp ]]
-			"man", "marks", "notifications", "picker_actions", "picker_format",
-			"picker_layouts", "picker_preview", "projects", "qflist", "recent", "registers",
-			"resume", "search_history", "smart", "spelling", "treesitter", "undo"
-		}
-		if ArgLead == "" then
-			return choices
-		end
-		return vim.fn.matchfuzzy(choices, ArgLead)
-	end
+	complete = cmds.picker_completions.general,
 })
 
 vim.api.nvim_create_user_command("PickGit", function(opts)
@@ -144,14 +126,7 @@ vim.api.nvim_create_user_command("PickGit", function(opts)
 end, {
 	nargs = 1,
 	desc = "Quickly open a Snacks.nvim Git-related picker",
-	---@diagnostic disable-next-line: unused-local
-	complete = function(ArgLead, CmdLine, CursorPos)
-		local choices = { "branches", "diff", "files", "grep", "log", "log_file", "log_line", "stash", "status" }
-		if ArgLead == "" then
-			return choices
-		end
-		return vim.fn.matchfuzzy(choices, ArgLead)
-	end
+	complete = cmds.picker_completions.git,
 })
 
 vim.api.nvim_create_user_command("PickLsp", function(opts)
@@ -159,17 +134,7 @@ vim.api.nvim_create_user_command("PickLsp", function(opts)
 end, {
 	nargs = 1,
 	desc = "Quickly open a Snacks.nvim LSP-related picker",
-	---@diagnostic disable-next-line: unused-local
-	complete = function(ArgLead, CmdLine, CursorPos)
-		local choices = {
-			"config", "declarations", "definitions", "implementations", "references",
-			"symbols", "type_definitions", "workspace_symbols"
-		}
-		if ArgLead == "" then
-			return choices
-		end
-		return vim.fn.matchfuzzy(choices, ArgLead)
-	end
+	complete = cmds.picker_completions.lsp,
 })
 -- }}}
 
