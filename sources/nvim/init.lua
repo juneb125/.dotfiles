@@ -3,6 +3,8 @@ vim.g.start_time = vim.fn.reltime()
 
 -- Settings --
 require("settings")
+-- don't show ':intro' (default dashboard)
+vim.cmd("set shortmess-=I")
 
 -- Keymaps --
 ---@diagnostic disable-next-line: lowercase-global
@@ -72,11 +74,10 @@ Snacks.setup({
 			{ section = "keys", gap = 1, padding = 1 },
 			-- emulates the 'startup' section w/o Lazy stuff
 			function()
-				-- TODO: get the values for loaded_plugins, total_plugins, and ms
+				-- TODO: get the values for loaded_plugins & total_plugins
 				local loaded_plugins = "?"
 				local total_plugins = "?"
-				-- for some reason, vim.g.startup_time is nil ???
-				local ms = "?"
+				local ms = ("%.2f"):format(vim.g.startup_time_ms) or "?"
 				-- from github:folke/snacks.nvim@main (path: lua/snacks/dashboard.lua#L1098-L1106)
 				return {
 					align = "center",
@@ -103,9 +104,6 @@ Snacks.setup({
 		bo = { filetype = "snacks_picker" }
 	}
 })
--- completely disable ':intro' dashboard if Snacks config is okay
-vim.cmd("set shortmess-=I")
-
 map("n", "<C-p>", Snacks.picker.files, { desc = "Open Snacks picker" })
 map("n", "<leader>fb", Snacks.picker.buffers, { desc = "Find Buffers (Snacks)" })
 map("n", "<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (Snacks)" })
