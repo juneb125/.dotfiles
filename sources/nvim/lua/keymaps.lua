@@ -55,20 +55,29 @@ map("n", "<leader>ca", buf.code_action)
 map("n", "<leader>rn", buf.rename)
 -- }}}
 
--- 'jumping' keymaps, see Credits #4 {{{
+-- 'jumping' keymaps {{{
 local diag = vim.diagnostic
 local sev = diag.severity
 
 -- '[d' and ']d' for jumping to the previous/next diagnostic, respectively, are
--- already set by neovim :)
+-- already set by neovim, but not with the float option :/
+-- jump to previous diagnostic
+map("n", "[d", function()
+	diag.jump({ count = -1, float = true })
+end)
+-- jump to next diagnostic
+map("n", "]d", function()
+	diag.jump({ count = 1, float = true })
+end)
 
+-- see Credits #4 for '[e' & ']e'
 -- jump to previous error
 map("n", "[e", function()
-	diag.jump({ count = -1, severity = sev.ERROR })
+	diag.jump({ count = -1, float = true, severity = sev.ERROR })
 end)
 -- jump to next error
 map("n", "]e", function()
-	diag.jump({ count = 1, severity = sev.ERROR })
+	diag.jump({ count = 1, float = true, severity = sev.ERROR })
 end)
 -- }}}
 
