@@ -16,6 +16,11 @@ bindkey '^P' history-search-backward # <C-p>
 bindkey '^N' history-search-forward  # <C-n>
 bindkey '^\ ' magic-space            # <C-<Space>>
 
+# delete all chars before cursor
+autoload -Uz backward-kill-line
+zle -N backward-kill-line
+bindkey '^U' backward-kill-line # <C-u> (old killed entire line)
+
 # '^Xr' and '^X^R' for Redo complement '^Xu' and '^X^U' for Undo
 bindkey '^Xr' redo  # <C-x>r (old = history-incremental-search-backward)
 bindkey '^X^R' redo # <C-x><C-r> (old = _read_comp)
