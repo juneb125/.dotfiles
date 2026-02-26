@@ -1,5 +1,5 @@
--- Settings --
--- to make settings less verbose
+-- Options --
+-- to make options less verbose
 local opt = vim.opt
 
 -- ui {{{

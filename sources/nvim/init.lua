@@ -1,8 +1,8 @@
 --- what time nvim was started (keep at the very top!)
 vim.g.start_time = vim.fn.reltime()
 
--- Settings --
-require("settings")
+-- Options --
+require("options")
 -- don't show ':intro' (default dashboard)
 vim.cmd("set shortmess-=I")
 
