@@ -17,8 +17,10 @@ alias gb='git branch'
 alias gd='git diff'
 # see Credits #3
 alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
+alias gll='git log'
 alias gp='git push'
 alias gs='git status'
+alias gss='git status --short'
 
 # Misc.
 alias c='clear'
