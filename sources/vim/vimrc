@@ -31,9 +31,8 @@ set formatoptions=jtcl
 set shortmess-=I
 
 " -- Keymaps -- {{{
-" BUG: keymaps w/ <leader> in them don't work
-nnoremap " " <Nop>
-let g:mapleader = "<Space>"
+nnoremap "\<Space>" <Nop>
+let g:mapleader = " "
 let g:localmapleader = "\\"
 
 nnoremap <silent> <leader>wt :set wrap!<CR>
@@ -51,7 +50,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-nnoremap <leader>nh :nohlsearch<CR>
+nnoremap <silent> <leader>nh :nohlsearch<CR>
 
 vnoremap < <gv
 vnoremap > >gv
