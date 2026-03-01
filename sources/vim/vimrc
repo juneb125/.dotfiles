@@ -40,10 +40,17 @@ nnoremap <silent> <leader>sc :setlocal spell!<CR>
 
 tnoremap <Esc> <C-\\><C-n>
 
-inoremap <C-e> <C-o>$
+" *sometimes* emacs is right {{{
 inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
 inoremap <C-b> <C-o>h
 inoremap <C-f> <C-o>l
+
+cnoremap <C-a> <C-b>
+" <C-e> is already end-of-line in cmd mode
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+" }}}
 
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
