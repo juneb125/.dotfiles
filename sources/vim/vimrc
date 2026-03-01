@@ -59,13 +59,9 @@ nnoremap <silent> [t :tabprev<CR>
 nnoremap <silent> ]t :tabnext<CR>
 " }}}
 
-" TODO: get catppuccin for vim
-try
-  colorscheme catppuccin
-catch
-  " no catppuccin :(
-  colorscheme zaibatsu
-endtry
+" ./colors/catppuccin_mocha.vim from
+"   https://github.com/catppuccin/vim/blob/main/colors/catppuccin_mocha.vim
+colorscheme catppuccin_mocha
 
 filetype plugin indent on
 syntax on

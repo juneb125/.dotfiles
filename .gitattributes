@@ -1,2 +1,3 @@
 sources/git/config linguist-language=gitconfig
 sources/nvim/lsp/*.lua linguist-vendored
+sources/vim/colors/*.vim linguist-vendored
