@@ -38,7 +38,7 @@ What I'm using:
 
 
 ## Structure
-This repository is at `${HOME}/.dotfiles`. All `~`'s in this section are synonymous with the value of my `${HOME}` environment variable.
+This repository is at `~/.dotfiles`.
 
 **Directories**
 * `lib/` &mdash; useful / repeated nix functions
@@ -49,9 +49,9 @@ This repository is at `${HOME}/.dotfiles`. All `~`'s in this section are synonym
 
 **External Links**\
 Sym-Links
-* `~/.config` -> `~/.dotfiles`
-* `~/.zshenv` -> `~/.dotfiles/sources/zsh/.zshenv`
-* `~/.ssh/config` -> `~/.dotfiles/sources/ssh/config`
+* `~/.config/` &rarr; `~/.dotfiles/`
+* `~/.zshenv` &rarr; `~/.dotfiles/sources/zsh/.zshenv`
+* `~/.ssh/config` &rarr; `~/.dotfiles/sources/ssh/config`
 
 ## Installation
 **The Steps I Followed**
