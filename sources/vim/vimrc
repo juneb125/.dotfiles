@@ -5,9 +5,7 @@ set nocompatible
 set number cursorline showmatch termguicolors
 set signcolumn=yes
 set laststatus=2
-" has most of the sections of what nvim's lualine has
-set statusline=\ %t\ %m%=\ %P\ %l:%c\ 
-" set helpheight=%{min([20, winheight(0)])}
+set helpheight=15
 
 " tabs & identation
 set tabstop=2 shiftwidth=2
@@ -27,6 +25,9 @@ set clipboard+=unnamedplus
 set completeopt=menu,popup,noinsert
 set wildignorecase
 set formatoptions=jtcl
+
+set fillchars+=vert:│
+
 " }}}
 set shortmess-=I
 
@@ -38,11 +39,11 @@ let g:localmapleader = "\\"
 nnoremap <silent> <leader>wt :set wrap!<CR>
 nnoremap <silent> <leader>sc :setlocal spell!<CR>
 
-tnoremap <Esc> <C-\\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
 " *sometimes* emacs is right {{{
-inoremap <C-a> <C-o>^
-inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>I
+inoremap <C-e> <C-o>A
 inoremap <C-b> <C-o>h
 inoremap <C-f> <C-o>l
 
