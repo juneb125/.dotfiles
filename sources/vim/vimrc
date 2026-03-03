@@ -67,6 +67,13 @@ nnoremap <silent> [t :tabprev<CR>
 nnoremap <silent> ]t :tabnext<CR>
 " }}}
 
+" disable some builtin plugins
+let g:loaded_gzip = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_tutor_mode_plugin = 1
+let g:loaded_zipPlugin = 1
+let g:loaded_2html_plugin = 1
+
 " ./colors/catppuccin_mocha.vim from
 "   https://github.com/catppuccin/vim/blob/main/colors/catppuccin_mocha.vim
 colorscheme catppuccin_mocha
