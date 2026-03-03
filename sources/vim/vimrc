@@ -71,7 +71,6 @@ nnoremap <silent> ]t :tabnext<CR>
 "   https://github.com/catppuccin/vim/blob/main/colors/catppuccin_mocha.vim
 colorscheme catppuccin_mocha
 
-source statusline.vim
 set statusline=%{%GetStlLeft()%}%=%{GetStlRight()}
 
 filetype plugin indent on
