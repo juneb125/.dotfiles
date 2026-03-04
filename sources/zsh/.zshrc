@@ -72,20 +72,19 @@ zstyle ':completion:*' list-colors ${(s.:.)COMP_LS_COLORS}
 zstyle ':completion:*' file-list false
 # }}}
 
-# Zsh Plugins {{{
-# 1. Initializing
+# Zsh Plugin(s) {{{
 # set the directory we want to store plugins
 export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}"/zsh-plugins
 [[ -d "${ZPLUGINDIR}" ]] || mkdir -p "${ZPLUGINDIR}"
 
-# helper function(s) for downloading plugins
-source "${ZDOTDIR}"/get-plugins.zsh \
-  || return 1 # error message is already in get-plugins.zsh
+# don't do anything if plugin is already installed
+if [[ ! -d "${ZPLUGINDIR}"/zsh-syntax-highlighting ]]; then
+  echo "\x1b[0;33mdownloading zsh-syntax-highlighting...\x1b[m"
+  git clone --depth=1 -- \
+    "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
+	"${ZPLUGINDIR}"/zsh-syntax-highlighting
+fi
 
-# 2. Downloading
-# doesn't do anything if plugin is already installed
-get-syntax-highlighting
-
-# 3. Sourcing -- must be at END of .zshrc
+# sourcing -- must be at END of .zshrc
 source "${ZPLUGINDIR}"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }}}
