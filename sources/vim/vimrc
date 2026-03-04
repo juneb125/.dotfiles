@@ -80,5 +80,13 @@ colorscheme catppuccin_mocha
 
 set statusline=%{%GetStlLeft()%}%=%{GetStlRight()}
 
+" File Explorer {{{
+let g:netrw_dirhistmax = 0
+
+" command! -nargs=? -complete=file Fexplore call FloatExplore(<f-args>)
+" command! -nargs=? -complete=file Fex call FloatExplore(<f-args>)
+nnoremap <silent> - :Fexplore<CR>
+" }}}
+
 filetype plugin indent on
 syntax on
