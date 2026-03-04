@@ -64,10 +64,17 @@ function! FloatExplore(dir = getcwd(0))
 
   " always have a trailing '/'
   let fmt_dir = matchend(a:dir, ".*/$") != -1 ? a:dir : a:dir . '/'
-  let children = map(['..'] + readdir(a:dir),
-        \ {_, v -> isdirectory(fmt_dir . v) ? v . '/' : v })
-  call s:FexOpenWin(fmt_dir, children, 's:FexFilter', 's:FexCallback')
+
+  " format & sort children
+  let dirs = filter(readdir(a:dir),
+        \ { _, val -> isdirectory(fmt_dir . val) })
+  let dirs = ['../'] + map(dirs, { _, val -> val . '/' })
+  let others = filter(readdir(a:dir),
+        \ { _, val -> !isdirectory(fmt_dir . val) })
+
+  call s:FexOpenWin(fmt_dir, dirs + others, 's:FexFilter', 's:FexCallback')
 endfunction
+
 
 command! -nargs=? -complete=file Fexplore call FloatExplore(<f-args>)
 command! -nargs=? -complete=file Fex call FloatExplore(<f-args>)
