@@ -1,13 +1,64 @@
-" TODO: highlighting, A, B, & icons
+" TODO: highlighting, B, & icons
+
+" mode table {{{
+" vimscript-ified Mode.map table from
+"   github:nvim-lualine/lualine.nvim@master (path: lua/lualine/utils/mode.lua)
+let s:mode_map = {
+      \ 'n'      : 'NORMAL',
+      \ 'no'     : 'O-PENDING',
+      \ 'nov'    : 'O-PENDING',
+      \ 'noV'    : 'O-PENDING',
+      \ "no\<C-V>": 'O-PENDING',
+      \ 'niI'    : 'NORMAL',
+      \ 'niR'    : 'NORMAL',
+      \ 'niV'    : 'NORMAL',
+      \ 'nt'     : 'NORMAL',
+      \ 'ntT'    : 'NORMAL',
+      \ 'v'      : 'VISUAL',
+      \ 'vs'     : 'VISUAL',
+      \ 'V'      : 'V-LINE',
+      \ 'Vs'     : 'V-LINE',
+      \ "\<C-V>" : 'V-BLOCK',
+      \ "\<C-V>s": 'V-BLOCK',
+      \ 's'      : 'SELECT',
+      \ 'S'      : 'S-LINE',
+      \ "\<C-S>" : 'S-BLOCK',
+      \ 'i'      : 'INSERT',
+      \ 'ic'     : 'INSERT',
+      \ 'ix'     : 'INSERT',
+      \ 'R'      : 'REPLACE',
+      \ 'Rc'     : 'REPLACE',
+      \ 'Rx'     : 'REPLACE',
+      \ 'Rv'     : 'V-REPLACE',
+      \ 'Rvc'    : 'V-REPLACE',
+      \ 'Rvx'    : 'V-REPLACE',
+      \ 'c'      : 'COMMAND',
+      \ 'cv'     : 'EX',
+      \ 'ce'     : 'EX',
+      \ 'r'      : 'REPLACE',
+      \ 'rm'     : 'MORE',
+      \ 'r?'     : 'CONFIRM',
+      \ '!'      : 'SHELL',
+      \ 't'      : 'TERMINAL',
+      \ }
+" }}}
 
 "  
 "  
 " 
 
+function! GetStlA()
+  try
+    return printf(" %s ", s:mode_map[mode()])
+  catch
+    " just in case
+    return toupper(mode())
+  endtry
+endfunction
+
 " TODO: git & diagnostic info
-" BUG: 'mode()' just shows '0' ???
-function! GetStlAB()
-	let b = printf(" %s ", mode())
+function! GetStlB()
+  let b = ''
 
 	" git {{{
 	let b += printf('  %s', "branch")
@@ -22,7 +73,7 @@ function! GetStlAB()
 endfunction
 
 function! GetStlLeft()
-	return printf(" %%{GetStlAB()}%%< %%t %%m")
+  return printf(" %%{GetStlA()}%%{GetStlB()}%%< %%t %%m")
 endfunction
 
 " ALL DONE
