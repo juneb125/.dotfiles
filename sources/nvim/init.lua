@@ -3,8 +3,6 @@ vim.g.start_time = vim.fn.reltime()
 
 -- Options --
 require("options")
--- don't show ':intro' (default dashboard)
-vim.cmd("set shortmess-=I")
 
 -- Keymaps --
 ---@diagnostic disable-next-line: lowercase-global
@@ -14,11 +12,15 @@ require("keymaps")
 -- Commands --
 local cmds = require("commands")
 
+-- Autocommands --
+require("autocmds")
+
 -- Plugins --
 -- disable some builtin plugins
 vim.g.loaded_gzip = 1
 vim.g.loaded_tarPlugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_zipPlugin = 1
 vim.g.loaded_2html_plugin = 1
 
 -- check that vim.pack is available {{{
@@ -61,6 +63,7 @@ vim.pack.add({
 
 vim.cmd("colorscheme catppuccin")
 
+-- Snacks config {{{
 Snacks = require("snacks")
 Snacks.setup({
 	bigfile = {
@@ -104,6 +107,9 @@ Snacks.setup({
 		bo = { filetype = "snacks_picker" }
 	}
 })
+-- don't show ':intro' (default dashboard)
+vim.cmd("set shortmess-=I")
+-- }}}
 map("n", "<C-p>", Snacks.picker.files, { desc = "Open Snacks picker" })
 map("n", "<leader>fb", Snacks.picker.buffers, { desc = "Find Buffers (Snacks)" })
 map("n", "<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (Snacks)" })
@@ -136,6 +142,7 @@ end, {
 })
 -- }}}
 
+-- lualine {{{
 require("lualine").setup({
 	options = {
 		theme = "palenight",
@@ -161,7 +168,9 @@ require("lualine").setup({
 		lualine_z = { "location" }
 	}
 })
+-- }}}
 
+-- oil {{{
 local oil = require("oil")
 oil.setup({
 	default_file_explorer = true,
@@ -189,6 +198,7 @@ map("n", "-", oil.toggle_float, { desc = "Open Oil float" })
 -- completely disable netrw if oil config is okay
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+-- }}}
 
 -- language support {{{
 require("nvim-treesitter.configs").setup({
@@ -209,5 +219,3 @@ require("nvim-treesitter.configs").setup({
 require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
 -- }}}
-
-require("autocmds")
