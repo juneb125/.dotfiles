@@ -86,7 +86,7 @@ end)
 -- already set by neovim :)
 
 -- go to previous tab
-map("n", "<leader>[t", "<cmd>tabp<CR>", { silent = true })
+map("n", "[t", "<cmd>tabprev<CR>", { silent = true })
 -- go to next tab
-map("n", "<leader>]t", "<cmd>tabn<CR>", { silent = true })
+map("n", "]t", "<cmd>tabnext<CR>", { silent = true })
 -- }}}
