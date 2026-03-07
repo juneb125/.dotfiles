@@ -9,11 +9,14 @@ require("options")
 map = vim.keymap.set
 require("keymaps")
 
--- Commands --
-local cmds = require("commands")
+-- User commands --
+require("commands")
 
 -- Autocommands --
 require("autocmds")
+
+-- Other useful stuff --
+local utils = require("utils")
 
 -- Plugins --
 -- disable some builtin plugins
@@ -122,7 +125,7 @@ vim.api.nvim_create_user_command("Pick", function(opts)
 end, {
 	nargs = "?",
 	desc = "Quickly open a Snacks.nvim picker (default = files)",
-	complete = cmds.picker_completions.general,
+	complete = utils.picker_completions.general,
 })
 
 vim.api.nvim_create_user_command("PickGit", function(opts)
@@ -130,7 +133,7 @@ vim.api.nvim_create_user_command("PickGit", function(opts)
 end, {
 	nargs = 1,
 	desc = "Quickly open a Snacks.nvim Git-related picker",
-	complete = cmds.picker_completions.git,
+	complete = utils.picker_completions.git,
 })
 
 vim.api.nvim_create_user_command("PickLsp", function(opts)
@@ -138,7 +141,7 @@ vim.api.nvim_create_user_command("PickLsp", function(opts)
 end, {
 	nargs = 1,
 	desc = "Quickly open a Snacks.nvim LSP-related picker",
-	complete = cmds.picker_completions.lsp,
+	complete = utils.picker_completions.lsp,
 })
 -- }}}
 
