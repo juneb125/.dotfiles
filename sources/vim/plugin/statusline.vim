@@ -47,47 +47,44 @@ let s:mode_map = {
 "  
 " 
 
-function! GetStlA()
-  try
-    return printf(" %s ", s:mode_map[mode()])
-  catch
-    " just in case
-    return toupper(mode())
+function! s:GetStlA()
+  try   | return printf(" %s ", s:mode_map[mode()])
+  catch | return toupper(mode()))
   endtry
 endfunction
 
 " TODO: git & diagnostic info
-function! GetStlB()
+function! s:GetStlB()
   let b = ''
 
   " git {{{
-  let b += printf("  %s", "branch")
-  let b += "  diff"
+  let b += printf("  %s", 'branch')
+  let b += '  diff'
   " }}}
 
   " diagnostics {{{
-  let b += printf("  %s", "diag")
+  let b += printf("  %s", 'diag')
   " }}}
 
-  return empty(b) ? "" : $" {b} "
+  return empty(b) ? '' : $" {b} "
 endfunction
 
 function! GetStlLeft()
-  return printf(" %%{GetStlA()}%%{GetStlB()}%%< %%t %%m")
+  return printf(" %s%s%%< %%t %%m", s:GetStlA(), s:GetStlB())
 endfunction
 
 " ALL DONE
 function! GetStlRight()
-  let fileicon = "?"
+  let fileicon = '?'
   let x = printf(" %s[%s]  %s %s", &fenc, &ff, fileicon, &ft)
 
-  let [cur_line, cur_col] = getpos(".")[1:2]
-  let total = line("$")
-  let y = ""
+  let [cur_line, cur_col] = getpos('.')[1:2]
+  let total = line('$')
+  let y = ''
   if cur_line == 1
-    let y = "Top"
+    let y = 'Top'
   elseif cur_line == total
-    let y = "Bot"
+    let y = 'Bot'
   else
     let y = printf("%2.0f%%", 100 * cur_line / total)
   endif
