@@ -5,7 +5,6 @@ nvim nightly version
 * [Important Stuff](#important-stuff)
 * [Config](#config)
 * [History](#history)
-* [To-do's](#to-dos)
 * [Resources](#resources)
 
 ## Important stuff
@@ -28,9 +27,10 @@ nvim nightly version
 ### Files
 * `lsp/*.lua` &mdash; LSP config settings (instead of the [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) plugin, see [`./lsp/README.md`](./lsp/README.md) for details)
 * `lua/autocmds.lua` &mdash; all of my (user-defined) autocommands
+* `lua/commands.lua` &mdash; user commands & useful functions
 * `lua/completions.lua` &mdash; autocomplete settings
 * `lua/keymaps.lua` &mdash; all of my non-plugin-related keymaps
-* `lua/settings.lua` &mdash; all of my general Vim settings
+* `lua/options.lua` &mdash; all of my general Vim settings
 * `init.lua` &mdash; where everything comes together ✨
 
 ### Plugins
@@ -62,9 +62,6 @@ nvim nightly version
 ## History
 * [commit ca915bb](https://github.com/juneb125/.dotfiles/tree/ca915bb493b57e5f3dcd304bc337c7f0cb00c49c/.config/nvim) (August 7, 2025) was the first commit of the new nvim config
 * [commit 845b66a](https://github.com/juneb125/.dotfiles/tree/845b66a8b7c47962efa3942760836fbce0a32df7/.config/nvim) (August 5, 2025) was the last commit before the overhaul
-
-## To-do's
-no long-term todo's :)
 
 ## Resources
 * [bob-nvim](https://crates.io/crates/bob-nvim) on crates.io
