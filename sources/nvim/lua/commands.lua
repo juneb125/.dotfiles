@@ -1,5 +1,7 @@
 -- User commands & Lua functions --
 
+vim.api.nvim_create_user_command("PackUpdateAll", vim.pack.update, { desc = "Update all vim.pack plugins" })
+
 local M = {}
 
 --- Updates `vim.pack` and treesitter grammars. Designed to be easily passed in
