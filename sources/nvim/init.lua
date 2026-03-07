@@ -1,22 +1,16 @@
 --- what time nvim was started (keep at the very top!)
 vim.g.start_time = vim.fn.reltime()
 
--- Options --
+-- options
 require("options")
 
--- Keymaps --
+-- keymaps
 ---@diagnostic disable-next-line: lowercase-global
 map = vim.keymap.set
 require("keymaps")
 
--- User commands --
-require("commands")
-
--- Autocommands --
+-- autocommands
 require("autocmds")
-
--- Other useful stuff --
-local utils = require("utils")
 
 -- Plugins --
 -- disable some builtin plugins
@@ -119,32 +113,6 @@ map("n", "<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (S
 map("n", "<leader>fk", Snacks.picker.keymaps, { desc = "Find Keymaps (Snacks)" })
 map("n", "<leader>fr", Snacks.picker.recent, { desc = "Find Recently visited files (Snacks)" })
 
--- Snacks picker user fn's {{{
-vim.api.nvim_create_user_command("Pick", function(opts)
-	Snacks.picker(opts.fargs[1], {})
-end, {
-	nargs = "?",
-	desc = "Quickly open a Snacks.nvim picker (default = files)",
-	complete = utils.picker_completions.general,
-})
-
-vim.api.nvim_create_user_command("PickGit", function(opts)
-	Snacks.picker("git_" .. opts.fargs[1], {})
-end, {
-	nargs = 1,
-	desc = "Quickly open a Snacks.nvim Git-related picker",
-	complete = utils.picker_completions.git,
-})
-
-vim.api.nvim_create_user_command("PickLsp", function(opts)
-	Snacks.picker("lsp_" .. opts.fargs[1], {})
-end, {
-	nargs = 1,
-	desc = "Quickly open a Snacks.nvim LSP-related picker",
-	complete = utils.picker_completions.lsp,
-})
--- }}}
-
 -- lualine {{{
 require("lualine").setup({
 	options = {
@@ -222,3 +190,6 @@ require("nvim-treesitter.configs").setup({
 require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
 -- }}}
+
+-- User commands
+require("commands")
