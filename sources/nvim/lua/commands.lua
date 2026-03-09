@@ -9,7 +9,10 @@ vim.g.all_plugins = vim.iter(ipairs(vim.pack.get())):map(
 ):totable()
 
 -- vim.pack update user fn's {{{
-vim.api.nvim_create_user_command("PackUpdateAll", vim.pack.update, { desc = "Update all vim.pack plugins" })
+vim.api.nvim_create_user_command("PackUpdateAll", function() vim.pack.update() end, {
+	nargs = 0,
+	desc = "Update all vim.pack plugins"
+})
 
 vim.api.nvim_create_user_command("PackUpdate", function(opts)
 	vim.pack.update(opts.fargs)
