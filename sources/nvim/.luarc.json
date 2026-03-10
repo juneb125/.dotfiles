@@ -1,7 +1,13 @@
 {
-    "diagnostics": {
-        "unusedLocalExclude": [ "_*" ]
-    },
-    "diagnostics.globals": [ "vim" ],
-    "workspace.library": [ "$VIMRUNTIME" ]
+  "diagnostics": {
+    "globals": [
+      "vim"
+    ],
+    "unusedLocalExclude": [
+      "_*"
+    ]
+  },
+  "workspace.library": [
+    "$VIMRUNTIME"
+  ]
 }
