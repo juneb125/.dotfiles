@@ -37,8 +37,9 @@ format = "[$branch](git_gray)"
 ahead = '↑'
 behind = '↓'
 modified = "*"
-# untracked = '[?](italic git_gray)'
-format = "[$modified $ahead_behind](git_gray)"
+staged = "+"
+untracked = "?"
+format = "[$modified$staged$untracked $ahead_behind](git_gray)"
 
 [cmd_duration]
 min_time = 2000

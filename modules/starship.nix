@@ -36,7 +36,9 @@
         ahead = "↑";
         behind = "↓";
         modified = "*";
-        format = "[$modified $ahead_behind](git_gray)";
+        staged = "+";
+        untracked = "?";
+        format = "[$modified$staged$untracked $ahead_behind](git_gray)";
       };
 
       cmd_duration = {
