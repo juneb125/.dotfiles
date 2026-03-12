@@ -32,7 +32,7 @@ map("n", "<C-l>", "<C-w>l")
 -- }}}
 
 -- clear highlighting, see Credits #2
-map("n", "<leader>nh", "<cmd>nohlsearch<CR>", { silent = true })
+map("n", "<leader>nh", "<cmd>nohl<CR>", { silent = true })
 
 -- keep selection when changing indentation, see Credits #3
 map("v", "<", "<gv")

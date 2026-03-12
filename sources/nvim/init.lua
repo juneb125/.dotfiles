@@ -36,7 +36,7 @@ end
 local gh = "https://github.com/"
 vim.pack.add({
 	-- core plugins
-	{ src = gh .. "catppuccin/nvim" },
+	{ src = gh .. "catppuccin/nvim", name = "catppuccin" },
 	{ src = gh .. "nvim-tree/nvim-web-devicons" }, -- dependency for snacks, lualine, & oil
 	{ src = gh .. "folke/snacks.nvim" },
 	{ src = gh .. "nvim-lualine/lualine.nvim" },

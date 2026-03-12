@@ -10,7 +10,7 @@ opt.winborder = "rounded" -- always use rounded borders for floating windows
 opt.termguicolors = true  -- enable 24-bit RGB color
 opt.signcolumn = "yes"    -- show sign column so that text doesn't shift
 opt.showmode = false      -- lualine already shows the mode
-opt.helpheight = math.min(20, vim.o.columns)
+opt.helpheight = math.min(15, vim.o.lines)
 
 -- nvim's *builtin* popup menu
 opt.pumborder = "none" -- no border
