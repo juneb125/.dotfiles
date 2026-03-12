@@ -1,6 +1,7 @@
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_CONFIG_HOME="${HOME}/.dotfiles/sources"
 export XDG_STATE_HOME="${HOME}/.local/state"
+export XDG_BIN_HOME="${HOME}/.local/bin"
 export XDG_CACHE_HOME="${HOME}/.cache"
 
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
@@ -15,7 +16,7 @@ if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
 fi
 export EDITOR="nvim"
 
-if [[ -d "${HOME}/.local/bin" && ":${PATH}:" != *:"${HOME}/.local/bin":* ]]; then
+if [[ -d "${XDG_BIN_HOME}" && ":${PATH}:" != *:"${XDG_BIN_HOME}":* ]]; then
   # where I keep my (very few) private scripts
   PATH="${HOME}/.local/bin:${PATH}"
 fi
