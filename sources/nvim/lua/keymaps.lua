@@ -9,7 +9,7 @@ map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
 
 map("t", "<Esc>", "<C-\\><C-n>")
 
--- *sometimes* emacs is right {{{
+-- *sometimes* emacs is right {{{1
 -- some emacs keybinds are nice, but only for insert/cmd mode
 map({ "i", "c" }, "<C-b>", "<Left>")    -- backward-char
 map({ "i", "c" }, "<C-f>", "<Right>")   -- forward-char
@@ -22,9 +22,8 @@ map("i", "<C-e>", "<C-o>$")  -- end-of-line
 map("c", "<C-a>", "<C-b>")   -- beginning-of-line
 -- <C-e> is already end-of-line in cmd mode
 -- see ':h emacs-keys' for more emacs cmd mode keymaps
--- }}}
 
--- navigate Vim panes better, see Credits #1 {{{
+-- navigate Vim panes better, see Credits #1 {{{1
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-h>", "<C-w>h")
@@ -46,16 +45,15 @@ map("n", "<A-k>", "<cmd>m .-2<CR>==", { silent = true })
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
 
--- lsp-related keymaps {{{
+-- lsp-related keymaps {{{1
 local buf = vim.lsp.buf
 
 map("n", "K", buf.hover)
 map("n", "<leader>gf", buf.format)
 map("n", "<leader>ca", buf.code_action)
 map("n", "<leader>rn", buf.rename)
--- }}}
 
--- 'jumping' keymaps {{{
+-- 'jumping' keymaps {{{2
 local diag = vim.diagnostic
 local sev = diag.severity
 
@@ -79,9 +77,9 @@ end)
 map("n", "]e", function()
 	diag.jump({ count = 1, float = true, severity = sev.ERROR })
 end)
--- }}}
+-- }}}2
 
--- buffer- & tab-related keymaps {{{
+-- buffer- & tab-related keymaps {{{1
 -- '[b' and ']b' for jumping to the previous/next buffer, respectively, are
 -- already set by neovim :)
 
@@ -89,4 +87,3 @@ end)
 map("n", "[t", "<cmd>tabprev<CR>", { silent = true })
 -- go to next tab
 map("n", "]t", "<cmd>tabnext<CR>", { silent = true })
--- }}}

@@ -8,7 +8,7 @@ vim.g.all_plugins = vim.iter(ipairs(vim.pack.get())):map(
 	function(_, v) return v.spec.name end
 ):totable()
 
--- vim.pack update user fn's {{{
+-- vim.pack update user fn's {{{1
 vim.api.nvim_create_user_command("PackUpdateAll", function() vim.pack.update() end, {
 	nargs = 0,
 	desc = "Update all vim.pack plugins"
@@ -27,9 +27,8 @@ end, {
 		return vim.fn.matchfuzzy(choices, ArgLead)
 	end,
 })
--- }}}
 
--- Snacks picker user fn's {{{
+-- Snacks picker user fn's {{{1
 vim.api.nvim_create_user_command("Pick", function(opts)
 	Snacks.picker(opts.fargs[1], {})
 end, {
@@ -53,4 +52,3 @@ end, {
 	desc = "Quickly open a Snacks.nvim LSP-related picker",
 	complete = utils.picker_completions.lsp,
 })
--- }}}
