@@ -14,7 +14,7 @@ export CLICOLOR=1
 # list all keybinds with 'bindkey -L'
 bindkey '^P' history-search-backward # <C-p>
 bindkey '^N' history-search-forward  # <C-n>
-bindkey '^\ ' magic-space            # <C-<Space>>
+bindkey '^\ ' magic-space            # <C-Space>
 
 # delete all chars before cursor
 backward-kill-line() { LBUFFER='' }
@@ -45,8 +45,7 @@ setopt hist_find_no_dups
 # }}}
 
 # Misc. {{{
-# remove '/' and '_' from wordchars (old = '*?_-.[]~=/&;!#$%^(){}<>')
-WORDCHARS='*?-.[]~=&;!#$%^(){}<>'
+WORDCHARS='*?-.[]~=&;!#$%^(){}<>' # (old = '*?_-.[]~=/&;!#$%^(){}<>')
 
 source "${ZDOTDIR}"/aliases.sh
 source "${ZDOTDIR}"/fn.sh
@@ -77,11 +76,10 @@ zstyle ':completion:*' file-list false
 export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}"/zsh-plugins
 [[ -d "${ZPLUGINDIR}" ]] || mkdir -p "${ZPLUGINDIR}"
 
-# don't do anything if plugin is already installed
 if [[ ! -d "${ZPLUGINDIR}"/zsh-syntax-highlighting ]]; then
   echo "\x1b[0;33mdownloading zsh-syntax-highlighting...\x1b[m"
   git clone --depth=1 -- \
-    "https://github.com/zsh-users/zsh-syntax-highlighting.git" \
+    'https://github.com/zsh-users/zsh-syntax-highlighting.git' \
 	"${ZPLUGINDIR}"/zsh-syntax-highlighting
 fi
 

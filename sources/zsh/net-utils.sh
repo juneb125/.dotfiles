@@ -39,7 +39,7 @@ EOF
 
 gh-raw() {
   local full_path=''
-  case "$1" in
+  case "${1}" in
     ('')
       echo "${0}: expected full path as \$1" >&2
       return 1 ;;
@@ -58,7 +58,7 @@ Options:
   [ all curl(1) options apply ]
 EOF
       return 0 ;;
-    (*) full_path="$1" ;;
+    (*) full_path="${1}" ;;
   esac
 
   shift
@@ -87,7 +87,7 @@ EOF
   esac
 
   local sub_year="s/<year>/$(date +'%Y')/"
-  local git_username="$(git config --get user.name)"
+  local git_username="$(git config --get user.name 2>/dev/null)"
   local sub_username="s/<copyright holders>/${git_username}/"
 
   if [[ -n "${git_username}" ]]; then

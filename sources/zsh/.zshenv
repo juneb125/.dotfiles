@@ -40,7 +40,7 @@ export FLAKE_HOME="${HOME}/.dotfiles"
 # where I keep my projects
 export PROJ_DIR="${HOME}/Desktop/Coding"
 
-export BAT_THEME="Catppuccin Macchiato"
+export BAT_THEME='Catppuccin Macchiato'
 
 # don't log less history
 export LESSHISTFILE=/dev/null

@@ -9,15 +9,15 @@ proj() {
     return 1
   fi
 
-  case "$1" in
-    ("") ;;
-    ("rs") dest_dir+='/RustProjects' ;;
-    ("ll") dest_dir+='/LowLevelProjects' ;;
-    ("xc") dest_dir+='/XcodeProjects' ;;
-    ("web") dest_dir+='/WebDevProjects' ;;
-    ("fn") dest_dir+='/FnProjects' ;;
-    ("misc") dest_dir+='/MiscProjects' ;;
-    ("-h"|"--help")
+  case "${1}" in
+    ('') ;;
+    ('rs') dest_dir+='/RustProjects' ;;
+    ('ll') dest_dir+='/LowLevelProjects' ;;
+    ('xc') dest_dir+='/XcodeProjects' ;;
+    ('web') dest_dir+='/WebDevProjects' ;;
+    ('fn') dest_dir+='/FnProjects' ;;
+    ('misc') dest_dir+='/MiscProjects' ;;
+    ('-h'|'--help')
       cat <<EOF
 proj: quickly go to an area or a specific project
       An 'area' is how you split up and organize all of your projects
@@ -49,9 +49,9 @@ config() {
     return 1
   fi
 
-  case "$1" in
-    ("") dest_dir+='/..' ;;
-    ("-h"|"--help")
+  case "${1}" in
+    ('') dest_dir+='/..' ;;
+    ('-h'|'--help')
       cat <<EOF
 ${0}: quickly go to your config home
 
@@ -91,13 +91,13 @@ toUpper() {
 }
 
 hr() {
-  local value=""
+  local value=''
   case "${1}" in
-    ("--help")
+    (''|'--help')
       cat <<EOF
 human-readable representations of colon-separated env vars
 
-Usage: hr [man|path|<VALUE>]
+Usage: hr (man|path|<VALUE>)
 
 Arguments:
   man    transform output of manpath(1)
@@ -105,8 +105,8 @@ Arguments:
   VALUE  the value to transform
 EOF
       return 0 ;;
-    ("man")  value="$(manpath)" ;;
-    ("path") value="${PATH}" ;;
+    ('man')  value="$(manpath)" ;;
+    ('path') value="${PATH}" ;;
     (*) value="${1}" ;;
   esac
   echo "${value//:/\n}"
