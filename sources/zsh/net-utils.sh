@@ -65,36 +65,35 @@ EOF
   curl -fsSL "${@}" -- "https://raw.githubusercontent.com/${full_path}"
 }
 
+# TODO: 'out_file' positional arg
 mit() {
-  if [[ "${1}" = '--help' ]]; then
-    cat <<EOF
-Get the MIT license's text content, with its fields filled in
-
-Usage: mit [OUTPUT]
-
-Arguments:
-  [OUTPUT]  where to place the output text (default: -)
-EOF
-    return 0
-  fi
-
-  local out_file="${1:--}"
+  # local out_file="${1:--}"
   local spdx_db='https://raw.githubusercontent.com/spdx/license-list-data/main'
-  curl -fsSL "${spdx_db}/text/MIT.txt" -o "${out_file}"
-  local curl_res=$?
 
-  if [[ ! ${curl_res} || "${out_file}" = '-' ]]; then
-    return ${curl_res}
-  fi
+  case "${1}" in
+    ('--help')
+      cat <<EOF
+Get the MIT license's text content, with its fields optionally filled in
+
+Usage: mit [--raw]
+
+Options:
+  --raw  do not fill in '<year>' and '<copyright holders>' fields
+EOF
+      return 0 ;;
+    ('--raw')
+      curl -fsSL "${spdx_db}/text/MIT.txt" # -o "${out_file}"
+      return $? ;;
+  esac
 
   local sub_year="s/<year>/$(date +'%Y')/"
   local git_username="$(git config --get user.name)"
   local sub_username="s/<copyright holders>/${git_username}/"
 
   if [[ -n "${git_username}" ]]; then
-    sed -i '' "${sub_year}; ${sub_username}" ${out_file}
+    sed "${sub_year}; ${sub_username}" <(curl -fsSL "${spdx_db}/text/MIT.txt") # > "${out_file}"
   else
-    sed -i '' "${sub_year}" ${out_file}
+    sed "${sub_year}" <(curl -fsSL "${spdx_db}/text/MIT.txt") # > "${out_file}"
     # yellow foreground, with a newline above
     printf '\n\x1b[0;33m%s\x1b[m\n' 'Remember to fill out the <copyright holders> field!'
   fi
