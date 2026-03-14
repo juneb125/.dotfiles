@@ -7,7 +7,7 @@ max_line_length = 80
 insert_final_newline = true
 tab_width = 4
 
-[*.{nix,sh,zsh}]
+[*.{nix,sh,vim,zsh}]
 indent_style = space
 indent_size = 2
 
