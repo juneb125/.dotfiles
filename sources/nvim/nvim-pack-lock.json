@@ -4,6 +4,10 @@
       "rev": "3732756842a2f7e0e76a7b0487e9692072857277",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "catppuccin": {
+      "rev": "12c004cde3f36cb1d57242f1e6aac46b09a0e5b4",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "cmp-nvim-lsp": {
       "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
@@ -31,10 +35,6 @@
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
-    },
-    "nvim": {
-      "rev": "beaf41a30c26fd7d6c386d383155cbd65dd554cd",
-      "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-autopairs": {
       "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
