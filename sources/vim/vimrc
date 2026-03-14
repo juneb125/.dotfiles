@@ -1,6 +1,6 @@
 set nocompatible
 
-" -- Options -- {{{
+" -- Options -- {{{1
 " ui
 set number cursorline showmatch termguicolors
 set signcolumn=yes
@@ -28,45 +28,53 @@ set formatoptions=jtcl
 
 set fillchars+=vert:│
 
-" }}}
+set viminfofile='$XDG_STATE_HOME/vim/viminfo'
+
 set shortmess-=I
 
-" -- Keymaps -- {{{
-nnoremap "\<Space>" <Nop>
-let g:mapleader = " "
+" -- Keymaps -- {{{1
+nnoremap <Space> <Nop>
+let g:mapleader = ' '
 let g:localmapleader = "\\"
 
-nnoremap <silent> <leader>wt :set wrap!<CR>
-nnoremap <silent> <leader>sc :setlocal spell!<CR>
+nnoremap <silent> <leader>wt <cmd>set wrap!<CR>
+nnoremap <silent> <leader>sc <cmd>setlocal spell!<CR>
+
+nnoremap <silent> <leader>nh <cmd>nohl<CR>
 
 tnoremap <Esc> <C-\><C-n>
 
-" *sometimes* emacs is right {{{
-inoremap <C-a> <C-o>I
-inoremap <C-e> <C-o>A
-inoremap <C-b> <C-o>h
-inoremap <C-f> <C-o>l
+" *sometimes* emacs is right {{{2
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 
 cnoremap <C-a> <C-b>
 " <C-e> is already end-of-line in cmd mode
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
-" }}}
+" }}}2
 
 nnoremap <C-k> <C-w>k
 nnoremap <C-j> <C-w>j
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-nnoremap <silent> <leader>nh :nohlsearch<CR>
-
 vnoremap < <gv
 vnoremap > >gv
 
-nnoremap <silent> [t :tabprev<CR>
-nnoremap <silent> ]t :tabnext<CR>
+nnoremap <silent> <A-j> <cmd>m .+1<CR>==
+nnoremap <silent> <A-k> <cmd>m .-2<CR>==
+
+nnoremap n nzz
+nnoremap N Nzz
+
+nnoremap <silent> [t <cmd>tabprev<CR>
+nnoremap <silent> ]t <cmd>tabnext<CR>
 " }}}
 
+" -- Plugins --
 " disable some builtin plugins
 let g:loaded_gzip = 1
 let g:loaded_tarPlugin = 1
@@ -78,15 +86,16 @@ let g:loaded_2html_plugin = 1
 "   https://github.com/catppuccin/vim/blob/main/colors/catppuccin_mocha.vim
 colorscheme catppuccin_mocha
 
+" statusline
 set statusline=%{%GetStlLeft()%}%=%{GetStlRight()}
+set noshowmode
 
-" File Explorer {{{
+" file explorer
 let g:netrw_dirhistmax = 0
-
-" command! -nargs=? -complete=file Fexplore call FloatExplore(<f-args>)
-" command! -nargs=? -complete=file Fex call FloatExplore(<f-args>)
 nnoremap <silent> - :Fexplore<CR>
-" }}}
 
+" language support
 filetype plugin indent on
 syntax on
+
+" vim: set ts=2 sw=2
