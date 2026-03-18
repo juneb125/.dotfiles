@@ -21,16 +21,17 @@ nvim nightly version
     * terminal emulator: Ghostty
     * font: JetBrainsMono Nerd Font
 * *plugin manager* &mdash; `vim.pack`
-* *usage* &mdash; I've been using NeoVim mostly for note-taking, Rust-based projects, and building / customizing my environment (dotfiles and such)
+* *usage* &mdash; I've been using NeoVim mostly for note-taking, Rust-based projects, and customizing my environment (dotfiles and such)
 
 ## Config
 ### Files
 * `lsp/*.lua` &mdash; LSP config settings (instead of the [`nvim-lspconfig`](https://github.com/neovim/nvim-lspconfig) plugin, see [`./lsp/README.md`](./lsp/README.md) for details)
 * `lua/autocmds.lua` &mdash; all of my (user-defined) autocommands
-* `lua/commands.lua` &mdash; user commands & useful functions
+* `lua/commands.lua` &mdash; user commands
 * `lua/completions.lua` &mdash; autocomplete settings
 * `lua/keymaps.lua` &mdash; all of my non-plugin-related keymaps
 * `lua/options.lua` &mdash; all of my general Vim settings
+* `lua/utils.lua` &mdash;  useful lua functions and stuff :)
 * `init.lua` &mdash; where everything comes together ✨
 
 ### Plugins
