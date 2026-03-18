@@ -87,3 +87,6 @@ end)
 map("n", "[t", "<cmd>tabprev<CR>", { silent = true })
 -- go to next tab
 map("n", "]t", "<cmd>tabnext<CR>", { silent = true })
+
+-- go to last viewed buffer
+map("n", "<leader><leader>", "<cmd>e #<CR>", { silent = true })
