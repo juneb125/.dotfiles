@@ -1,9 +1,9 @@
-{ self, inputs, lib, pkgs, ... }: let
-  pict = import "${self}/pkgs/pict.nix" {inherit pkgs lib;};
+{ flake, inputs, lib, pkgs, ... }: let
+  pict = import "${flake}/pkgs/pict.nix" {inherit pkgs lib;};
 in {
   imports = [
-    "${self}/modules"
-    "${self}/modules/darwin.nix"
+    "${flake}/modules"
+    "${flake}/modules/darwin.nix"
   ];
 
   # platform the config will be used on
