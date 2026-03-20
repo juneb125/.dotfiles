@@ -1,15 +1,12 @@
 --- what time nvim was started (keep at the very top!)
 vim.g.start_time = vim.fn.reltime()
 
--- options
 require("options")
 
--- keymaps
 ---@diagnostic disable-next-line: lowercase-global
 map = vim.keymap.set
 require("keymaps")
 
--- autocommands
 require("autocmds")
 
 -- Plugins --
@@ -113,7 +110,7 @@ map("n", "<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (S
 map("n", "<leader>fk", Snacks.picker.keymaps, { desc = "Find Keymaps (Snacks)" })
 map("n", "<leader>fr", Snacks.picker.recent, { desc = "Find Recently visited files (Snacks)" })
 
--- lualine {{{1
+-- statusline (lualine) {{{1
 require("lualine").setup({
 	options = {
 		theme = "palenight",
@@ -140,7 +137,7 @@ require("lualine").setup({
 	}
 })
 
--- oil {{{1
+-- oil (file explorer) {{{1
 local oil = require("oil")
 oil.setup({
 	default_file_explorer = true,
@@ -189,5 +186,4 @@ require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
 -- }}}
 
--- User commands
 require("commands")
