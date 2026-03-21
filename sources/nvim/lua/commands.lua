@@ -1,5 +1,6 @@
 -- User commands --
 
+local create_usercmd = vim.api.nvim_create_user_command
 local utils = require("utils")
 
 --- The names of all the plugins registered to vim.pack
@@ -9,15 +10,22 @@ vim.g.all_plugins = vim.iter(ipairs(vim.pack.get())):map(
 ):totable()
 
 -- vim.pack update user fn's {{{1
-vim.api.nvim_create_user_command("PackUpdateAll", function() vim.pack.update() end, {
+create_usercmd("PackUpdateAll", function() vim.pack.update() end, {
 	nargs = 0,
 	desc = "Update all vim.pack plugins"
 })
 
-vim.api.nvim_create_user_command("PackUpdate", function(opts)
-	vim.pack.update(opts.fargs)
+create_usercmd("PackUpdate", function(opts)
+	if #opts.fargs ~= 0 then
+		vim.pack.update(opts.fargs)
+		return
+	end
+	vim.api.nvim_echo({
+		{ "Required arguments(s) not provided\n", "ErrorMsg" },
+		{ "\nUse ':PackUpdateAll' to update all plugins\n", "WarningMsg" }
+	}, true, {})
 end, {
-	nargs = "+",
+	nargs = "*",
 	desc = "Update specific vim.pack plugins",
 	complete = function(ArgLead, _, _)
 		local choices = vim.g.all_plugins
@@ -29,7 +37,7 @@ end, {
 })
 
 -- Snacks picker user fn's {{{1
-vim.api.nvim_create_user_command("Pick", function(opts)
+create_usercmd("Pick", function(opts)
 	Snacks.picker(opts.fargs[1], {})
 end, {
 	nargs = "?",
@@ -37,7 +45,7 @@ end, {
 	complete = utils.picker_completions.general,
 })
 
-vim.api.nvim_create_user_command("PickGit", function(opts)
+create_usercmd("PickGit", function(opts)
 	Snacks.picker("git_" .. opts.fargs[1], {})
 end, {
 	nargs = 1,
