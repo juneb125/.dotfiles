@@ -20,6 +20,10 @@
       specialArgs = {inherit inputs nixpkgs; flake = self;};
     };
 
+    packages = forEachDefaultSystem (pkgs: {
+      pict = pkgs.callPackage ./pkgs/pict.nix {};
+    });
+
     devShells = forEachDefaultSystem (pkgs: {
       default = import ./shell.nix {inherit pkgs;};
     });

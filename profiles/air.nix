@@ -1,6 +1,4 @@
-{ flake, inputs, lib, pkgs, ... }: let
-  pict = import "${flake}/pkgs/pict.nix" {inherit pkgs lib;};
-in {
+{ flake, inputs, lib, pkgs, ... }: {
   imports = [
     "${flake}/modules"
     "${flake}/modules/darwin.nix"
@@ -40,7 +38,7 @@ in {
           wrapProgram $out/bin/tree --add-flags "--dirs-first"
         '';
       })
-      pict
+      flake.packages."aarch64-darwin".pict
     ];
 
     variables = {
