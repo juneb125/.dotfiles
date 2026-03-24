@@ -9,8 +9,8 @@ add_newline = true
 # PS1
 format = "$directory $git_branch$git_status\n$character"
 
-right_format = "$cmd_duration" # RPROMPT
-continuation_prompt = "| " # PS2
+right_format = '$cmd_duration' # RPROMPT
+continuation_prompt = '| ' # PS2
 
 # Custom palette for storing color variables
 palette = 'vars'
@@ -22,26 +22,26 @@ package.disabled = true
 
 [character]
 # 'purple' is more of a pale pink with Catppuccin Macchiato
-success_symbol = "[❯](purple)"
-error_symbol = "[❯](red)"
+success_symbol = '[❯](purple)'
+error_symbol = '[❯](red)'
 
 [directory]
 truncation_length = 3
-truncation_symbol = ""
-format = "[$path](blue)"
+truncation_symbol = ''
+format = '[$path](blue)'
 
 [git_branch]
-format = "[$branch](git_gray)"
+format = '[$branch](git_gray)'
 
 [git_status]
 ahead = '↑'
 behind = '↓'
-modified = "*"
-staged = "+"
-untracked = "?"
-format = "[$modified$staged$untracked $ahead_behind](git_gray)"
+modified = '*'
+staged = '+'
+untracked = '?'
+format = '[$modified$staged$untracked $ahead_behind](git_gray)'
 
 [cmd_duration]
 min_time = 2000
 show_milliseconds = false
-format = "[$duration](yellow)"
+format = '[$duration](yellow)'
