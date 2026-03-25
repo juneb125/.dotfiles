@@ -8,12 +8,12 @@ _default:
     @just --list --unsorted
 
 # check if flake is okay
-check name:
-    sudo {{ check }} --flake {{ name }} --show-trace
+check name *args:
+    sudo {{ check }} --flake {{ name }} --show-trace {{ args }}
 
 # [nixos|darwin]-rebuild switch
-switch name:
-    sudo {{ rebuild }} switch --flake {{ name }}
+switch name *args:
+    sudo {{ rebuild }} switch --flake {{ name }} {{ args }}
 
 # update flake.lock
 update:
