@@ -14,6 +14,7 @@ alias lal='ls -AlG'
 # Git
 alias ga='git add'
 alias gb='git branch'
+alias gco='git checkout'
 alias gd='git diff'
 # see Credits #3
 alias gl="git log --graph --pretty=format:'%C(yellow)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
@@ -29,5 +30,5 @@ alias restart='reset'
 alias notes='cd ~/Documents/"Obsidian Vault"'
 
 if which tree >/dev/null; then
-  alias tree="tree --gitignore --dirsfirst -F"
+  alias tree="command tree --gitignore -F"
 fi
