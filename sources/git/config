@@ -19,6 +19,7 @@
 	co = checkout
 	i = init
 	log = log --graph
+	wt = worktree
 
 [commit]
 	template = ./template
@@ -39,4 +40,4 @@
 [url "git@github.com"]
 	insteadOf = "github"
 
-# vim: ft=gitconfig
+# vim: ft=gitconfig ts=4 sw=2 noet
