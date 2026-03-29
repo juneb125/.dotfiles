@@ -1,7 +1,6 @@
 { self, ... }: let
   inherit (self) inputs outputs;
   inherit (inputs) nixpkgs darwin;
-  inherit (inputs.stdenv) isDarwin;
 in rec {
   # mostly from github:kclejeune/system/flake.nix#L55-68
   mkDarwinSystem = {
@@ -9,18 +8,24 @@ in rec {
     nixpkgs ? inputs.nixpkgs,
     modules ? [],
     specialArgs ? {},
+    ...
   }:
     darwin.lib.darwinSystem {
       inherit system modules;
-      specialArgs = {inherit self inputs outputs nixpkgs;} // specialArgs;
+      specialArgs =
+        {
+          inherit inputs outputs nixpkgs;
+          flake = self;
+        }
+        // specialArgs;
     };
+
+  inherit (inputs.stdenv) isDarwin;
 
   homePrefix =
     if isDarwin
     then "/Users"
     else "/home";
-
-  inherit isDarwin;
 
   defaultSystems = [
     "aarch64-darwin"

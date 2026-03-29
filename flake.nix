@@ -17,7 +17,6 @@
     # see README.md for how to (re-)build darwin config
     darwinConfigurations."air" = mkDarwinSystem {
       modules = [ ./profiles/air.nix ];
-      specialArgs = {inherit inputs nixpkgs; flake = self;};
     };
 
     packages = forEachDefaultSystem (pkgs: {
