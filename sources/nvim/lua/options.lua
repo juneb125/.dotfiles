@@ -1,52 +1,31 @@
 -- Options --
--- to make options less verbose
-local opt = vim.opt
 
--- ui {{{
-opt.number = true         -- add line numbers
-opt.cursorline = true     -- highlight current cursorline
-opt.showmatch = true      -- show matching brackets
-opt.winborder = "rounded" -- always use rounded borders for floating windows
-opt.termguicolors = true  -- enable 24-bit RGB color
-opt.signcolumn = "yes"    -- show sign column so that text doesn't shift
-opt.showmode = false      -- lualine already shows the mode
-opt.helpheight = math.min(15, vim.o.lines)
+vim.cmd([[
+  " ui
+  set number cursorline showmatch termguicolors noshowmode
+  set winborder=rounded signcolumn=yes
+  set pumborder=none pumheight=20 " nvim's *builtin* popup menu
 
--- nvim's *builtin* popup menu
-opt.pumborder = "none" -- no border
-opt.pumheight = 20     -- max num of completions values shown at a time
---- }}}
+  set tabstop=2 shiftwidth=2 " tabs & indentation
+  set ignorecase smartcase   " search settings
 
--- tabs & indentation
-opt.tabstop = 2    -- num of columns occupied by a tab
-opt.shiftwidth = 2 -- num of spaces to use for each step of (auto)indent
+  " misc.
+  set nowrap noswapfile
+  set mouse=nv history=500 foldmethod=marker scrollback=10
 
--- search settings
-opt.ignorecase = true -- search case-insensitively
-opt.smartcase = true  -- search case-sensitively if pattern has uppercase chars
+  " same as '../spell/en.utf-8.add'
+  let &spellfile=$"{stdpath('config')}/spell/en.utf-8.add"
 
--- misc. settings {{{
-opt.mouse = "nv"     -- enable mouse clicks only in normal & visual mode
-opt.wrap = false     -- turn off line wrap by default
-opt.swapfile = false -- turn off swapfile
-opt.history = 500    -- reduce cmd history (default = 10k)
-opt.foldmethod = "marker"
-opt.scrollback = 10  -- scroll no more than 10 lines off window
--- }}}
+  set splitright splitbelow " default split behavior
 
--- same as '../spell/en.utf-8.add'
-opt.spellfile = vim.fn.stdpath("config") .. "/spell/en.utf-8.add"
+  " builtin nvim completions & formatting
+  set completeopt=menu,popup,noinsert
+  set wildignorecase
+  set formatoptions=jtcl " see ":h 'fo-table'"
+]])
 
--- default split window behavior
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
-
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
--- builtin nvim completions & formatting
-opt.completeopt = "menu,popup,noinsert"
-opt.wildignorecase = true  -- case-insensitively complete file names
-opt.formatoptions = "jtcl" -- see ":h 'fo-table'", old = "jtcroal"
+vim.opt.helpheight = math.min(15, vim.o.lines)
+vim.opt.clipboard:append("unnamedplus")
 
 vim.filetype.add({
 	-- recognize {lhs} file pattern as a {rhs} file
