@@ -1,5 +1,14 @@
+-- Autocommands --
 local create_autocmd = vim.api.nvim_create_autocmd
 local create_augroup = vim.api.nvim_create_augroup
+
+vim.filetype.add({
+	-- recognize {lhs} file pattern as a {rhs} file
+	pattern = {
+		["flake.lock"] = "json",
+		["Cargo.lock"] = "toml"
+	}
+})
 
 create_autocmd("VimEnter", {
 	-- calculates the startup time & sets it as a global var

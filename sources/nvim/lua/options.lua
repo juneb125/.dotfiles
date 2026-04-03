@@ -26,11 +26,3 @@ vim.cmd([[
 
 vim.opt.helpheight = math.min(15, vim.o.lines)
 vim.opt.clipboard:append("unnamedplus")
-
-vim.filetype.add({
-	-- recognize {lhs} file pattern as a {rhs} file
-	pattern = {
-		["flake.lock"] = "json",
-		["Cargo.lock"] = "toml"
-	}
-})
