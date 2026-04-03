@@ -71,17 +71,12 @@ Snacks.setup({
 			{ section = "keys", gap = 1, padding = 1 },
 			-- emulates the 'startup' section w/o Lazy stuff
 			function()
-				-- TODO: get the values for loaded_plugins & total_plugins
-				local loaded_plugins = "?"
-				local total_plugins = "?"
 				local ms = ("%.2f"):format(vim.g.startup_time_ms) or "?"
 				-- from github:folke/snacks.nvim@main (path: lua/snacks/dashboard.lua#L1098-L1106)
 				return {
 					align = "center",
 					text = {
-						{ "Neovim loaded ", hl = "footer" },
-						{ loaded_plugins .. "/" .. total_plugins, hl = "special" },
-						{ " plugins in ", hl = "footer" },
+						{ "Neovim loaded in ", hl = "footer" },
 						{ ms .. "ms", hl = "special" }
 					}
 				}
