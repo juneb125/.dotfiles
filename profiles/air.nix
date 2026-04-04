@@ -1,7 +1,6 @@
 { flake, inputs, lib, pkgs, ... }: {
   imports = [
     "${flake}/modules"
-    "${flake}/modules/darwin.nix"
   ];
 
   # platform the config will be used on
@@ -63,4 +62,6 @@
   nixpkgs.config.starship.enable = true;
 
   programs.zsh.enable = true;
+
+  darwin.enable = true;
 }
