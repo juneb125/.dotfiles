@@ -28,16 +28,8 @@
         shellcheck
         starship
       ])
-      # from github:sioodmy/dotfiles@main (path: user/wrapped/bat/default.nix)
-      (pkgs.symlinkJoin {
-        name = "tree-wrapped";
-        paths = [pkgs.tree];
-        buildInputs = [pkgs.makeWrapper];
-        postBuild = ''
-          wrapProgram $out/bin/tree --add-flags "--dirs-first"
-        '';
-      })
       flake.packages."aarch64-darwin".pict
+      flake.packages."aarch64-darwin".tree
     ];
 
     variables = {

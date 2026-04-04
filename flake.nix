@@ -21,6 +21,7 @@
 
     packages = forEachDefaultSystem (pkgs: {
       pict = pkgs.callPackage ./pkgs/pict.nix {};
+      tree = pkgs.callPackage ./pkgs/tree.nix {};
     });
 
     devShells = forEachDefaultSystem (pkgs: {
