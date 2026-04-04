@@ -1,6 +1,5 @@
-{ ... }: {
-  nixpkgs.config.git = {
-    enable = true;
+{ lib, config, ... }: {
+  nixpkgs.config.git = lib.mkIf config.programs.git.enable {
     # instead of core.excludesFile
     ignores = [
       "**/.DS_Store"

@@ -58,8 +58,9 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 5;
 
-  nixpkgs.config.bat = {
-    enable = true;
-  };
+  nixpkgs.config.bat.enable = true;
+  nixpkgs.config.git.enable = true;
+  nixpkgs.config.starship.enable = true;
+
   programs.zsh.enable = true;
 }

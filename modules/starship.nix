@@ -1,6 +1,5 @@
-{ ... }: {
-  nixpkgs.config.starship = {
-    enable = true;
+{ lib, config, ... }: {
+  nixpkgs.config.starship = lib.mkIf config.programs.starship.enable {
     enableZshIntegration = true;
     settings = {
       # Inserts a blank line between shell prompts
