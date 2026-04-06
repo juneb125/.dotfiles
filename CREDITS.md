@@ -6,6 +6,7 @@
 3. [`github:nmasur/dotfiles`](https://github.com/nmasur/dotfiles/blob/adbc2bd/pkgs/applications/editors/neovim/nmasur/neovim/lua/keybinds.lua) (path: `pkgs/applications/editors/neovim/nmasur/neovim/lua/keybinds.lua`)
 4. [`github:MariaSolOs/dotfiles`](https://github.com/MariaSolOs/dotfiles/blob/679695b/.config/nvim/lua/lsp.lua#L30-L35) (path: `.config/nvim/lua/lsp.lua`, lines 30-35)
 5. [`github:OkelleyDevelopment/Odinvim`](https://github.com/OkelleyDevelopment/Odinvim/blob/db695d2/lua/core/auto.lua#L8-L12) (path: `lua/core/auto.lua`, lines 8-12)
+6. [`github:Manas140/Conscious`](https://github.com/Manas140/Conscious/blob/aa1fbbb/init.lua#L25-L33) (path: `init.lua`, lines 25-33)
 
 ## Zsh
 1. [`github:theopn/dotfiles`](https://github.com/theopn/dotfiles/blob/301dbdc/zsh/.zshrc)

@@ -71,3 +71,15 @@ create_autocmd("InsertEnter", {
 	end,
 	once = true
 })
+
+-- terminal autocmd's,  see Credits #6 {{{
+create_autocmd({"TermOpen", "TermEnter"}, {
+  pattern = "term://*",
+  command = "setlocal nonumber signcolumn=no ft=term",
+})
+
+create_autocmd("BufEnter", {
+  pattern = "term://*",
+  command = "startinsert"
+})
+-- }}}
