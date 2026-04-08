@@ -1,5 +1,5 @@
 # NeoVim Config
-nvim nightly version
+nvim 0.12
 
 **Table of Contents**
 * [Important Stuff](#important-stuff)
@@ -8,14 +8,6 @@ nvim nightly version
 * [Resources](#resources)
 
 ## Important stuff
-* *installation* &mdash; uses [bob-nvim](https://crates.io/crates/bob-nvim) for nvim version management:
-    > Prerequisite: cargo
-    ```
-    cargo install bob-nvim
-    bob use nightly
-    bob install nightly
-    bob run nightly
-    ```
 * *environment*:
     * operating system: MacOS 15 (Sequoia)
     * terminal emulator: Ghostty
@@ -65,6 +57,5 @@ nvim nightly version
 * [commit 845b66a](https://github.com/juneb125/.dotfiles/tree/845b66a8b7c47962efa3942760836fbce0a32df7/.config/nvim) (August 5, 2025) was the last commit before the overhaul
 
 ## Resources
-* [bob-nvim](https://crates.io/crates/bob-nvim) on crates.io
 * [*Rewriting my neovim config so It's super based.*](https://www.youtube.com/watch?v=xGkL2N8w0H4) by Sylvan Franklin
 * [*Rewriting my config so it's super based pt. 2*](https://www.youtube.com/watch?v=5YQlibmXa0E) by Sylvan Franklin

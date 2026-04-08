@@ -12,13 +12,13 @@ fi
 
 if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
   source "${XDG_DATA_HOME}/bob/env/env.sh"
-  alias nvim='bob run nightly'
+  # alias nvim='bob run nightly'
 fi
 export EDITOR="nvim"
 
 if [[ -d "${XDG_BIN_HOME}" && ":${PATH}:" != *:"${XDG_BIN_HOME}":* ]]; then
   # where I keep my (very few) private scripts
-  PATH="${HOME}/.local/bin:${PATH}"
+  PATH="${XDG_BIN_HOME}:${PATH}"
 fi
 
 # make 100% sure Nix is in PATH, without inserting duplicates

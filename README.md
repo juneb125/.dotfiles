@@ -19,7 +19,7 @@ What I'm using:
 * *terminal emulator* &mdash; `ghostty`
 * *shell* &mdash; `zsh`
 * *package manager* &mdash; `nixpkgs` (25.11)
-* *editor* &mdash; `nvim` nightly (see [`./sources/nvim/README.md`](./sources/nvim/README.md) for more information)
+* *editor* &mdash; `nvim` 0.12 (see [`./sources/nvim/README.md`](./sources/nvim/README.md) for more information)
 * *languages I've been working with*: mostly C, Rust, Nix, and Markdown
 * *system information*: (split up, with annotations)
     ```sh
@@ -45,7 +45,7 @@ This repository is at `~/.dotfiles`.
 
 **External Links**\
 Sym-Links
-* `~/.config/` &rarr; `~/.dotfiles/`
+* `~/.config/` &rarr; `~/.dotfiles/sources/`
 * `~/.zshenv` &rarr; `~/.dotfiles/sources/zsh/.zshenv`
 * `~/.ssh/config` &rarr; `~/.dotfiles/sources/ssh/config`
 
