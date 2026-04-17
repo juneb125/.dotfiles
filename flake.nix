@@ -11,7 +11,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, ... }: let
-    utils = import ./lib {inherit self;};
+    utils = import ./lib {flake = self;};
     inherit (utils) mkDarwinSystem forEachDefaultSystem;
   in {
     # see README.md for how to (re-)build darwin config

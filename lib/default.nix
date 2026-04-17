@@ -1,5 +1,5 @@
-{ self, ... }: let
-  inherit (self) inputs outputs;
+{ flake, ... }: let
+  inherit (flake) inputs outputs;
   inherit (inputs) nixpkgs darwin;
 in rec {
   # mostly from github:kclejeune/system/flake.nix#L55-68
@@ -12,12 +12,7 @@ in rec {
   }:
     darwin.lib.darwinSystem {
       inherit system modules;
-      specialArgs =
-        {
-          inherit inputs outputs nixpkgs;
-          flake = self;
-        }
-        // specialArgs;
+      specialArgs = {inherit flake inputs outputs nixpkgs;} // specialArgs;
     };
 
   inherit (inputs.stdenv) isDarwin;
