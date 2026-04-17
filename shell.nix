@@ -1,5 +1,5 @@
-{ pkgs ? import <nixpkgs> {} }:
-pkgs.mkShell {
+{ pkgs ? import <nixpkgs> {}, ... }:
+pkgs.mkShell rec {
   packages = with pkgs; [
     alejandra
     deadnix
@@ -9,4 +9,14 @@ pkgs.mkShell {
     shellcheck
     stylua
   ];
+
+  shellHook = ''
+    echo "the following packages are available:"
+    i=""
+    for i in ${builtins.toString packages}; do
+      echo -e "- ''${i#*-}"
+    done
+    unset i
+    echo ""
+  '';
 }
