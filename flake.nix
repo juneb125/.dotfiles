@@ -19,10 +19,7 @@
       modules = [ ./profiles/air.nix ];
     };
 
-    packages = forEachDefaultSystem (pkgs: {
-      pict = pkgs.callPackage ./pkgs/pict.nix {};
-      tree = pkgs.callPackage ./pkgs/tree.nix {};
-    });
+    packages = forEachDefaultSystem (pkgs: import ./pkgs pkgs);
 
     devShells = forEachDefaultSystem (pkgs: {
       default = import ./shell.nix {inherit pkgs;};
