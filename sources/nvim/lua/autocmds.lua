@@ -14,9 +14,7 @@ create_autocmd("VimEnter", {
 	-- calculates the startup time & sets it as a global var
 	callback = function()
 		local startuptime = vim.fn.reltimefloat(vim.fn.reltime(vim.g.start_time))
-		--- how long it took for nvim to start up, in seconds
-		vim.g.startup_time = startuptime
-		--- `vim.g.startup_time`, but in milliseconds
+		--- how long it took for nvim to start up, in milliseconds
 		vim.g.startup_time_ms = startuptime * 1000
 	end
 })
