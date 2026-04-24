@@ -3,8 +3,8 @@
 # net-utils.sh - useful functions that call 'curl'
 #
 # curl flags used:
-#   -f means 'panic/abort on any http errors'
-#   -s silences all messages, but
+#   -f panic/abort on any http errors
+#   -s silences all messages
 #   -S (in addition to -s) shows error messages
 #   -L retry request if url was moved
 

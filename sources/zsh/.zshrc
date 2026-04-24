@@ -86,3 +86,7 @@ fi
 # sourcing -- must be at END of .zshrc
 source "${ZPLUGINDIR}"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # }}}
+
+# update with...
+# git -C "${ZPLUGINDIR}/zsh-syntax-highlighting" pull --depth=1 -f -- \
+#  "https://github.com/zsh-users/zsh-syntax-highlighting.git"

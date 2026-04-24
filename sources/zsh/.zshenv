@@ -40,6 +40,10 @@ export FLAKE_HOME="${HOME}/.dotfiles"
 # where I keep my projects
 export PROJ_DIR="${HOME}/Desktop/Coding"
 
+# to install:
+#   mkdir -p "$(bat --config-dir)/themes"
+#   curl -o "$(bat --config-dir)/themes/Catppuccin Macchiato.tmTheme" \
+#     'https://raw.githubusercontent.com/catppuccin/bat/main/themes/Catppuccin%20Macchiato.tmTheme'
 export BAT_THEME='Catppuccin Macchiato'
 
 # don't log less history
