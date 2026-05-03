@@ -1,10 +1,12 @@
-{ flake, inputs, lib, pkgs, ... }: {
+{ flake, inputs, lib, pkgs, ... }: let
+  sys = "aarch64-darwin";
+in {
   imports = [
     "${flake}/modules"
   ];
 
   # platform the config will be used on
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = sys;
 
   environment = {
     shells = [pkgs.zsh];
@@ -15,21 +17,24 @@
         alejandra
         bat
         delta
-        deno
+        # deno
+        entr
         fastfetch
         fd
         git
         gnupg
+        groff
         just
         mdbook
         neovim
         pass
         ripgrep
         shellcheck
+        skim
         starship
       ])
-      flake.packages."aarch64-darwin".pict
-      flake.packages."aarch64-darwin".tree
+      flake.packages.${sys}.pict
+      flake.packages.${sys}.tree
     ];
 
     variables = {
