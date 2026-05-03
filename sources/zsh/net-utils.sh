@@ -8,6 +8,14 @@
 #   -S (in addition to -s) shows error messages
 #   -L retry request if url was moved
 
+if ! which curl >/dev/null; then
+  echo >&2 "net-utils.sh: fatal error: curl not found ..."
+  exit 1
+elif ! which jq >/dev/null; then
+  echo >&2 "net-utils.sh: fatal error: jq not found ..."
+  exit 1
+fi
+
 # inspired by Credits #2
 license() {
   local license_uri='https://raw.githubusercontent.com/spdx/license-list-data/main/text'
