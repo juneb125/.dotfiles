@@ -20,11 +20,23 @@ create_autocmd("VimEnter", {
 	end
 })
 
--- I couldn't get lua to do this :( , so vimscript it is
 vim.cmd([[
+  " I couldn't get lua to do this :( , so vimscript it is
   " almost completely from Credits #5
   augroup local_spell_check
     autocmd FileType markdown,text setlocal spell
+  augroup end
+
+  " ----
+
+  " vimscript b/c it's less verbose than lua in this case
+  " et=expandtab fp=formatprg ts=tabstop sw=shiftwidth
+  augroup per_file_formatting
+    autocmd FileType nix,vim,sh,bash,zsh set ts=2 sw=2 et
+    autocmd FileType json,jsonc set ts=2 sw=2 et
+    autocmd FileType c,markdown,text set ts=4 sw=4 noet
+    autocmd Filetype just,justfile set ts=4 sw=4 et
+    autocmd Filetype make,makefile,gitconfig set ts=4 sw=4 noet
   augroup end
 ]])
 
