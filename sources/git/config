@@ -2,7 +2,6 @@
 [user]
 	name = June B
 	email = jrbergeron823@gmail.com
-	username = juneb125
 
 [init]
 	defaultBranch = main
@@ -12,6 +11,7 @@
 	excludesFile = ./ignore
 
 [alias]
+	aliases = !sed -E "s/^alias.//g; s/ / = /" <(git config --get-regexp '^alias.')
 	br = branch
 	cam = commit -am
 	cl = clone
@@ -19,10 +19,15 @@
 	co = checkout
 	i = init
 	log = log --graph
+	ls-aliases = aliases
+	msg = !bat ${XDG_CONFIG_HOME}/git/template -l conf --style=numbers,grid
+	rl = reflog
+	unadd = restore --staged
+	uncommit = reset --soft HEAD~1
 	wt = worktree
 
 [commit]
-	template = ./template
+	template = ~/.dotfiles/sources/git/template
 
 [push]
 	default = current
@@ -40,4 +45,4 @@
 [url "git@github.com"]
 	insteadOf = "github"
 
-# vim: ft=gitconfig ts=4 sw=2 noet
+# vim: ft=gitconfig ts=4 sw=4 noet cms=#\ %s
