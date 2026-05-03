@@ -131,6 +131,7 @@ require("lualine").setup({
 		lualine_z = { "location" }
 	}
 })
+vim.cmd("set noshowmode")
 
 -- oil (file explorer) {{{1
 local oil = require("oil")

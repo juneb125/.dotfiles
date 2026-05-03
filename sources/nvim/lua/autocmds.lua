@@ -5,6 +5,7 @@ local create_augroup = vim.api.nvim_create_augroup
 vim.filetype.add({
 	-- recognize {lhs} file pattern as a {rhs} file
 	pattern = {
+		["*.[0-9]"] = "nroff",
 		["flake.lock"] = "json",
 		["Cargo.lock"] = "toml"
 	}

@@ -1,11 +1,15 @@
 -- Keymaps --
 
+-- see ':h default-mappings' for all of the default mappings
+
 map("n", "<Space>", "<Nop>", {})
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 map("n", "<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
 map("n", "<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
+
+map("n", "S", "c$")
 
 map("t", "<Esc>", "<C-\\><C-n>")
 
