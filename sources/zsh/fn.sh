@@ -38,8 +38,7 @@ EOF
     (*) dest_dir+="/${1}" ;;
   esac
 
-  shift
-  cd "${dest_dir}/${@}"
+  cd "${dest_dir}/${@:2}"
 }
 
 config() {
