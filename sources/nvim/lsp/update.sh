@@ -21,6 +21,7 @@ lsp_list=(
   "rust_analyzer"
   "taplo"
   "tinymist"
+  "zls"
 )
 
 # for a little summary at the end :) (see the last 3 lines)
