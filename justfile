@@ -1,6 +1,8 @@
 # inspired by github:isabelroses/dotfiles's justfile
 # 'update' recipe from github:foo-dogsquared/nixos-config's justfile
 
+just_dir := justfile_directory()
+
 rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
 check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
 
@@ -9,11 +11,11 @@ _default:
 
 # check if flake is okay
 check name *args:
-    sudo {{ check }} --flake ".#{{ name }}" --show-trace {{ args }}
+    sudo {{ check }} --flake "{{ just_dir }}#{{ name }}" --show-trace {{ args }}
 
 # [nixos|darwin]-rebuild switch
 switch name *args:
-    sudo {{ rebuild }} switch --flake ".#{{ name }}" {{ args }}
+    sudo {{ rebuild }} switch --flake "{{ just_dir }}#{{ name }}" {{ args }}
 
 # update flake.lock
 update:
