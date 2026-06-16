@@ -1,9 +1,9 @@
-{ lib, config, ... }: {
+{ lib, config, pkgs, ... }: {
   options = {
     darwin.enable = lib.mkEnableOption "darwin 'system.defaults' settings";
   };
 
-  config = lib.mkIf config.darwin.enable {
+  config = lib.mkIf (pkgs.stdenv.isDarwin && config.darwin.enable) {
     system.primaryUser = "junebergeron";
     system.defaults = {
       finder = {

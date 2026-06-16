@@ -1,5 +1,4 @@
-{ flake, ... }: let
-  inherit (flake) inputs outputs;
+flake @ { inputs, outputs, ... }: let
   inherit (inputs) nixpkgs darwin;
 in rec {
   # mostly from github:kclejeune/system/flake.nix#L55-68
@@ -11,6 +10,18 @@ in rec {
     ...
   }:
     darwin.lib.darwinSystem {
+      inherit system modules;
+      specialArgs = {inherit flake inputs outputs nixpkgs;} // specialArgs;
+    };
+
+  mkNixosSystem = {
+    system ? "x86_64-linux",
+    nixpkgs ? inputs.nixpkgs,
+    modules ? [],
+    specialArgs ? {},
+    ...
+  }:
+    nixpkgs.lib.nixosSystem {
       inherit system modules;
       specialArgs = {inherit flake inputs outputs nixpkgs;} // specialArgs;
     };
