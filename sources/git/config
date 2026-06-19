@@ -8,19 +8,23 @@
 
 [core]
 	# global .gitignore
-	excludesFile = ./ignore
+	excludesFile = ~/.dotfiles/sources/git/ignore
+	pager = less
+	whitespace = error
 
 [alias]
-	aliases = !sed -E "s/^alias.//g; s/ / = /" <(git config --get-regexp '^alias.')
+	aliases = !"sed 's/^alias.//; s/ / = /' <(git config get --regexp '^alias.') | sort"
 	br = branch
 	cam = commit -am
 	cl = clone
 	cm = commit -m
+	cnom = commit --allow-empty-message -m ""
 	co = checkout
+	chp = cherry-pick
 	i = init
 	log = log --graph
 	ls-aliases = aliases
-	msg = !bat ${XDG_CONFIG_HOME}/git/template -l conf --style=numbers,grid
+	msg = !eval "bat $(git config 'commit.template') -l conf --style=numbers,grid"
 	rl = reflog
 	unadd = restore --staged
 	uncommit = reset --soft HEAD~1
@@ -41,6 +45,9 @@
 
 [credential]
 	helper = store
+
+[diff]
+	algorithm = histogram
 
 [url "git@github.com"]
 	insteadOf = "github"
