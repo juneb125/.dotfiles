@@ -10,7 +10,7 @@ fi
 export LS_COLORS='exfxcxdxbxegedabagacadah'
 export CLICOLOR=1
 
-# Keybinds {{{
+# Keybinds {{{1
 # list all keybinds with 'bindkey -L'
 bindkey '^P' history-search-backward # <C-p>
 bindkey '^N' history-search-forward  # <C-n>
@@ -28,11 +28,10 @@ bindkey '^X^R' redo # <C-x><C-r> (old = _read_comp)
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line # <C-x><C-e>
-# }}}
 
-# History Opts {{{
+# History Opts {{{1
 HISTSIZE=10000
-HISTFILE="${HOME}"/.zsh_history
+HISTFILE="${XDG_STATE_HOME:-${HOME}/.local/state}/zsh/history"
 SAVEHIST="${HISTSIZE}"
 HISTDUP=erase
 setopt append_history
@@ -42,21 +41,19 @@ setopt hist_ignore_all_dups
 setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
-# }}}
 
-# Misc. {{{
+# Misc. {{{1
 WORDCHARS='*?-.[]~=&;!#$%^(){}<>' # (old = '*?_-.[]~=/&;!#$%^(){}<>')
 
-source "${ZDOTDIR}"/aliases.sh
-source "${ZDOTDIR}"/fn.sh
-source "${ZDOTDIR}"/net-utils.sh
+source "${ZDOTDIR}/aliases.sh"
+source "${ZDOTDIR}/fn.sh"
+source "${ZDOTDIR}/net-utils.sh"
 
 if [[ "$(uname -s)" == Darwin* ]]; then
-  source "${ZDOTDIR}"/macos.sh
+  source "${ZDOTDIR}/macos.sh"
 fi
-# }}}
 
-# Completions {{{
+# Completions {{{1
 # load completions
 autoload -U compinit && compinit
 
@@ -69,24 +66,22 @@ COMP_LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;3
 zstyle ':completion:*' list-colors ${(s.:.)COMP_LS_COLORS}
 # complete path names, similar fmt to `ls -A` (true = similar fmt to `ls -Al`)
 zstyle ':completion:*' file-list false
-# }}}
 
-# Zsh Plugin(s) {{{
+# Zsh Plugin(s) {{{1
 # set the directory we want to store plugins
-export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}"/zsh-plugins
+export ZPLUGINDIR="${XDG_DATA_HOME:-${HOME}/.local/share}/zsh-plugins"
 [[ -d "${ZPLUGINDIR}" ]] || mkdir -p "${ZPLUGINDIR}"
 
-if [[ ! -d "${ZPLUGINDIR}"/zsh-syntax-highlighting ]]; then
+if [[ ! -d "${ZPLUGINDIR}/zsh-syntax-highlighting" ]]; then
   echo "\x1b[0;33mdownloading zsh-syntax-highlighting...\x1b[m"
   git clone --depth=1 -- \
     'https://github.com/zsh-users/zsh-syntax-highlighting.git' \
-	"${ZPLUGINDIR}"/zsh-syntax-highlighting
+	"${ZPLUGINDIR}/zsh-syntax-highlighting"
 fi
 
 # sourcing -- must be at END of .zshrc
-source "${ZPLUGINDIR}"/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# }}}
+source "${ZPLUGINDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-# update with...
+# update zsh-syntax-highlighting with...
 # git -C "${ZPLUGINDIR}/zsh-syntax-highlighting" pull --depth=1 -f -- \
 #  "https://github.com/zsh-users/zsh-syntax-highlighting.git"
