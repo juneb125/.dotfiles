@@ -46,17 +46,17 @@ end, {
 })
 
 create_usercmd("PickGit", function(opts)
-	Snacks.picker("git_" .. opts.fargs[1], {})
+	Snacks.picker("git_" .. (opts.fargs[1] or "files"), {})
 end, {
-	nargs = 1,
-	desc = "Quickly open a Snacks.nvim Git-related picker",
+	nargs = "?",
+	desc = "Quickly open a Snacks.nvim Git-related picker (default = files)",
 	complete = utils.picker_completions.git,
 })
 
 vim.api.nvim_create_user_command("PickLsp", function(opts)
-	Snacks.picker("lsp_" .. opts.fargs[1], {})
+	Snacks.picker("lsp_" .. (opts.fargs[1] or "symbols"), {})
 end, {
-	nargs = 1,
-	desc = "Quickly open a Snacks.nvim LSP-related picker",
+	nargs = "?",
+	desc = "Quickly open a Snacks.nvim LSP-related picker (default = symbols)",
 	complete = utils.picker_completions.lsp,
 })
