@@ -5,7 +5,7 @@
 proj() {
   local dest_dir="${PROJ_DIR}"
   if [[ -z "${dest_dir}" || ! -d "${dest_dir}" ]]; then
-    echo "${0}: \$PROJ_DIR doesn't exist or isn't set" >&2
+    echo >&2 "${0}: \$PROJ_DIR doesn't exist or isn't set"
     return 1
   fi
 
@@ -44,7 +44,7 @@ EOF
 config() {
   local dest_dir="${XDG_CONFIG_HOME}"
   if [[ -z "${dest_dir}" || ! -d "${dest_dir}" ]]; then
-    echo "${0}: \$XDG_CONFIG_HOME doesn't exist or isn't set" >&2
+    echo >&2 "${0}: \$XDG_CONFIG_HOME doesn't exist or isn't set"
     return 1
   fi
 
