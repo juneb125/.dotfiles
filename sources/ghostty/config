@@ -20,5 +20,9 @@ auto-update = check
 # cmd = super
 keybind = ctrl+tab=next_tab
 keybind = ctrl+grave_accent=previous_tab
+keybind = super+k=toggle_command_palette
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:left
+
 keybind = global:shift+super+slash=toggle_quick_terminal
-keybind = global:super+shift+slash=toggle_quick_terminal
+# vim: ft=conf
