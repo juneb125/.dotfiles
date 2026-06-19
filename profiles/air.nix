@@ -32,6 +32,8 @@ in {
         shellcheck
         skim
         starship
+        zig
+        zls
       ])
       flake.packages.${sys}.pict
       flake.packages.${sys}.tree

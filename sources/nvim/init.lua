@@ -171,7 +171,8 @@ require("nvim-treesitter.configs").setup({
 		"markdown",
 		"markdown_inline",
 		"nix",
-		"rust"
+		"rust",
+		"zig"
 	},
 	sync_install = false,
 	highlight = { enable = true },
@@ -179,7 +180,7 @@ require("nvim-treesitter.configs").setup({
 })
 
 require("mason").setup()
-vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls" })
+vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls", "zls" })
 -- }}}
 
 require("commands")
