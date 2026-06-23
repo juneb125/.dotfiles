@@ -7,8 +7,8 @@ in
     src = pkgs.fetchFromGitHub {
       owner = "juneb125";
       repo = "pict";
-      rev = "5a10101d50e7255e951deec71f2b1fb6d0cfe14f";
-      hash = "sha256-AVZ/n2k3pcdMKS70rD8B93zqfpGmnRKZRnXxljPw2fQ=";
+      rev = "f2f72da39bec77ebc1768749002115de3d7a6b62";
+      hash = "sha256-E4wqSsbjwMN9cLSgjQOza3bI6u1QilFGzzT8ook/L/0=";
     };
 
     buildPhase = "";
@@ -22,6 +22,6 @@ in
       description = "C project initializer";
       homepage = "https://github.com/juneb125/pict";
       license = lib.licenses.mit;
-      platforms = lib.platforms.all;
+      maintainers = with lib.maintainers; [ juneb125 ];
     };
   }
