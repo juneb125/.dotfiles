@@ -1,30 +1,24 @@
 flake @ { inputs, outputs, ... }: let
   inherit (inputs) nixpkgs darwin;
 in rec {
-  # mostly from github:kclejeune/system/flake.nix#L55-68
-  mkDarwinSystem = {
-    system ? "aarch64-darwin",
-    nixpkgs ? inputs.nixpkgs,
+  mkSystem = class: {
     modules ? [],
     specialArgs ? {},
     ...
-  }:
-    darwin.lib.darwinSystem {
-      inherit system modules;
-      specialArgs = {inherit flake inputs outputs nixpkgs;} // specialArgs;
+  }: let
+    fn_dict = {
+      darwin = darwin.lib.darwinSystem;
+      nixos = nixpkgs.lib.nixosSystem;
     };
+  in
+    assert builtins.hasAttr "${class}" fn_dict || throw "invalid class argument: ${class}";
+      fn_dict."${class}" {
+        inherit modules;
+        specialArgs = {inherit flake inputs outputs nixpkgs;} // specialArgs;
+      };
 
-  mkNixosSystem = {
-    system ? "x86_64-linux",
-    nixpkgs ? inputs.nixpkgs,
-    modules ? [],
-    specialArgs ? {},
-    ...
-  }:
-    nixpkgs.lib.nixosSystem {
-      inherit system modules;
-      specialArgs = {inherit flake inputs outputs nixpkgs;} // specialArgs;
-    };
+  mkDarwinSystem = mkSystem "darwin";
+  mkNixosSystem = mkSystem "nixos";
 
   inherit (inputs.stdenv) isDarwin;
 
