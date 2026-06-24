@@ -127,6 +127,9 @@ require("lualine").setup({
 		lualine_c = { "filename" },
 		lualine_x = {
 			function()
+				if (vim.bo.fileencoding == "utf-8") and (vim.bo.fileformat == "unix") then
+					return ""
+				end
 				return ("%s[%s]"):format(vim.bo.fileencoding, vim.bo.fileformat)
 			end,
 			"filetype"
