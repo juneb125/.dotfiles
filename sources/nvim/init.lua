@@ -1,7 +1,11 @@
 --- what time nvim was started (keep at the very top!)
 vim.g.start_time = vim.fn.reltime()
 
-require("options")
+-- options
+-- `vim.fn.getenv("XDG_CONFIG_HOME") .. "/nvim"` is usually faster than `vim.fn.stdpath("config")`
+vim.cmd("source " .. vim.fn.getenv("XDG_CONFIG_HOME") .. "/nvim/options.vim")
+vim.opt.helpheight = math.min(15, vim.o.lines)
+vim.opt.clipboard:append("unnamedplus")
 
 ---@diagnostic disable-next-line: lowercase-global
 map = vim.keymap.set
