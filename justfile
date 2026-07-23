@@ -3,19 +3,19 @@
 
 just_dir := justfile_directory()
 
-rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
-check := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
+rebuild_cmd := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
+check_cmd := if os() == "macos" { "darwin-rebuild check" } else { "nixos-rebuild test" }
 
 _default:
     @just --list --unsorted
 
 # check if flake is okay
 check name *args:
-    sudo {{ check }} --flake "{{ just_dir }}#{{ name }}" --show-trace {{ args }}
+    sudo {{ check_cmd }} --flake "{{ just_dir }}#{{ name }}" --show-trace {{ args }}
 
 # [nixos|darwin]-rebuild switch
 switch name *args:
-    sudo {{ rebuild }} switch --flake "{{ just_dir }}#{{ name }}" {{ args }}
+    sudo {{ rebuild_cmd }} switch --flake "{{ just_dir }}#{{ name }}" {{ args }}
 
 # update flake.lock
 update:
