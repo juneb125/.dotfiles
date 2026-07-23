@@ -1,7 +1,8 @@
-{ flake, lib, pkgs, ... }: let
+{ flake, inputs, lib, pkgs, ... }: let
   sys = "x86_64-linux";
 in {
   imports = [
+    inputs.wsl.nixosModules.default
     "${flake}/modules"
   ];
 

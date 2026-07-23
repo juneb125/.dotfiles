@@ -24,10 +24,7 @@
     };
 
     nixosConfigurations."wsl" = mkNixosSystem {
-      modules = [
-        inputs.wsl.nixosModules.default
-        ./profiles/wsl.nix
-      ];
+      modules = [ ./profiles/wsl.nix ];
     };
 
     packages = forEachDefaultSystem (pkgs: import ./pkgs pkgs);
