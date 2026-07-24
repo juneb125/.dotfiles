@@ -22,6 +22,7 @@ in {
         fastfetch
         fd
         git
+        git-cliff
         gnupg
         groff
         just

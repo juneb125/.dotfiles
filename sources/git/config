@@ -17,6 +17,7 @@
 	br = branch
 	cam = commit -am
 	cl = clone
+	cliff = !git-cliff
 	cm = commit -m
 	cnom = commit --allow-empty-message -m ""
 	co = checkout
