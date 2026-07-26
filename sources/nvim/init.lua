@@ -9,7 +9,14 @@ vim.opt.clipboard:append("unnamedplus")
 
 ---@diagnostic disable-next-line: lowercase-global
 map = vim.keymap.set
-require("keymaps")
+
+vim.api.nvim_create_autocmd("UIEnter", {
+	callback = function()
+		require("commands")
+		require("keymaps")
+	end,
+	once = true
+})
 
 require("autocmds")
 
@@ -189,5 +196,3 @@ require("nvim-treesitter.configs").setup({
 require("mason").setup()
 vim.lsp.enable({ "rust_analyzer", "clangd", "lua_ls", "nil_ls", "zls" })
 -- }}}
-
-require("commands")
