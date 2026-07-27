@@ -60,3 +60,6 @@ end, {
 	desc = "Quickly open a Snacks.nvim LSP-related picker (default = symbols)",
 	complete = utils.picker_completions.lsp,
 })
+-- }}}1
+
+create_usercmd("TSInspect", function() vim.treesitter.inspect_tree() end, {})
