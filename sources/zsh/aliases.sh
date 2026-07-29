@@ -27,14 +27,17 @@ alias gs='git status'
 alias gss='git status --short'
 
 # Platform-specific
-if grep -iq 'Darwin' <(uname -s); then
-  # MacOS-specific
-  alias copy='pbcopy'
-  alias paste='pbpaste'
-else
-  # Linux-specific
-  alias open='xdg-open'
-fi
+case "$(uname)" in
+  *[dD]arwin*)
+    # MacOS-specific
+    alias copy='pbcopy'
+    alias paste='pbpaste'
+    ;;
+  *[lL]inux*)
+    # Linux-specific
+    alias open='xdg-open'
+    ;;
+esac
 
 # Misc.
 alias c='clear'
