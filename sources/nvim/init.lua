@@ -9,6 +9,8 @@ vim.opt.clipboard:append("unnamedplus")
 
 ---@diagnostic disable-next-line: lowercase-global
 map = vim.keymap.set
+---@diagnostic disable-next-line: lowercase-global
+nmap = function(...) map("n", ...) end
 
 vim.api.nvim_create_autocmd("UIEnter", {
 	callback = function()
@@ -110,11 +112,11 @@ Snacks.setup({
 -- don't show ':intro' (default dashboard)
 vim.cmd("set shortmess-=I")
 
-map("n", "<C-p>", Snacks.picker.files, { desc = "Open Snacks picker" })
-map("n", "<leader>fb", Snacks.picker.buffers, { desc = "Find Buffers (Snacks)" })
-map("n", "<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (Snacks)" })
-map("n", "<leader>fk", Snacks.picker.keymaps, { desc = "Find Keymaps (Snacks)" })
-map("n", "<leader>fr", Snacks.picker.recent, { desc = "Find Recently visited files (Snacks)" })
+nmap("<C-p>", Snacks.picker.files, { desc = "Open Snacks picker" })
+nmap("<leader>fb", Snacks.picker.buffers, { desc = "Find Buffers (Snacks)" })
+nmap("<leader>fg", Snacks.picker.grep, { desc = "Find & Grep across files (Snacks)" })
+nmap("<leader>fk", Snacks.picker.keymaps, { desc = "Find Keymaps (Snacks)" })
+nmap("<leader>fr", Snacks.picker.recent, { desc = "Find Recently visited files (Snacks)" })
 
 -- statusline (lualine) {{{1
 require("lualine").setup({
@@ -171,7 +173,7 @@ oil.setup({
 		["<Esc>"] = "actions.close"
 	}
 })
-map("n", "-", oil.toggle_float, { desc = "Open Oil float" })
+nmap("-", oil.toggle_float, { desc = "Open Oil float" })
 -- completely disable netrw if oil config is okay
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

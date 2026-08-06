@@ -2,8 +2,6 @@
 
 -- see ':h default-mappings' for all of the default mappings
 
-local nmap = function(...) map("n", ...) end
-
 nmap("<Space>", "<Nop>", {})
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
