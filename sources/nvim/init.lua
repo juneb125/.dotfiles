@@ -3,7 +3,7 @@ vim.g.start_time = vim.fn.reltime()
 
 -- options
 -- `vim.fn.getenv("XDG_CONFIG_HOME") .. "/nvim"` is usually faster than `vim.fn.stdpath("config")`
-vim.cmd("source " .. vim.fn.getenv("XDG_CONFIG_HOME") .. "/nvim/options.vim")
+vim.cmd("source " .. vim.fn.getenv("XDG_CONFIG_HOME") .. "/nvim/vinit.vim")
 vim.opt.helpheight = math.min(15, vim.o.lines)
 vim.opt.clipboard:append("unnamedplus")
 
