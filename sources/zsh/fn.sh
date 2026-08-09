@@ -39,7 +39,7 @@ EOF
   esac
 
   shift 2&>/dev/null || true
-  cd "${dest_dir}/${@}"
+  IFS='/' cd "${dest_dir}/$*"
 }
 
 config() {
@@ -132,14 +132,14 @@ colors() {
 if [[ "${SHELL}" != *bash* ]]; then
   # 'help' is a bash builtin that apparently isn't also a zsh builtin
   help() {
-    bash -c "help ${@}"
+    bash -c "help $*"
   }
 fi
 
 printenv() {
   if (( $# > 0 )); then
     # do regular 'printenv' if any args are given (to not transform any values)
-    command printenv "${@}"
+    command printenv "$@"
     return $?
   fi
   command printenv | sed "s|${HOME}|~|g" | column -txc 2 -s'='

@@ -38,8 +38,8 @@ EOF
     (*) license_uri+="/${1}.txt" ;;
   esac
 
-  shift
-  curl -fsSL "${@}" -- "${license_uri}" || return $?
+  shift 2>/dev/null || true
+  curl -fsSL "$@" -- "${license_uri}" || return $?
 
   # yellow foreground, with a newline above
   printf '\n\x1b[0;33m%s\x1b[m\n' 'Make sure to check for any required fields!'
@@ -70,7 +70,7 @@ EOF
   esac
 
   shift
-  curl -fsSL "${@}" -- "https://raw.githubusercontent.com/${full_path}"
+  curl -fsSL "$@" -- "https://raw.githubusercontent.com/${full_path}"
 }
 
 # TODO: 'out_file' positional arg
