@@ -82,12 +82,14 @@ numfiles() {
   echo "${num} files in ${dir}"
 }
 
+# you could also do `echo "${1,,}"`, which was introduced in bash-4.0.0-alpha
 toLower() {
-  tr '[A-Z]' '[a-z]' <<< "${1}"
+  echo "${1//[A-Z]/[a-z]}"
 }
 
+# you could also do `echo "${1^^}"`, which was introduced in bash-4.0.0-alpha
 toUpper() {
-  tr '[a-z]' '[A-Z]' <<< "${1}"
+  echo "${1//[a-z]/[A-Z]}"
 }
 
 hr() {
