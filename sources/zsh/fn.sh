@@ -114,19 +114,19 @@ EOF
 
 colors() {
   local blocks='███' # 3x U+2588
-  local i=''
+  local i='' acc="\n  "
 
-  echo -n "\n  "
   for i in {0..7}; do
-    echo -n "\x1b[0;3${i}m${blocks}"
+    acc+="\x1b[0;3${i}m${blocks}"
   done
 
   # bright colors
-  echo -n "\n  "
+  acc+="\n  "
   for i in {8..15}; do
-    echo -n "\x1b[0;38;5;${i}m${blocks}"
+    acc+="\x1b[0;38;5;${i}m${blocks}"
   done
-  echo "\x1b[m"
+  acc+="\x1b[m"
+  echo "${acc}"
 }
 
 if [[ "${SHELL}" != *bash* ]]; then
