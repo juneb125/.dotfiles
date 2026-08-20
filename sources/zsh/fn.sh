@@ -50,7 +50,8 @@ config() {
   fi
 
   case "${1}" in
-    ('') dest_dir+='/..' ;;
+    ('') dest_dir="${HOME}/.dotfiles" ;;
+    ('nix') dest_dir="${FLAKE_HOME:?'FLAKE_HOME env var not set'}" ;;
     ('-h'|'--help')
       cat <<EOF
 ${0}: quickly go to your config home
