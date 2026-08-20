@@ -146,3 +146,7 @@ printenv() {
   fi
   command printenv | sed "s|${HOME}|~|g" | column -txc 2 -s'='
 }
+
+has() {
+  command -v "${1}" &>/dev/null
+}
