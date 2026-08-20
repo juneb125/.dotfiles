@@ -81,6 +81,8 @@ end)
 nmap("]e", function()
 	diag.jump({ count = 1, float = true, severity = sev.ERROR })
 end)
+
+nmap("<leader>fd", diag.open_float)
 -- }}}2
 
 -- buffer- & tab-related keymaps {{{1
