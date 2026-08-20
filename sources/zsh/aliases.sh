@@ -11,7 +11,7 @@ alias la='ls -AG'
 alias ll='ls -lG'
 alias lal='ls -AlG'
 
-# Git
+# Git {{{1
 alias ga='git add'
 alias gap='git add -p'
 alias gb='git branch'
@@ -26,7 +26,7 @@ alias gp='git push'
 alias gs='git status'
 alias gss='git status --short'
 
-# Platform-specific
+# Platform-specific {{{1
 case "$(uname)" in
   *[dD]arwin*)
     # MacOS-specific
@@ -38,14 +38,15 @@ case "$(uname)" in
     alias open='xdg-open'
     ;;
 esac
+# }}}1
 
 # Misc.
 alias c='clear'
 alias e='exit 0'
 alias restart='reset'
 alias notes='cd ~/Documents/"Obsidian Vault"'
-alias bcurl='curl -fsSL' # [b]etter curl
-alias manout='MANPAGER="cat" MANWIDTH=${COLUMNS} man'
+alias curlq='curl -fsSL' # [q]uiet curl
+alias manout='MANPAGER="cat" MANWIDTH=${COLUMNS} man' # man page to stdout
 alias untar='tar xf'
 
 if which tree >/dev/null; then
@@ -55,3 +56,5 @@ fi
 if which fastfetch >/dev/null; then
   alias ff='fastfetch'
 fi
+
+alias zen='open -a Zen.app'
