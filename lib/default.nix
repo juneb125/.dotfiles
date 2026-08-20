@@ -10,11 +10,12 @@ in rec {
       darwin = darwin.lib.darwinSystem;
       nixos = nixpkgs.lib.nixosSystem;
     };
+    systemSpecialArgs = {inherit flake inputs outputs nixpkgs;};
   in
     assert builtins.hasAttr "${class}" fn_dict || throw "invalid class argument: ${class}";
       fn_dict."${class}" {
         inherit modules;
-        specialArgs = {inherit flake inputs outputs nixpkgs;} // specialArgs;
+        specialArgs = systemSpecialArgs // specialArgs;
       };
 
   mkDarwinSystem = mkSystem "darwin";
