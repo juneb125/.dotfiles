@@ -124,16 +124,14 @@ require("lualine").setup({
 		theme = "palenight",
 		ignore_focus = { "help", "oil" }
 	},
-	-- only 'lualine_b' and 'lualine_x' sections were changed from their default
 	sections = {
-		lualine_a = { "mode" },
+		-- a={'mode'}, c={'filename'}, y={'progress'}, z={'location'}
 		lualine_b = {
 			-- nf-cod-source_control (U+EA68)
 			{ "branch", icon = "" },
 			"diff",
 			"diagnostics"
 		},
-		lualine_c = { "filename" },
 		lualine_x = {
 			function()
 				if (vim.bo.fileencoding == "utf-8") and (vim.bo.fileformat == "unix") then
@@ -143,8 +141,6 @@ require("lualine").setup({
 			end,
 			"filetype"
 		},
-		lualine_y = { "progress" },
-		lualine_z = { "location" }
 	}
 })
 vim.cmd("set noshowmode")
