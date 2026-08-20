@@ -16,7 +16,7 @@ if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
 fi
 export EDITOR="nvim"
 
-if [[ -d "${XDG_BIN_HOME}" && ":${PATH}:" != *:"${XDG_BIN_HOME}":* ]]; then
+if [[ -d "${XDG_BIN_HOME}" && ":${PATH}:" != *":${XDG_BIN_HOME}:"* ]]; then
   # where I keep my (very few) private scripts
   PATH="${XDG_BIN_HOME}:${PATH}"
 fi
@@ -47,5 +47,3 @@ export BAT_THEME='Catppuccin Macchiato'
 
 # don't log less history
 export LESSHISTFILE=/dev/null
-
-export JUNES_GITHUB_TOKEN="$(pass show personal/github-token 2>/dev/null | head -n1)"
