@@ -50,6 +50,10 @@
 [diff]
 	algorithm = histogram
 
+[color "diff"]
+	frag = black bold
+	# other valid keys: meta context whitespace old
+
 [url "git@github.com"]
 	insteadOf = "github"
 
