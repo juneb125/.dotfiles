@@ -1,4 +1,10 @@
 -- Autocommands --
+
+if vim.g.loaded_autocmds then
+	return
+end
+vim.g.loaded_autocmds = true
+
 local create_autocmd = vim.api.nvim_create_autocmd
 local create_augroup = vim.api.nvim_create_augroup
 

@@ -1,5 +1,10 @@
 -- Keymaps --
 
+if vim.g.loaded_keymaps then
+	return
+end
+vim.g.loaded_keymaps = true
+
 -- see ':h default-mappings' for all of the default mappings
 
 nmap("<Space>", "<Nop>", {})

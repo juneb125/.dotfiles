@@ -1,5 +1,10 @@
 -- User commands --
 
+if vim.g.loaded_user_cmds then
+	return
+end
+vim.g.loaded_user_cmds = true
+
 local create_usercmd = vim.api.nvim_create_user_command
 local utils = require("utils")
 

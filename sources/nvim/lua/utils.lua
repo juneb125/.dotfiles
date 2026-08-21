@@ -1,5 +1,10 @@
 -- Useful Lua functions and stuff --
 
+if vim.g.loaded_utils then
+	return
+end
+vim.g.loaded_utils = true
+
 local M = {}
 
 --- Updates `vim.pack` and treesitter grammars. Designed to be easily passed in
