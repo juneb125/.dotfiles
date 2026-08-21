@@ -7,6 +7,7 @@ vim.g.loaded_autocmds = true
 
 local create_autocmd = vim.api.nvim_create_autocmd
 local create_augroup = vim.api.nvim_create_augroup
+local gh = "https://github.com/"
 
 vim.filetype.add({
 	-- recognize {lhs} file pattern as a {rhs} file
@@ -35,6 +36,11 @@ local lazy_load_plugins = create_augroup("lazy_load_plugins", {})
 create_autocmd({ "BufRead", "BufNewFile" }, {
 	group = lazy_load_plugins,
 	callback = function()
+		vim.pack.add({
+			{ src = gh .. "lewis6991/gitsigns.nvim" },
+			{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
+		})
+
 		local signs = {
 			add = { text = "┃" },
 			change = { text = "┃" },
@@ -65,6 +71,9 @@ create_autocmd({ "BufRead", "BufNewFile" }, {
 create_autocmd("InsertEnter", {
 	group = lazy_load_plugins,
 	callback = function()
+		vim.pack.add({
+			{ src = gh .. "windwp/nvim-autopairs" },
+		})
 		require("nvim-autopairs").setup({
 			disable_filetype = { "snacks_picker", "snacks_picker_input" },
 			disable_in_macro = true,

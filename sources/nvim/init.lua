@@ -54,18 +54,6 @@ vim.pack.add({
 	{ src = gh .. "nvim-treesitter/nvim-treesitter" },
 
 	{ src = gh .. "mason-org/mason.nvim" },
-
-	-- QoL plugins
-	{ src = gh .. "lewis6991/gitsigns.nvim" },
-	{ src = gh .. "lukas-reineke/indent-blankline.nvim" },
-	{ src = gh .. "windwp/nvim-autopairs" },
-
-	-- completions
-	{ src = gh .. "hrsh7th/nvim-cmp" },
-	{ src = gh .. "saadparwaiz1/cmp_luasnip" },     -- dependency for LuaSnip
-	{ src = gh .. "rafamadriz/friendly-snippets" }, -- dependency for LuaSnip
-	{ src = gh .. "L3MON4D3/LuaSnip" },
-	{ src = gh .. "hrsh7th/cmp-nvim-lsp" }
 })
 
 vim.cmd("colorscheme catppuccin")

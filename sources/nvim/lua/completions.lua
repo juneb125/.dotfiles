@@ -4,6 +4,15 @@ if vim.g.loaded_cmp then
 	return
 end
 
+local gh = "https://github.com/"
+vim.pack.add({
+	{ src = gh .. "hrsh7th/nvim-cmp" },
+	{ src = gh .. "saadparwaiz1/cmp_luasnip" },     -- dependency for LuaSnip
+	{ src = gh .. "rafamadriz/friendly-snippets" }, -- dependency for LuaSnip
+	{ src = gh .. "L3MON4D3/LuaSnip" },
+	{ src = gh .. "hrsh7th/cmp-nvim-lsp" }
+})
+
 local cmp = require("cmp")
 require("luasnip.loaders.from_vscode").lazy_load()
 
