@@ -1,3 +1,11 @@
+try
+  if g:loaded_vinit
+    finish
+  endif
+catch
+endtry
+let g:loaded_vinit = 1
+
 " Options {{{1
 " ui
 set number cursorline showmatch termguicolors noshowmode
@@ -11,8 +19,9 @@ set ignorecase smartcase   " search settings
 set nowrap noswapfile
 set mouse=nv history=500 foldmethod=marker scrollback=10
 
-" same as '../spell/en.utf-8.add'
-let &spellfile=$"{stdpath('config')}/spell/en.utf-8.add"
+" same as './spell/en.utf-8.add'
+let &spellfile = stdpath('config') . '/spell/en.utf-8.add'
+set spelllang=en_us,es_MX
 
 set splitright splitbelow " default split behavior
 
@@ -22,14 +31,12 @@ set wildignorecase
 set formatoptions=jtcl " see ":h 'fo-table'"
 
 " Autocommands {{{1
-" I couldn't get lua to do this :( , so vimscript it is
 " almost completely from Credits #5
 augroup local_spell_check
   autocmd FileType markdown,text,nroff setlocal spell
 augroup end
 
-" vimscript b/c it's less verbose than lua in this case
-" et=expandtab fp=formatprg ts=tabstop sw=shiftwidth
+" et=expandtab ts=tabstop sw=shiftwidth
 augroup per_file_formatting
   autocmd FileType nix,vim,sh,bash,zsh setlocal ts=2 sw=2 et
   autocmd FileType json,jsonc setlocal ts=2 sw=2 et
