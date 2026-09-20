@@ -7,11 +7,11 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
 if [[ -f "${HOME}/.cargo/env" ]]; then
-  source "${HOME}/.cargo/env"
+  . "${HOME}/.cargo/env"
 fi
 
 if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
-  source "${XDG_DATA_HOME}/bob/env/env.sh"
+  . "${XDG_DATA_HOME}/bob/env/env.sh"
   # alias nvim='bob run nightly'
 fi
 export EDITOR="nvim"

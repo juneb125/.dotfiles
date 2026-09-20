@@ -45,12 +45,12 @@ setopt hist_find_no_dups
 # Misc. {{{1
 WORDCHARS='*?-.[]~=&;!#$%^(){}<>' # (old = '*?_-.[]~=/&;!#$%^(){}<>')
 
-source "${ZDOTDIR}/aliases.sh"
-source "${ZDOTDIR}/fn.sh"
-source "${ZDOTDIR}/net-utils.sh"
+. "${ZDOTDIR}/aliases.sh"
+. "${ZDOTDIR}/fn.sh"
+. "${ZDOTDIR}/net-utils.sh"
 
 if [[ "$(uname -s)" == Darwin* ]]; then
-  source "${ZDOTDIR}/macos.sh"
+  . "${ZDOTDIR}/macos.sh"
 fi
 
 # Completions {{{1
@@ -80,7 +80,7 @@ if [[ ! -d "${ZPLUGINDIR}/zsh-syntax-highlighting" ]]; then
 fi
 
 # sourcing -- must be at END of .zshrc
-source "${ZPLUGINDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+. "${ZPLUGINDIR}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 # update zsh-syntax-highlighting with...
 # git -C "${ZPLUGINDIR}/zsh-syntax-highlighting" pull --depth=1 -f -- \
