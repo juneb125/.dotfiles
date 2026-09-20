@@ -43,5 +43,5 @@ augroup per_file_formatting
   autocmd FileType c,markdown,text setlocal ts=4 sw=4 noet
   autocmd Filetype just,justfile setlocal ts=4 sw=4 et
   autocmd Filetype make,makefile,gitconfig setlocal ts=4 sw=4 noet
-  autocmd Filetype man,roff,nroff,troff,groff setlocal ft=nroff tw=80 noet
+  autocmd Filetype man,roff,nroff setlocal ft=nroff tw=80 noet
 augroup end
