@@ -14,7 +14,7 @@
   documentation = {
     enable = true;
     doc.enable = true;
-    info.enable = false;
+    info.enable = true;
     man.enable = true;
   };
 }
