@@ -68,3 +68,5 @@ end, {
 -- }}}1
 
 create_usercmd("TSInspect", function() vim.treesitter.inspect_tree() end, {})
+
+create_usercmd("LspInfo", ":checkhealth vim.lsp", {})
