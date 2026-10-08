@@ -52,3 +52,5 @@ cmp.setup({
 		{ name = "buffer" },
 	}),
 })
+
+vim.cmd("set completeopt=menu,popup,noselect")
