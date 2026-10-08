@@ -7,12 +7,12 @@ vim.g.loaded_keymaps = true
 
 -- see ':h default-mappings' for all of the default mappings
 
-nmap("<Space>", "<Nop>", {})
+nmap(" ", "<Nop>", {})
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-nmap("<leader>wt", "<cmd>set wrap!<CR>", { silent = true })
-nmap("<leader>sc", "<cmd>setlocal spell!<CR>", { silent = true })
+nmap("<leader>wt", ":set wrap!<CR>", { silent = true })
+nmap("<leader>sc", ":setlocal spell!<CR>", { silent = true })
 
 nmap("S", "C") -- match end-of-line actions, like D and Y
 
@@ -40,15 +40,15 @@ nmap("<C-l>", "<C-w>l")
 -- }}}
 
 -- clear highlighting, see Credits #2
-nmap("<leader>nh", "<cmd>nohl<CR>", { silent = true })
+nmap("<leader>nh", ":nohl<CR>", { silent = true })
 
 -- keep selection when changing indentation, see Credits #3
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
 -- shuffle lines around, see Credits #3
-nmap("<A-j>", "<cmd>m .+1<CR>==", { silent = true })
-nmap("<A-k>", "<cmd>m .-2<CR>==", { silent = true })
+nmap("<A-j>", ":m .+1<CR>==", { silent = true })
+nmap("<A-k>", ":m .-2<CR>==", { silent = true })
 
 -- center search results
 nmap("n", "nzz")
@@ -94,8 +94,8 @@ nmap("<leader>fd", diag.open_float)
 -- '[b' and ']b' for jumping to the previous/next buffer, respectively, are
 -- already set by neovim :)
 
-nmap("[t", "<cmd>tabprev<CR>", { silent = true }) -- go to previous tab
-nmap("]t", "<cmd>tabnext<CR>", { silent = true }) -- go to next tab
+nmap("[t", ":tabprev<CR>", { silent = true }) -- go to previous tab
+nmap("]t", ":tabnext<CR>", { silent = true }) -- go to next tab
 
 -- go to last viewed buffer
-nmap("<leader><leader>", "<cmd>e #<CR>", { silent = true })
+nmap("<leader><leader>", ":e #<CR>", { silent = true })
