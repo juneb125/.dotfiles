@@ -60,7 +60,7 @@ autoload -U compinit && compinit
 # enable case-insensitive completions
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # use completion menu
-zstyle ':completion:*' menu select
+zstyle ':completion:*' menu 'select'
 # color-coded completions for paths :)
 COMP_LS_COLORS=(
   'di=34' 'ln=35' 'so=32' 'pi=33'
@@ -69,7 +69,7 @@ COMP_LS_COLORS=(
 )
 zstyle ':completion:*' list-colors "${COMP_LS_COLORS[@]}"
 # complete path names, similar fmt to `ls -A` (true = similar fmt to `ls -Al`)
-zstyle ':completion:*' file-list false
+zstyle ':completion:*' file-list 'false'
 
 # Zsh Plugin(s) {{{1
 # set the directory we want to store plugins
