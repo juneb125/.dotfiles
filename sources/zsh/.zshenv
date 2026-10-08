@@ -10,10 +10,6 @@ if [[ -f "${HOME}/.cargo/env" ]]; then
   . "${HOME}/.cargo/env"
 fi
 
-if [[ -f "${XDG_DATA_HOME}/bob/env/env.sh" ]]; then
-  . "${XDG_DATA_HOME}/bob/env/env.sh"
-  # alias nvim='bob run nightly'
-fi
 export EDITOR="nvim"
 
 if [[ -d "${XDG_BIN_HOME}" && ":${PATH}:" != *":${XDG_BIN_HOME}:"* ]]; then
